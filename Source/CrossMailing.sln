@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossMailing.Wpf.Applicatio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossMailing.Apps.Windows", "Apps\CrossMailing.Apps.Windows\CrossMailing.Apps.Windows.csproj", "{DD0AAA02-2499-468C-A65E-5C9DA0B20C22}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossMailing.Apps.Phone.Application", "CrossMailing.Apps.Phone.Application\CrossMailing.Apps.Phone.Application.csproj", "{47168768-AC4C-4462-A08C-47599B1E88BF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,26 @@ Global
 		{DD0AAA02-2499-468C-A65E-5C9DA0B20C22}.Release|x86.ActiveCfg = Release|x86
 		{DD0AAA02-2499-468C-A65E-5C9DA0B20C22}.Release|x86.Build.0 = Release|x86
 		{DD0AAA02-2499-468C-A65E-5C9DA0B20C22}.Release|x86.Deploy.0 = Release|x86
+		{47168768-AC4C-4462-A08C-47599B1E88BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47168768-AC4C-4462-A08C-47599B1E88BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47168768-AC4C-4462-A08C-47599B1E88BF}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{47168768-AC4C-4462-A08C-47599B1E88BF}.Debug|ARM.ActiveCfg = Debug|ARM
+		{47168768-AC4C-4462-A08C-47599B1E88BF}.Debug|ARM.Build.0 = Debug|ARM
+		{47168768-AC4C-4462-A08C-47599B1E88BF}.Debug|ARM.Deploy.0 = Debug|ARM
+		{47168768-AC4C-4462-A08C-47599B1E88BF}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{47168768-AC4C-4462-A08C-47599B1E88BF}.Debug|x86.ActiveCfg = Debug|x86
+		{47168768-AC4C-4462-A08C-47599B1E88BF}.Debug|x86.Build.0 = Debug|x86
+		{47168768-AC4C-4462-A08C-47599B1E88BF}.Debug|x86.Deploy.0 = Debug|x86
+		{47168768-AC4C-4462-A08C-47599B1E88BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47168768-AC4C-4462-A08C-47599B1E88BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47168768-AC4C-4462-A08C-47599B1E88BF}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{47168768-AC4C-4462-A08C-47599B1E88BF}.Release|ARM.ActiveCfg = Release|ARM
+		{47168768-AC4C-4462-A08C-47599B1E88BF}.Release|ARM.Build.0 = Release|ARM
+		{47168768-AC4C-4462-A08C-47599B1E88BF}.Release|ARM.Deploy.0 = Release|ARM
+		{47168768-AC4C-4462-A08C-47599B1E88BF}.Release|x64.ActiveCfg = Release|Any CPU
+		{47168768-AC4C-4462-A08C-47599B1E88BF}.Release|x86.ActiveCfg = Release|x86
+		{47168768-AC4C-4462-A08C-47599B1E88BF}.Release|x86.Build.0 = Release|x86
+		{47168768-AC4C-4462-A08C-47599B1E88BF}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
