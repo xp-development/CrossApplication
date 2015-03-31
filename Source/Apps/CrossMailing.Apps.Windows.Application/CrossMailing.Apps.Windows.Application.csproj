@@ -4,18 +4,18 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{dd0aaa02-2499-468c-a65e-5c9da0b20c22}</ProjectGuid>
+    <ProjectGuid>{2c9b25cb-a1c0-4e1a-9d5c-fb9fe7f9648f}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CrossMailing.Apps.Windows</RootNamespace>
-    <AssemblyName>CrossMailing.Apps.Windows</AssemblyName>
+    <RootNamespace>CrossMailing.Apps.Windows.Application</RootNamespace>
+    <AssemblyName>CrossMailing.Apps.Windows.Application</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformVersion>8.1</TargetPlatformVersion>
     <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     
-    <PackageCertificateKeyFile>CrossMailing.Apps.Windows_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>CrossMailing.Apps.Windows.Application_TemporaryKey.pfx</PackageCertificateKeyFile>
     
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -120,7 +120,7 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     
-    <None Include="CrossMailing.Apps.Windows_TemporaryKey.pfx" />
+    <None Include="CrossMailing.Apps.Windows.Application_TemporaryKey.pfx" />
     
   </ItemGroup>
   <ItemGroup>

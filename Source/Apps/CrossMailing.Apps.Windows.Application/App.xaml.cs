@@ -6,7 +6,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
-namespace CrossMailing.Apps.Windows
+namespace CrossMailing.Apps.Windows.Application
 {
     sealed partial class App
     {
@@ -26,7 +26,6 @@ namespace CrossMailing.Apps.Windows
 #endif
 
             var rootFrame = Window.Current.Content as Frame;
-
             if (rootFrame == null)
             {
                 rootFrame = new Frame
@@ -46,15 +45,16 @@ namespace CrossMailing.Apps.Windows
             {
                 rootFrame.Navigate(typeof(MainPage), e.Arguments);
             }
+
             Window.Current.Activate();
         }
 
-        void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
+        static void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
         {
             throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
         }
 
-        private void OnSuspending(object sender, SuspendingEventArgs e)
+        private static void OnSuspending(object sender, SuspendingEventArgs e)
         {
             var deferral = e.SuspendingOperation.GetDeferral();
             deferral.Complete();

@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
 
-  <Identity Name="8ae60b28-f3c9-4f29-82c5-60a9f257c62a"
+  <Identity Name="2a335fbf-e1e8-4b11-a84f-4688aea9fe17"
             Publisher="CN=Schubert"
             Version="1.0.0.0" />
 
   <Properties>
-    <DisplayName>CrossMailing.Apps.Windows</DisplayName>
+    <DisplayName>CrossMailing.Apps.Windows.Application</DisplayName>
     <PublisherDisplayName>Schubert</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -23,12 +23,12 @@
   <Applications>
     <Application Id="App"
         Executable="$targetnametoken$.exe"
-        EntryPoint="CrossMailing.Apps.Windows.App">
+        EntryPoint="CrossMailing.Apps.Windows.Application.App">
         <m2:VisualElements
-            DisplayName="CrossMailing.Apps.Windows"
+            DisplayName="CrossMailing.Apps.Windows.Application"
             Square150x150Logo="Assets\Logo.png"
             Square30x30Logo="Assets\SmallLogo.png"
-            Description="CrossMailing.Apps.Windows"
+            Description="CrossMailing.Apps.Windows.Application"
             ForegroundText="light"
             BackgroundColor="#464646">
             <m2:SplashScreen Image="Assets\SplashScreen.png" />
