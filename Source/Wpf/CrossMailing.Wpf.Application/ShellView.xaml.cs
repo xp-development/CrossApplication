@@ -1,8 +1,8 @@
 ﻿namespace CrossMailing.Wpf.Application
 {
-    public partial class MainWindow
+    public partial class ShellView
     {
-        public MainWindow()
+        public ShellView()
         {
             InitializeComponent();
         }
