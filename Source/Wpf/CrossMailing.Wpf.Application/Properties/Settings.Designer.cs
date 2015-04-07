@@ -22,5 +22,65 @@ namespace CrossMailing.Wpf.Application.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("800")]
+        public int ShellWidth {
+            get {
+                return ((int)(this["ShellWidth"]));
+            }
+            set {
+                this["ShellWidth"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("600")]
+        public int ShellHeight {
+            get {
+                return ((int)(this["ShellHeight"]));
+            }
+            set {
+                this["ShellHeight"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("50")]
+        public int ShellTop {
+            get {
+                return ((int)(this["ShellTop"]));
+            }
+            set {
+                this["ShellTop"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("50")]
+        public int ShellLeft {
+            get {
+                return ((int)(this["ShellLeft"]));
+            }
+            set {
+                this["ShellLeft"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Normal")]
+        public global::System.Windows.WindowState ShellWindowState {
+            get {
+                return ((global::System.Windows.WindowState)(this["ShellWindowState"]));
+            }
+            set {
+                this["ShellWindowState"] = value;
+            }
+        }
     }
 }

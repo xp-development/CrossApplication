@@ -3,7 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:resources="clr-namespace:CrossMailing.Resources;assembly=CrossMailing.Resources"
         xmlns:common="clr-namespace:CrossMailing.Wpf.Common;assembly=CrossMailing.Wpf.Common"
-        Height="400" Width="600">
+        Height="{Binding Source={StaticResource Settings}, Path=Default.ShellHeight, Mode=TwoWay}"
+        Width="{Binding Source={StaticResource Settings}, Path=Default.ShellWidth, Mode=TwoWay}"
+        Top="{Binding Source={StaticResource Settings}, Path=Default.ShellTop, Mode=TwoWay}"
+        Left="{Binding Source={StaticResource Settings}, Path=Default.ShellLeft, Mode=TwoWay}"
+        WindowState="{Binding Source={StaticResource Settings}, Path=Default.ShellWindowState, Mode=TwoWay}">
     <Window.Title>
         <common:Localization ResourceType="{x:Type resources:CommonResources}" Name="ApplicationName" />
     </Window.Title>
