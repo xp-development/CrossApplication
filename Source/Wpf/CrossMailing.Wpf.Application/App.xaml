@@ -4,7 +4,11 @@
              xmlns:properties="clr-namespace:CrossMailing.Wpf.Application.Properties"
              StartupUri="ShellView.xaml">
     <Application.Resources>
-         <ResourceDictionary>
+        <ResourceDictionary>
+             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Fluent;component/themes/office2013/generic.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
             <properties:Settings x:Key="Settings" />
         </ResourceDictionary>
     </Application.Resources>

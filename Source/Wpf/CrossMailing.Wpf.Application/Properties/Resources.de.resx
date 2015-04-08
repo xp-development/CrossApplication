@@ -121,12 +121,12 @@
     <value>Start</value>
   </data>
   <data name="ShellRibbonTabStartGroupNew" xml:space="preserve">
-    <value>New</value>
+    <value>Neu</value>
   </data>
   <data name="ShellRibbonBackstageOptions" xml:space="preserve">
-    <value>Options</value>
+    <value>Optionen</value>
   </data>
   <data name="ShellRibbonTabStartGroupNewNewMail" xml:space="preserve">
-    <value>New E-Mail</value>
+    <value>Neue E-Mail</value>
   </data>
 </root>

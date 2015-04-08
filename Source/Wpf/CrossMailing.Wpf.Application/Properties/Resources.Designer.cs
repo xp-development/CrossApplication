@@ -59,5 +59,41 @@ namespace CrossMailing.Wpf.Application.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Options.
+        /// </summary>
+        internal static string ShellRibbonBackstageOptions {
+            get {
+                return ResourceManager.GetString("ShellRibbonBackstageOptions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start.
+        /// </summary>
+        internal static string ShellRibbonTabStart {
+            get {
+                return ResourceManager.GetString("ShellRibbonTabStart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New.
+        /// </summary>
+        internal static string ShellRibbonTabStartGroupNew {
+            get {
+                return ResourceManager.GetString("ShellRibbonTabStartGroupNew", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New E-Mail.
+        /// </summary>
+        internal static string ShellRibbonTabStartGroupNewNewMail {
+            get {
+                return ResourceManager.GetString("ShellRibbonTabStartGroupNewNewMail", resourceCulture);
+            }
+        }
     }
 }

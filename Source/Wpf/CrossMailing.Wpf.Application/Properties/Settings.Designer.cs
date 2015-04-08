@@ -82,5 +82,17 @@ namespace CrossMailing.Wpf.Application.Properties {
                 this["ShellWindowState"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ApplicationCulture {
+            get {
+                return ((string)(this["ApplicationCulture"]));
+            }
+            set {
+                this["ApplicationCulture"] = value;
+            }
+        }
     }
 }
