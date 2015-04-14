@@ -1,10 +1,10 @@
-﻿<fluent:RibbonWindow x:Class="CrossMailing.Wpf.Application.ShellView"
+﻿<fluent:RibbonWindow x:Class="CrossMailing.Wpf.Application.RichShellView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:commonResources="clr-namespace:CrossMailing.Resources;assembly=CrossMailing.Resources"
         xmlns:common="clr-namespace:CrossMailing.Wpf.Common;assembly=CrossMailing.Wpf.Common"
         xmlns:fluent="urn:fluent-ribbon"
-        xmlns:resources="clr-namespace:CrossMailing.Wpf.Application.Properties"
+        xmlns:regions="http://www.codeplex.com/CompositeWPF"
         Height="{Binding Source={StaticResource Settings}, Path=Default.ShellHeight, Mode=TwoWay}"
         Width="{Binding Source={StaticResource Settings}, Path=Default.ShellWidth, Mode=TwoWay}"
         Top="{Binding Source={StaticResource Settings}, Path=Default.ShellTop, Mode=TwoWay}"
@@ -16,19 +16,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <fluent:Ribbon IsQuickAccessToolBarVisible="False">
-            <fluent:Ribbon.Menu>
-                <fluent:Backstage>
-                    <fluent:BackstageTabControl>
-                        <fluent:Button Header="{common:Localization ResourceType={x:Type resources:Resources}, Name=ShellRibbonBackstageOptions}" />
-                    </fluent:BackstageTabControl>
-                </fluent:Backstage>
-            </fluent:Ribbon.Menu>
-            <fluent:RibbonTabItem Header="{common:Localization ResourceType={x:Type resources:Resources}, Name=ShellRibbonTabStart}">
-                <fluent:RibbonGroupBox Header="{common:Localization ResourceType={x:Type resources:Resources}, Name=ShellRibbonTabStartGroupNew}">
-                    <fluent:Button Header="{common:Localization ResourceType={x:Type resources:Resources}, Name=ShellRibbonTabStartGroupNewNewMail}" />
-                </fluent:RibbonGroupBox>
-            </fluent:RibbonTabItem>
-        </fluent:Ribbon>
+        <ContentControl Grid.Row="0" regions:RegionManager.RegionName="RibbonRegion" />
+        <ContentControl Grid.Row="1" regions:RegionManager.RegionName="MainRegion" />
     </Grid>
 </fluent:RibbonWindow>

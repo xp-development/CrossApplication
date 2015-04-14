@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossMailing.Common", "Cros
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossMailing.Wpf.Common", "CrossMailing.Wpf.Common\CrossMailing.Wpf.Common.csproj", "{5C6B8785-7E1E-4A4A-ACCD-DB14A6D68CC1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossMailing.Wpf.Mail", "Wpf\CrossMailing.Wpf.Mail\CrossMailing.Wpf.Mail.csproj", "{B59ADDA4-E2FE-4698-A048-87BCD4F95151}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -143,6 +145,16 @@ Global
 		{5C6B8785-7E1E-4A4A-ACCD-DB14A6D68CC1}.Release|ARM.ActiveCfg = Release|Any CPU
 		{5C6B8785-7E1E-4A4A-ACCD-DB14A6D68CC1}.Release|x64.ActiveCfg = Release|Any CPU
 		{5C6B8785-7E1E-4A4A-ACCD-DB14A6D68CC1}.Release|x86.ActiveCfg = Release|Any CPU
+		{B59ADDA4-E2FE-4698-A048-87BCD4F95151}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B59ADDA4-E2FE-4698-A048-87BCD4F95151}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B59ADDA4-E2FE-4698-A048-87BCD4F95151}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{B59ADDA4-E2FE-4698-A048-87BCD4F95151}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B59ADDA4-E2FE-4698-A048-87BCD4F95151}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B59ADDA4-E2FE-4698-A048-87BCD4F95151}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B59ADDA4-E2FE-4698-A048-87BCD4F95151}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B59ADDA4-E2FE-4698-A048-87BCD4F95151}.Release|ARM.ActiveCfg = Release|Any CPU
+		{B59ADDA4-E2FE-4698-A048-87BCD4F95151}.Release|x64.ActiveCfg = Release|Any CPU
+		{B59ADDA4-E2FE-4698-A048-87BCD4F95151}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -156,5 +168,6 @@ Global
 		{FC2A50DE-2564-4127-BAC4-9EA5931E9297} = {FB9D7A6F-F1E4-4992-8D1C-B75B6DEF22EE}
 		{6E5DA9CB-61E3-4582-9CCB-AA6D70FBFABF} = {FB9D7A6F-F1E4-4992-8D1C-B75B6DEF22EE}
 		{5C6B8785-7E1E-4A4A-ACCD-DB14A6D68CC1} = {BA419C30-8F08-4898-B304-A00E992336D4}
+		{B59ADDA4-E2FE-4698-A048-87BCD4F95151} = {BA419C30-8F08-4898-B304-A00E992336D4}
 	EndGlobalSection
 EndGlobal
