@@ -98,9 +98,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="RichShellView.xaml.cs">
+    <Compile Include="Shell\RichShellView.xaml.cs">
       <DependentUpon>RichShellView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Shell\RichShellViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -122,7 +123,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="RichShellView.xaml">
+    <Page Include="Shell\RichShellView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
