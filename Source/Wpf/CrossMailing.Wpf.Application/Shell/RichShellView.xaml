@@ -6,18 +6,23 @@
                      xmlns:fluent="urn:fluent-ribbon"
                      xmlns:regions="http://www.codeplex.com/CompositeWPF"
                      xmlns:mvvm="clr-namespace:Microsoft.Practices.Prism.Mvvm;assembly=Microsoft.Practices.Prism.Mvvm.Desktop"
+                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     xmlns:shell="clr-namespace:CrossMailing.Wpf.Application.Shell"
+                     mc:Ignorable="d"
                      Height="{Binding Source={StaticResource Settings}, Path=Default.ShellHeight, Mode=TwoWay}"
                      Width="{Binding Source={StaticResource Settings}, Path=Default.ShellWidth, Mode=TwoWay}"
                      Top="{Binding Source={StaticResource Settings}, Path=Default.ShellTop, Mode=TwoWay}"
                      Left="{Binding Source={StaticResource Settings}, Path=Default.ShellLeft, Mode=TwoWay}"
                      WindowState="{Binding Source={StaticResource Settings}, Path=Default.ShellWindowState, Mode=TwoWay}"
                      Title="{common:Localization ResourceType={x:Type commonResources:CommonResources}, Name=ApplicationName}"
-                     mvvm:ViewModelLocator.AutoWireViewModel="True">
+                     mvvm:ViewModelLocator.AutoWireViewModel="True" d:DataContext="{d:DesignInstance shell:RichShellViewModel}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <ContentControl regions:RegionManager.RegionName="{x:Static common:RegionNames.MainRegion}" />
+        <common:NavigationBar ItemsSource="{Binding NavigationItems}" MaximumCountVisibleElements="2" Grid.Row="1" />
     </Grid>
 </fluent:RibbonWindow>

@@ -55,6 +55,8 @@
     <Compile Include="Events\ActivateMailModuleEvent.cs" />
     <Compile Include="Events\ActivateMailModulePayload.cs" />
     <Compile Include="LocalizationExtension.cs" />
+    <Compile Include="NavigationBar.cs" />
+    <Compile Include="NavigationBarTemplateSelector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -84,6 +86,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
