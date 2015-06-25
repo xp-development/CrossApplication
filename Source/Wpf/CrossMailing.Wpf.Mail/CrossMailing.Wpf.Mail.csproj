@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CrossMailing.Wpf.Mail</RootNamespace>
     <AssemblyName>CrossMailing.Wpf.Mail</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -83,6 +83,12 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.ObjectModel">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fluent.Ribbon.3.4.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
       <Private>True</Private>
@@ -131,6 +137,10 @@
       <Project>{6e5da9cb-61e3-4582-9ccb-aa6d70fbfabf}</Project>
       <Name>CrossMailing.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\CrossMailing.Contracts\CrossMailing.Contracts.csproj">
+      <Project>{D4B1B8A8-8078-4AFA-A702-E71449AFB433}</Project>
+      <Name>CrossMailing.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\CrossMailing.Resources\CrossMailing.Resources.csproj">
       <Project>{084e738c-b285-4ea7-a01f-53e80491774b}</Project>
       <Name>CrossMailing.Resources</Name>
@@ -147,6 +157,6 @@
   <Target Name="BeforeBuild">
   </Target>
   <Target Name="AfterBuild">
-	<Copy SourceFiles="$(OutputPath)CrossMailing.Wpf.Mail.dll" DestinationFolder="..\CrossMailing.Wpf.Application\$(OutputPath)Modules\" ContinueOnError="false" />
+    <Copy SourceFiles="$(OutputPath)CrossMailing.Wpf.Mail.dll" DestinationFolder="..\CrossMailing.Wpf.Application\$(OutputPath)Modules\" ContinueOnError="false" />
   </Target>
 </Project>

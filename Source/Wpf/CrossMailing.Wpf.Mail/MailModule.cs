@@ -1,4 +1,6 @@
 ﻿using System;
+using CrossMailing.Common;
+using CrossMailing.Contracts;
 using CrossMailing.Wpf.Common;
 using CrossMailing.Wpf.Common.Events;
 using CrossMailing.Wpf.Mail.Shell;
@@ -10,8 +12,13 @@ using Microsoft.Practices.Unity;
 
 namespace CrossMailing.Wpf.Mail
 {
-    public class MailModule : IModule
+    public class MailModule : IModule, IApplicationModule
     {
+        public Guid ModuleIdentifier
+        {
+            get { return UniqueIdentifier.MailModuleIdentifier; }
+        }
+
         public MailModule(IRegionManager regionManager, IUnityContainer unityContainer)
         {
             _regionManager = regionManager;
@@ -27,6 +34,9 @@ namespace CrossMailing.Wpf.Mail
 
         private void OnActivateModule(ActivateModulePayload activateModulePayload)
         {
+            if(activateModulePayload.ModuleGuid != ModuleIdentifier)
+                return;
+
             _regionManager.RequestNavigate(RegionNames.MainRegion, new Uri(typeof(ShellView).FullName, UriKind.Relative));
         }
 

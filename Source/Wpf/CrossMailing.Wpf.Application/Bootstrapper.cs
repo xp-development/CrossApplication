@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using CrossMailing.Common;
 using CrossMailing.Wpf.Application.Shell;
 using CrossMailing.Wpf.Common.Events;
 using Microsoft.Practices.Prism.Modularity;
@@ -32,7 +33,7 @@ namespace CrossMailing.Wpf.Application
         {
             base.InitializeModules();
 
-            ServiceLocator.Current.GetInstance<IEventAggregator>().GetEvent<ActivateModuleEvent>().Publish(new ActivateModulePayload());
+            ServiceLocator.Current.GetInstance<IEventAggregator>().GetEvent<ActivateModuleEvent>().Publish(new ActivateModulePayload(UniqueIdentifier.MailModuleIdentifier));
         }
     }
 }
