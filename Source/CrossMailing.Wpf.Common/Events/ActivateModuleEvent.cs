@@ -2,7 +2,7 @@
 
 namespace CrossMailing.Wpf.Common.Events
 {
-    public class ActivateMailModuleEvent : PubSubEvent<ActivateMailModulePayload>
+    public class ActivateModuleEvent : PubSubEvent<ActivateModulePayload>
     {
          
     }

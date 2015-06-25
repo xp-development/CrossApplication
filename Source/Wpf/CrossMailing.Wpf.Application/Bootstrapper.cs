@@ -37,7 +37,7 @@ namespace CrossMailing.Wpf.Application
         {
             base.InitializeModules();
 
-            ServiceLocator.Current.GetInstance<IEventAggregator>().GetEvent<ActivateMailModuleEvent>().Publish(new ActivateMailModulePayload());
+            ServiceLocator.Current.GetInstance<IEventAggregator>().GetEvent<ActivateModuleEvent>().Publish(new ActivateModulePayload());
         }
     }
 }

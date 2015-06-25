@@ -52,8 +52,8 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Events\ActivateMailModuleEvent.cs" />
-    <Compile Include="Events\ActivateMailModulePayload.cs" />
+    <Compile Include="Events\ActivateModuleEvent.cs" />
+    <Compile Include="Events\ActivateModulePayload.cs" />
     <Compile Include="LocalizationExtension.cs" />
     <Compile Include="NavigationBar.cs" />
     <Compile Include="NavigationBarTemplateSelector.cs" />

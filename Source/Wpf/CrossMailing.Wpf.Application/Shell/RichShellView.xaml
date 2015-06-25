@@ -23,6 +23,12 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <ContentControl regions:RegionManager.RegionName="{x:Static common:RegionNames.MainRegion}" />
-        <common:NavigationBar ItemsSource="{Binding NavigationItems}" MaximumCountVisibleElements="2" Grid.Row="1" />
+        <common:NavigationBar FontSize="20" ItemsSource="{Binding NavigationItems}" MaximumCountVisibleElements="2" Grid.Row="1">
+            <common:NavigationBar.BarItemTemplate>
+                <DataTemplate>
+                    <Button Content="{Binding}" Style="{StaticResource HyperlinkLikeButton}" />
+                </DataTemplate>
+            </common:NavigationBar.BarItemTemplate>
+        </common:NavigationBar>
     </Grid>
 </fluent:RibbonWindow>

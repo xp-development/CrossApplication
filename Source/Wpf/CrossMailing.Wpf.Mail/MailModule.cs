@@ -22,10 +22,10 @@ namespace CrossMailing.Wpf.Mail
         {
             _unityContainer.RegisterType<object, ShellView>(typeof(ShellView).FullName);
 
-            ServiceLocator.Current.GetInstance<IEventAggregator>().GetEvent<ActivateMailModuleEvent>().Subscribe(OnActivateMailModule);
+            ServiceLocator.Current.GetInstance<IEventAggregator>().GetEvent<ActivateModuleEvent>().Subscribe(OnActivateModule);
         }
 
-        private void OnActivateMailModule(ActivateMailModulePayload activateMailModulePayload)
+        private void OnActivateModule(ActivateModulePayload activateModulePayload)
         {
             _regionManager.RequestNavigate(RegionNames.MainRegion, new Uri(typeof(ShellView).FullName, UriKind.Relative));
         }
