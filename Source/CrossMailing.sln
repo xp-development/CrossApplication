@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossMailing.Wpf.Application", "Wpf\CrossMailing.Wpf.Application\CrossMailing.Wpf.Application.csproj", "{E2290F54-107F-4D13-9604-FDDFF983596D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B59ADDA4-E2FE-4698-A048-87BCD4F95151} = {B59ADDA4-E2FE-4698-A048-87BCD4F95151}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossMailing.Apps.Phone.Application", "Apps\CrossMailing.Apps.Phone.Application\CrossMailing.Apps.Phone.Application.csproj", "{47168768-AC4C-4462-A08C-47599B1E88BF}"
 EndProject

@@ -1,7 +1,6 @@
 ﻿using System.Windows;
 using CrossMailing.Wpf.Application.Shell;
 using CrossMailing.Wpf.Common.Events;
-using CrossMailing.Wpf.Mail;
 using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.PubSubEvents;
 using Microsoft.Practices.Prism.UnityExtensions;
@@ -24,13 +23,9 @@ namespace CrossMailing.Wpf.Application
             System.Windows.Application.Current.MainWindow.Show();
         }
 
-        protected override void ConfigureModuleCatalog()
+        protected override IModuleCatalog CreateModuleCatalog()
         {
-            base.ConfigureModuleCatalog();
-
-            var moduleCatalog = (ModuleCatalog) ModuleCatalog;
-
-            moduleCatalog.AddModule(typeof (MailModule));
+            return new DirectoryModuleCatalog { ModulePath = @".\Modules" };
         }
 
         protected override void InitializeModules()

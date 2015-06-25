@@ -137,10 +137,6 @@
       <Project>{5C6B8785-7E1E-4A4A-ACCD-DB14A6D68CC1}</Project>
       <Name>CrossMailing.Wpf.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CrossMailing.Wpf.Mail\CrossMailing.Wpf.Mail.csproj">
-      <Project>{B59ADDA4-E2FE-4698-A048-87BCD4F95151}</Project>
-      <Name>CrossMailing.Wpf.Mail</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
