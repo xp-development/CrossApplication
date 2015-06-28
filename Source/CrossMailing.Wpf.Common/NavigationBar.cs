@@ -1,11 +1,15 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Collections.Specialized;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 
 namespace CrossMailing.Wpf.Common
 {
-    public class NavigationBar : Control
+    public class NavigationBar : Control, INotifyPropertyChanged
     {
         public int MaximumCountVisibleElements
         {
@@ -15,13 +19,13 @@ namespace CrossMailing.Wpf.Common
 
         public DataTemplate BarItemContextMenuTemplate
         {
-            get { return (DataTemplate)GetValue(BarItemContextMenuTemplateProperty); }
+            get { return (DataTemplate) GetValue(BarItemContextMenuTemplateProperty); }
             set { SetValue(BarItemContextMenuTemplateProperty, value); }
         }
 
         public DataTemplate BarItemTemplate
         {
-            get { return (DataTemplate)GetValue(BarItemTemplateProperty); }
+            get { return (DataTemplate) GetValue(BarItemTemplateProperty); }
             set { SetValue(BarItemTemplateProperty, value); }
         }
 
@@ -56,10 +60,11 @@ namespace CrossMailing.Wpf.Common
                 if (_barItems == null)
                     CreateItemCollection();
 
-                if (_barItems == null)
+                if (_barItems == null || _barItems.Count == 0)
                     yield break;
 
-                for (var i = 0; i < MaximumCountVisibleElements; ++i)
+                var min = Math.Min(_barItems.Count, MaximumCountVisibleElements);
+                for (var i = 0; i < min; ++i)
                     yield return _barItems.GetItemAt(i);
 
                 if (_barItems.Count > MaximumCountVisibleElements)
@@ -97,11 +102,40 @@ namespace CrossMailing.Wpf.Common
 
         public override void OnApplyTemplate()
         {
-
         }
 
         private static void OnItemsSourceChanged(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs eventArgs)
         {
+            ((NavigationBar) dependencyObject).OnItemsSourceChanged(eventArgs);
+        }
+
+        private void OnItemsSourceChanged(DependencyPropertyChangedEventArgs eventArgs)
+        {
+            if (eventArgs.OldValue is INotifyCollectionChanged)
+            {
+                var collection = (INotifyCollectionChanged) eventArgs.OldValue;
+                collection.CollectionChanged -= OnCollectionChanged;
+            }
+
+            if (eventArgs.NewValue is INotifyCollectionChanged)
+            {
+                var collection = (INotifyCollectionChanged) eventArgs.NewValue;
+                collection.CollectionChanged += OnCollectionChanged;
+            }
+        }
+
+        private void OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs notifyCollectionChangedEventArgs)
+        {
+            OnPropertyChanged("BarItems");
+            OnPropertyChanged("ContextItems");
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            var handler = PropertyChanged;
+            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
 
         public static readonly DependencyProperty ItemContainerStyleProperty = DependencyProperty.Register(
