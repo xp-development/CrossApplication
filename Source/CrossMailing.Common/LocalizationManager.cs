@@ -7,6 +7,11 @@ namespace CrossMailing.Common
 {
     public static class LocalizationManager
     {
+        public static string Get(ResourceValue resourceValue)
+        {
+            return Get(resourceValue.Type, resourceValue.Key);
+        }
+
         public static string Get(Type resourceType, string name)
         {
             if(!ResourceManagersCache.ContainsKey(resourceType.FullName))
