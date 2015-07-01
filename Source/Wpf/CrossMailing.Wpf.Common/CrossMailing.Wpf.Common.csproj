@@ -55,6 +55,8 @@
   <ItemGroup>
     <Compile Include="Events\ActivateModuleEvent.cs" />
     <Compile Include="Events\ActivateModulePayload.cs" />
+    <Compile Include="Events\InitializeModuleEvent.cs" />
+    <Compile Include="Events\InitializeModulePayload.cs" />
     <Compile Include="LocalizationExtension.cs" />
     <Compile Include="NavigationBar.cs" />
     <Compile Include="NavigationBarTemplateSelector.cs" />
@@ -70,7 +72,7 @@
     <Compile Include="RegionNames.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CrossMailing.Common\CrossMailing.Common.csproj">
+    <ProjectReference Include="..\..\CrossMailing.Common\CrossMailing.Common.csproj">
       <Project>{6E5DA9CB-61E3-4582-9CCB-AA6D70FBFABF}</Project>
       <Name>CrossMailing.Common</Name>
     </ProjectReference>

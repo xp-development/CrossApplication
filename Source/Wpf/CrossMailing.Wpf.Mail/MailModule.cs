@@ -1,35 +1,35 @@
 ﻿using System;
 using CrossMailing.Common;
-using CrossMailing.Contracts;
 using CrossMailing.Wpf.Common;
 using CrossMailing.Wpf.Common.Events;
 using CrossMailing.Wpf.Mail.Shell;
 using Microsoft.Practices.Prism.Modularity;
 using Microsoft.Practices.Prism.PubSubEvents;
 using Microsoft.Practices.Prism.Regions;
-using Microsoft.Practices.ServiceLocation;
 using Microsoft.Practices.Unity;
 
 namespace CrossMailing.Wpf.Mail
 {
-    public class MailModule : IModule, IApplicationModule
+    public class MailModule : IModule
     {
         public Guid ModuleIdentifier
         {
             get { return UniqueIdentifier.MailModuleIdentifier; }
         }
 
-        public MailModule(IRegionManager regionManager, IUnityContainer unityContainer)
+        public MailModule(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator)
         {
             _regionManager = regionManager;
             _unityContainer = unityContainer;
+            _eventAggregator = eventAggregator;
         }
 
         public void Initialize()
         {
             _unityContainer.RegisterType<object, ShellView>(typeof(ShellView).FullName);
 
-            ServiceLocator.Current.GetInstance<IEventAggregator>().GetEvent<ActivateModuleEvent>().Subscribe(OnActivateModule);
+            _eventAggregator.GetEvent<ActivateModuleEvent>().Subscribe(OnActivateModule);
+            _eventAggregator.GetEvent<InitializeModuleEvent>().Publish(new InitializeModulePayload(ModuleIdentifier, new ResourceValue(typeof(Properties.Resources), "ModuleName")));
         }
 
         private void OnActivateModule(ActivateModulePayload activateModulePayload)
@@ -42,5 +42,6 @@ namespace CrossMailing.Wpf.Mail
 
         private readonly IRegionManager _regionManager;
         private readonly IUnityContainer _unityContainer;
+        private readonly IEventAggregator _eventAggregator;
     }
 }

@@ -1,10 +1,7 @@
-﻿using System;
-using System.Globalization;
-using System.Reflection;
+﻿using System.Globalization;
 using System.Threading;
 using System.Windows;
 using CrossMailing.Wpf.Application.Properties;
-using Microsoft.Practices.Prism.Mvvm;
 
 namespace CrossMailing.Wpf.Application
 {
@@ -33,7 +30,6 @@ namespace CrossMailing.Wpf.Application
 
         private static void ConfigureViewModelLocator()
         {
-            ViewModelLocationProvider.SetDefaultViewTypeToViewModelTypeResolver(viewType => Type.GetType(string.Format(CultureInfo.InvariantCulture, "{0}Model, {1}", viewType.FullName, viewType.GetTypeInfo().Assembly.FullName)));
         }
 
         private static void SetCurrentCulture()

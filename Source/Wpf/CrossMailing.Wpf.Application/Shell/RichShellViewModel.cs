@@ -1,4 +1,6 @@
 ﻿using System.Collections.ObjectModel;
+using CrossMailing.Wpf.Common.Events;
+using Microsoft.Practices.Prism.PubSubEvents;
 
 namespace CrossMailing.Wpf.Application.Shell
 {
@@ -6,14 +8,16 @@ namespace CrossMailing.Wpf.Application.Shell
     {
         public ObservableCollection<string> NavigationItems { get; set; }
 
-        public RichShellViewModel()
+        public RichShellViewModel(IEventAggregator eventAggregator)
         {
-            NavigationItems = new ObservableCollection<string>
-            {
-                "E-Mail",
-                "Calendar",
-                "Contacts"
-            };
+            eventAggregator.GetEvent<InitializeModuleEvent>().Subscribe(OnInizializeModule);
+
+            NavigationItems = new ObservableCollection<string>();
+        }
+
+        private void OnInizializeModule(InitializeModulePayload initializeModulePayload)
+        {
+            NavigationItems.Add(initializeModulePayload.ModuleIdentifier.ToString());
         }
     }
 }

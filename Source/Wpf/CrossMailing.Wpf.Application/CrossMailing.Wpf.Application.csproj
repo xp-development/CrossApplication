@@ -149,8 +149,8 @@
       <Project>{084E738C-B285-4EA7-A01F-53E80491774B}</Project>
       <Name>CrossMailing.Resources</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\CrossMailing.Wpf.Common\CrossMailing.Wpf.Common.csproj">
-      <Project>{5C6B8785-7E1E-4A4A-ACCD-DB14A6D68CC1}</Project>
+    <ProjectReference Include="..\CrossMailing.Wpf.Common\CrossMailing.Wpf.Common.csproj">
+      <Project>{5c6b8785-7e1e-4a4a-accd-db14a6d68cc1}</Project>
       <Name>CrossMailing.Wpf.Common</Name>
     </ProjectReference>
   </ItemGroup>
