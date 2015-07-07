@@ -3,10 +3,10 @@ using CrossMailing.Common;
 using CrossMailing.Wpf.Common;
 using CrossMailing.Wpf.Common.Events;
 using CrossMailing.Wpf.Mail.Shell;
-using Microsoft.Practices.Prism.Modularity;
-using Microsoft.Practices.Prism.PubSubEvents;
-using Microsoft.Practices.Prism.Regions;
 using Microsoft.Practices.Unity;
+using Prism.Events;
+using Prism.Modularity;
+using Prism.Regions;
 
 namespace CrossMailing.Wpf.Mail
 {

@@ -5,12 +5,12 @@ using System.Windows;
 using CrossMailing.Common;
 using CrossMailing.Wpf.Application.Shell;
 using CrossMailing.Wpf.Common.Events;
-using Microsoft.Practices.Prism.Modularity;
-using Microsoft.Practices.Prism.Mvvm;
-using Microsoft.Practices.Prism.PubSubEvents;
-using Microsoft.Practices.Prism.UnityExtensions;
 using Microsoft.Practices.ServiceLocation;
 using Microsoft.Practices.Unity;
+using Prism.Events;
+using Prism.Modularity;
+using Prism.Mvvm;
+using Prism.Unity;
 
 namespace CrossMailing.Wpf.Application
 {

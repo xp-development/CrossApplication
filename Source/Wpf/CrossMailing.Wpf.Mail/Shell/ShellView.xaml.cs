@@ -1,8 +1,6 @@
-﻿using Microsoft.Practices.Prism.Mvvm;
-
-namespace CrossMailing.Wpf.Mail.Shell
+﻿namespace CrossMailing.Wpf.Mail.Shell
 {
-    public partial class ShellView : IView
+    public partial class ShellView
     {
         public ShellView()
         {

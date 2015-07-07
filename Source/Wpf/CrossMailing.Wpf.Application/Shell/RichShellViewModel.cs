@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using CrossMailing.Wpf.Common.Events;
-using Microsoft.Practices.Prism.PubSubEvents;
+using Prism.Events;
 
 namespace CrossMailing.Wpf.Application.Shell
 {

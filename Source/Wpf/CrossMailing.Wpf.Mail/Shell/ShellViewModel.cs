@@ -1,4 +1,4 @@
-﻿using Microsoft.Practices.Prism.Mvvm;
+﻿using Prism.Mvvm;
 
 namespace CrossMailing.Wpf.Mail.Shell
 {

@@ -1,8 +1,6 @@
-﻿using Microsoft.Practices.Prism.Mvvm;
-
-namespace CrossMailing.Wpf.Application.Shell
+﻿namespace CrossMailing.Wpf.Application.Shell
 {
-    public partial class RichShellView : IView
+    public partial class RichShellView
     {
         public RichShellView()
         {
