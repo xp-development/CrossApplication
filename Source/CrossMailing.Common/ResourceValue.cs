@@ -4,12 +4,12 @@ namespace CrossMailing.Common
 {
     public class ResourceValue
     {
-        public Type Type { get; private set; }
+        public Type ResourceManagerType { get; private set; }
         public string Key { get; private set; }
 
-        public ResourceValue(Type type, string key)
+        public ResourceValue(Type resourceManagerType, string key)
         {
-            Type = type;
+            ResourceManagerType = resourceManagerType;
             Key = key;
         }
     }

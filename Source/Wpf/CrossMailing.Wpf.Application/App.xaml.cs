@@ -11,8 +11,6 @@ namespace CrossMailing.Wpf.Application
         {
             base.OnStartup(e);
 
-            ConfigureViewModelLocator();
-
             new Bootstrapper().Run();
 
             SetCurrentCulture();
@@ -26,10 +24,6 @@ namespace CrossMailing.Wpf.Application
                 return;
 
             Settings.Default.Save();
-        }
-
-        private static void ConfigureViewModelLocator()
-        {
         }
 
         private static void SetCurrentCulture()

@@ -34,6 +34,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossMailing.Wpf.Mail", "Wp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossMailing.Wpf.Mail.UnitTest", "Wpf\CrossMailing.Wpf.Mail.UnitTest\CrossMailing.Wpf.Mail.UnitTest.csproj", "{0463D61F-CA70-40EE-8FC0-891F0BA1D9C1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossMailing.Wpf.Common.UnitTest", "Wpf\CrossMailing.Wpf.Common.UnitTest\CrossMailing.Wpf.Common.UnitTest.csproj", "{D49EE332-8C7D-45F9-8368-8A0C651868AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -170,6 +172,16 @@ Global
 		{0463D61F-CA70-40EE-8FC0-891F0BA1D9C1}.Release|ARM.ActiveCfg = Release|Any CPU
 		{0463D61F-CA70-40EE-8FC0-891F0BA1D9C1}.Release|x64.ActiveCfg = Release|Any CPU
 		{0463D61F-CA70-40EE-8FC0-891F0BA1D9C1}.Release|x86.ActiveCfg = Release|Any CPU
+		{D49EE332-8C7D-45F9-8368-8A0C651868AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D49EE332-8C7D-45F9-8368-8A0C651868AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D49EE332-8C7D-45F9-8368-8A0C651868AB}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{D49EE332-8C7D-45F9-8368-8A0C651868AB}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D49EE332-8C7D-45F9-8368-8A0C651868AB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D49EE332-8C7D-45F9-8368-8A0C651868AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D49EE332-8C7D-45F9-8368-8A0C651868AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D49EE332-8C7D-45F9-8368-8A0C651868AB}.Release|ARM.ActiveCfg = Release|Any CPU
+		{D49EE332-8C7D-45F9-8368-8A0C651868AB}.Release|x64.ActiveCfg = Release|Any CPU
+		{D49EE332-8C7D-45F9-8368-8A0C651868AB}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -185,5 +197,6 @@ Global
 		{5C6B8785-7E1E-4A4A-ACCD-DB14A6D68CC1} = {BA419C30-8F08-4898-B304-A00E992336D4}
 		{B59ADDA4-E2FE-4698-A048-87BCD4F95151} = {BA419C30-8F08-4898-B304-A00E992336D4}
 		{0463D61F-CA70-40EE-8FC0-891F0BA1D9C1} = {BA419C30-8F08-4898-B304-A00E992336D4}
+		{D49EE332-8C7D-45F9-8368-8A0C651868AB} = {BA419C30-8F08-4898-B304-A00E992336D4}
 	EndGlobalSection
 EndGlobal

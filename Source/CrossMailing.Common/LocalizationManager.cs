@@ -9,7 +9,7 @@ namespace CrossMailing.Common
     {
         public static string Get(ResourceValue resourceValue)
         {
-            return Get(resourceValue.Type, resourceValue.Key);
+            return Get(resourceValue.ResourceManagerType, resourceValue.Key);
         }
 
         public static string Get(Type resourceType, string name)
