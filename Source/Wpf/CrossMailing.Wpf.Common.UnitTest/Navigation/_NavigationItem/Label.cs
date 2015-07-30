@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.Threading;
 using CrossMailing.Common;
 using CrossMailing.Wpf.Common.Navigation;
@@ -16,7 +17,7 @@ namespace CrossMailing.Wpf.Common.UnitTest.Navigation._NavigationItem
         {
             Thread.CurrentThread.CurrentCulture = new CultureInfo(culture);
 
-            var item = new NavigationItem(new ResourceValue(typeof(Properties.Resources), "TestResourceString"));
+            var item = new NavigationItem(null, Guid.Empty, new ResourceValue(typeof(Properties.Resources), "TestResourceString"));
 
             item.Label.Should().Be(expectedLabelText);
         }

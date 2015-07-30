@@ -12,10 +12,7 @@ namespace CrossMailing.Wpf.Mail
 {
     public class MailModule : IModule
     {
-        public Guid ModuleIdentifier
-        {
-            get { return UniqueIdentifier.MailModuleIdentifier; }
-        }
+        public Guid ModuleIdentifier => UniqueIdentifier.MailModuleIdentifier;
 
         public MailModule(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator)
         {
@@ -28,7 +25,7 @@ namespace CrossMailing.Wpf.Mail
         {
             _unityContainer.RegisterType<object, ShellView>(typeof(ShellView).FullName);
 
-            _eventAggregator.GetEvent<ActivateModuleEvent>().Subscribe(OnActivateModule);
+            _eventAggregator.GetEvent<ActivateModuleEvent>().Subscribe(OnActivateModule, true);
             _eventAggregator.GetEvent<InitializeModuleEvent>().Publish(new InitializeModulePayload(ModuleIdentifier, new ResourceValue(typeof(Properties.Resources), "ModuleName")));
         }
 

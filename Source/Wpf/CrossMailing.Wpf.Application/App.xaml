@@ -8,8 +8,9 @@
                 <ResourceDictionary Source="/Fluent;component/themes/office2013/generic.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
-            <Style x:Key="HyperlinkLikeButton" TargetType="Button">
+            <Style x:Key="HyperlinkButtonStyle" TargetType="Button">
                 <Setter Property="FontWeight" Value="Light" />
+                <Setter Property="Cursor" Value="Hand" />
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="Button">
@@ -30,9 +31,6 @@
                     </Trigger>
                 </Style.Triggers>
             </Style>
-
-
-
             <properties:Settings x:Key="Settings" />
         </ResourceDictionary>
     </Application.Resources>
