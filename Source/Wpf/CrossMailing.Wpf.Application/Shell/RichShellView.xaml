@@ -4,11 +4,11 @@
                      xmlns:commonResources="clr-namespace:CrossMailing.Resources;assembly=CrossMailing.Resources"
                      xmlns:common="clr-namespace:CrossMailing.Wpf.Common;assembly=CrossMailing.Wpf.Common"
                      xmlns:fluent="urn:fluent-ribbon"
-                     xmlns:regions="http://www.codeplex.com/CompositeWPF"
                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                      xmlns:shell="clr-namespace:CrossMailing.Wpf.Application.Shell"
                      xmlns:mvvm="http://prismlibrary.com/"
+                     xmlns:resources="clr-namespace:CrossMailing.Wpf.Common.Properties;assembly=CrossMailing.Wpf.Common"
                      mc:Ignorable="d"
                      Height="{Binding Source={StaticResource Settings}, Path=Default.ShellHeight, Mode=TwoWay}"
                      Width="{Binding Source={StaticResource Settings}, Path=Default.ShellWidth, Mode=TwoWay}"
@@ -19,11 +19,21 @@
                      mvvm:ViewModelLocator.AutoWireViewModel="True" d:DataContext="{d:DesignInstance shell:RichShellViewModel}">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <ContentControl mvvm:RegionManager.RegionName="{x:Static common:RegionNames.MainRegion}" />
-        <common:NavigationBar FontSize="20" ItemsSource="{Binding NavigationItems}" MaximumCountVisibleElements="2" Grid.Row="1">
+        <fluent:Ribbon IsQuickAccessToolBarVisible="False" mvvm:RegionManager.RegionName="{x:Static common:RegionNames.RibbonRegion}">
+            <fluent:Ribbon.Menu>
+                <fluent:Backstage>
+                    <fluent:BackstageTabControl>
+                        <fluent:Button Header="{common:Localization ResourceType={x:Type resources:Resources}, Name=ShellRibbonBackstageOptions}" />
+                    </fluent:BackstageTabControl>
+                </fluent:Backstage>
+            </fluent:Ribbon.Menu>
+        </fluent:Ribbon>
+        <ContentControl mvvm:RegionManager.RegionName="{x:Static common:RegionNames.MainRegion}" Grid.Row="1" />
+        <common:NavigationBar FontSize="20" ItemsSource="{Binding NavigationItems}" MaximumCountVisibleElements="2" Grid.Row="2">
             <common:NavigationBar.BarItemTemplate>
                 <DataTemplate>
                     <Button Content="{Binding Path=Label}" Style="{StaticResource HyperlinkButtonStyle}" Command="{Binding Path=NavigateCommand}" />

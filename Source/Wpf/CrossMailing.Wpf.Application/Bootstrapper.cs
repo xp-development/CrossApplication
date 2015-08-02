@@ -5,11 +5,14 @@ using System.Windows;
 using CrossMailing.Common;
 using CrossMailing.Wpf.Application.Shell;
 using CrossMailing.Wpf.Common.Events;
+using CrossMailing.Wpf.Common.RegionAdapters;
+using Fluent;
 using Microsoft.Practices.ServiceLocation;
 using Microsoft.Practices.Unity;
 using Prism.Events;
 using Prism.Modularity;
 using Prism.Mvvm;
+using Prism.Regions;
 using Prism.Unity;
 
 namespace CrossMailing.Wpf.Application
@@ -42,6 +45,13 @@ namespace CrossMailing.Wpf.Application
             ViewModelLocationProvider.SetDefaultViewTypeToViewModelTypeResolver(viewType => Type.GetType(string.Format(CultureInfo.InvariantCulture, "{0}Model, {1}", viewType.FullName, viewType.GetTypeInfo().Assembly.FullName)));
 
             Container.RegisterType<RichShellViewModel>();
+        }
+
+        protected override RegionAdapterMappings ConfigureRegionAdapterMappings()
+        {
+            var mappings = base.ConfigureRegionAdapterMappings();
+            mappings.RegisterMapping(typeof(Ribbon), Container.Resolve<RibbonRegionAdapter>());
+            return mappings;
         }
 
         protected override void InitializeModules()

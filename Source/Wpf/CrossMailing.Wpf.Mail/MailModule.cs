@@ -24,6 +24,7 @@ namespace CrossMailing.Wpf.Mail
         public void Initialize()
         {
             _unityContainer.RegisterType<object, ShellView>(typeof(ShellView).FullName);
+            _unityContainer.RegisterType<object, RibbonStartView>(typeof(RibbonStartView).FullName);
 
             _eventAggregator.GetEvent<ActivateModuleEvent>().Subscribe(OnActivateModule, true);
             _eventAggregator.GetEvent<InitializeModuleEvent>().Publish(new InitializeModulePayload(ModuleIdentifier, new ResourceValue(typeof(Properties.Resources), "ModuleName")));
@@ -35,6 +36,7 @@ namespace CrossMailing.Wpf.Mail
                 return;
 
             _regionManager.RequestNavigate(RegionNames.MainRegion, new Uri(typeof(ShellView).FullName, UriKind.Relative));
+            _regionManager.RequestNavigate(RegionNames.RibbonRegion, new Uri(typeof(RibbonStartView).FullName, UriKind.Relative));
         }
 
         private readonly IRegionManager _regionManager;

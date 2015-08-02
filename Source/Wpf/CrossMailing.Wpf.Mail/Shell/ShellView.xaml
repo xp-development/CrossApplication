@@ -3,9 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:fluent="urn:fluent-ribbon"
-             xmlns:common="clr-namespace:CrossMailing.Wpf.Common;assembly=CrossMailing.Wpf.Common"
-             xmlns:resources="clr-namespace:CrossMailing.Wpf.Common.Properties;assembly=CrossMailing.Wpf.Common"
              xmlns:mvvm="http://prismlibrary.com/"
              mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300"
              mvvm:ViewModelLocator.AutoWireViewModel="True">
@@ -14,24 +11,6 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <fluent:Ribbon IsQuickAccessToolBarVisible="False">
-            <fluent:Ribbon.Menu>
-                <fluent:Backstage>
-                    <fluent:BackstageTabControl>
-                        <fluent:Button
-                            Header="{common:Localization ResourceType={x:Type resources:Resources}, Name=ShellRibbonBackstageOptions}" />
-                    </fluent:BackstageTabControl>
-                </fluent:Backstage>
-            </fluent:Ribbon.Menu>
-            <fluent:RibbonTabItem
-                Header="{common:Localization ResourceType={x:Type resources:Resources}, Name=ShellRibbonTabStart}">
-                <fluent:RibbonGroupBox
-                    Header="{common:Localization ResourceType={x:Type resources:Resources}, Name=ShellRibbonTabStartGroupNew}">
-                    <fluent:Button
-                        Header="{common:Localization ResourceType={x:Type resources:Resources}, Name=ShellRibbonTabStartGroupNewNewMail}" />
-                </fluent:RibbonGroupBox>
-            </fluent:RibbonTabItem>
-        </fluent:Ribbon>
         <Grid Grid.Row="1">
             <Label>Mailing</Label>
         </Grid>
