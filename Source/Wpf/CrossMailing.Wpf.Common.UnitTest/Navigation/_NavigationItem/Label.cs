@@ -10,12 +10,12 @@ namespace CrossMailing.Wpf.Common.UnitTest.Navigation._NavigationItem
 {
     public class Label
     {
-        [Fact]
+        [Theory]
         [InlineData("en", "english text")]
         [InlineData("de", "deutscher text")]
         public void ShouldGetLocalizedLabel(string culture, string expectedLabelText)
         {
-            Thread.CurrentThread.CurrentCulture = new CultureInfo(culture);
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(culture);
 
             var item = new NavigationItem(null, Guid.Empty, new ResourceValue(typeof(Properties.Resources), "TestResourceString"));
 
