@@ -117,25 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ShellRibbonTabStart" xml:space="preserve">
-    <value>Start</value>
-  </data>
-  <data name="ShellRibbonTabStartGroupNew" xml:space="preserve">
-    <value>Neu</value>
-  </data>
-  <data name="ShellRibbonBackstageOptions" xml:space="preserve">
-    <value>Optionen</value>
-  </data>
-  <data name="ShellRibbonTabStartGroupNewNewMail" xml:space="preserve">
-    <value>Neue E-Mail</value>
-  </data>
-  <data name="ShellRibbonBackstageInformations" xml:space="preserve">
-    <value>Informationen</value>
-  </data>
-  <data name="ShellRibbonBackstageInformationsManageAccounts" xml:space="preserve">
-    <value>Konten verwalten</value>
-  </data>
-  <data name="AccountManagementTitle" xml:space="preserve">
-    <value>Konten verwalten</value>
+  <data name="TestString" xml:space="preserve">
+    <value>Test value</value>
   </data>
 </root>

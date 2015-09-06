@@ -87,6 +87,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AccountManagement\AccountManagementShellViewModel.cs" />
+    <Compile Include="AccountManagement\AccountManagementShellView.xaml.cs">
+      <DependentUpon>AccountManagementShellView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -121,6 +125,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="AccountManagement\AccountManagementShellView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Shell\RichShellView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -129,4 +129,13 @@
   <data name="ShellRibbonTabStartGroupNewNewMail" xml:space="preserve">
     <value>New E-Mail</value>
   </data>
+  <data name="ShellRibbonBackstageInformations" xml:space="preserve">
+    <value>Informations</value>
+  </data>
+  <data name="ShellRibbonBackstageInformationsManageAccounts" xml:space="preserve">
+    <value>Manage accounts</value>
+  </data>
+  <data name="AccountManagementTitle" xml:space="preserve">
+    <value>Manage accounts</value>
+  </data>
 </root>

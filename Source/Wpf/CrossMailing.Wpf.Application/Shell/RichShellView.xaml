@@ -9,6 +9,8 @@
                      xmlns:shell="clr-namespace:CrossMailing.Wpf.Application.Shell"
                      xmlns:mvvm="http://prismlibrary.com/"
                      xmlns:resources="clr-namespace:CrossMailing.Wpf.Common.Properties;assembly=CrossMailing.Wpf.Common"
+                     xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+                     xmlns:accountManagement="clr-namespace:CrossMailing.Wpf.Application.AccountManagement"
                      mc:Ignorable="d"
                      Height="{Binding Source={StaticResource Settings}, Path=Default.ShellHeight, Mode=TwoWay}"
                      Width="{Binding Source={StaticResource Settings}, Path=Default.ShellWidth, Mode=TwoWay}"
@@ -16,7 +18,17 @@
                      Left="{Binding Source={StaticResource Settings}, Path=Default.ShellLeft, Mode=TwoWay}"
                      WindowState="{Binding Source={StaticResource Settings}, Path=Default.ShellWindowState, Mode=TwoWay}"
                      Title="{common:Localization ResourceType={x:Type commonResources:CommonResources}, Name=ApplicationName}"
-                     mvvm:ViewModelLocator.AutoWireViewModel="True" d:DataContext="{d:DesignInstance shell:RichShellViewModel}">
+                     mvvm:ViewModelLocator.AutoWireViewModel="True"
+                     d:DataContext="{d:DesignInstance shell:RichShellViewModel}">
+    <i:Interaction.Triggers>
+        <mvvm:InteractionRequestTrigger SourceObject="{Binding NotificationRequest, Mode=OneWay}">
+            <mvvm:PopupWindowAction CenterOverAssociatedObject="True">
+                <mvvm:PopupWindowAction.WindowContent>
+                    <accountManagement:AccountManagementShellView />
+                </mvvm:PopupWindowAction.WindowContent>
+            </mvvm:PopupWindowAction>
+        </mvvm:InteractionRequestTrigger>
+    </i:Interaction.Triggers>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -27,6 +39,12 @@
             <fluent:Ribbon.Menu>
                 <fluent:Backstage>
                     <fluent:BackstageTabControl>
+                        <fluent:BackstageTabItem Header="{common:Localization ResourceType={x:Type resources:Resources}, Name=ShellRibbonBackstageInformations}">
+                            <StackPanel HorizontalAlignment="Left">
+                                <Button Content="{common:Localization ResourceType={x:Type resources:Resources}, Name=ShellRibbonBackstageInformationsManageAccounts}"
+                                    Command="{Binding Path=ManageAccountsCommand}" />
+                            </StackPanel>
+                        </fluent:BackstageTabItem>
                         <fluent:Button Header="{common:Localization ResourceType={x:Type resources:Resources}, Name=ShellRibbonBackstageOptions}" />
                     </fluent:BackstageTabControl>
                 </fluent:Backstage>
