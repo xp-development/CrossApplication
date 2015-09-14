@@ -1,12 +1,6 @@
-﻿using System;
-using System.Threading;
-using CrossMailing.Common;
-using CrossMailing.Wpf.Application.Shell;
-using CrossMailing.Wpf.Application.UnitTest.Properties;
-using CrossMailing.Wpf.Common.Events;
+﻿using CrossMailing.Wpf.Application.Shell;
 using FluentAssertions;
 using Microsoft.Practices.Unity;
-using Moq;
 using Prism.Events;
 using Prism.Interactivity.InteractionRequest;
 using Xunit;
