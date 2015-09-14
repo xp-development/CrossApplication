@@ -29,9 +29,8 @@ namespace CrossMailing.Wpf.Mail.UnitTest._MailModule
 
             EventAggregatorMock.Object.GetEvent<ActivateModuleEvent>().Publish(new ActivateModulePayload(module.ModuleIdentifier));
 
-            var region = (MockRegion) RegionManagerMock.Regions[RegionNames.MainRegion];
-            region.AddedViews.Count.Should().Be(1);
-            ((Uri)region.AddedViews[0]).ToString().Should().Be(typeof(ShellView).FullName);
+            RegionManagerMock.Verify(item => item.RequestNavigate(It.Is<string>(param => param == RegionNames.MainRegion), It.Is<Uri>(param => param.ToString() == typeof(ShellView).FullName)));
+            RegionManagerMock.Verify(item => item.RequestNavigate(It.Is<string>(param => param == RegionNames.RibbonRegion), It.Is<Uri>(param => param.ToString() == typeof(RibbonStartView).FullName)));
         }
 
         [Fact]
@@ -42,8 +41,7 @@ namespace CrossMailing.Wpf.Mail.UnitTest._MailModule
 
             EventAggregatorMock.Object.GetEvent<ActivateModuleEvent>().Publish(new ActivateModulePayload(Guid.NewGuid()));
 
-            var region = (MockRegion) RegionManagerMock.Regions[RegionNames.MainRegion];
-            region.AddedViews.Count.Should().Be(0);
+            RegionManagerMock.Verify(item => item.RequestNavigate(It.IsAny<string>(), It.IsAny<Uri>()), Times.Never);
         }
     }
 }

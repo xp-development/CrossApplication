@@ -44,8 +44,8 @@
       <HintPath>..\..\packages\Moq.4.2.1507.0118\lib\net40\Moq.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Prism, Version=5.7.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Prism.Core.5.7.0-pre3\lib\net45\Prism.dll</HintPath>
+    <Reference Include="Prism, Version=6.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Prism.Core.6.0.1\lib\net45\Prism.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />

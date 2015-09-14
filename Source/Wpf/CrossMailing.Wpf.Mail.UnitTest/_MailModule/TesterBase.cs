@@ -12,7 +12,7 @@ namespace CrossMailing.Wpf.Mail.UnitTest._MailModule
         protected UnityContainer TestContainer;
         protected Mock<IEventAggregator> EventAggregatorMock;
         protected Mock<IUnityContainer> UnityContainerMock;
-        protected MockRegionManager RegionManagerMock;
+        protected Mock<IRegionManager> RegionManagerMock;
 
         protected TesterBase()
         {
@@ -20,7 +20,7 @@ namespace CrossMailing.Wpf.Mail.UnitTest._MailModule
 
             EventAggregatorMock = new Mock<IEventAggregator>();
             UnityContainerMock = new Mock<IUnityContainer>();
-            RegionManagerMock = new MockRegionManager();
+            RegionManagerMock = new Mock<IRegionManager>();
 
             SetupEventAggregator();
             SetupUnityContainer();
@@ -41,8 +41,7 @@ namespace CrossMailing.Wpf.Mail.UnitTest._MailModule
 
         protected virtual void SetupRegionManager()
         {
-            RegionManagerMock.Regions.Add(RegionNames.MainRegion, new MockRegion());
-            TestContainer.RegisterInstance<IRegionManager>(RegionManagerMock);
+            TestContainer.RegisterInstance(RegionManagerMock.Object);
         }
     }
 }
