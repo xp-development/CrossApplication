@@ -11,9 +11,9 @@ namespace CrossMailing.Wpf.Application
         {
             base.OnStartup(e);
 
-            new Bootstrapper().Run();
-
             SetCurrentCulture();
+
+            new Bootstrapper().Run();
         }
 
         protected override void OnExit(ExitEventArgs e)

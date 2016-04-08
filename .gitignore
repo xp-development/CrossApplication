@@ -6,3 +6,6 @@ Source/CrossMailing.suo
 **/obj/Release/**
 **/bin/Release/**
 Source/.vs/CrossMailing/v14/.suo
+**/AppPackages/**
+*.csproj.user
+Source/CrossMailing.sln.DotSettings.user
