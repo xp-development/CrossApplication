@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossMailing.Wpf.Application", "Wpf\CrossMailing.Wpf.Application\CrossMailing.Wpf.Application.csproj", "{E2290F54-107F-4D13-9604-FDDFF983596D}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -39,6 +39,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossMailing.Wpf.Application.UnitTest", "Wpf\CrossMailing.Wpf.Application.UnitTest\CrossMailing.Wpf.Application.UnitTest.csproj", "{DC532EBF-71B3-4576-B3AD-04F03E295DB0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossMailing.Application", "CrossMailing.Application\CrossMailing.Application.csproj", "{B89655FB-6F0A-4A5D-8BF0-D0EA43B90911}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossMailing.Wpf.Contracts", "Wpf\CrossMailing.Wpf.Contracts\CrossMailing.Wpf.Contracts.csproj", "{25B722B3-FB2D-499C-BD67-2EC24D8C72F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -218,6 +220,22 @@ Global
 		{B89655FB-6F0A-4A5D-8BF0-D0EA43B90911}.Release|x64.Build.0 = Release|Any CPU
 		{B89655FB-6F0A-4A5D-8BF0-D0EA43B90911}.Release|x86.ActiveCfg = Release|Any CPU
 		{B89655FB-6F0A-4A5D-8BF0-D0EA43B90911}.Release|x86.Build.0 = Release|Any CPU
+		{25B722B3-FB2D-499C-BD67-2EC24D8C72F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25B722B3-FB2D-499C-BD67-2EC24D8C72F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25B722B3-FB2D-499C-BD67-2EC24D8C72F7}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{25B722B3-FB2D-499C-BD67-2EC24D8C72F7}.Debug|ARM.Build.0 = Debug|Any CPU
+		{25B722B3-FB2D-499C-BD67-2EC24D8C72F7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{25B722B3-FB2D-499C-BD67-2EC24D8C72F7}.Debug|x64.Build.0 = Debug|Any CPU
+		{25B722B3-FB2D-499C-BD67-2EC24D8C72F7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{25B722B3-FB2D-499C-BD67-2EC24D8C72F7}.Debug|x86.Build.0 = Debug|Any CPU
+		{25B722B3-FB2D-499C-BD67-2EC24D8C72F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25B722B3-FB2D-499C-BD67-2EC24D8C72F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25B722B3-FB2D-499C-BD67-2EC24D8C72F7}.Release|ARM.ActiveCfg = Release|Any CPU
+		{25B722B3-FB2D-499C-BD67-2EC24D8C72F7}.Release|ARM.Build.0 = Release|Any CPU
+		{25B722B3-FB2D-499C-BD67-2EC24D8C72F7}.Release|x64.ActiveCfg = Release|Any CPU
+		{25B722B3-FB2D-499C-BD67-2EC24D8C72F7}.Release|x64.Build.0 = Release|Any CPU
+		{25B722B3-FB2D-499C-BD67-2EC24D8C72F7}.Release|x86.ActiveCfg = Release|Any CPU
+		{25B722B3-FB2D-499C-BD67-2EC24D8C72F7}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -236,5 +254,6 @@ Global
 		{D49EE332-8C7D-45F9-8368-8A0C651868AB} = {BA419C30-8F08-4898-B304-A00E992336D4}
 		{DC532EBF-71B3-4576-B3AD-04F03E295DB0} = {BA419C30-8F08-4898-B304-A00E992336D4}
 		{B89655FB-6F0A-4A5D-8BF0-D0EA43B90911} = {FB9D7A6F-F1E4-4992-8D1C-B75B6DEF22EE}
+		{25B722B3-FB2D-499C-BD67-2EC24D8C72F7} = {BA419C30-8F08-4898-B304-A00E992336D4}
 	EndGlobalSection
 EndGlobal

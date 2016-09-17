@@ -33,12 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ControlzEx, Version=2.0.0.54, Culture=neutral, PublicKeyToken=f08b075e934b7045, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\ControlzEx.2.0.0.54\lib\net45\ControlzEx.dll</HintPath>
+    <Reference Include="ControlzEx, Version=2.1.2.3, Culture=neutral, PublicKeyToken=f08b075e934b7045, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ControlzEx.2.1.2.3\lib\net45\ControlzEx.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fluent, Version=4.0.2.384, Culture=neutral, PublicKeyToken=3e436e32a8c5546f, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fluent.Ribbon.4.0.2.384\lib\net45\Fluent.dll</HintPath>
+    <Reference Include="Fluent, Version=4.0.3.394, Culture=neutral, PublicKeyToken=3e436e32a8c5546f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fluent.Ribbon.4.0.3.394\lib\net45\Fluent.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -68,10 +68,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\ControlzEx.2.0.0.54\lib\net45\System.Windows.Interactivity.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -85,6 +82,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommonModule.cs" />
     <Compile Include="Events\ActivateModuleEvent.cs" />
     <Compile Include="Events\ActivateModulePayload.cs" />
     <Compile Include="Events\InitializeModuleEvent.cs" />
@@ -93,6 +91,7 @@
     <Compile Include="NavigationBar.cs" />
     <Compile Include="NavigationBarTemplateSelector.cs" />
     <Compile Include="Navigation\NavigationItem.cs" />
+    <Compile Include="Navigation\NavigationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -109,6 +108,14 @@
     <ProjectReference Include="..\..\CrossMailing.Common\CrossMailing.Common.csproj">
       <Project>{6E5DA9CB-61E3-4582-9CCB-AA6D70FBFABF}</Project>
       <Name>CrossMailing.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CrossMailing.Contracts\CrossMailing.Contracts.csproj">
+      <Project>{D4B1B8A8-8078-4AFA-A702-E71449AFB433}</Project>
+      <Name>CrossMailing.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CrossMailing.Wpf.Contracts\CrossMailing.Wpf.Contracts.csproj">
+      <Project>{25b722b3-fb2d-499c-bd67-2ec24d8c72f7}</Project>
+      <Name>CrossMailing.Wpf.Contracts</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -134,11 +141,9 @@
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
   <Target Name="AfterBuild">
+    <Copy SourceFiles="$(OutputPath)CrossMailing.Wpf.Common.dll" DestinationFolder="..\CrossMailing.Wpf.Application\$(OutputPath)Modules\" ContinueOnError="false" />
   </Target>
-  -->
 </Project>

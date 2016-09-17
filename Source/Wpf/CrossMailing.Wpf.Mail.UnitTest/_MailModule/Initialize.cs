@@ -22,18 +22,6 @@ namespace CrossMailing.Wpf.Mail.UnitTest._MailModule
         }
 
         [Fact]
-        public void ShouldNavigateToShellViewIfActivateModuleEventWasFired()
-        {
-            var module = TestContainer.Resolve<MailModule>();
-            module.Initialize();
-
-            EventAggregatorMock.Object.GetEvent<ActivateModuleEvent>().Publish(new ActivateModulePayload(module.ModuleIdentifier));
-
-            RegionManagerMock.Verify(item => item.RequestNavigate(It.Is<string>(param => param == RegionNames.MainRegion), It.Is<Uri>(param => param.ToString() == typeof(ShellView).FullName)));
-            RegionManagerMock.Verify(item => item.RequestNavigate(It.Is<string>(param => param == RegionNames.RibbonRegion), It.Is<Uri>(param => param.ToString() == typeof(RibbonStartView).FullName)));
-        }
-
-        [Fact]
         public void ShouldNavigateToShellViewIfActivateModuleEventWasFiredWithAnotherId()
         {
             var module = TestContainer.Resolve<MailModule>();

@@ -7,6 +7,7 @@ using System.Windows.Controls.Primitives;
 using CrossMailing.Application;
 using CrossMailing.Common;
 using CrossMailing.Wpf.Application.Shell;
+using CrossMailing.Wpf.Common;
 using CrossMailing.Wpf.Common.Events;
 using CrossMailing.Wpf.Common.RegionAdapters;
 using Fluent;
@@ -23,29 +24,30 @@ namespace CrossMailing.Wpf.Application
 {
     public class Bootstrapper : BootstrapperBase
     {
-        public DependencyObject Shell { get; set; }
-
-        protected override void RunShell()
+        protected override void CreateShell()
         {
-            Shell = CreateShell();
-            if (Shell == null)
+            _shell = ServiceLocator.Current.GetInstance<ApplicationShellView>();
+            if (_shell == null)
                 return;
 
-            RegionManager.SetRegionManager(Shell, Container.Resolve<IRegionManager>());
+            RegionManager.SetRegionManager(_shell, Container.Resolve<IRegionManager>());
             RegionManager.UpdateRegions();
-            InitializeShell();
         }
 
         protected override void InitializeModules()
         {
-            Container.Resolve<IModuleManager>().Run();
-
-            ServiceLocator.Current.GetInstance<IEventAggregator>().GetEvent<ActivateModuleEvent>().Publish(new ActivateModulePayload(UniqueIdentifier.MailModuleIdentifier));
+            var moduleManager = Container.Resolve<IModuleManager>();
+            moduleManager.Run();
         }
 
         protected override void ConfigureModuleCatalog()
         {
-            _moduleCatalog = new DirectoryModuleCatalog {ModulePath = @".\Modules"};
+            _moduleCatalog = new AggregateModuleCatalog();
+
+            var commonModule = typeof(CommonModule);
+            _moduleCatalog.AddModule(new ModuleInfo(commonModule.Name, commonModule.AssemblyQualifiedName));
+
+            _moduleCatalog.AddCatalog(new DirectoryModuleCatalog { ModulePath = @".\Modules" });
         }
 
         protected override void ConfigureDefaultRegionBehaviors()
@@ -89,23 +91,25 @@ namespace CrossMailing.Wpf.Application
             Container.RegisterType(typeof(RegionAdapterMappings), typeof(RegionAdapterMappings), new ContainerControlledLifetimeManager());
             Container.RegisterType(typeof(IModuleInitializer), typeof(ModuleInitializer), new ContainerControlledLifetimeManager());
             Container.RegisterType(typeof(IModuleManager), typeof(ModuleManager), new ContainerControlledLifetimeManager());
-            Container.RegisterInstance(_moduleCatalog, new ContainerControlledLifetimeManager());
+            Container.RegisterInstance((IModuleCatalog)_moduleCatalog, new ContainerControlledLifetimeManager());
             Container.RegisterType<RichShellViewModel>();
+            Container.RegisterType<object, RichShellView>(typeof(RichShellView).FullName);
 
             base.ConfigureContainer();
         }
 
-        private static DependencyObject CreateShell()
+        protected override void InitializeShell()
         {
-            return ServiceLocator.Current.GetInstance<RichShellView>();
-        }
-
-        private void InitializeShell()
-        {
-            System.Windows.Application.Current.MainWindow = (Window) Shell;
+            System.Windows.Application.Current.MainWindow = (Window) _shell;
             System.Windows.Application.Current.MainWindow.Show();
+
+            Container.Resolve<Contracts.INavigationService>().RegisterView<RichShellView>("RichShellView", RegionNames.RichRegion);
+            Container.Resolve<Contracts.INavigationService>().NavigateTo("RichShellView");
+            
+            ServiceLocator.Current.GetInstance<IEventAggregator>().GetEvent<ActivateModuleEvent>().Publish(new ActivateModulePayload(UniqueIdentifier.MailModuleIdentifier));
         }
 
-        private IModuleCatalog _moduleCatalog;
+        private AggregateModuleCatalog _moduleCatalog;
+        private DependencyObject _shell;
     }
 }

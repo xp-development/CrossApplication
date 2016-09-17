@@ -22,8 +22,9 @@ namespace CrossMailing.Application
             ConfigureRegionAdapterMappings();
             ConfigureDefaultRegionBehaviors();
             RegisterFrameworkExceptionTypes();
-            RunShell();
+            CreateShell();
             InitializeModules();
+            InitializeShell();
         }
 
         protected virtual void ConfigureViewModelLocator()
@@ -35,9 +36,13 @@ namespace CrossMailing.Application
             return new DebugLogger();
         }
 
-        protected abstract void RunShell();
+        protected abstract void CreateShell();
 
         protected virtual void InitializeModules()
+        {
+        }
+
+        protected virtual void InitializeShell()
         {
         }
 

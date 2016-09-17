@@ -1,24 +1,25 @@
 ﻿using System;
 using CrossMailing.Common;
+using CrossMailing.Wpf.Contracts;
 using CrossMailing.Wpf.Common;
 using CrossMailing.Wpf.Common.Events;
 using CrossMailing.Wpf.Mail.Shell;
 using Microsoft.Practices.Unity;
 using Prism.Events;
 using Prism.Modularity;
-using Prism.Regions;
 
 namespace CrossMailing.Wpf.Mail
 {
+    [Module(ModuleName = "CrossMailing.Wpf.Mail")]
     public class MailModule : IModule
     {
         public Guid ModuleIdentifier => UniqueIdentifier.MailModuleIdentifier;
 
-        public MailModule(IRegionManager regionManager, IUnityContainer unityContainer, IEventAggregator eventAggregator)
+        public MailModule(IUnityContainer unityContainer, IEventAggregator eventAggregator, INavigationService navigationService)
         {
-            _regionManager = regionManager;
             _unityContainer = unityContainer;
             _eventAggregator = eventAggregator;
+            _navigationService = navigationService;
         }
 
         public void Initialize()
@@ -28,6 +29,9 @@ namespace CrossMailing.Wpf.Mail
 
             _eventAggregator.GetEvent<ActivateModuleEvent>().Subscribe(OnActivateModule, true);
             _eventAggregator.GetEvent<InitializeModuleEvent>().Publish(new InitializeModulePayload(ModuleIdentifier, new ResourceValue(typeof(Properties.Resources), "ModuleName")));
+
+            _navigationService.RegisterView<ShellView>("ShellView", RegionNames.MainRegion);
+            _navigationService.RegisterView<RibbonStartView>("RibbonStartView", RegionNames.RibbonRegion);
         }
 
         private void OnActivateModule(ActivateModulePayload activateModulePayload)
@@ -35,12 +39,12 @@ namespace CrossMailing.Wpf.Mail
             if(activateModulePayload.ModuleGuid != ModuleIdentifier)
                 return;
 
-            _regionManager.RequestNavigate(RegionNames.MainRegion, new Uri(typeof(ShellView).FullName, UriKind.Relative));
-            _regionManager.RequestNavigate(RegionNames.RibbonRegion, new Uri(typeof(RibbonStartView).FullName, UriKind.Relative));
+            _navigationService.NavigateTo("ShellView");
+            _navigationService.NavigateTo("RibbonStartView");
         }
 
-        private readonly IRegionManager _regionManager;
         private readonly IUnityContainer _unityContainer;
         private readonly IEventAggregator _eventAggregator;
+        private readonly INavigationService _navigationService;
     }
 }

@@ -33,12 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ControlzEx, Version=2.0.0.54, Culture=neutral, PublicKeyToken=f08b075e934b7045, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\ControlzEx.2.0.0.54\lib\net45\ControlzEx.dll</HintPath>
+    <Reference Include="ControlzEx, Version=2.1.2.3, Culture=neutral, PublicKeyToken=f08b075e934b7045, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ControlzEx.2.1.2.3\lib\net45\ControlzEx.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fluent, Version=4.0.2.384, Culture=neutral, PublicKeyToken=3e436e32a8c5546f, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fluent.Ribbon.4.0.2.384\lib\net45\Fluent.dll</HintPath>
+    <Reference Include="Fluent, Version=4.0.3.394, Culture=neutral, PublicKeyToken=3e436e32a8c5546f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fluent.Ribbon.4.0.3.394\lib\net45\Fluent.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -68,10 +68,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\ControlzEx.2.0.0.54\lib\net45\System.Windows.Interactivity.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -139,9 +136,17 @@
       <Project>{084e738c-b285-4ea7-a01f-53e80491774b}</Project>
       <Name>CrossMailing.Resources</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\CrossMailing.Services\CrossMailing.Services.csproj">
+      <Project>{FC2A50DE-2564-4127-BAC4-9EA5931E9297}</Project>
+      <Name>CrossMailing.Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CrossMailing.Wpf.Common\CrossMailing.Wpf.Common.csproj">
       <Project>{5c6b8785-7e1e-4a4a-accd-db14a6d68cc1}</Project>
       <Name>CrossMailing.Wpf.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CrossMailing.Wpf.Contracts\CrossMailing.Wpf.Contracts.csproj">
+      <Project>{25b722b3-fb2d-499c-bd67-2ec24d8c72f7}</Project>
+      <Name>CrossMailing.Wpf.Contracts</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,6 @@
 using CrossMailing.Wpf.Common;
 using CrossMailing.Wpf.Common.Events;
+using CrossMailing.Wpf.Contracts;
 using Microsoft.Practices.Unity;
 using Moq;
 using Prism.Events;
@@ -13,6 +14,7 @@ namespace CrossMailing.Wpf.Mail.UnitTest._MailModule
         protected Mock<IEventAggregator> EventAggregatorMock;
         protected Mock<IUnityContainer> UnityContainerMock;
         protected Mock<IRegionManager> RegionManagerMock;
+        protected Mock<INavigationService> NavigationServiceMock;
 
         protected TesterBase()
         {
@@ -21,10 +23,12 @@ namespace CrossMailing.Wpf.Mail.UnitTest._MailModule
             EventAggregatorMock = new Mock<IEventAggregator>();
             UnityContainerMock = new Mock<IUnityContainer>();
             RegionManagerMock = new Mock<IRegionManager>();
+            NavigationServiceMock = new Mock<INavigationService>();
 
             SetupEventAggregator();
             SetupUnityContainer();
             SetupRegionManager();
+            SetupNavigationService();
         }
 
         protected virtual void SetupEventAggregator()
@@ -42,6 +46,11 @@ namespace CrossMailing.Wpf.Mail.UnitTest._MailModule
         protected virtual void SetupRegionManager()
         {
             TestContainer.RegisterInstance(RegionManagerMock.Object);
+        }
+
+        protected virtual void SetupNavigationService()
+        {
+            TestContainer.RegisterInstance(NavigationServiceMock.Object);
         }
     }
 }
