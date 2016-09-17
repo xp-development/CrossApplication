@@ -1,11 +1,11 @@
 **/bin/Debug/**
-Source/CrossMailing.v12.suo
+Source/CrossApplication.v12.suo
 **/obj/Debug/**
 Source/packages/**
-Source/CrossMailing.suo
+Source/CrossApplication.suo
 **/obj/Release/**
 **/bin/Release/**
-Source/.vs/CrossMailing/v14/.suo
+Source/.vs/CrossApplication/v14/.suo
 **/AppPackages/**
 *.csproj.user
-Source/CrossMailing.sln.DotSettings.user
+Source/CrossApplication.sln.DotSettings.user

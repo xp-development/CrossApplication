@@ -1,0 +1,37 @@
+﻿<Application x:Class="CrossApplication.Wpf.Application.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:properties="clr-namespace:CrossApplication.Wpf.Application.Properties">
+    <Application.Resources>
+        <ResourceDictionary>
+             <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Fluent;component/themes/office2013/generic.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <Style x:Key="HyperlinkButtonStyle" TargetType="Button">
+                <Setter Property="FontWeight" Value="Light" />
+                <Setter Property="Cursor" Value="Hand" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <ContentPresenter />
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="true">
+                        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <ContentPresenter />
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <properties:Settings x:Key="Settings" />
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
