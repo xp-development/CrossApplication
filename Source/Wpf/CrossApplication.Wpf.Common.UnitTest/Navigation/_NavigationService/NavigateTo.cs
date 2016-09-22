@@ -1,5 +1,6 @@
 ﻿using System;
 using CrossApplication.Wpf.Common.Navigation;
+using CrossApplication.Wpf.Contracts.Navigation;
 using Moq;
 using Prism.Regions;
 using Xunit;
@@ -12,8 +13,10 @@ namespace CrossApplication.Wpf.Common.UnitTest.Navigation._NavigationService
         public void ShouldNavigateToUri()
         {
             var regionManagerMock = new Mock<IRegionManager>();
-            var navigationService = new NavigationService(regionManagerMock.Object);
-            navigationService.RegisterView<TestView>("NavigationKey", RegionNames.MainRegion);
+            var viewManager = new ViewManager();
+            viewManager.AddViewItem(new ViewItem("NavigationKey", typeof(TestView), false, RegionNames.MainRegion));
+
+            var navigationService = new NavigationService(regionManagerMock.Object, viewManager);
 
             navigationService.NavigateTo("NavigationKey");
             

@@ -1,28 +1,36 @@
 ﻿using System;
-using System.Collections.Generic;
-using CrossApplication.Wpf.Contracts;
+using CrossApplication.Core.Contracts;
+using CrossApplication.Wpf.Contracts.Navigation;
 using Prism.Regions;
 
 namespace CrossApplication.Wpf.Common.Navigation
 {
     public class NavigationService : INavigationService
     {
-        public NavigationService(IRegionManager regionManager)
+        public NavigationService(IRegionManager regionManager, IViewManager viewManager)
         {
             _regionManager = regionManager;
+            _viewManager = viewManager;
         }
 
         public void NavigateTo(string navigationKey)
         {
-            _regionManager.RequestNavigate(_regions[navigationKey].Item1, _regions[navigationKey].Item2);
+            var viewItem = _viewManager.GetViewItem(navigationKey);
+
+            NavigateTo(viewItem);
         }
 
-        public void RegisterView<TView>(string navigationKey, string regionName)
+        private void NavigateTo(ViewItem viewItem)
         {
-            _regions.Add(navigationKey, Tuple.Create(regionName, new Uri(typeof(TView).FullName, UriKind.Relative)));
+            _regionManager.RequestNavigate(viewItem.RegionName, new Uri(viewItem.ViewType.FullName, UriKind.Relative));
+
+            foreach (var subViewItem in viewItem.SubViewItems)
+            {
+                NavigateTo(subViewItem);
+            }
         }
 
         private readonly IRegionManager _regionManager;
-        private readonly Dictionary<string, Tuple<string, Uri>> _regions = new Dictionary<string, Tuple<string, Uri>>();
+        private readonly IViewManager _viewManager;
     }
 }

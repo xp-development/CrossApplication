@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace CrossApplication.Wpf.Common.UnitTest.Navigation._NavigationService
+namespace CrossApplication.Wpf.Common.UnitTest.Navigation
 {
     /// <summary>
     /// Interaction logic for TestView.xaml

@@ -92,6 +92,7 @@
     <Compile Include="NavigationBarTemplateSelector.cs" />
     <Compile Include="Navigation\NavigationItem.cs" />
     <Compile Include="Navigation\NavigationService.cs" />
+    <Compile Include="Navigation\ViewManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

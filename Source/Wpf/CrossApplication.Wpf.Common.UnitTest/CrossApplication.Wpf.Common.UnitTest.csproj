@@ -93,9 +93,11 @@
   <ItemGroup>
     <Compile Include="Navigation\_NavigationItem\Label.cs" />
     <Compile Include="Navigation\_NavigationService\NavigateTo.cs" />
-    <Compile Include="Navigation\_NavigationService\TestView.xaml.cs">
+    <Compile Include="Navigation\TestView.xaml.cs">
       <DependentUpon>TestView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Navigation\_ViewManager\AddViewItem.cs" />
+    <Compile Include="Navigation\_ViewManager\GetViewItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -115,7 +117,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Navigation\_NavigationService\TestView.xaml">
+    <Page Include="Navigation\TestView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

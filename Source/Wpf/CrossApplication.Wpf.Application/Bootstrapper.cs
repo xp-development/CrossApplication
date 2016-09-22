@@ -6,11 +6,12 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using CrossApplication.Core.Application;
 using CrossApplication.Core.Common;
+using CrossApplication.Core.Contracts;
 using CrossApplication.Wpf.Application.Shell;
 using CrossApplication.Wpf.Common;
 using CrossApplication.Wpf.Common.Events;
 using CrossApplication.Wpf.Common.RegionAdapters;
-using CrossApplication.Wpf.Contracts;
+using CrossApplication.Wpf.Contracts.Navigation;
 using Fluent;
 using Microsoft.Practices.ServiceLocation;
 using Microsoft.Practices.Unity;
@@ -104,9 +105,9 @@ namespace CrossApplication.Wpf.Application
             System.Windows.Application.Current.MainWindow = (Window) _shell;
             System.Windows.Application.Current.MainWindow.Show();
 
-            Container.Resolve<INavigationService>().RegisterView<RichShellView>("RichShellView", RegionNames.RichRegion);
+            Container.Resolve<IViewManager>().AddViewItem(new ViewItem("RichShellView", typeof(RichShellView), false, RegionNames.RichRegion));
             Container.Resolve<INavigationService>().NavigateTo("RichShellView");
-            
+
             ServiceLocator.Current.GetInstance<IEventAggregator>().GetEvent<ActivateModuleEvent>().Publish(new ActivateModulePayload(UniqueIdentifier.MailModuleIdentifier));
         }
 

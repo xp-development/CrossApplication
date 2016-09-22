@@ -1,5 +1,6 @@
-﻿using CrossApplication.Wpf.Common.Navigation;
-using CrossApplication.Wpf.Contracts;
+﻿using CrossApplication.Core.Contracts;
+using CrossApplication.Wpf.Common.Navigation;
+using CrossApplication.Wpf.Contracts.Navigation;
 using Microsoft.Practices.Unity;
 using Prism.Modularity;
 
@@ -18,6 +19,7 @@ namespace CrossApplication.Wpf.Common
         public void Initialize()
         {
             _unityContainer.RegisterType<INavigationService, NavigationService>(new ContainerControlledLifetimeManager());
+            _unityContainer.RegisterType<IViewManager, ViewManager>(new ContainerControlledLifetimeManager());
         }
     }
 }

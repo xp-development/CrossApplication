@@ -1,5 +1,6 @@
+using CrossApplication.Core.Contracts;
 using CrossApplication.Wpf.Common.Events;
-using CrossApplication.Wpf.Contracts;
+using CrossApplication.Wpf.Contracts.Navigation;
 using Microsoft.Practices.Unity;
 using Moq;
 using Prism.Events;
@@ -14,6 +15,7 @@ namespace CrossApplication.Mail.Wpf.UnitTest._MailModule
         protected Mock<IUnityContainer> UnityContainerMock;
         protected Mock<IRegionManager> RegionManagerMock;
         protected Mock<INavigationService> NavigationServiceMock;
+        protected Mock<IViewManager> ViewManagerMock;
 
         protected TesterBase()
         {
@@ -23,11 +25,13 @@ namespace CrossApplication.Mail.Wpf.UnitTest._MailModule
             UnityContainerMock = new Mock<IUnityContainer>();
             RegionManagerMock = new Mock<IRegionManager>();
             NavigationServiceMock = new Mock<INavigationService>();
+            ViewManagerMock = new Mock<IViewManager>();
 
             SetupEventAggregator();
             SetupUnityContainer();
             SetupRegionManager();
             SetupNavigationService();
+            SetupViewManager();
         }
 
         protected virtual void SetupEventAggregator()
@@ -50,6 +54,11 @@ namespace CrossApplication.Mail.Wpf.UnitTest._MailModule
         protected virtual void SetupNavigationService()
         {
             TestContainer.RegisterInstance(NavigationServiceMock.Object);
+        }
+
+        protected virtual void SetupViewManager()
+        {
+            TestContainer.RegisterInstance(ViewManagerMock.Object);
         }
     }
 }
