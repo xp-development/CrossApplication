@@ -116,6 +116,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Login\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Login\LoginViewModel.cs" />
     <Compile Include="Shell\ApplicationShellView.xaml.cs">
       <DependentUpon>ApplicationShellView.xaml</DependentUpon>
     </Compile>
@@ -150,6 +154,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="AccountManagement\AccountManagementShellView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Login\LoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

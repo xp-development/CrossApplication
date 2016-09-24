@@ -7,11 +7,11 @@ using Prism.Modularity;
 namespace CrossApplication.Wpf.Common
 {
     [Module(ModuleName = "CrossApplication.Core.Wpf.Common")]
-    public class CommonModule : IModule
+    public class CommonWpfModule : IModule
     {
         private readonly IUnityContainer _unityContainer;
 
-        public CommonModule(IUnityContainer unityContainer)
+        public CommonWpfModule(IUnityContainer unityContainer)
         {
             _unityContainer = unityContainer;
         }
@@ -20,6 +20,7 @@ namespace CrossApplication.Wpf.Common
         {
             _unityContainer.RegisterType<INavigationService, NavigationService>(new ContainerControlledLifetimeManager());
             _unityContainer.RegisterType<IViewManager, ViewManager>(new ContainerControlledLifetimeManager());
+            _unityContainer.RegisterType<IUserManager, UserManager>(new ContainerControlledLifetimeManager());
         }
     }
 }

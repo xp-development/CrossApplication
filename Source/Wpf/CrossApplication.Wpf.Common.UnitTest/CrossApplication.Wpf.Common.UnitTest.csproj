@@ -91,6 +91,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Navigation\TestLoginView.xaml.cs">
+      <DependentUpon>TestLoginView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Navigation\_NavigationItem\Label.cs" />
     <Compile Include="Navigation\_NavigationService\NavigateTo.cs" />
     <Compile Include="Navigation\TestView.xaml.cs">
@@ -117,6 +120,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Navigation\TestLoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Navigation\TestView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

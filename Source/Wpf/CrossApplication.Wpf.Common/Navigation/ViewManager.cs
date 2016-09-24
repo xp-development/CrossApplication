@@ -7,6 +7,8 @@ namespace CrossApplication.Wpf.Common.Navigation
 {
     public class ViewManager : IViewManager
     {
+        public ViewItem LoginViewItem { get; set; }
+
         public void AddViewItem(ViewItem viewItem)
         {
             if (_viewItems.Any(x => x.ViewKey == viewItem.ViewKey))

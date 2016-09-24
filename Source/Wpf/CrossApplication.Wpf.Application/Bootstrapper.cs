@@ -7,6 +7,7 @@ using System.Windows.Controls.Primitives;
 using CrossApplication.Core.Application;
 using CrossApplication.Core.Common;
 using CrossApplication.Core.Contracts;
+using CrossApplication.Wpf.Application.Login;
 using CrossApplication.Wpf.Application.Shell;
 using CrossApplication.Wpf.Common;
 using CrossApplication.Wpf.Common.Events;
@@ -45,11 +46,16 @@ namespace CrossApplication.Wpf.Application
         protected override void ConfigureModuleCatalog()
         {
             _moduleCatalog = new AggregateModuleCatalog();
-
-            var commonModule = typeof(CommonModule);
-            _moduleCatalog.AddModule(new ModuleInfo(commonModule.Name, commonModule.AssemblyQualifiedName));
+            
+            ConfigureInfrastructureModules();
 
             _moduleCatalog.AddCatalog(new DirectoryModuleCatalog { ModulePath = @".\Modules" });
+        }
+
+        private void ConfigureInfrastructureModules()
+        {
+            var commonWpfModule = typeof(CommonWpfModule);
+            _moduleCatalog.AddModule(new ModuleInfo(commonWpfModule.Name, commonWpfModule.AssemblyQualifiedName));
         }
 
         protected override void ConfigureDefaultRegionBehaviors()
@@ -94,8 +100,12 @@ namespace CrossApplication.Wpf.Application
             Container.RegisterType(typeof(IModuleInitializer), typeof(ModuleInitializer), new ContainerControlledLifetimeManager());
             Container.RegisterType(typeof(IModuleManager), typeof(ModuleManager), new ContainerControlledLifetimeManager());
             Container.RegisterInstance((IModuleCatalog)_moduleCatalog, new ContainerControlledLifetimeManager());
+
             Container.RegisterType<RichShellViewModel>();
             Container.RegisterType<object, RichShellView>(typeof(RichShellView).FullName);
+
+            Container.RegisterType<LoginViewModel>();
+            Container.RegisterType<object, LoginView>(typeof(LoginView).FullName);
 
             base.ConfigureContainer();
         }
@@ -107,6 +117,8 @@ namespace CrossApplication.Wpf.Application
 
             Container.Resolve<IViewManager>().AddViewItem(new ViewItem("RichShellView", typeof(RichShellView), false, RegionNames.RichRegion));
             Container.Resolve<INavigationService>().NavigateTo("RichShellView");
+
+            Container.Resolve<IViewManager>().LoginViewItem = new ViewItem("LoginView", typeof(LoginView), false, RegionNames.RichRegion);
 
             ServiceLocator.Current.GetInstance<IEventAggregator>().GetEvent<ActivateModuleEvent>().Publish(new ActivateModulePayload(UniqueIdentifier.MailModuleIdentifier));
         }
