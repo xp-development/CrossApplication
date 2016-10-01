@@ -62,7 +62,7 @@ namespace CrossApplication.Core.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cross Mailing.
+        ///   Looks up a localized string similar to Cross Application.
         /// </summary>
         public static string ApplicationName {
             get {

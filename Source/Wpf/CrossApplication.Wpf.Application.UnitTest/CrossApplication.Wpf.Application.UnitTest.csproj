@@ -105,8 +105,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Shell\_RichShellViewModel\Ctor.cs" />
-    <Compile Include="Shell\_RichShellViewModel\ManageAccountsCommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

@@ -82,11 +82,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommonWpfModule.cs" />
-    <Compile Include="Events\ActivateModuleEvent.cs" />
-    <Compile Include="Events\ActivateModulePayload.cs" />
-    <Compile Include="Events\InitializeModuleEvent.cs" />
-    <Compile Include="Events\InitializeModulePayload.cs" />
+    <Compile Include="Module.cs" />
     <Compile Include="LocalizationExtension.cs" />
     <Compile Include="NavigationBar.cs" />
     <Compile Include="NavigationBarTemplateSelector.cs" />

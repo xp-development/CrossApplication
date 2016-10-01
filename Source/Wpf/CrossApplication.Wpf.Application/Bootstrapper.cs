@@ -5,19 +5,17 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using CrossApplication.Core.Application;
-using CrossApplication.Core.Common;
-using CrossApplication.Core.Contracts;
+using CrossApplication.Core.Contracts.Application.Modules;
+using CrossApplication.Core.Contracts.Application.Navigation;
+using CrossApplication.Core.Net.Application.Modules;
 using CrossApplication.Wpf.Application.Login;
 using CrossApplication.Wpf.Application.Shell;
 using CrossApplication.Wpf.Common;
-using CrossApplication.Wpf.Common.Events;
 using CrossApplication.Wpf.Common.RegionAdapters;
 using CrossApplication.Wpf.Contracts.Navigation;
 using Fluent;
 using Microsoft.Practices.ServiceLocation;
 using Microsoft.Practices.Unity;
-using Prism.Events;
-using Prism.Modularity;
 using Prism.Mvvm;
 using Prism.Regions;
 using Prism.Regions.Behaviors;
@@ -37,25 +35,9 @@ namespace CrossApplication.Wpf.Application
             RegionManager.UpdateRegions();
         }
 
-        protected override void InitializeModules()
+        protected override IModuleCatalog CreateModuleCatalog()
         {
-            var moduleManager = Container.Resolve<IModuleManager>();
-            moduleManager.Run();
-        }
-
-        protected override void ConfigureModuleCatalog()
-        {
-            _moduleCatalog = new AggregateModuleCatalog();
-            
-            ConfigureInfrastructureModules();
-
-            _moduleCatalog.AddCatalog(new DirectoryModuleCatalog { ModulePath = @".\Modules" });
-        }
-
-        private void ConfigureInfrastructureModules()
-        {
-            var commonWpfModule = typeof(CommonWpfModule);
-            _moduleCatalog.AddModule(new ModuleInfo(commonWpfModule.Name, commonWpfModule.AssemblyQualifiedName));
+            return new AggregateModuleCatalog(base.CreateModuleCatalog(), new DirectoryModuleCatalog(@".\Modules"));
         }
 
         protected override void ConfigureDefaultRegionBehaviors()
@@ -97,9 +79,6 @@ namespace CrossApplication.Wpf.Application
             Container.RegisterType(typeof(IRegionNavigationService), typeof(RegionNavigationService));
             Container.RegisterType(typeof(IRegionNavigationContentLoader), typeof(UnityRegionNavigationContentLoader), new ContainerControlledLifetimeManager());
             Container.RegisterType(typeof(RegionAdapterMappings), typeof(RegionAdapterMappings), new ContainerControlledLifetimeManager());
-            Container.RegisterType(typeof(IModuleInitializer), typeof(ModuleInitializer), new ContainerControlledLifetimeManager());
-            Container.RegisterType(typeof(IModuleManager), typeof(ModuleManager), new ContainerControlledLifetimeManager());
-            Container.RegisterInstance((IModuleCatalog)_moduleCatalog, new ContainerControlledLifetimeManager());
 
             Container.RegisterType<RichShellViewModel>();
             Container.RegisterType<object, RichShellView>(typeof(RichShellView).FullName);
@@ -119,11 +98,8 @@ namespace CrossApplication.Wpf.Application
             Container.Resolve<INavigationService>().NavigateTo("RichShellView");
 
             Container.Resolve<IViewManager>().LoginViewItem = new ViewItem("LoginView", typeof(LoginView), false, RegionNames.RichRegion);
-
-            ServiceLocator.Current.GetInstance<IEventAggregator>().GetEvent<ActivateModuleEvent>().Publish(new ActivateModulePayload(UniqueIdentifier.MailModuleIdentifier));
         }
 
-        private AggregateModuleCatalog _moduleCatalog;
         private DependencyObject _shell;
     }
 }

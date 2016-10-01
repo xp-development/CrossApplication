@@ -110,7 +110,6 @@
     <Compile Include="AccountManagement\AccountManagementShellView.xaml.cs">
       <DependentUpon>AccountManagementShellView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AggregateModuleCatalog.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -186,6 +185,14 @@
     <ProjectReference Include="..\..\Core\CrossApplication.Core.Resources\CrossApplication.Core.Resources.csproj">
       <Project>{084E738C-B285-4EA7-A01F-53E80491774B}</Project>
       <Name>CrossApplication.Core.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Net\CrossApplication.Core.Net.Application\CrossApplication.Core.Net.Application.csproj">
+      <Project>{A987FDAA-C4BC-4854-A70C-BF803C0100A0}</Project>
+      <Name>CrossApplication.Core.Net.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Net\CrossApplication.Core.Net.Contracts\CrossApplication.Core.Net.Contracts.csproj">
+      <Project>{ADD00E03-B090-4AF7-A9F0-5B20DF299A9E}</Project>
+      <Name>CrossApplication.Core.Net.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\CrossApplication.Wpf.Common\CrossApplication.Wpf.Common.csproj">
       <Project>{5c6b8785-7e1e-4a4a-accd-db14a6d68cc1}</Project>

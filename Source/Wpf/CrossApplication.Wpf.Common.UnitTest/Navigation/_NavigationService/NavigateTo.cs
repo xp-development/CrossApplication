@@ -1,5 +1,6 @@
 ﻿using System;
 using CrossApplication.Core.Contracts;
+using CrossApplication.Core.Contracts.Application.Navigation;
 using CrossApplication.Wpf.Common.Navigation;
 using CrossApplication.Wpf.Contracts.Navigation;
 using Moq;

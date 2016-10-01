@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using CrossApplication.Core.Contracts;
+using CrossApplication.Core.Contracts.Application.Navigation;
 using CrossApplication.Wpf.Contracts.Navigation;
 using Prism.Regions;
 
@@ -16,9 +17,7 @@ namespace CrossApplication.Wpf.Common.Navigation
 
         public void NavigateTo(string navigationKey)
         {
-            var viewItem = _viewManager.GetViewItem(navigationKey);
-
-            NavigateTo(viewItem);
+            NavigateTo(_viewManager.GetViewItem(navigationKey));
         }
 
         private void NavigateTo(ViewItem viewItem)

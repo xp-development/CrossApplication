@@ -1,5 +1,5 @@
 using CrossApplication.Core.Contracts;
-using CrossApplication.Wpf.Common.Events;
+using CrossApplication.Core.Contracts.Application.Navigation;
 using CrossApplication.Wpf.Contracts.Navigation;
 using Microsoft.Practices.Unity;
 using Moq;
@@ -36,8 +36,6 @@ namespace CrossApplication.Mail.Wpf.UnitTest._MailModule
 
         protected virtual void SetupEventAggregator()
         {
-            EventAggregatorMock.Setup(item => item.GetEvent<ActivateModuleEvent>()).Returns(new ActivateModuleEvent());
-            EventAggregatorMock.Setup(item => item.GetEvent<InitializeModuleEvent>()).Returns(new InitializeModuleEvent());
             TestContainer.RegisterInstance(EventAggregatorMock.Object);
         }
 

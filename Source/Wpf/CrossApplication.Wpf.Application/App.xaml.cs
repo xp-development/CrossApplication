@@ -7,13 +7,15 @@ namespace CrossApplication.Wpf.Application
 {
     public partial class App
     {
-        protected override void OnStartup(StartupEventArgs e)
+        public App()
         {
-            base.OnStartup(e);
+            Startup += OnStartup;
+        }
 
+        private static async void OnStartup(object sender, StartupEventArgs startupEventArgs)
+        {
             SetCurrentCulture();
-
-            new Bootstrapper().Run();
+            await new Bootstrapper().Run();
         }
 
         protected override void OnExit(ExitEventArgs e)
