@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{938B80D9-2053-4B36-A126-1F4A471EE790}</ProjectGuid>
+    <ProjectGuid>{89212447-A75D-4EED-8282-51C0E6B50E09}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CrossApplication.Core.Application.UnitTest</RootNamespace>
-    <AssemblyName>CrossApplication.Core.Application.UnitTest</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <RootNamespace>CrossApplication.Core.Net.Common.UnitTest</RootNamespace>
+    <AssemblyName>CrossApplication.Core.Net.Common.UnitTest</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -31,19 +31,23 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
+      <HintPath>..\..\..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="FluentAssertions, Version=4.14.0.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\FluentAssertions.4.14.0\lib\net45\FluentAssertions.dll</HintPath>
+      <HintPath>..\..\..\packages\FluentAssertions.4.14.0\lib\net45\FluentAssertions.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="FluentAssertions.Core, Version=4.14.0.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\FluentAssertions.4.14.0\lib\net45\FluentAssertions.Core.dll</HintPath>
+      <HintPath>..\..\..\packages\FluentAssertions.4.14.0\lib\net45\FluentAssertions.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Moq, Version=4.5.21.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Moq.4.5.21\lib\net45\Moq.dll</HintPath>
+      <HintPath>..\..\..\packages\Moq.4.5.21\lib\net45\Moq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -55,49 +59,42 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="xunit.abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\xunit.abstractions.2.0.0\lib\net35\xunit.abstractions.dll</HintPath>
+      <HintPath>..\..\..\packages\xunit.abstractions.2.0.0\lib\net35\xunit.abstractions.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="xunit.assert, Version=2.1.0.3179, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\xunit.assert.2.1.0\lib\dotnet\xunit.assert.dll</HintPath>
+      <HintPath>..\..\..\packages\xunit.assert.2.1.0\lib\dotnet\xunit.assert.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="xunit.core, Version=2.1.0.3179, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\xunit.extensibility.core.2.1.0\lib\dotnet\xunit.core.dll</HintPath>
+      <HintPath>..\..\..\packages\xunit.extensibility.core.2.1.0\lib\dotnet\xunit.core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="xunit.execution.desktop, Version=2.1.0.3179, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\xunit.extensibility.execution.2.1.0\lib\net45\xunit.execution.desktop.dll</HintPath>
+      <HintPath>..\..\..\packages\xunit.extensibility.execution.2.1.0\lib\net45\xunit.execution.desktop.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="_Modules\TestClasses\ModuleA.cs" />
-    <Compile Include="_Modules\TestClasses\ModuleB.cs" />
-    <Compile Include="_Modules\TestClasses\ModuleC.cs" />
-    <Compile Include="_Modules\TestClasses\ModuleWithoutIModule.cs" />
-    <Compile Include="_Modules\_ModuleCatalog\AddModuleInfo.cs" />
-    <Compile Include="_Modules\_ModuleCatalog\GetModuleInfos.cs" />
-    <Compile Include="_Modules\_ModuleManager\ActivateAsync.cs" />
-    <Compile Include="_Modules\_ModuleManager\InitializeAsync.cs" />
+    <Compile Include="_Container\TestClasses\IInjectionInterface.cs" />
+    <Compile Include="_Container\TestClasses\InjectionClass.cs" />
+    <Compile Include="_Container\_NinjectContainer\ResolveAll.cs" />
+    <Compile Include="_Container\_NinjectContainer\Resolve.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CrossApplication.Core.Application\CrossApplication.Core.Application.csproj">
-      <Project>{B89655FB-6F0A-4A5D-8BF0-D0EA43B90911}</Project>
-      <Name>CrossApplication.Core.Application</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CrossApplication.Core.Contracts\CrossApplication.Core.Contracts.csproj">
+    <ProjectReference Include="..\..\CrossApplication.Core.Contracts\CrossApplication.Core.Contracts.csproj">
       <Project>{d4b1b8a8-8078-4afa-a702-e71449afb433}</Project>
       <Name>CrossApplication.Core.Contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CrossApplication.Core.Net.Common\CrossApplication.Core.Net.Common.csproj">
+      <Project>{116CCE98-7773-45D6-BFC6-22F506B8E3E3}</Project>
+      <Name>CrossApplication.Core.Net.Common</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

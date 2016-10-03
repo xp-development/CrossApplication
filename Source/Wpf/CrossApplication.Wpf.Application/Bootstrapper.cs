@@ -5,9 +5,12 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using CrossApplication.Core.Application;
+using CrossApplication.Core.Application.Modules;
 using CrossApplication.Core.Contracts.Application.Modules;
-using CrossApplication.Core.Contracts.Application.Navigation;
+using CrossApplication.Core.Contracts.Common.Container;
+using CrossApplication.Core.Contracts.Common.Navigation;
 using CrossApplication.Core.Net.Application.Modules;
+using CrossApplication.Core.Net.Common.Container;
 using CrossApplication.Wpf.Application.Login;
 using CrossApplication.Wpf.Application.Shell;
 using CrossApplication.Wpf.Common;
@@ -15,11 +18,10 @@ using CrossApplication.Wpf.Common.RegionAdapters;
 using CrossApplication.Wpf.Contracts.Navigation;
 using Fluent;
 using Microsoft.Practices.ServiceLocation;
-using Microsoft.Practices.Unity;
+using Ninject;
 using Prism.Mvvm;
 using Prism.Regions;
 using Prism.Regions.Behaviors;
-using Prism.Unity.Regions;
 
 namespace CrossApplication.Wpf.Application
 {
@@ -37,7 +39,9 @@ namespace CrossApplication.Wpf.Application
 
         protected override IModuleCatalog CreateModuleCatalog()
         {
-            return new AggregateModuleCatalog(base.CreateModuleCatalog(), new DirectoryModuleCatalog(@".\Modules"));
+            var moduleCatalog = (ModuleCatalog)base.CreateModuleCatalog();
+            moduleCatalog.AddModuleInfo(new ModuleInfo { ModuleType = typeof(Common.Module), Tag = ModuleTags.Infrastructure });
+            return new AggregateModuleCatalog(moduleCatalog, new DirectoryModuleCatalog(@".\Modules"));
         }
 
         protected override void ConfigureDefaultRegionBehaviors()
@@ -68,17 +72,24 @@ namespace CrossApplication.Wpf.Application
             ViewModelLocationProvider.SetDefaultViewTypeToViewModelTypeResolver(viewType => Type.GetType(string.Format(CultureInfo.InvariantCulture, "{0}Model, {1}", viewType.FullName, viewType.GetTypeInfo().Assembly.FullName)));
         }
 
+        protected override IContainer CreateContainer()
+        {
+            var standardKernel = new StandardKernel();
+            var container = new NinjectContainer(standardKernel);
+            container.RegisterInstance<IServiceLocator>(new NinjectServiceLocator(standardKernel));
+            return container;
+        }
+
         protected override void ConfigureContainer()
         {
-            Container.RegisterType(typeof(IRegionBehaviorFactory), typeof(RegionBehaviorFactory), new ContainerControlledLifetimeManager());
-            Container.RegisterType(typeof(IRegionManager), typeof(RegionManager), new ContainerControlledLifetimeManager());
-            Container.RegisterType(typeof(IRegionBehaviorFactory), typeof(RegionBehaviorFactory), new ContainerControlledLifetimeManager());
-            Container.RegisterType(typeof(IRegionViewRegistry), typeof(RegionViewRegistry), new ContainerControlledLifetimeManager());
-            Container.RegisterType(typeof(IRegionNavigationJournalEntry), typeof(RegionNavigationJournalEntry));
-            Container.RegisterType(typeof(IRegionNavigationJournal), typeof(RegionNavigationJournal));
-            Container.RegisterType(typeof(IRegionNavigationService), typeof(RegionNavigationService));
-            Container.RegisterType(typeof(IRegionNavigationContentLoader), typeof(UnityRegionNavigationContentLoader), new ContainerControlledLifetimeManager());
-            Container.RegisterType(typeof(RegionAdapterMappings), typeof(RegionAdapterMappings), new ContainerControlledLifetimeManager());
+            Container.RegisterType<IRegionBehaviorFactory, RegionBehaviorFactory>(Lifetime.PerContainer);
+            Container.RegisterType<IRegionManager, RegionManager>(Lifetime.PerContainer);
+            Container.RegisterType<IRegionViewRegistry, RegionViewRegistry>(Lifetime.PerContainer);
+            Container.RegisterType<IRegionNavigationJournalEntry, RegionNavigationJournalEntry>();
+            Container.RegisterType<IRegionNavigationJournal, RegionNavigationJournal>();
+            Container.RegisterType<IRegionNavigationService, RegionNavigationService>();
+            Container.RegisterType<IRegionNavigationContentLoader, RegionNavigationContentLoader>(Lifetime.PerContainer);
+            Container.RegisterType<RegionAdapterMappings, RegionAdapterMappings>(Lifetime.PerContainer);
 
             Container.RegisterType<RichShellViewModel>();
             Container.RegisterType<object, RichShellView>(typeof(RichShellView).FullName);
@@ -94,10 +105,11 @@ namespace CrossApplication.Wpf.Application
             System.Windows.Application.Current.MainWindow = (Window) _shell;
             System.Windows.Application.Current.MainWindow.Show();
 
-            Container.Resolve<IViewManager>().AddViewItem(new ViewItem("RichShellView", typeof(RichShellView), false, RegionNames.RichRegion));
-            Container.Resolve<INavigationService>().NavigateTo("RichShellView");
+            Container.Resolve<IViewManager>().AddViewItem(new ViewItem(typeof(RichShellView).FullName, false, RegionNames.RichRegion));
+            var navigationService = Container.Resolve<INavigationService>();
+            navigationService.NavigateTo(typeof(RichShellView).FullName);
 
-            Container.Resolve<IViewManager>().LoginViewItem = new ViewItem("LoginView", typeof(LoginView), false, RegionNames.RichRegion);
+            Container.Resolve<IViewManager>().LoginViewItem = new ViewItem(typeof(LoginView).FullName, false, RegionNames.RichRegion);
         }
 
         private DependencyObject _shell;

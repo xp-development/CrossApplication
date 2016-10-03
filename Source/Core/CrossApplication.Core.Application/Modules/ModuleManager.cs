@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CrossApplication.Core.Contracts.Application.Modules;
-using Microsoft.Practices.Unity;
+using CrossApplication.Core.Contracts.Common.Container;
 
 namespace CrossApplication.Core.Application.Modules
 {
     public class ModuleManager : IModuleManager
     {
-        public ModuleManager(IUnityContainer unityContainer)
+        public ModuleManager(IContainer container)
         {
-            _unityContainer = unityContainer;
+            _container = container;
         }
 
         public void SetModuleCatalog(IModuleCatalog moduleCatalog)
@@ -23,7 +23,7 @@ namespace CrossApplication.Core.Application.Modules
         {
             foreach (var moduleInfo in _moduleCatalog.GetModuleInfos().Where(x => string.IsNullOrEmpty(tag) || x.Tag == tag))
             {
-                var module = _unityContainer.Resolve(moduleInfo.ModuleType) as IModule;
+                var module = _container.Resolve(moduleInfo.ModuleType) as IModule;
                 if (module == null)
                 {
                     throw new ArgumentException($"{moduleInfo.ModuleType} does not inherit from IModule.");
@@ -43,7 +43,7 @@ namespace CrossApplication.Core.Application.Modules
         }
 
         private IModuleCatalog _moduleCatalog;
-        private readonly IUnityContainer _unityContainer;
+        private readonly IContainer _container;
         private readonly IDictionary<ModuleInfo, IModule> _modules = new Dictionary<ModuleInfo, IModule>();
     }
 }

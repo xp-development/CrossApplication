@@ -1,5 +1,4 @@
-﻿using CrossApplication.Core.Contracts;
-using CrossApplication.Core.Contracts.Application.Navigation;
+﻿using CrossApplication.Core.Contracts.Common.Navigation;
 using Prism.Commands;
 using Prism.Mvvm;
 

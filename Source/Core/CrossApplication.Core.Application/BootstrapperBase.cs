@@ -1,17 +1,16 @@
 using System.Threading.Tasks;
 using CrossApplication.Core.Application.Modules;
 using CrossApplication.Core.Contracts.Application.Modules;
+using CrossApplication.Core.Contracts.Common.Container;
 using Microsoft.Practices.ServiceLocation;
-using Microsoft.Practices.Unity;
 using Prism.Events;
 using Prism.Logging;
-using Prism.Unity;
 
 namespace CrossApplication.Core.Application
 {
     public abstract class BootstrapperBase
     {
-        protected IUnityContainer Container { get; private set; }
+        protected IContainer Container { get; private set; }
         protected ILoggerFacade Logger { get; private set; }
 
         public async Task Run()
@@ -94,17 +93,13 @@ namespace CrossApplication.Core.Application
             ServiceLocator.SetLocatorProvider(() => Container.Resolve<IServiceLocator>());
         }
 
-        protected virtual IUnityContainer CreateContainer()
-        {
-            return new UnityContainer();
-        }
+        protected abstract IContainer CreateContainer();
 
         protected virtual void ConfigureContainer()
         {
-            Container.RegisterType(typeof(IServiceLocator), typeof(UnityServiceLocatorAdapter), new ContainerControlledLifetimeManager());
-            Container.RegisterInstance(Container, new ContainerControlledLifetimeManager());
-            Container.RegisterType(typeof(IEventAggregator), typeof(EventAggregator), new ContainerControlledLifetimeManager());
-            Container.RegisterType(typeof(IModuleManager), typeof(ModuleManager), new ContainerControlledLifetimeManager());
+            Container.RegisterInstance(Container);
+            Container.RegisterType<IEventAggregator, EventAggregator>(Lifetime.PerContainer);
+            Container.RegisterType<IModuleManager, ModuleManager>(Lifetime.PerContainer);
             Container.RegisterInstance(Logger);
         }
     }

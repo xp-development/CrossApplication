@@ -1,4 +1,4 @@
-namespace CrossApplication.Core.Contracts.Application.Navigation
+namespace CrossApplication.Core.Contracts.Common.Navigation
 {
     public interface INavigationService
     {

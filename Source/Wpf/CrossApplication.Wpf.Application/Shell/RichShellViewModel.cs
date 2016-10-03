@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using CrossApplication.Core.Common;
-using CrossApplication.Core.Contracts.Application.Navigation;
+using CrossApplication.Core.Contracts.Common.Navigation;
 using CrossApplication.Core.Net.Contracts.Navigation;
 using CrossApplication.Wpf.Common.Navigation;
 using Prism.Commands;

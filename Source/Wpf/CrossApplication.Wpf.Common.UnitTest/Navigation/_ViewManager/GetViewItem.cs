@@ -13,15 +13,13 @@ namespace CrossApplication.Wpf.Common.UnitTest.Navigation._ViewManager
         {
             const string viewKey = "ViewKey";
             const string regionName = "RegionName";
-            var viewType = typeof(TestView);
             var viewManager = new ViewManager();
-            viewManager.AddViewItem(new ViewItem(viewKey, viewType, false, regionName));
+            viewManager.AddViewItem(new ViewItem(viewKey, false, regionName));
 
             var viewItem = viewManager.GetViewItem(viewKey);
 
             viewItem.ViewKey.Should().Be(viewKey);
             viewItem.RegionName.Should().Be(regionName);
-            viewItem.ViewType.Should().Be(viewType);
             viewItem.IsAuthorizationRequired.Should().BeFalse();
             viewItem.SubViewItems.Count.Should().Be(0);
         }

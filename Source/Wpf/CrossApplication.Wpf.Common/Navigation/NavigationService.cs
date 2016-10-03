@@ -1,6 +1,6 @@
 using System;
 using CrossApplication.Core.Contracts;
-using CrossApplication.Core.Contracts.Application.Navigation;
+using CrossApplication.Core.Contracts.Common.Navigation;
 using CrossApplication.Wpf.Contracts.Navigation;
 using Prism.Regions;
 
@@ -33,7 +33,7 @@ namespace CrossApplication.Wpf.Common.Navigation
 
         private void NavigateToViewItem(ViewItem viewItem)
         {
-            _regionManager.RequestNavigate(viewItem.RegionName, new Uri(viewItem.ViewType.FullName, UriKind.Relative));
+            _regionManager.RequestNavigate(viewItem.RegionName, new Uri(viewItem.ViewKey, UriKind.Relative));
 
             foreach (var subViewItem in viewItem.SubViewItems)
             {

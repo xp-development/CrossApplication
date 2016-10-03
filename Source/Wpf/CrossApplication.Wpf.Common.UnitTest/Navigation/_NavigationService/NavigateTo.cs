@@ -1,6 +1,6 @@
 ﻿using System;
 using CrossApplication.Core.Contracts;
-using CrossApplication.Core.Contracts.Application.Navigation;
+using CrossApplication.Core.Contracts.Common.Navigation;
 using CrossApplication.Wpf.Common.Navigation;
 using CrossApplication.Wpf.Contracts.Navigation;
 using Moq;
@@ -25,22 +25,22 @@ namespace CrossApplication.Wpf.Common.UnitTest.Navigation._NavigationService
         [Fact]
         public void ShouldNavigateToUri()
         {
-            _viewManager.AddViewItem(new ViewItem("NavigationKey", typeof(TestView), false, RegionNames.MainRegion));
+            _viewManager.AddViewItem(new ViewItem("NavigationKey", false, RegionNames.MainRegion));
 
             _navigationService.NavigateTo("NavigationKey");
             
-            _regionManagerMock.Verify(x => x.RequestNavigate(RegionNames.MainRegion, new Uri(typeof(TestView).FullName, UriKind.Relative)));
+            _regionManagerMock.Verify(x => x.RequestNavigate(RegionNames.MainRegion, new Uri("NavigationKey", UriKind.Relative)));
         }
 
         [Fact]
         public void ShouldNavigateToLoginPageIfAuthorizationIsRequired()
         {
-            _viewManager.AddViewItem(new ViewItem("NavigationLoginKey", typeof(TestLoginView), false, RegionNames.RichRegion));
-            _viewManager.AddViewItem(new ViewItem("NavigationKey", typeof(TestView), true, RegionNames.MainRegion));
+            _viewManager.AddViewItem(new ViewItem("NavigationLoginKey", false, RegionNames.RichRegion));
+            _viewManager.AddViewItem(new ViewItem("NavigationKey", true, RegionNames.MainRegion));
 
             _navigationService.NavigateTo("NavigationLoginKey");
 
-            _regionManagerMock.Verify(x => x.RequestNavigate(RegionNames.RichRegion, new Uri(typeof(TestLoginView).FullName, UriKind.Relative)));
+            _regionManagerMock.Verify(x => x.RequestNavigate(RegionNames.RichRegion, new Uri("NavigationLoginKey", UriKind.Relative)));
         }
     }
 }

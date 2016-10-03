@@ -1,23 +1,23 @@
 ﻿using System.Threading.Tasks;
 using CrossApplication.Core.Contracts.Application.Modules;
+using CrossApplication.Core.Contracts.Common.Container;
 using CrossApplication.Core.Net.Application.Navigation;
 using CrossApplication.Core.Net.Contracts.Navigation;
 using CrossApplication.Mail.Core.Navigation;
-using Microsoft.Practices.Unity;
 
 namespace CrossApplication.Mail.Core.Net
 {
     [Module(Tag = ModuleTags.Infrastructure)]
     public class Module : IModule
     {
-        public Module(IUnityContainer unityContainer)
+        public Module(IContainer container)
         {
-            _unityContainer = unityContainer;
+            _container = container;
         }
 
         public Task InitializeAsync()
         {
-            _unityContainer.RegisterInstance<IMainNavigationItem>(new MainNavigationItem("E-Mail", ViewKeys.Shell));
+            _container.RegisterInstance<IMainNavigationItem>(new MainNavigationItem("E-Mail", ViewKeys.Shell));
             return Task.FromResult(false);
         }
 
@@ -26,6 +26,6 @@ namespace CrossApplication.Mail.Core.Net
             return Task.FromResult(false);
         }
 
-        private readonly IUnityContainer _unityContainer;
+        private readonly IContainer _container;
     }
 }
