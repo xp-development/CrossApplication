@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using CrossApplication.Core.Common;
 using CrossApplication.Core.Contracts.Common.Navigation;
 using CrossApplication.Core.Net.Contracts.Navigation;
@@ -16,14 +17,16 @@ namespace CrossApplication.Wpf.Application.Shell
         public InteractionRequest<INotification> NotificationRequest { get; }
 
 
-        public RichShellViewModel(InteractionRequest<INotification> notificationRequest, IMainNavigationItem mainNavigationItem, INavigationService navigationService)
+        public RichShellViewModel(InteractionRequest<INotification> notificationRequest, IEnumerable<IMainNavigationItem> mainNavigationItems, INavigationService navigationService)
         {
             NotificationRequest = notificationRequest;
 
-            NavigationItems = new ObservableCollection<NavigationItem>
+            NavigationItems = new ObservableCollection<NavigationItem>();
+            foreach (var mainNavigationItem in mainNavigationItems)
             {
-                new NavigationItem(navigationService, mainNavigationItem.Label, mainNavigationItem.NavigationKey)
-            };
+                NavigationItems.Add(new NavigationItem(navigationService, mainNavigationItem.Label, mainNavigationItem.NavigationKey));
+            }
+
             ManageAccountsCommand = new DelegateCommand(() => NotificationRequest.Raise(new Notification {Title = LocalizationManager.Get(typeof(Common.Properties.Resources), "AccountManagementTitle")}));
         }
     }
