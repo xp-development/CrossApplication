@@ -29,8 +29,7 @@ namespace CrossApplication.Core.Application.UnitTest._Modules._ModuleManager
             unityContainerMock.Setup(x => x.Resolve(typeof(ModuleA))).Returns(moduleA);
             unityContainerMock.Setup(x => x.Resolve(typeof(ModuleB))).Returns(moduleB);
             unityContainerMock.Setup(x => x.Resolve(typeof(ModuleC))).Returns(moduleC);
-            var moduleManager = new ModuleManager(unityContainerMock.Object);
-            moduleManager.SetModuleCatalog(moduleCatalogMock.Object);
+            var moduleManager = new ModuleManager(unityContainerMock.Object, moduleCatalogMock.Object);
             await moduleManager.InizializeAsync();
 
             await moduleManager.ActivateAsync();
@@ -54,8 +53,7 @@ namespace CrossApplication.Core.Application.UnitTest._Modules._ModuleManager
 
             var unityContainerMock = new Mock<IContainer>();
             unityContainerMock.Setup(x => x.Resolve(typeof(ModuleB))).Returns(moduleB);
-            var moduleManager = new ModuleManager(unityContainerMock.Object);
-            moduleManager.SetModuleCatalog(moduleCatalogMock.Object);
+            var moduleManager = new ModuleManager(unityContainerMock.Object, moduleCatalogMock.Object);
             await moduleManager.InizializeAsync(ModuleTags.Infrastructure);
 
             await moduleManager.ActivateAsync(ModuleTags.Infrastructure);

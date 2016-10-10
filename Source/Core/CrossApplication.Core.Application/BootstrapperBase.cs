@@ -11,11 +11,11 @@ namespace CrossApplication.Core.Application
     public abstract class BootstrapperBase
     {
         protected IContainer Container { get; private set; }
-        protected ILoggerFacade Logger { get; private set; }
+        private ILoggerFacade _logger;
 
         public async Task Run()
         {
-            Logger = CreateLogger();
+            _logger = CreateLogger();
 
             Container = CreateContainer();
             ConfigureContainer();
@@ -26,9 +26,9 @@ namespace CrossApplication.Core.Application
             RegisterFrameworkExceptionTypes();
             CreateShell();
 
-            var moduleManager = Container.Resolve<IModuleManager>();
-            moduleManager.SetModuleCatalog(CreateModuleCatalog());
+            Container.RegisterInstance(CreateModuleCatalog());
 
+            var moduleManager = Container.Resolve<IModuleManager>();
             await InitializeInfrastructureModulesAsync(moduleManager);
             await InitializeModulesAsync(moduleManager);
             InitializeShell();
@@ -40,29 +40,29 @@ namespace CrossApplication.Core.Application
         {
         }
 
-        protected virtual ILoggerFacade CreateLogger()
+        private ILoggerFacade CreateLogger()
         {
             return new DebugLogger();
         }
 
         protected abstract void CreateShell();
 
-        private Task InitializeInfrastructureModulesAsync(IModuleManager moduleManager)
+        private static Task InitializeInfrastructureModulesAsync(IModuleManager moduleManager)
         {
             return moduleManager.InizializeAsync(ModuleTags.Infrastructure);
         }
 
-        private Task InitializeModulesAsync(IModuleManager moduleManager)
+        private static Task InitializeModulesAsync(IModuleManager moduleManager)
         {
             return moduleManager.InizializeAsync(ModuleTags.DefaultModule);
         }
 
-        private Task ActivateInfrastructureModulesAsync(IModuleManager moduleManager)
+        private static Task ActivateInfrastructureModulesAsync(IModuleManager moduleManager)
         {
             return moduleManager.ActivateAsync(ModuleTags.Infrastructure);
         }
 
-        private Task ActivateModulesAsync(IModuleManager moduleManager)
+        private static Task ActivateModulesAsync(IModuleManager moduleManager)
         {
             return moduleManager.ActivateAsync(ModuleTags.DefaultModule);
         }
@@ -71,7 +71,7 @@ namespace CrossApplication.Core.Application
         {
         }
 
-        protected virtual void RegisterFrameworkExceptionTypes()
+        private void RegisterFrameworkExceptionTypes()
         {
         }
 
@@ -88,7 +88,7 @@ namespace CrossApplication.Core.Application
             return new ModuleCatalog();
         }
 
-        protected virtual void ConfigureServiceLocator()
+        private void ConfigureServiceLocator()
         {
             ServiceLocator.SetLocatorProvider(() => Container.Resolve<IServiceLocator>());
         }
@@ -100,7 +100,7 @@ namespace CrossApplication.Core.Application
             Container.RegisterInstance(Container);
             Container.RegisterType<IEventAggregator, EventAggregator>(Lifetime.PerContainer);
             Container.RegisterType<IModuleManager, ModuleManager>(Lifetime.PerContainer);
-            Container.RegisterInstance(Logger);
+            Container.RegisterInstance(_logger);
         }
     }
 }

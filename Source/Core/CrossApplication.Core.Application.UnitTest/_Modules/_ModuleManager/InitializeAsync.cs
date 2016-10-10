@@ -27,8 +27,7 @@ namespace CrossApplication.Core.Application.UnitTest._Modules._ModuleManager
             unityContainerMock.Setup(x => x.Resolve(typeof(ModuleA))).Returns(new ModuleA());
             unityContainerMock.Setup(x => x.Resolve(typeof(ModuleB))).Returns(new ModuleB());
             unityContainerMock.Setup(x => x.Resolve(typeof(ModuleC))).Returns(new ModuleC());
-            var moduleManager = new ModuleManager(unityContainerMock.Object);
-            moduleManager.SetModuleCatalog(moduleCatalogMock.Object);
+            var moduleManager = new ModuleManager(unityContainerMock.Object, moduleCatalogMock.Object);
 
             await moduleManager.InizializeAsync();
 
@@ -51,8 +50,7 @@ namespace CrossApplication.Core.Application.UnitTest._Modules._ModuleManager
             var unityContainerMock = new Mock<IContainer>();
             unityContainerMock.Setup(x => x.Resolve(typeof(ModuleA))).Returns(new ModuleA());
             unityContainerMock.Setup(x => x.Resolve(typeof(ModuleC))).Returns(new ModuleC());
-            var moduleManager = new ModuleManager(unityContainerMock.Object);
-            moduleManager.SetModuleCatalog(moduleCatalogMock.Object);
+            var moduleManager = new ModuleManager(unityContainerMock.Object, moduleCatalogMock.Object);
 
             await moduleManager.InizializeAsync(ModuleTags.DefaultModule);
 
@@ -74,8 +72,7 @@ namespace CrossApplication.Core.Application.UnitTest._Modules._ModuleManager
             var unityContainerMock = new Mock<IContainer>();
             unityContainerMock.Setup(x => x.Resolve(typeof(ModuleA))).Returns(new ModuleA());
             unityContainerMock.Setup(x => x.Resolve(typeof(ModuleC))).Returns(new ModuleC());
-            var moduleManager = new ModuleManager(unityContainerMock.Object);
-            moduleManager.SetModuleCatalog(moduleCatalogMock.Object);
+            var moduleManager = new ModuleManager(unityContainerMock.Object, moduleCatalogMock.Object);
 
             await moduleManager.InizializeAsync("Infrastructure");
 
@@ -90,8 +87,7 @@ namespace CrossApplication.Core.Application.UnitTest._Modules._ModuleManager
             moduleCatalogMock.Setup(x => x.GetModuleInfos()).Returns(new List<ModuleInfo> { new ModuleInfo {Name = "ModuleWithoutIModule", ModuleType = typeof(ModuleWithoutIModule)}});
             var unityContainerMock = new Mock<IContainer>();
             unityContainerMock.Setup(x => x.Resolve(typeof(ModuleWithoutIModule))).Returns(new ModuleWithoutIModule());
-            var moduleManager = new ModuleManager(unityContainerMock.Object);
-            moduleManager.SetModuleCatalog(moduleCatalogMock.Object);
+            var moduleManager = new ModuleManager(unityContainerMock.Object, moduleCatalogMock.Object);
 
             new Action(() => moduleManager.InizializeAsync().Wait())
                 .ShouldThrow<ArgumentException>().WithMessage("CrossApplication.Core.Application.UnitTest._Modules.TestClasses.ModuleWithoutIModule does not inherit from IModule.");

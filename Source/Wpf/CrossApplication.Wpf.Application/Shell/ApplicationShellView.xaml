@@ -15,7 +15,5 @@
         WindowState="{Binding Source={StaticResource Settings}, Path=Default.ShellWindowState, Mode=TwoWay}"
         Title="{common:Localization ResourceType={x:Type resources:CommonResources}, Name=ApplicationName}"
         mvvm:ViewModelLocator.AutoWireViewModel="True">
-    <Grid>
-        <ContentControl mvvm:RegionManager.RegionName="{x:Static common:RegionNames.RichRegion}" />
-    </Grid>
+    <ContentControl mvvm:RegionManager.RegionName="{x:Static common:RegionNames.RichRegion}" />
 </fluent:RibbonWindow>

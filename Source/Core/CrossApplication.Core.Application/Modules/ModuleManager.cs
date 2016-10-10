@@ -9,13 +9,9 @@ namespace CrossApplication.Core.Application.Modules
 {
     public class ModuleManager : IModuleManager
     {
-        public ModuleManager(IContainer container)
+        public ModuleManager(IContainer container, IModuleCatalog moduleCatalog)
         {
             _container = container;
-        }
-
-        public void SetModuleCatalog(IModuleCatalog moduleCatalog)
-        {
             _moduleCatalog = moduleCatalog;
         }
 
@@ -42,7 +38,7 @@ namespace CrossApplication.Core.Application.Modules
             }
         }
 
-        private IModuleCatalog _moduleCatalog;
+        private readonly IModuleCatalog _moduleCatalog;
         private readonly IContainer _container;
         private readonly IDictionary<ModuleInfo, IModule> _modules = new Dictionary<ModuleInfo, IModule>();
     }
