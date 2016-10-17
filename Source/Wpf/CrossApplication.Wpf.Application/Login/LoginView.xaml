@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mvvm="http://prismlibrary.com/"
+             xmlns:viewModels="clr-namespace:CrossApplication.Wpf.Common.ViewModels;assembly=CrossApplication.Wpf.Common"
              mc:Ignorable="d"
-             mvvm:ViewModelLocator.AutoWireViewModel="True" HorizontalAlignment="Center" VerticalAlignment="Center">
+             viewModels:ViewModelLocator.AutoWireViewModel="True" HorizontalAlignment="Center" VerticalAlignment="Center">
     <Label>Please log in.</Label>
 </UserControl>

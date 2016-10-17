@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using CrossApplication.Core.Application.Modules;
 using CrossApplication.Core.Application.UnitTest._Modules.TestClasses;
 using CrossApplication.Core.Contracts.Application.Modules;
@@ -15,12 +16,12 @@ namespace CrossApplication.Core.Application.UnitTest._Modules._ModuleManager
         public async void ShouldActivateAllInitializedModules()
         {
             var moduleCatalogMock = new Mock<IModuleCatalog>();
-            moduleCatalogMock.Setup(x => x.GetModuleInfos()).Returns(new List<ModuleInfo>
+            moduleCatalogMock.Setup(x => x.GetModuleInfosAsync()).Returns(Task.FromResult<IEnumerable<ModuleInfo>>(new List<ModuleInfo>
             {
                 new ModuleInfo {Name = "ModuleA", ModuleType = typeof(ModuleA)},
                 new ModuleInfo {Name = "ModuleB", ModuleType = typeof(ModuleB)},
                 new ModuleInfo {Name = "ModuleC", ModuleType = typeof(ModuleC)}
-            });
+            }));
             var moduleA = new ModuleA();
             var moduleB = new ModuleB();
             var moduleC = new ModuleC();
@@ -43,12 +44,12 @@ namespace CrossApplication.Core.Application.UnitTest._Modules._ModuleManager
         public async void ShouldActivateInitializedModulesWithTagInfrastructure()
         {
             var moduleCatalogMock = new Mock<IModuleCatalog>();
-            moduleCatalogMock.Setup(x => x.GetModuleInfos()).Returns(new List<ModuleInfo>
+            moduleCatalogMock.Setup(x => x.GetModuleInfosAsync()).Returns(Task.FromResult<IEnumerable<ModuleInfo>>(new List<ModuleInfo>
             {
                 new ModuleInfo {Name = "ModuleA", ModuleType = typeof(ModuleA)},
                 new ModuleInfo {Name = "ModuleB", ModuleType = typeof(ModuleB), Tag = ModuleTags.Infrastructure },
                 new ModuleInfo {Name = "ModuleC", ModuleType = typeof(ModuleC)}
-            });
+            }));
             var moduleB = new ModuleB();
 
             var unityContainerMock = new Mock<IContainer>();

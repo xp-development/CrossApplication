@@ -1,7 +1,4 @@
-﻿using System;
-using System.Globalization;
-using System.Reflection;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using CrossApplication.Core.Contracts.Application.Modules;
@@ -13,10 +10,10 @@ using CrossApplication.Wpf.Application.Shell;
 using CrossApplication.Wpf.Application.Shell.RibbonTabs;
 using CrossApplication.Wpf.Common;
 using CrossApplication.Wpf.Common.RegionAdapters;
+using CrossApplication.Wpf.Common.ViewModels;
 using CrossApplication.Wpf.Contracts.Navigation;
 using Fluent;
 using Microsoft.Practices.ServiceLocation;
-using Prism.Mvvm;
 using Prism.Regions;
 using Prism.Regions.Behaviors;
 using BootstrapperBase = CrossApplication.Core.Net.Application.BootstrapperBase;
@@ -38,7 +35,7 @@ namespace CrossApplication.Wpf.Application
         protected override IModuleCatalog CreateModuleCatalog()
         {
             var aggregateModuleCatalog = (AggregateModuleCatalog)base.CreateModuleCatalog();
-            aggregateModuleCatalog.ModuleCatalog.AddModuleInfo(new ModuleInfo { ModuleType = typeof(Common.Module), Tag = ModuleTags.Infrastructure });
+            aggregateModuleCatalog.ModuleCatalog.AddModuleInfo(new ModuleInfo { ModuleType = typeof(Module), Tag = ModuleTags.Infrastructure });
             return aggregateModuleCatalog;
         }
 
@@ -67,8 +64,7 @@ namespace CrossApplication.Wpf.Application
 
         protected override void ConfigureViewModelLocator()
         {
-            ViewModelLocationProvider.SetDefaultViewModelFactory(t => Container.Resolve(t));
-            ViewModelLocationProvider.SetDefaultViewTypeToViewModelTypeResolver(viewType => Type.GetType(string.Format(CultureInfo.InvariantCulture, "{0}Model, {1}", viewType.FullName, viewType.GetTypeInfo().Assembly.FullName)));
+            ViewModelProvider.SetViewModelFactoryMethod(t => Container.Resolve(t));
         }
 
         protected override void ConfigureContainer()
@@ -95,8 +91,8 @@ namespace CrossApplication.Wpf.Application
             Container.RegisterType<LoginViewModel>();
             Container.RegisterType<object, LoginView>(typeof(LoginView).FullName);
 
-            Container.RegisterType<IBackstageTabViewModel, AboutViewModel>();
-            Container.RegisterType<AboutView>(typeof(AboutView).FullName);
+            Container.RegisterType<AboutViewModel>();
+            Container.RegisterType<IBackstageTabViewModel, AboutView>(typeof(AboutView).FullName);
         }
 
         protected override void InitializeShell()

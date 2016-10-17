@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace CrossApplication.Core.Contracts.Application.Modules
 {
     public interface IModuleCatalog
     {
-        IEnumerable<ModuleInfo> GetModuleInfos();
+        Task<IEnumerable<ModuleInfo>> GetModuleInfosAsync();
     }
 }

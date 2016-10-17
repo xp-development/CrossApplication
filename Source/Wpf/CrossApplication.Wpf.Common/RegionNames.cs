@@ -5,5 +5,6 @@
         public static string MainRegion = "MainRegion";
         public static string RibbonRegion = "RibbonRegion";
         public static string RichRegion = "RichRegion";
+        public static string BackstageRegion = "BackstageRegion";
     }
 }

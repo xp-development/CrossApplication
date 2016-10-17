@@ -10,14 +10,14 @@ namespace CrossApplication.Core.Application.UnitTest._Modules._ModuleCatalog
     public class GetModuleInfos
     {
         [Fact]
-        public void ShouldReturnAddedModuleInfos()
+        public async void ShouldReturnAddedModuleInfos()
         {
             var catalog = new ModuleCatalog();
             catalog.AddModuleInfo(new ModuleInfo {ModuleType = typeof(ModuleA), Name = "ModuleA"});
             catalog.AddModuleInfo(new ModuleInfo {ModuleType = typeof(ModuleB), Name = "ModuleB"});
             catalog.AddModuleInfo(new ModuleInfo {ModuleType = typeof(ModuleC), Name = "ModuleC"});
 
-            var moduleInfos = catalog.GetModuleInfos().ToArray();
+            var moduleInfos = (await catalog.GetModuleInfosAsync()).ToArray();
 
             moduleInfos.Length.Should().Be(3);
             moduleInfos[0].Name.Should().Be("ModuleA");

@@ -29,6 +29,7 @@ namespace CrossApplication.Mail.Wpf
 
         public Task InitializeAsync()
         {
+            _container.RegisterType<ShellViewModel>();
             _container.RegisterType<object, ShellView>(ViewKeys.Shell);
             _container.RegisterType<object, RibbonStartView>(typeof(RibbonStartView).FullName);
 

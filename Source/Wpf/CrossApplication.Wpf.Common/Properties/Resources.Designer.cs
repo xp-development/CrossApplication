@@ -70,6 +70,15 @@ namespace CrossApplication.Wpf.Common.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About.
+        /// </summary>
+        public static string ShellRibbonBackstageAbout {
+            get {
+                return ResourceManager.GetString("ShellRibbonBackstageAbout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Informations.
         /// </summary>
         public static string ShellRibbonBackstageInformations {

@@ -7,6 +7,7 @@
         xmlns:mvvm="http://prismlibrary.com/"
                      xmlns:resources="clr-namespace:CrossApplication.Core.Resources;assembly=CrossApplication.Core.Resources"
                      xmlns:common="clr-namespace:CrossApplication.Wpf.Common;assembly=CrossApplication.Wpf.Common"
+                     xmlns:viewModels="clr-namespace:CrossApplication.Wpf.Common.ViewModels;assembly=CrossApplication.Wpf.Common"
                      mc:Ignorable="d"
         Height="{Binding Source={StaticResource Settings}, Path=Default.ShellHeight, Mode=TwoWay}"
         Width="{Binding Source={StaticResource Settings}, Path=Default.ShellWidth, Mode=TwoWay}"
@@ -14,6 +15,6 @@
         Left="{Binding Source={StaticResource Settings}, Path=Default.ShellLeft, Mode=TwoWay}"
         WindowState="{Binding Source={StaticResource Settings}, Path=Default.ShellWindowState, Mode=TwoWay}"
         Title="{common:Localization ResourceType={x:Type resources:CommonResources}, Name=ApplicationName}"
-        mvvm:ViewModelLocator.AutoWireViewModel="True">
+        viewModels:ViewModelLocator.AutoWireViewModel="True">
     <ContentControl mvvm:RegionManager.RegionName="{x:Static common:RegionNames.RichRegion}" />
 </fluent:RibbonWindow>

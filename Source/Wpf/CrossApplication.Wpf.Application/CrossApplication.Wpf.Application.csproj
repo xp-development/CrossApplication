@@ -118,6 +118,11 @@
       <DependentUpon>ApplicationShellView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Shell\ApplicationShellViewModel.cs" />
+    <Compile Include="Shell\RibbonTabs\AboutView.xaml.cs">
+      <DependentUpon>AboutView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shell\RibbonTabs\AboutViewModel.cs" />
+    <Compile Include="Shell\RibbonTabs\IBackstageTabViewModel.cs" />
     <Compile Include="Shell\RichShellView.xaml.cs">
       <DependentUpon>RichShellView.xaml</DependentUpon>
     </Compile>
@@ -156,6 +161,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Shell\ApplicationShellView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Shell\RibbonTabs\AboutView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

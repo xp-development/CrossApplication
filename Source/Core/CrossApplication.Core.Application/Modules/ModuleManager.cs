@@ -17,7 +17,8 @@ namespace CrossApplication.Core.Application.Modules
 
         public async Task InizializeAsync(string tag = null)
         {
-            foreach (var moduleInfo in _moduleCatalog.GetModuleInfos().Where(x => string.IsNullOrEmpty(tag) || x.Tag == tag))
+            var moduleInfos = await _moduleCatalog.GetModuleInfosAsync();
+            foreach (var moduleInfo in moduleInfos.Where(x => string.IsNullOrEmpty(tag) || x.Tag == tag))
             {
                 var module = _container.Resolve(moduleInfo.ModuleType) as IModule;
                 if (module == null)

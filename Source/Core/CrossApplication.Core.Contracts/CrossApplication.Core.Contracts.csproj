@@ -34,6 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Application\Services\IAboutService.cs" />
     <Compile Include="Common\Container\IContainer.cs" />
     <Compile Include="Common\Container\Lifetime.cs" />
     <Compile Include="Application\Modules\ModuleAttribute.cs" />

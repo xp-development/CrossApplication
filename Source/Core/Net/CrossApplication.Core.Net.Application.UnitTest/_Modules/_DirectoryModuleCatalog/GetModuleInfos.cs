@@ -20,11 +20,11 @@ namespace CrossApplication.Core.Net.Application.UnitTest._Modules._DirectoryModu
         }
 
         [Fact]
-        public void Usage()
+        public async void Usage()
         {
             var catalog = new DirectoryModuleCatalog("./Modules");
 
-            var moduleInfos = catalog.GetModuleInfos().ToArray();
+            var moduleInfos = (await catalog.GetModuleInfosAsync()).ToArray();
 
             moduleInfos.Length.Should().Be(2);
         }

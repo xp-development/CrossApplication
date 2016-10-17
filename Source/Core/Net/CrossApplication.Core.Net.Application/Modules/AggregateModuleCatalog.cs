@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
+using System.Threading.Tasks;
 using CrossApplication.Core.Application.Modules;
 using CrossApplication.Core.Contracts.Application.Modules;
 
@@ -16,9 +16,18 @@ namespace CrossApplication.Core.Net.Application.Modules
             _catalogs.Add(directoryModuleCatalog);
         }
 
-        public IEnumerable<ModuleInfo> GetModuleInfos()
+        public async Task<IEnumerable<ModuleInfo>> GetModuleInfosAsync()
         {
-            return _catalogs.SelectMany(moduleCatalog => moduleCatalog.GetModuleInfos());
+            var moduleInfos = new List<ModuleInfo>();
+            foreach (var moduleCatalog in _catalogs)
+            {
+                foreach (var moduleInfo in await moduleCatalog.GetModuleInfosAsync())
+                {
+                    moduleInfos.Add(moduleInfo);
+                }
+            }
+
+            return moduleInfos;
         }
 
         private readonly List<IModuleCatalog> _catalogs = new List<IModuleCatalog>();

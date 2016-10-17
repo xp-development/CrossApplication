@@ -89,9 +89,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="RegionAdapters\BackstageTabControlAdapter.cs" />
     <Compile Include="RegionAdapters\RibbonRegionAdapter.cs" />
     <Compile Include="RegionNames.cs" />
     <Compile Include="UserManager.cs" />
+    <Compile Include="ViewModels\IViewLoadedAsync.cs" />
+    <Compile Include="ViewModels\ViewModelProvider.cs" />
+    <Compile Include="ViewModels\ViewModelLocator.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.de.resx">

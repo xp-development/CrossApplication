@@ -52,6 +52,10 @@
       <HintPath>..\..\packages\Moq.4.5.22\lib\net45\Moq.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Prism, Version=6.2.0.0, Culture=neutral, PublicKeyToken=91a96d2a154366d8, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Prism.Core.6.2.0\lib\net45\Prism.dll</HintPath>
       <Private>True</Private>
@@ -96,6 +100,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="_Shell\_RibbonTabs\_AboutViewModel\ViewLoadedAsync.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -111,6 +116,10 @@
     <ProjectReference Include="..\..\Core\CrossApplication.Core.Common\CrossApplication.Core.Common.csproj">
       <Project>{6E5DA9CB-61E3-4582-9CCB-AA6D70FBFABF}</Project>
       <Name>CrossApplication.Core.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\CrossApplication.Core.Contracts\CrossApplication.Core.Contracts.csproj">
+      <Project>{D4B1B8A8-8078-4AFA-A702-E71449AFB433}</Project>
+      <Name>CrossApplication.Core.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\CrossApplication.Wpf.Application\CrossApplication.Wpf.Application.csproj">
       <Project>{E2290F54-107F-4D13-9604-FDDFF983596D}</Project>
