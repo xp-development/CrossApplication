@@ -55,6 +55,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Core.Net.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Core.Net.Common.UnitTest", "Core\Net\CrossApplication.Core.Net.Common.UnitTest\CrossApplication.Core.Net.Common.UnitTest.csproj", "{89212447-A75D-4EED-8282-51C0E6B50E09}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Wpf.Themes", "Wpf\CrossApplication.Wpf.Themes\CrossApplication.Wpf.Themes.csproj", "{50CAF89A-FE45-4F39-A093-7119FAA45E0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Core.Themes", "Core\CrossApplication.Core.Themes\CrossApplication.Core.Themes.csproj", "{5EB5D7AB-7D46-47CB-9978-54D70EC768C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Core.Net.Themes", "Core\Net\CrossApplication.Core.Net.Themes\CrossApplication.Core.Net.Themes.csproj", "{9EC03910-7516-4CFD-B69D-B634DE7702FF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -141,6 +147,18 @@ Global
 		{89212447-A75D-4EED-8282-51C0E6B50E09}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89212447-A75D-4EED-8282-51C0E6B50E09}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89212447-A75D-4EED-8282-51C0E6B50E09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50CAF89A-FE45-4F39-A093-7119FAA45E0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50CAF89A-FE45-4F39-A093-7119FAA45E0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50CAF89A-FE45-4F39-A093-7119FAA45E0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50CAF89A-FE45-4F39-A093-7119FAA45E0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EB5D7AB-7D46-47CB-9978-54D70EC768C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EB5D7AB-7D46-47CB-9978-54D70EC768C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EB5D7AB-7D46-47CB-9978-54D70EC768C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EB5D7AB-7D46-47CB-9978-54D70EC768C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EC03910-7516-4CFD-B69D-B634DE7702FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EC03910-7516-4CFD-B69D-B634DE7702FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EC03910-7516-4CFD-B69D-B634DE7702FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EC03910-7516-4CFD-B69D-B634DE7702FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -169,5 +187,8 @@ Global
 		{3C44BF94-BDD3-460F-A470-10624FD33AB7} = {A0F0B07A-D8CB-4A76-BAFC-98F5F7E8B129}
 		{116CCE98-7773-45D6-BFC6-22F506B8E3E3} = {42869309-07FB-43FE-81BD-3C52AA6C9A58}
 		{89212447-A75D-4EED-8282-51C0E6B50E09} = {42869309-07FB-43FE-81BD-3C52AA6C9A58}
+		{50CAF89A-FE45-4F39-A093-7119FAA45E0A} = {E02382C8-899A-4828-9C04-734DBB06382F}
+		{5EB5D7AB-7D46-47CB-9978-54D70EC768C3} = {429ED231-9DE0-4B4C-8C35-E1B41C7294BA}
+		{9EC03910-7516-4CFD-B69D-B634DE7702FF} = {42869309-07FB-43FE-81BD-3C52AA6C9A58}
 	EndGlobalSection
 EndGlobal

@@ -74,8 +74,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Module.cs" />
-    <Compile Include="NavigationBar.cs" />
-    <Compile Include="NavigationBarTemplateSelector.cs" />
     <Compile Include="Navigation\NavigationItem.cs" />
     <Compile Include="Navigation\NavigationService.cs" />
     <Compile Include="Navigation\ViewManager.cs" />
@@ -91,7 +89,6 @@
     <Compile Include="RegionAdapters\BackstageTabControlAdapter.cs" />
     <Compile Include="RegionAdapters\RibbonRegionAdapter.cs" />
     <Compile Include="RegionNames.cs" />
-    <Compile Include="Themes\Colors.cs" />
     <Compile Include="UserManager.cs" />
     <Compile Include="ViewModels\IViewLoadedAsync.cs" />
     <Compile Include="ViewModels\ViewModelProvider.cs" />
@@ -106,39 +103,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Themes\Generic\Generic.txt">
-      <SubType>Designer</SubType>
-    </None>
-    <Page Include="Themes\Generic\Generic.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Themes\Generic\BaseControlStyles\LabelStyle.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\Generic\BaseControlStyles\TextBlockStyle.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Themes\Generic\NamedStyles\CaptionStyle.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Themes\Generic\NamedStyles\HyperlinkButtonStyle.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Themes\Generic\CustomControlsStyles\NavigationBarStyle.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Themes\Light\Colors.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -168,14 +132,7 @@
       <Name>CrossApplication.Wpf.Contracts</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="Themes\XamlCombine.exe" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PreBuildEvent>
-"$(ProjectDir)Themes\XamlCombine.exe" Generic\Generic.txt Generic\Generic.xaml</PreBuildEvent>
-  </PropertyGroup>
   <Target Name="BeforeBuild">
   </Target>
   <Target Name="AfterBuild">

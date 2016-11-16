@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace CrossApplication.Wpf.Common.Themes
+namespace CrossApplication.Wpf.Themes.Themes
 {
     public static class Colors
     {

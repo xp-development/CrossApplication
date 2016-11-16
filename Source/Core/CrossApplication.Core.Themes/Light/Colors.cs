@@ -1,4 +1,4 @@
-﻿namespace CrossApplication.Core.Application.Themes.Light
+﻿namespace CrossApplication.Core.Themes.Light
 {
     public static class Colors
     {

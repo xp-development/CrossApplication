@@ -207,6 +207,10 @@
       <Project>{ADD00E03-B090-4AF7-A9F0-5B20DF299A9E}</Project>
       <Name>CrossApplication.Core.Net.Contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Core\Net\CrossApplication.Core.Net.Themes\CrossApplication.Core.Net.Themes.csproj">
+      <Project>{9ec03910-7516-4cfd-b69d-b634de7702ff}</Project>
+      <Name>CrossApplication.Core.Net.Themes</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CrossApplication.Wpf.Common\CrossApplication.Wpf.Common.csproj">
       <Project>{5c6b8785-7e1e-4a4a-accd-db14a6d68cc1}</Project>
       <Name>CrossApplication.Wpf.Common</Name>
@@ -214,6 +218,10 @@
     <ProjectReference Include="..\CrossApplication.Wpf.Contracts\CrossApplication.Wpf.Contracts.csproj">
       <Project>{25b722b3-fb2d-499c-bd67-2ec24d8c72f7}</Project>
       <Name>CrossApplication.Wpf.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CrossApplication.Wpf.Themes\CrossApplication.Wpf.Themes.csproj">
+      <Project>{50CAF89A-FE45-4F39-A093-7119FAA45E0A}</Project>
+      <Name>CrossApplication.Wpf.Themes</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

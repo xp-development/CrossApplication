@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:CrossApplication.Wpf.Common">
+                    xmlns:local="clr-namespace:CrossApplication.Wpf.Themes.Controls">
     <Style TargetType="{x:Type local:NavigationBar}">
         <Setter Property="Template">
             <Setter.Value>

@@ -10,6 +10,7 @@
              xmlns:common="clr-namespace:CrossApplication.Wpf.Common;assembly=CrossApplication.Wpf.Common"
              xmlns:shell="clr-namespace:CrossApplication.Wpf.Application.Shell"
              xmlns:viewModels="clr-namespace:CrossApplication.Wpf.Common.ViewModels;assembly=CrossApplication.Wpf.Common"
+             xmlns:controls="clr-namespace:CrossApplication.Wpf.Themes.Controls;assembly=CrossApplication.Wpf.Themes"
              mc:Ignorable="d" viewModels:ViewModelLocator.AutoWireViewModel="True"
              d:DataContext="{d:DesignInstance shell:RichShellViewModel}">
     <i:Interaction.Triggers>
@@ -36,14 +37,14 @@
             </fluent:Ribbon.Menu>
         </fluent:Ribbon>
         <ContentControl mvvm:RegionManager.RegionName="{x:Static common:RegionNames.MainRegion}" Grid.Row="1" />
-        <common:NavigationBar FontSize="20" ItemsSource="{Binding NavigationItems}" MaximumCountVisibleElements="2"
+        <controls:NavigationBar FontSize="20" ItemsSource="{Binding NavigationItems}" MaximumCountVisibleElements="2"
                               Grid.Row="2">
-            <common:NavigationBar.BarItemTemplate>
+            <controls:NavigationBar.BarItemTemplate>
                 <DataTemplate>
                     <Button Content="{Binding Path=Label}" Style="{StaticResource HyperlinkButtonStyle}"
                             Command="{Binding Path=NavigateCommand}" />
                 </DataTemplate>
-            </common:NavigationBar.BarItemTemplate>
-        </common:NavigationBar>
+            </controls:NavigationBar.BarItemTemplate>
+        </controls:NavigationBar>
     </Grid>
 </UserControl>

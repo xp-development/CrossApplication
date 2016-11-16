@@ -7,7 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 
-namespace CrossApplication.Wpf.Common
+namespace CrossApplication.Wpf.Themes.Controls
 {
     public class NavigationBar : Control, INotifyPropertyChanged
     {

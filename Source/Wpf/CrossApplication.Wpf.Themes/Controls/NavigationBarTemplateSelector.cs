@@ -2,7 +2,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace CrossApplication.Wpf.Common
+namespace CrossApplication.Wpf.Themes.Controls
 {
     public class NavigationBarTemplateSelector : DataTemplateSelector
     {
