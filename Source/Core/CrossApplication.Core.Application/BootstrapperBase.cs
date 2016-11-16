@@ -24,6 +24,7 @@ namespace CrossApplication.Core.Application
             ConfigureRegionAdapterMappings();
             ConfigureDefaultRegionBehaviors();
             RegisterFrameworkExceptionTypes();
+            await LoadThemeAsync();
             CreateShell();
 
             Container.RegisterInstance(CreateModuleCatalog());
@@ -34,6 +35,11 @@ namespace CrossApplication.Core.Application
             InitializeShell();
             await ActivateInfrastructureModulesAsync(moduleManager);
             await ActivateModulesAsync(moduleManager);
+        }
+
+        protected virtual Task LoadThemeAsync()
+        {
+            return Task.FromResult(false);
         }
 
         protected virtual void ConfigureViewModelLocator()

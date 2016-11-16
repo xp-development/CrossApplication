@@ -1,11 +1,15 @@
-﻿using System.Windows;
+﻿using System;
+using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using CrossApplication.Core.Contracts.Application.Modules;
+using CrossApplication.Core.Contracts.Application.Theming;
 using CrossApplication.Core.Contracts.Common.Container;
 using CrossApplication.Core.Contracts.Common.Navigation;
 using CrossApplication.Core.Net.Application.Modules;
 using CrossApplication.Wpf.Application.Login;
+using CrossApplication.Wpf.Application.Properties;
 using CrossApplication.Wpf.Application.Shell;
 using CrossApplication.Wpf.Application.Shell.RibbonTabs;
 using CrossApplication.Wpf.Common;
@@ -60,6 +64,25 @@ namespace CrossApplication.Wpf.Application
             regionAdapterMappings.RegisterMapping(typeof(ContentControl), ServiceLocator.Current.GetInstance<ContentControlRegionAdapter>());
             regionAdapterMappings.RegisterMapping(typeof(Ribbon), Container.Resolve<RibbonRegionAdapter>());
             regionAdapterMappings.RegisterMapping(typeof(Backstage), Container.Resolve<BackstageTabControlAdapter>());
+        }
+
+        protected override Task LoadThemeAsync()
+        {
+            ResourceDictionary myResourceDictionary;
+            switch (Settings.Default.Theme)
+            {
+                case Theme.Light:
+                  myResourceDictionary = new ResourceDictionary { Source = new Uri("/CrossApplication.Wpf.Common;component/Themes/Light/Colors.xaml", UriKind.Relative) };
+                  break;
+                default:
+                  myResourceDictionary = new ResourceDictionary { Source = new Uri("/CrossApplication.Wpf.Common;component/Themes/Light/Colors.xaml", UriKind.Relative) };
+                  break;
+            }
+
+            System.Windows.Application.Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("/Fluent;component/themes/office2013/generic.xaml", UriKind.Relative) });
+            System.Windows.Application.Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("/CrossApplication.Wpf.Common;component/Themes/Generic/Generic.xaml", UriKind.Relative) });
+            System.Windows.Application.Current.Resources.MergedDictionaries.Add(myResourceDictionary);
+            return base.LoadThemeAsync();
         }
 
         protected override void ConfigureViewModelLocator()

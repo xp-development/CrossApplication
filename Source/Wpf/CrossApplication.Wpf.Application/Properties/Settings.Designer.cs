@@ -94,5 +94,17 @@ namespace CrossApplication.Wpf.Application.Properties {
                 this["ApplicationCulture"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Light")]
+        public global::CrossApplication.Core.Contracts.Application.Theming.Theme Theme {
+            get {
+                return ((global::CrossApplication.Core.Contracts.Application.Theming.Theme)(this["Theme"]));
+            }
+            set {
+                this["Theme"] = value;
+            }
+        }
     }
 }
