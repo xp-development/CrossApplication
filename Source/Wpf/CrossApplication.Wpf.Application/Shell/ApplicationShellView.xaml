@@ -14,7 +14,7 @@
         Top="{Binding Source={StaticResource Settings}, Path=Default.ShellTop, Mode=TwoWay}"
         Left="{Binding Source={StaticResource Settings}, Path=Default.ShellLeft, Mode=TwoWay}"
         WindowState="{Binding Source={StaticResource Settings}, Path=Default.ShellWindowState, Mode=TwoWay}"
-        Title="{common:Localization ResourceType={x:Type resources:CommonResources}, Name=ApplicationName}"
+        Title="{x:Static resources:CommonResources.ApplicationName}"
         viewModels:ViewModelLocator.AutoWireViewModel="True">
     <ContentControl mvvm:RegionManager.RegionName="{x:Static common:RegionNames.RichRegion}" />
 </fluent:RibbonWindow>

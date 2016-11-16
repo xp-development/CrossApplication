@@ -5,10 +5,9 @@
                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                       xmlns:fluent="urn:fluent-ribbon"
                       xmlns:properties="clr-namespace:CrossApplication.Wpf.Common.Properties;assembly=CrossApplication.Wpf.Common"
-                      xmlns:common="clr-namespace:CrossApplication.Wpf.Common;assembly=CrossApplication.Wpf.Common"
                       mc:Ignorable="d"
-                      Header="{common:Localization ResourceType={x:Type properties:Resources}, Name=ShellRibbonTabStart}">
-    <fluent:RibbonGroupBox Header="{common:Localization ResourceType={x:Type properties:Resources}, Name=ShellRibbonTabStartGroupNew}">
-        <fluent:Button Header="{common:Localization ResourceType={x:Type properties:Resources}, Name=ShellRibbonTabStartGroupNewNewMail}" />
+                      Header="{x:Static properties:Resources.ShellRibbonTabStart}">
+    <fluent:RibbonGroupBox Header="{x:Static properties:Resources.ShellRibbonTabStartGroupNew}">
+        <fluent:Button Header="{x:Static properties:Resources.ShellRibbonTabStartGroupNewNewMail}" />
     </fluent:RibbonGroupBox>
 </fluent:RibbonTabItem>

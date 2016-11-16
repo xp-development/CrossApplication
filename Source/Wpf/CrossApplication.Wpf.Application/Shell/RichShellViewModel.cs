@@ -2,7 +2,6 @@
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
-using CrossApplication.Core.Common;
 using CrossApplication.Core.Contracts.Common.Navigation;
 using CrossApplication.Core.Net.Contracts.Navigation;
 using CrossApplication.Wpf.Application.Shell.RibbonTabs;
@@ -34,7 +33,7 @@ namespace CrossApplication.Wpf.Application.Shell
             _regionManager = regionManager;
             NotificationRequest = notificationRequest;
 
-            ManageAccountsCommand = new DelegateCommand(() => NotificationRequest.Raise(new Notification {Title = LocalizationManager.Get(typeof(Common.Properties.Resources), "AccountManagementTitle")}));
+            ManageAccountsCommand = new DelegateCommand(() => NotificationRequest.Raise(new Notification {Title = Common.Properties.Resources.AccountManagementTitle}));
         }
 
         public Task OnViewLoadedAsync()

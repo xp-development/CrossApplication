@@ -74,7 +74,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Module.cs" />
-    <Compile Include="LocalizationExtension.cs" />
     <Compile Include="NavigationBar.cs" />
     <Compile Include="NavigationBarTemplateSelector.cs" />
     <Compile Include="Navigation\NavigationItem.cs" />
