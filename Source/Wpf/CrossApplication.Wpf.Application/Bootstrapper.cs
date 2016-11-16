@@ -7,7 +7,7 @@ using CrossApplication.Core.Contracts.Application.Modules;
 using CrossApplication.Core.Contracts.Application.Theming;
 using CrossApplication.Core.Contracts.Common.Container;
 using CrossApplication.Core.Contracts.Common.Navigation;
-using CrossApplication.Core.Net.Application.Modules;
+using CrossApplication.Core.Net.Common.Modules;
 using CrossApplication.Wpf.Application.Login;
 using CrossApplication.Wpf.Application.Properties;
 using CrossApplication.Wpf.Application.Shell;
@@ -20,7 +20,7 @@ using Fluent;
 using Microsoft.Practices.ServiceLocation;
 using Prism.Regions;
 using Prism.Regions.Behaviors;
-using BootstrapperBase = CrossApplication.Core.Net.Application.BootstrapperBase;
+using BootstrapperBase = CrossApplication.Core.Net.Common.BootstrapperBase;
 
 namespace CrossApplication.Wpf.Application
 {

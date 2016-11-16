@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using CrossApplication.Core.Contracts.Application.Modules;
 using CrossApplication.Core.Contracts.Common.Container;
-using CrossApplication.Core.Net.Application.Navigation;
+using CrossApplication.Core.Net.Common.Navigation;
 using CrossApplication.Core.Net.Contracts.Navigation;
 using CrossApplication.Mail.Core.Navigation;
 

@@ -111,19 +111,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\CrossApplication.Core.Application\CrossApplication.Core.Application.csproj">
-      <Project>{b89655fb-6f0a-4a5d-8bf0-d0ea43b90911}</Project>
-      <Name>CrossApplication.Core.Application</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Core\CrossApplication.Core.Common\CrossApplication.Core.Common.csproj">
-      <Project>{6E5DA9CB-61E3-4582-9CCB-AA6D70FBFABF}</Project>
+      <Project>{b89655fb-6f0a-4a5d-8bf0-d0ea43b90911}</Project>
       <Name>CrossApplication.Core.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Core\CrossApplication.Core.Contracts\CrossApplication.Core.Contracts.csproj">
       <Project>{d4b1b8a8-8078-4afa-a702-e71449afb433}</Project>
       <Name>CrossApplication.Core.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Core\Net\CrossApplication.Core.Net.Application\CrossApplication.Core.Net.Application.csproj">
+    <ProjectReference Include="..\..\Core\Net\CrossApplication.Core.Net.Common\CrossApplication.Core.Net.Common.csproj">
       <Project>{a987fdaa-c4bc-4854-a70c-bf803c0100a0}</Project>
       <Name>CrossApplication.Core.Net.Application</Name>
     </ProjectReference>

@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:themes="clr-namespace:CrossApplication.Wpf.Themes.Themes"
-                    xmlns:light1="clr-namespace:CrossApplication.Core.Net.Themes.Light;assembly=CrossApplication.Core.Net.Themes">
+                    xmlns:light1="clr-namespace:CrossApplication.Core.Net.Themes.Light;assembly=CrossApplication.Core.Net.Themes"
+                    xmlns:themes="clr-namespace:CrossApplication.Wpf.Themes">
     <SolidColorBrush x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type themes:Colors}, ResourceId=TextColorKey}" Color="{x:Static light1:Colors.TextColor}"  />
 </ResourceDictionary>

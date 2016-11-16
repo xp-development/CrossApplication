@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CrossApplication.Core.Net.Common")]
+[assembly: AssemblyTitle("CrossApplication.Core.Common.UnitTest")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("CrossApplication.Core.Net.Common")]
+[assembly: AssemblyProduct("CrossApplication.Core.Common.UnitTest")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("a987fdaa-c4bc-4854-a70c-bf803c0100a0")]
+[assembly: Guid("938b80d9-2053-4b36-a126-1f4a471ee790")]
 
 // Version information for an assembly consists of the following four values:
 //

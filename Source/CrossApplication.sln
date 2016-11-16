@@ -9,11 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Core.Contr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Core.Resources", "Core\CrossApplication.Core.Resources\CrossApplication.Core.Resources.csproj", "{084E738C-B285-4EA7-A01F-53E80491774B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Core.Application", "Core\CrossApplication.Core.Application\CrossApplication.Core.Application.csproj", "{B89655FB-6F0A-4A5D-8BF0-D0EA43B90911}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Core.Common", "Core\CrossApplication.Core.Common\CrossApplication.Core.Common.csproj", "{B89655FB-6F0A-4A5D-8BF0-D0EA43B90911}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Core.Services", "Core\CrossApplication.Core.Services\CrossApplication.Core.Services.csproj", "{FC2A50DE-2564-4127-BAC4-9EA5931E9297}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Core.Common", "Core\CrossApplication.Core.Common\CrossApplication.Core.Common.csproj", "{6E5DA9CB-61E3-4582-9CCB-AA6D70FBFABF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Wpf", "Wpf", "{E02382C8-899A-4828-9C04-734DBB06382F}"
 EndProject
@@ -37,23 +35,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Mail.Wpf.U
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Mail.Core", "Mail\CrossApplication.Mail.Core\CrossApplication.Mail.Core.csproj", "{AB8263CB-B58C-4F7B-9E68-EBE89EDFF341}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Core.Application.UnitTest", "Core\CrossApplication.Core.Application.UnitTest\CrossApplication.Core.Application.UnitTest.csproj", "{938B80D9-2053-4B36-A126-1F4A471EE790}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Core.Common.UnitTest", "Core\CrossApplication.Core.Common.UnitTest\CrossApplication.Core.Common.UnitTest.csproj", "{938B80D9-2053-4B36-A126-1F4A471EE790}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Core.Net.Application", "Core\Net\CrossApplication.Core.Net.Application\CrossApplication.Core.Net.Application.csproj", "{A987FDAA-C4BC-4854-A70C-BF803C0100A0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Core.Net.Common", "Core\Net\CrossApplication.Core.Net.Common\CrossApplication.Core.Net.Common.csproj", "{A987FDAA-C4BC-4854-A70C-BF803C0100A0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Net", "Net", "{42869309-07FB-43FE-81BD-3C52AA6C9A58}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Core.Net.Application.UnitTest", "Core\Net\CrossApplication.Core.Net.Application.UnitTest\CrossApplication.Core.Net.Application.UnitTest.csproj", "{5D2FF9E6-0258-4B90-98F4-BC0C8CAF6942}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Core.Net.Common.UnitTest", "Core\Net\CrossApplication.Core.Net.Common.UnitTest\CrossApplication.Core.Net.Common.UnitTest.csproj", "{5D2FF9E6-0258-4B90-98F4-BC0C8CAF6942}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Core.Net.Contracts", "Core\Net\CrossApplication.Core.Net.Contracts\CrossApplication.Core.Net.Contracts.csproj", "{ADD00E03-B090-4AF7-A9F0-5B20DF299A9E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Mail.Core.Net", "Mail\Net\CrossApplication.Mail.Core.Net\CrossApplication.Mail.Core.Net.csproj", "{94F23661-D101-4258-BA92-0E26EEF2AAC9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Net", "Net", "{3C44BF94-BDD3-460F-A470-10624FD33AB7}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Core.Net.Common", "Core\Net\CrossApplication.Core.Net.Common\CrossApplication.Core.Net.Common.csproj", "{116CCE98-7773-45D6-BFC6-22F506B8E3E3}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Core.Net.Common.UnitTest", "Core\Net\CrossApplication.Core.Net.Common.UnitTest\CrossApplication.Core.Net.Common.UnitTest.csproj", "{89212447-A75D-4EED-8282-51C0E6B50E09}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Wpf.Themes", "Wpf\CrossApplication.Wpf.Themes\CrossApplication.Wpf.Themes.csproj", "{50CAF89A-FE45-4F39-A093-7119FAA45E0A}"
 EndProject
@@ -83,10 +77,6 @@ Global
 		{FC2A50DE-2564-4127-BAC4-9EA5931E9297}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC2A50DE-2564-4127-BAC4-9EA5931E9297}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC2A50DE-2564-4127-BAC4-9EA5931E9297}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6E5DA9CB-61E3-4582-9CCB-AA6D70FBFABF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6E5DA9CB-61E3-4582-9CCB-AA6D70FBFABF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6E5DA9CB-61E3-4582-9CCB-AA6D70FBFABF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6E5DA9CB-61E3-4582-9CCB-AA6D70FBFABF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5C6B8785-7E1E-4A4A-ACCD-DB14A6D68CC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5C6B8785-7E1E-4A4A-ACCD-DB14A6D68CC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C6B8785-7E1E-4A4A-ACCD-DB14A6D68CC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -139,14 +129,6 @@ Global
 		{94F23661-D101-4258-BA92-0E26EEF2AAC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94F23661-D101-4258-BA92-0E26EEF2AAC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94F23661-D101-4258-BA92-0E26EEF2AAC9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{116CCE98-7773-45D6-BFC6-22F506B8E3E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{116CCE98-7773-45D6-BFC6-22F506B8E3E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{116CCE98-7773-45D6-BFC6-22F506B8E3E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{116CCE98-7773-45D6-BFC6-22F506B8E3E3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{89212447-A75D-4EED-8282-51C0E6B50E09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{89212447-A75D-4EED-8282-51C0E6B50E09}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{89212447-A75D-4EED-8282-51C0E6B50E09}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{89212447-A75D-4EED-8282-51C0E6B50E09}.Release|Any CPU.Build.0 = Release|Any CPU
 		{50CAF89A-FE45-4F39-A093-7119FAA45E0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{50CAF89A-FE45-4F39-A093-7119FAA45E0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50CAF89A-FE45-4F39-A093-7119FAA45E0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -168,7 +150,6 @@ Global
 		{084E738C-B285-4EA7-A01F-53E80491774B} = {429ED231-9DE0-4B4C-8C35-E1B41C7294BA}
 		{B89655FB-6F0A-4A5D-8BF0-D0EA43B90911} = {429ED231-9DE0-4B4C-8C35-E1B41C7294BA}
 		{FC2A50DE-2564-4127-BAC4-9EA5931E9297} = {429ED231-9DE0-4B4C-8C35-E1B41C7294BA}
-		{6E5DA9CB-61E3-4582-9CCB-AA6D70FBFABF} = {429ED231-9DE0-4B4C-8C35-E1B41C7294BA}
 		{5C6B8785-7E1E-4A4A-ACCD-DB14A6D68CC1} = {E02382C8-899A-4828-9C04-734DBB06382F}
 		{D49EE332-8C7D-45F9-8368-8A0C651868AB} = {E02382C8-899A-4828-9C04-734DBB06382F}
 		{25B722B3-FB2D-499C-BD67-2EC24D8C72F7} = {E02382C8-899A-4828-9C04-734DBB06382F}
@@ -185,8 +166,6 @@ Global
 		{ADD00E03-B090-4AF7-A9F0-5B20DF299A9E} = {42869309-07FB-43FE-81BD-3C52AA6C9A58}
 		{94F23661-D101-4258-BA92-0E26EEF2AAC9} = {3C44BF94-BDD3-460F-A470-10624FD33AB7}
 		{3C44BF94-BDD3-460F-A470-10624FD33AB7} = {A0F0B07A-D8CB-4A76-BAFC-98F5F7E8B129}
-		{116CCE98-7773-45D6-BFC6-22F506B8E3E3} = {42869309-07FB-43FE-81BD-3C52AA6C9A58}
-		{89212447-A75D-4EED-8282-51C0E6B50E09} = {42869309-07FB-43FE-81BD-3C52AA6C9A58}
 		{50CAF89A-FE45-4F39-A093-7119FAA45E0A} = {E02382C8-899A-4828-9C04-734DBB06382F}
 		{5EB5D7AB-7D46-47CB-9978-54D70EC768C3} = {429ED231-9DE0-4B4C-8C35-E1B41C7294BA}
 		{9EC03910-7516-4CFD-B69D-B634DE7702FF} = {42869309-07FB-43FE-81BD-3C52AA6C9A58}
