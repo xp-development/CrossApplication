@@ -12,14 +12,16 @@ namespace CrossApplication.Wpf.Application.UnitTest._Shell._RibbonTabs._AboutVie
 {
     public class ViewLoadedAsync
     {
-        [Fact]
-        public async void ShouldSetVersion()
+        private static AboutViewModel GetInitializedAboutViewModel()
         {
-            var viewModel = GetInitializedAboutViewModel();
-
-            await viewModel.OnViewLoadedAsync();
-
-            viewModel.Version.Should().Be(new Version(1, 2, 3, 4));
+            var aboutServiceMock = new Mock<IAboutService>();
+            aboutServiceMock.Setup(x => x.GetVersionAsync()).Returns(Task.FromResult(new Version(1, 2, 3, 4)));
+            aboutServiceMock.Setup(x => x.GetModuleInfosAsync()).Returns(Task.FromResult<IEnumerable<ModuleInfo>>(new List<ModuleInfo>
+            {
+                new ModuleInfo {Name = "MyModule"},
+                new ModuleInfo {Name = "MyModule2"}
+            }));
+            return new AboutViewModel(aboutServiceMock.Object);
         }
 
         [Fact]
@@ -34,16 +36,14 @@ namespace CrossApplication.Wpf.Application.UnitTest._Shell._RibbonTabs._AboutVie
             viewModel.ModuleInfos[1].Name.Should().Be("MyModule2");
         }
 
-        private static AboutViewModel GetInitializedAboutViewModel()
+        [Fact]
+        public async void ShouldSetVersion()
         {
-            var aboutServiceMock = new Mock<IAboutService>();
-            aboutServiceMock.Setup(x => x.GetVersionAsync()).Returns(Task.FromResult(new Version(1, 2, 3, 4)));
-            aboutServiceMock.Setup(x => x.GetModuleInfosAsync()).Returns(Task.FromResult<IEnumerable<ModuleInfo>>(new List<ModuleInfo>
-            {
-                new ModuleInfo { Name = "MyModule" },
-                new ModuleInfo { Name = "MyModule2" }
-            }));
-            return new AboutViewModel(aboutServiceMock.Object);
+            var viewModel = GetInitializedAboutViewModel();
+
+            await viewModel.OnViewLoadedAsync();
+
+            viewModel.Version.Should().Be(new Version(1, 2, 3, 4));
         }
     }
 }

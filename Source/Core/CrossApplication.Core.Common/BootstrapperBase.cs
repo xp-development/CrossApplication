@@ -11,7 +11,6 @@ namespace CrossApplication.Core.Common
     public abstract class BootstrapperBase
     {
         protected IContainer Container { get; private set; }
-        private ILoggerFacade _logger;
 
         public async Task Run()
         {
@@ -108,5 +107,7 @@ namespace CrossApplication.Core.Common
             Container.RegisterType<IModuleManager, ModuleManager>(Lifetime.PerContainer);
             Container.RegisterInstance(_logger);
         }
+
+        private ILoggerFacade _logger;
     }
 }

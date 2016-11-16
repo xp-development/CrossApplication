@@ -5,7 +5,8 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:NavigationBar}">
-                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
                         <Border.Resources>
                             <Style TargetType="ContentPresenter" x:Key="ItemContainerStyle">
                                 <Setter Property="Margin" Value="10" />
@@ -14,12 +15,15 @@
                                 <ContentControl Content="{Binding}" />
                             </DataTemplate>
                             <DataTemplate x:Key="BarItemContextMenuTemplate">
-                                <ContentControl Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:NavigationBar}, Path=ContextItems}" Content="...">
+                                <ContentControl
+                                    Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:NavigationBar}, Path=ContextItems}"
+                                    Content="...">
                                     <ContentControl.Style>
                                         <Style TargetType="ContentControl">
                                             <Setter Property="ContextMenu">
                                                 <Setter.Value>
-                                                    <ContextMenu ItemsSource="{Binding Path=PlacementTarget.Tag, RelativeSource={RelativeSource Self}}" />
+                                                    <ContextMenu
+                                                        ItemsSource="{Binding Path=PlacementTarget.Tag, RelativeSource={RelativeSource Self}}" />
                                                 </Setter.Value>
                                             </Setter>
                                         </Style>
@@ -28,12 +32,15 @@
                             </DataTemplate>
                             <local:NavigationBarTemplateSelector x:Key="NavigationBarTemplateSelector" />
                         </Border.Resources>
-                        <ItemsControl ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BarItems}"
-                                      ItemTemplateSelector="{StaticResource NavigationBarTemplateSelector}"
-                                      ItemContainerStyle="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ItemContainerStyle, TargetNullValue={StaticResource ItemContainerStyle}}">
+                        <ItemsControl
+                            ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BarItems}"
+                            ItemTemplateSelector="{StaticResource NavigationBarTemplateSelector}"
+                            ItemContainerStyle="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=ItemContainerStyle, TargetNullValue={StaticResource ItemContainerStyle}}">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
-                                    <StackPanel Orientation="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:NavigationBar}, Path=BarItemsOrientation}" IsItemsHost="True" />
+                                    <StackPanel
+                                        Orientation="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:NavigationBar}, Path=BarItemsOrientation}"
+                                        IsItemsHost="True" />
                                 </ItemsPanelTemplate>
                             </ItemsControl.ItemsPanel>
                         </ItemsControl>

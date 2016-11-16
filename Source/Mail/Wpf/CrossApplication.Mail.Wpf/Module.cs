@@ -19,14 +19,6 @@ namespace CrossApplication.Mail.Wpf
             _viewManager = viewManager;
         }
 
-        private void RegisterViews()
-        {
-            var shell = new ViewItem(ViewKeys.Shell, false, RegionNames.MainRegion);
-            shell.SubViewItems.Add(new ViewItem(typeof(RibbonStartView).FullName, false, RegionNames.RibbonRegion));
-
-            _viewManager.AddViewItem(shell);
-        }
-
         public Task InitializeAsync()
         {
             _container.RegisterType<ShellViewModel>();
@@ -43,8 +35,17 @@ namespace CrossApplication.Mail.Wpf
             return Task.FromResult(false);
         }
 
-        private readonly INavigationService _navigationService;
+        private void RegisterViews()
+        {
+            var shell = new ViewItem(ViewKeys.Shell, false, RegionNames.MainRegion);
+            shell.SubViewItems.Add(new ViewItem(typeof(RibbonStartView).FullName, false, RegionNames.RibbonRegion));
+
+            _viewManager.AddViewItem(shell);
+        }
+
         private readonly IContainer _container;
+
+        private readonly INavigationService _navigationService;
         private readonly IViewManager _viewManager;
     }
 }

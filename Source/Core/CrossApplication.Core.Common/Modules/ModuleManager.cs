@@ -39,8 +39,9 @@ namespace CrossApplication.Core.Common.Modules
             }
         }
 
-        private readonly IModuleCatalog _moduleCatalog;
         private readonly IContainer _container;
+
+        private readonly IModuleCatalog _moduleCatalog;
         private readonly IDictionary<ModuleInfo, IModule> _modules = new Dictionary<ModuleInfo, IModule>();
     }
 }

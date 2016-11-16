@@ -9,6 +9,16 @@ namespace CrossApplication.Wpf.Common.UnitTest.Navigation._ViewManager
     public class GetViewItem
     {
         [Fact]
+        public void ShouldThrowArgumentExceptionIfViewKeyWasNotAdded()
+        {
+            var viewManager = new ViewManager();
+
+            var action = new Action(() => viewManager.GetViewItem("ViewKey"));
+
+            action.ShouldThrow<ArgumentException>().Which.ParamName.Should().Be("viewKey");
+        }
+
+        [Fact]
         public void Usage()
         {
             const string viewKey = "ViewKey";
@@ -22,16 +32,6 @@ namespace CrossApplication.Wpf.Common.UnitTest.Navigation._ViewManager
             viewItem.RegionName.Should().Be(regionName);
             viewItem.IsAuthorizationRequired.Should().BeFalse();
             viewItem.SubViewItems.Count.Should().Be(0);
-        }
-
-        [Fact]
-        public void ShouldThrowArgumentExceptionIfViewKeyWasNotAdded()
-        {
-            var viewManager = new ViewManager();
-
-            var action = new Action(() =>viewManager.GetViewItem("ViewKey"));
-
-            action.ShouldThrow<ArgumentException>().Which.ParamName.Should().Be("viewKey");
         }
     }
 }

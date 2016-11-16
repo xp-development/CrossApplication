@@ -15,7 +15,7 @@ namespace CrossApplication.Wpf.Application.Shell.RibbonTabs
             get { return _version; }
             set
             {
-                _version = value; 
+                _version = value;
                 OnPropertyChanged();
             }
         }

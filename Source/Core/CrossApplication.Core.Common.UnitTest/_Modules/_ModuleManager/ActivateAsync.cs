@@ -47,7 +47,7 @@ namespace CrossApplication.Core.Common.UnitTest._Modules._ModuleManager
             moduleCatalogMock.Setup(x => x.GetModuleInfosAsync()).Returns(Task.FromResult<IEnumerable<ModuleInfo>>(new List<ModuleInfo>
             {
                 new ModuleInfo {Name = "ModuleA", ModuleType = typeof(ModuleA)},
-                new ModuleInfo {Name = "ModuleB", ModuleType = typeof(ModuleB), Tag = ModuleTags.Infrastructure },
+                new ModuleInfo {Name = "ModuleB", ModuleType = typeof(ModuleB), Tag = ModuleTags.Infrastructure},
                 new ModuleInfo {Name = "ModuleC", ModuleType = typeof(ModuleC)}
             }));
             var moduleB = new ModuleB();

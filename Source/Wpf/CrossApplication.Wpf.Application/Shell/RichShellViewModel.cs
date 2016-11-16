@@ -7,6 +7,7 @@ using CrossApplication.Core.Net.Contracts.Navigation;
 using CrossApplication.Wpf.Application.Shell.RibbonTabs;
 using CrossApplication.Wpf.Common;
 using CrossApplication.Wpf.Common.Navigation;
+using CrossApplication.Wpf.Common.Properties;
 using CrossApplication.Wpf.Common.ViewModels;
 using Prism.Commands;
 using Prism.Interactivity.InteractionRequest;
@@ -16,16 +17,13 @@ namespace CrossApplication.Wpf.Application.Shell
 {
     public class RichShellViewModel : IViewLoadedAsync
     {
-        private readonly IEnumerable<IMainNavigationItem> _mainNavigationItems;
-        private readonly INavigationService _navigationService;
-        private readonly IEnumerable<IBackstageTabViewModel> _backstageTabs;
-        private readonly IRegionManager _regionManager;
         public ObservableCollection<NavigationItem> NavigationItems { get; set; } = new ObservableCollection<NavigationItem>();
 
         public DelegateCommand ManageAccountsCommand { get; }
         public InteractionRequest<INotification> NotificationRequest { get; }
 
-        public RichShellViewModel(InteractionRequest<INotification> notificationRequest, IEnumerable<IMainNavigationItem> mainNavigationItems, INavigationService navigationService, IEnumerable<IBackstageTabViewModel> backstageTabs, IRegionManager regionManager)
+        public RichShellViewModel(InteractionRequest<INotification> notificationRequest, IEnumerable<IMainNavigationItem> mainNavigationItems, INavigationService navigationService, IEnumerable<IBackstageTabViewModel> backstageTabs,
+            IRegionManager regionManager)
         {
             _mainNavigationItems = mainNavigationItems;
             _navigationService = navigationService;
@@ -33,7 +31,7 @@ namespace CrossApplication.Wpf.Application.Shell
             _regionManager = regionManager;
             NotificationRequest = notificationRequest;
 
-            ManageAccountsCommand = new DelegateCommand(() => NotificationRequest.Raise(new Notification {Title = Common.Properties.Resources.AccountManagementTitle}));
+            ManageAccountsCommand = new DelegateCommand(() => NotificationRequest.Raise(new Notification {Title = Resources.AccountManagementTitle}));
         }
 
         public Task OnViewLoadedAsync()
@@ -50,5 +48,10 @@ namespace CrossApplication.Wpf.Application.Shell
 
             return Task.FromResult(false);
         }
+
+        private readonly IEnumerable<IBackstageTabViewModel> _backstageTabs;
+        private readonly IEnumerable<IMainNavigationItem> _mainNavigationItems;
+        private readonly INavigationService _navigationService;
+        private readonly IRegionManager _regionManager;
     }
 }

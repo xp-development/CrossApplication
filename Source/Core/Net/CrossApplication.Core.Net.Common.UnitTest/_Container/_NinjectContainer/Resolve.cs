@@ -10,17 +10,6 @@ namespace CrossApplication.Core.Net.Common.UnitTest._Container._NinjectContainer
     public class Resolve
     {
         [Fact]
-        public void Usage()
-        {
-            var container = new NinjectContainer(new StandardKernel());
-            container.RegisterType<IInjectionInterface, InjectionClass>();
-
-            var injectionObject = container.Resolve<IInjectionInterface>();
-
-            injectionObject.Should().NotBeNull();
-        }
-
-        [Fact]
         public void ShouldResolveDifferentInstances()
         {
             var container = new NinjectContainer(new StandardKernel());
@@ -60,6 +49,17 @@ namespace CrossApplication.Core.Net.Common.UnitTest._Container._NinjectContainer
             injectionObject.Should().NotBeNull();
             injectionObject2.Should().NotBeNull();
             injectionObject.Should().Be(injectionObject2);
+        }
+
+        [Fact]
+        public void Usage()
+        {
+            var container = new NinjectContainer(new StandardKernel());
+            container.RegisterType<IInjectionInterface, InjectionClass>();
+
+            var injectionObject = container.Resolve<IInjectionInterface>();
+
+            injectionObject.Should().NotBeNull();
         }
     }
 }

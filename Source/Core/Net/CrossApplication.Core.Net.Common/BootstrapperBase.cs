@@ -14,7 +14,7 @@ namespace CrossApplication.Core.Net.Common
     {
         protected override IModuleCatalog CreateModuleCatalog()
         {
-            var moduleCatalog = (ModuleCatalog)base.CreateModuleCatalog();
+            var moduleCatalog = (ModuleCatalog) base.CreateModuleCatalog();
             return new AggregateModuleCatalog(moduleCatalog, new DirectoryModuleCatalog(@".\Modules"));
         }
 

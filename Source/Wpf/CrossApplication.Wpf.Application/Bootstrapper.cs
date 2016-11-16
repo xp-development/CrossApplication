@@ -7,6 +7,7 @@ using CrossApplication.Core.Contracts.Application.Modules;
 using CrossApplication.Core.Contracts.Application.Theming;
 using CrossApplication.Core.Contracts.Common.Container;
 using CrossApplication.Core.Contracts.Common.Navigation;
+using CrossApplication.Core.Net.Common;
 using CrossApplication.Core.Net.Common.Modules;
 using CrossApplication.Wpf.Application.Login;
 using CrossApplication.Wpf.Application.Properties;
@@ -20,7 +21,6 @@ using Fluent;
 using Microsoft.Practices.ServiceLocation;
 using Prism.Regions;
 using Prism.Regions.Behaviors;
-using BootstrapperBase = CrossApplication.Core.Net.Common.BootstrapperBase;
 
 namespace CrossApplication.Wpf.Application
 {
@@ -38,8 +38,8 @@ namespace CrossApplication.Wpf.Application
 
         protected override IModuleCatalog CreateModuleCatalog()
         {
-            var aggregateModuleCatalog = (AggregateModuleCatalog)base.CreateModuleCatalog();
-            aggregateModuleCatalog.ModuleCatalog.AddModuleInfo(new ModuleInfo { ModuleType = typeof(Module), Tag = ModuleTags.Infrastructure });
+            var aggregateModuleCatalog = (AggregateModuleCatalog) base.CreateModuleCatalog();
+            aggregateModuleCatalog.ModuleCatalog.AddModuleInfo(new ModuleInfo {ModuleType = typeof(Module), Tag = ModuleTags.Infrastructure});
             return aggregateModuleCatalog;
         }
 
@@ -72,15 +72,15 @@ namespace CrossApplication.Wpf.Application
             switch (Settings.Default.Theme)
             {
                 case Theme.Light:
-                  myResourceDictionary = new ResourceDictionary { Source = new Uri("/CrossApplication.Wpf.Themes;component/Light/Colors.xaml", UriKind.Relative) };
-                  break;
+                    myResourceDictionary = new ResourceDictionary {Source = new Uri("/CrossApplication.Wpf.Themes;component/Light/Colors.xaml", UriKind.Relative)};
+                    break;
                 default:
-                  myResourceDictionary = new ResourceDictionary { Source = new Uri("/CrossApplication.Wpf.Themes;component/Light/Colors.xaml", UriKind.Relative) };
-                  break;
+                    myResourceDictionary = new ResourceDictionary {Source = new Uri("/CrossApplication.Wpf.Themes;component/Light/Colors.xaml", UriKind.Relative)};
+                    break;
             }
 
-            System.Windows.Application.Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("/Fluent;component/themes/office2013/generic.xaml", UriKind.Relative) });
-            System.Windows.Application.Current.Resources.MergedDictionaries.Add(new ResourceDictionary { Source = new Uri("/CrossApplication.Wpf.Themes;component/Generic/Generic.xaml", UriKind.Relative) });
+            System.Windows.Application.Current.Resources.MergedDictionaries.Add(new ResourceDictionary {Source = new Uri("/Fluent;component/themes/office2013/generic.xaml", UriKind.Relative)});
+            System.Windows.Application.Current.Resources.MergedDictionaries.Add(new ResourceDictionary {Source = new Uri("/CrossApplication.Wpf.Themes;component/Generic/Generic.xaml", UriKind.Relative)});
             System.Windows.Application.Current.Resources.MergedDictionaries.Add(myResourceDictionary);
             return base.LoadThemeAsync();
         }

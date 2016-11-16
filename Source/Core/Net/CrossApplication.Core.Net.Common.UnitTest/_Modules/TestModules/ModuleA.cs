@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using CrossApplication.Core.Contracts.Application.Modules;
 
 namespace CrossApplication.Core.Net.Common.UnitTest._Modules.TestModules
@@ -8,12 +9,12 @@ namespace CrossApplication.Core.Net.Common.UnitTest._Modules.TestModules
     {
         public Task InitializeAsync()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public Task ActivateAsync()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

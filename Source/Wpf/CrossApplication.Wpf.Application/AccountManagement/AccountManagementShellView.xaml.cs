@@ -3,7 +3,7 @@
 namespace CrossApplication.Wpf.Application.AccountManagement
 {
     /// <summary>
-    /// Interaction logic for AccountManagementShellView.xaml
+    ///     Interaction logic for AccountManagementShellView.xaml
     /// </summary>
     public partial class AccountManagementShellView : UserControl
     {

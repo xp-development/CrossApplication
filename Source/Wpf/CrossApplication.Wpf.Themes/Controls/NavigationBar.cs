@@ -92,6 +92,8 @@ namespace CrossApplication.Wpf.Themes.Controls
             DefaultStyleKeyProperty.OverrideMetadata(typeof(NavigationBar), new FrameworkPropertyMetadata(typeof(NavigationBar)));
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
         private void CreateItemCollection()
         {
             if (ItemsSource == null)
@@ -129,8 +131,6 @@ namespace CrossApplication.Wpf.Themes.Controls
             OnPropertyChanged("BarItems");
             OnPropertyChanged("ContextItems");
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {

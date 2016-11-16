@@ -38,28 +38,6 @@ namespace CrossApplication.Core.Common.UnitTest._Modules._ModuleManager
         }
 
         [Fact]
-        public async void ShouldInitializeAllModulesWithDefaultTagModule()
-        {
-            var moduleCatalogMock = new Mock<IModuleCatalog>();
-            moduleCatalogMock.Setup(x => x.GetModuleInfosAsync()).Returns(Task.FromResult<IEnumerable<ModuleInfo>>(new List<ModuleInfo>
-            {
-                new ModuleInfo {Name = "ModuleA", ModuleType = typeof(ModuleA)},
-                new ModuleInfo {Name = "ModuleB", ModuleType = typeof(ModuleB), Tag = "NotLoadedModule"},
-                new ModuleInfo {Name = "ModuleC", ModuleType = typeof(ModuleC)}
-            }));
-
-            var unityContainerMock = new Mock<IContainer>();
-            unityContainerMock.Setup(x => x.Resolve(typeof(ModuleA))).Returns(new ModuleA());
-            unityContainerMock.Setup(x => x.Resolve(typeof(ModuleC))).Returns(new ModuleC());
-            var moduleManager = new ModuleManager(unityContainerMock.Object, moduleCatalogMock.Object);
-
-            await moduleManager.InizializeAsync(ModuleTags.DefaultModule);
-
-            unityContainerMock.Verify(x => x.Resolve(typeof(ModuleA)));
-            unityContainerMock.Verify(x => x.Resolve(typeof(ModuleC)));
-        }
-
-        [Fact]
         public async void ShouldInitializeAllModulesWithDefaultTagInfrastructure()
         {
             var moduleCatalogMock = new Mock<IModuleCatalog>();
@@ -82,10 +60,32 @@ namespace CrossApplication.Core.Common.UnitTest._Modules._ModuleManager
         }
 
         [Fact]
+        public async void ShouldInitializeAllModulesWithDefaultTagModule()
+        {
+            var moduleCatalogMock = new Mock<IModuleCatalog>();
+            moduleCatalogMock.Setup(x => x.GetModuleInfosAsync()).Returns(Task.FromResult<IEnumerable<ModuleInfo>>(new List<ModuleInfo>
+            {
+                new ModuleInfo {Name = "ModuleA", ModuleType = typeof(ModuleA)},
+                new ModuleInfo {Name = "ModuleB", ModuleType = typeof(ModuleB), Tag = "NotLoadedModule"},
+                new ModuleInfo {Name = "ModuleC", ModuleType = typeof(ModuleC)}
+            }));
+
+            var unityContainerMock = new Mock<IContainer>();
+            unityContainerMock.Setup(x => x.Resolve(typeof(ModuleA))).Returns(new ModuleA());
+            unityContainerMock.Setup(x => x.Resolve(typeof(ModuleC))).Returns(new ModuleC());
+            var moduleManager = new ModuleManager(unityContainerMock.Object, moduleCatalogMock.Object);
+
+            await moduleManager.InizializeAsync(ModuleTags.DefaultModule);
+
+            unityContainerMock.Verify(x => x.Resolve(typeof(ModuleA)));
+            unityContainerMock.Verify(x => x.Resolve(typeof(ModuleC)));
+        }
+
+        [Fact]
         public void ShouldThrowExceptionIfModuleNotInheritsFromIModule()
         {
             var moduleCatalogMock = new Mock<IModuleCatalog>();
-            moduleCatalogMock.Setup(x => x.GetModuleInfosAsync()).Returns(Task.FromResult<IEnumerable<ModuleInfo>>(new List<ModuleInfo> { new ModuleInfo {Name = "ModuleWithoutIModule", ModuleType = typeof(ModuleWithoutIModule)}}));
+            moduleCatalogMock.Setup(x => x.GetModuleInfosAsync()).Returns(Task.FromResult<IEnumerable<ModuleInfo>>(new List<ModuleInfo> {new ModuleInfo {Name = "ModuleWithoutIModule", ModuleType = typeof(ModuleWithoutIModule)}}));
             var unityContainerMock = new Mock<IContainer>();
             unityContainerMock.Setup(x => x.Resolve(typeof(ModuleWithoutIModule))).Returns(new ModuleWithoutIModule());
             var moduleManager = new ModuleManager(unityContainerMock.Object, moduleCatalogMock.Object);

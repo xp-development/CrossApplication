@@ -2,7 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:themes="clr-namespace:CrossApplication.Wpf.Themes">
     <Style TargetType="{x:Type Label}" x:Key="DefaultLabelStyle">
-        <Setter Property="Foreground" Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly={x:Type themes:Colors}, ResourceId=TextColorKey}}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly={x:Type themes:Colors}, ResourceId=TextColorKey}}" />
     </Style>
 
     <Style TargetType="{x:Type Label}" BasedOn="{StaticResource DefaultLabelStyle}" />

@@ -4,13 +4,13 @@ namespace CrossApplication.Core.Net.Common.Navigation
 {
     public class MainNavigationItem : IMainNavigationItem
     {
-        public string Label { get; }
-        public string NavigationKey { get; }
-
         public MainNavigationItem(string label, string navigationKey)
         {
             Label = label;
             NavigationKey = navigationKey;
         }
+
+        public string Label { get; }
+        public string NavigationKey { get; }
     }
 }

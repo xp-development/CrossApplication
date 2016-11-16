@@ -42,7 +42,7 @@ namespace CrossApplication.Wpf.Common.Navigation
         }
 
         private readonly IRegionManager _regionManager;
-        private readonly IViewManager _viewManager;
         private readonly IUserManager _userManager;
+        private readonly IViewManager _viewManager;
     }
 }

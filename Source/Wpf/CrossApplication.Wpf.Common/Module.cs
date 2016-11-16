@@ -11,8 +11,6 @@ namespace CrossApplication.Wpf.Common
     [Module(Tag = ModuleTags.Infrastructure)]
     public class Module : IModule
     {
-        private readonly IContainer _container;
-
         public Module(IContainer container)
         {
             _container = container;
@@ -31,5 +29,7 @@ namespace CrossApplication.Wpf.Common
         {
             return Task.FromResult(false);
         }
+
+        private readonly IContainer _container;
     }
 }

@@ -19,6 +19,9 @@ namespace CrossApplication.Core.Net.Common.UnitTest._Modules._DirectoryModuleCat
             File.Copy(_moduleAssemblyName, Path.Combine(_moduleDirectoryPath, _moduleAssemblyName));
         }
 
+        private readonly string _moduleAssemblyName = "CrossApplication.Core.Net.Common.UnitTest.dll";
+        private readonly string _moduleDirectoryPath = "./Modules";
+
         [Fact]
         public async void Usage()
         {
@@ -28,8 +31,5 @@ namespace CrossApplication.Core.Net.Common.UnitTest._Modules._DirectoryModuleCat
 
             moduleInfos.Length.Should().Be(2);
         }
-
-        private readonly string _moduleAssemblyName = "CrossApplication.Core.Net.Common.UnitTest.dll";
-        private readonly string _moduleDirectoryPath = "./Modules";
     }
 }
