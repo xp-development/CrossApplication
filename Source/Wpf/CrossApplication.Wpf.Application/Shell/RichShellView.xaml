@@ -38,11 +38,10 @@
             </fluent:Ribbon.Menu>
         </fluent:Ribbon>
         <ContentControl mvvm:RegionManager.RegionName="{x:Static common:RegionNames.MainRegion}" Grid.Row="1" />
-        <controls:NavigationBar FontSize="20" ItemsSource="{Binding NavigationItems}" MaximumCountVisibleElements="2"
-                                Grid.Row="2">
+        <controls:NavigationBar FontSize="20" ItemsSource="{Binding NavigationItems}" MaximumCountVisibleElements="2" Grid.Row="2">
             <controls:NavigationBar.BarItemTemplate>
                 <DataTemplate>
-                    <Button Content="{Binding Path=Label}" Style="{StaticResource HyperlinkButtonStyle}"
+                    <Button Content="{Binding Path=Label}" Style="{StaticResource ButtonHyperlinkStyle}"
                             Command="{Binding Path=NavigateCommand}" />
                 </DataTemplate>
             </controls:NavigationBar.BarItemTemplate>

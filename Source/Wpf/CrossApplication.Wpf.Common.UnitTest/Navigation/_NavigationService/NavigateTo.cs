@@ -25,18 +25,20 @@ namespace CrossApplication.Wpf.Common.UnitTest.Navigation._NavigationService
         [Fact]
         public void ShouldNavigateToLoginPageIfAuthorizationIsRequired()
         {
-            _viewManager.AddViewItem(new ViewItem("NavigationLoginKey", false, RegionNames.RichRegion));
-            _viewManager.AddViewItem(new ViewItem("NavigationKey", true, RegionNames.MainRegion));
+            var loginViewItem = new ViewItem("NavigationLoginKey", RegionNames.RichRegion, false);
+            _viewManager.AddViewItem(loginViewItem);
+            _viewManager.AddViewItem(new ViewItem("NavigationKey", RegionNames.MainRegion, true));
+            _viewManager.LoginViewItem = loginViewItem;
 
-            _navigationService.NavigateTo("NavigationLoginKey");
+            _navigationService.NavigateTo("NavigationKey");
 
-            _regionManagerMock.Verify(x => x.RequestNavigate(RegionNames.RichRegion, new Uri("NavigationLoginKey", UriKind.Relative)));
+            _regionManagerMock.Verify(x => x.RequestNavigate(RegionNames.RichRegion, new Uri("NavigationLoginKey", UriKind.Relative), new NavigationParameters { { "RequestedView", "NavigationKey" } }));
         }
 
         [Fact]
         public void ShouldNavigateToUri()
         {
-            _viewManager.AddViewItem(new ViewItem("NavigationKey", false, RegionNames.MainRegion));
+            _viewManager.AddViewItem(new ViewItem("NavigationKey", RegionNames.MainRegion, false));
 
             _navigationService.NavigateTo("NavigationKey");
 

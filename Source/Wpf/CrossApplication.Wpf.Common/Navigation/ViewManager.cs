@@ -7,6 +7,7 @@ namespace CrossApplication.Wpf.Common.Navigation
 {
     public class ViewManager : IViewManager
     {
+        public ViewItem RichViewItem { get; set; }
         public ViewItem LoginViewItem { get; set; }
 
         public void AddViewItem(ViewItem viewItem)

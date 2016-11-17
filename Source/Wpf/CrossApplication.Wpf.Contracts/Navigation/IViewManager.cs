@@ -2,6 +2,7 @@
 {
     public interface IViewManager
     {
+        ViewItem RichViewItem { get; set; }
         ViewItem LoginViewItem { get; set; }
 
         void AddViewItem(ViewItem viewItem);

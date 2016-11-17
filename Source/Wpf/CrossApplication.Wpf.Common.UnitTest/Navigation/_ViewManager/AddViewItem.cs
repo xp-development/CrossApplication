@@ -12,9 +12,9 @@ namespace CrossApplication.Wpf.Common.UnitTest.Navigation._ViewManager
         public void ShouldThrowArgumentExceptionIfViewKeyIfAlreadyRegistered()
         {
             var viewManager = new ViewManager();
-            viewManager.AddViewItem(new ViewItem("ViewKey", false, "RegionName"));
+            viewManager.AddViewItem(new ViewItem("ViewKey", "RegionName", false));
 
-            var action = new Action(() => viewManager.AddViewItem(new ViewItem("ViewKey", false, "RegionName")));
+            var action = new Action(() => viewManager.AddViewItem(new ViewItem("ViewKey", "RegionName", false)));
             action.ShouldThrow<ArgumentException>().Which.ParamName.Should().Be("viewItem");
         }
     }

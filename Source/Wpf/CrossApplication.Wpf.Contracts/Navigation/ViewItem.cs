@@ -9,11 +9,11 @@ namespace CrossApplication.Wpf.Contracts.Navigation
         public string RegionName { get; }
         public IList<ViewItem> SubViewItems { get; } = new List<ViewItem>();
 
-        public ViewItem(string viewKey, bool isAuthorizationRequired, string regionName)
+        public ViewItem(string viewKey, string regionName, bool isAuthorizationRequired = false)
         {
             ViewKey = viewKey;
-            IsAuthorizationRequired = isAuthorizationRequired;
             RegionName = regionName;
+            IsAuthorizationRequired = isAuthorizationRequired;
         }
     }
 }

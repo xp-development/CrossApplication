@@ -24,7 +24,7 @@ namespace CrossApplication.Wpf.Common.UnitTest.Navigation._ViewManager
             const string viewKey = "ViewKey";
             const string regionName = "RegionName";
             var viewManager = new ViewManager();
-            viewManager.AddViewItem(new ViewItem(viewKey, false, regionName));
+            viewManager.AddViewItem(new ViewItem(viewKey, regionName));
 
             var viewItem = viewManager.GetViewItem(viewKey);
 

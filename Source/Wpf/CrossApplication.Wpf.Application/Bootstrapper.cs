@@ -6,7 +6,6 @@ using System.Windows.Controls.Primitives;
 using CrossApplication.Core.Contracts.Application.Modules;
 using CrossApplication.Core.Contracts.Application.Theming;
 using CrossApplication.Core.Contracts.Common.Container;
-using CrossApplication.Core.Contracts.Common.Navigation;
 using CrossApplication.Core.Net.Common;
 using CrossApplication.Core.Net.Common.Modules;
 using CrossApplication.Wpf.Application.Login;
@@ -123,11 +122,9 @@ namespace CrossApplication.Wpf.Application
             System.Windows.Application.Current.MainWindow = (Window) _shell;
             System.Windows.Application.Current.MainWindow.Show();
 
-            Container.Resolve<IViewManager>().AddViewItem(new ViewItem(typeof(RichShellView).FullName, false, RegionNames.RichRegion));
-            var navigationService = Container.Resolve<INavigationService>();
-            navigationService.NavigateTo(typeof(RichShellView).FullName);
-
-            Container.Resolve<IViewManager>().LoginViewItem = new ViewItem(typeof(LoginView).FullName, false, RegionNames.RichRegion);
+            var viewManager = Container.Resolve<IViewManager>();
+            viewManager.RichViewItem = new ViewItem(typeof(RichShellView).FullName, RegionNames.RichRegion);
+            viewManager.LoginViewItem = new ViewItem(typeof(LoginView).FullName, RegionNames.RichRegion);
         }
 
         private DependencyObject _shell;

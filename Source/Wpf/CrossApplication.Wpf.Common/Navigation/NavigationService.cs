@@ -24,16 +24,26 @@ namespace CrossApplication.Wpf.Common.Navigation
         {
             if (viewItem.IsAuthorizationRequired && !_userManager.IsAuthorized)
             {
-                NavigateToViewItem(_viewManager.LoginViewItem);
+                _lastRichView = _viewManager.LoginViewItem;
+                NavigateToViewItem(_lastRichView, viewItem.ViewKey);
                 return;
+            }
+
+            if (_lastRichView != _viewManager.RichViewItem)
+            {
+                NavigateToViewItem(_viewManager.RichViewItem);
+                _lastRichView = _viewManager.RichViewItem;
             }
 
             NavigateToViewItem(viewItem);
         }
 
-        private void NavigateToViewItem(ViewItem viewItem)
+        private void NavigateToViewItem(ViewItem viewItem, object navigationParameter = null)
         {
-            _regionManager.RequestNavigate(viewItem.RegionName, new Uri(viewItem.ViewKey, UriKind.Relative));
+            if(navigationParameter == null)
+                _regionManager.RequestNavigate(viewItem.RegionName, new Uri(viewItem.ViewKey, UriKind.Relative));
+            else
+                _regionManager.RequestNavigate(viewItem.RegionName, new Uri(viewItem.ViewKey, UriKind.Relative), new NavigationParameters { { "RequestedView", navigationParameter } });
 
             foreach (var subViewItem in viewItem.SubViewItems)
             {
@@ -44,5 +54,6 @@ namespace CrossApplication.Wpf.Common.Navigation
         private readonly IRegionManager _regionManager;
         private readonly IUserManager _userManager;
         private readonly IViewManager _viewManager;
+        private ViewItem _lastRichView;
     }
 }

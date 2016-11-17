@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:viewModels="clr-namespace:CrossApplication.Wpf.Common.ViewModels;assembly=CrossApplication.Wpf.Common"
+             xmlns:ca="urn:cross-application"
              mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300"
              viewModels:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
@@ -12,7 +13,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid Grid.Row="1">
-            <Label>Mailing</Label>
+            <ca:TextControl>Mailing</ca:TextControl>
         </Grid>
     </Grid>
 </UserControl>

@@ -4,8 +4,21 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:viewModels="clr-namespace:CrossApplication.Wpf.Common.ViewModels;assembly=CrossApplication.Wpf.Common"
-             mc:Ignorable="d"
-             viewModels:ViewModelLocator.AutoWireViewModel="True" HorizontalAlignment="Center"
-             VerticalAlignment="Center">
-    <Label>Please log in.</Label>
+             xmlns:login="clr-namespace:CrossApplication.Wpf.Application.Login"
+             xmlns:application="clr-namespace:CrossApplication.Wpf.Application.Properties"
+             xmlns:ca="urn:cross-application"
+             mc:Ignorable="d" Margin="15"
+             viewModels:ViewModelLocator.AutoWireViewModel="True" d:DataContext="{d:DesignInstance login:LoginViewModel}">
+    <DockPanel>
+        <Button Content="{x:Static application:Resources.LoginButtonText}" IsDefault="True"
+                Command="{Binding Path=LoginCommand}"
+                DockPanel.Dock="Bottom" HorizontalAlignment="Right" />
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <ca:TextControl Text="{x:Static application:Resources.LoginName}" />
+                <TextBox VerticalAlignment="Center" Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+            <ca:TextControl Style="{StaticResource TextControlHintStyle}" VerticalAlignment="Center" Text="{Binding Message}" />
+        </StackPanel>
+    </DockPanel>
 </UserControl>

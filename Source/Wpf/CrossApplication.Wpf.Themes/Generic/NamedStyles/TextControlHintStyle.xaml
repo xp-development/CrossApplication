@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:themes="clr-namespace:CrossApplication.Wpf.Themes"
+                    xmlns:controls="clr-namespace:CrossApplication.Wpf.Themes.Controls">
+    <Style x:Key="TextControlHintStyle" TargetType="{x:Type controls:TextControl}" BasedOn="{StaticResource DefaultTextControlStyle}">
+        <Setter Property="Foreground" Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly={x:Type themes:Colors}, ResourceId=HintTextColorKey}}" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+    </Style>
+</ResourceDictionary>

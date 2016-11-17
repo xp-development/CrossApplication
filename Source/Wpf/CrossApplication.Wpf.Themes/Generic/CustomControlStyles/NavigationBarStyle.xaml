@@ -1,10 +1,10 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:CrossApplication.Wpf.Themes.Controls">
-    <Style TargetType="{x:Type local:NavigationBar}">
+                    xmlns:controls="clr-namespace:CrossApplication.Wpf.Themes.Controls">
+    <Style TargetType="{x:Type controls:NavigationBar}">
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type local:NavigationBar}">
+                <ControlTemplate TargetType="{x:Type controls:NavigationBar}">
                     <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
                             BorderThickness="{TemplateBinding BorderThickness}">
                         <Border.Resources>
@@ -16,7 +16,7 @@
                             </DataTemplate>
                             <DataTemplate x:Key="BarItemContextMenuTemplate">
                                 <ContentControl
-                                    Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:NavigationBar}, Path=ContextItems}"
+                                    Tag="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=controls:NavigationBar}, Path=ContextItems}"
                                     Content="...">
                                     <ContentControl.Style>
                                         <Style TargetType="ContentControl">
@@ -30,7 +30,7 @@
                                     </ContentControl.Style>
                                 </ContentControl>
                             </DataTemplate>
-                            <local:NavigationBarTemplateSelector x:Key="NavigationBarTemplateSelector" />
+                            <controls:NavigationBarTemplateSelector x:Key="NavigationBarTemplateSelector" />
                         </Border.Resources>
                         <ItemsControl
                             ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BarItems}"
@@ -39,7 +39,7 @@
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <StackPanel
-                                        Orientation="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=local:NavigationBar}, Path=BarItemsOrientation}"
+                                        Orientation="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=controls:NavigationBar}, Path=BarItemsOrientation}"
                                         IsItemsHost="True" />
                                 </ItemsPanelTemplate>
                             </ItemsControl.ItemsPanel>

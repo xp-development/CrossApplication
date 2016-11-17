@@ -11,17 +11,18 @@
     xmlns:ribbonTabs="clr-namespace:CrossApplication.Wpf.Application.Shell.RibbonTabs"
     xmlns:viewModels="clr-namespace:CrossApplication.Wpf.Common.ViewModels;assembly=CrossApplication.Wpf.Common"
     xmlns:application="clr-namespace:CrossApplication.Wpf.Application.Properties"
+    xmlns:ca="urn:cross-application"
     mc:Ignorable="d" viewModels:ViewModelLocator.AutoWireViewModel="True"
     d:DesignHeight="300" d:DesignWidth="300" d:DataContext="{d:DesignInstance ribbonTabs:AboutViewModel}">
     <StackPanel Margin="10,0">
-        <TextBlock Style="{StaticResource CaptionStyle}" Text="{x:Static resources:CommonResources.ApplicationName}" />
-        <TextBlock>
+        <ca:TextControl Style="{StaticResource TextControlCaptionStyle}" Text="{x:Static resources:CommonResources.ApplicationName}" />
+        <ca:TextControl>
             <TextBlock Text="{x:Static application:Resources.Version}" /> <TextBlock Text="{Binding Path=Version}" />
-        </TextBlock>
+        </ca:TextControl>
         <ItemsControl ItemsSource="{Binding Path=ModuleInfos}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding Path=ModuleType}" />
+                    <ca:TextControl Text="{Binding Path=ModuleType}" />
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>

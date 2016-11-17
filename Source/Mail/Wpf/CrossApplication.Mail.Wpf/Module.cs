@@ -37,10 +37,10 @@ namespace CrossApplication.Mail.Wpf
 
         private void RegisterViews()
         {
-            var shell = new ViewItem(ViewKeys.Shell, false, RegionNames.MainRegion);
-            shell.SubViewItems.Add(new ViewItem(typeof(RibbonStartView).FullName, false, RegionNames.RibbonRegion));
+            var shellViewItem = new ViewItem(ViewKeys.Shell, RegionNames.MainRegion, true);
+            shellViewItem.SubViewItems.Add(new ViewItem(typeof(RibbonStartView).FullName, RegionNames.RibbonRegion));
 
-            _viewManager.AddViewItem(shell);
+            _viewManager.AddViewItem(shellViewItem);
         }
 
         private readonly IContainer _container;

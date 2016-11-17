@@ -5,4 +5,7 @@
     <SolidColorBrush
         x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type themes:Colors}, ResourceId=TextColorKey}"
         Color="{x:Static light1:Colors.TextColor}" />
+    <SolidColorBrush
+        x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type themes:Colors}, ResourceId=HintTextColorKey}"
+        Color="{x:Static light1:Colors.HintTextColor}" />
 </ResourceDictionary>

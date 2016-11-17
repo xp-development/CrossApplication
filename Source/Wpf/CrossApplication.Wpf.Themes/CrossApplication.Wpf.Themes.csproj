@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Controls\NavigationBar.cs" />
     <Compile Include="Controls\NavigationBarTemplateSelector.cs" />
+    <Compile Include="Controls\TextControl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -57,15 +58,19 @@
     <Compile Include="Colors.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Generic\BaseControlStyles\LabelStyle.xaml">
+    <Page Include="Generic\BaseControlStyles\ButtonStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Generic\CustomControlStyles\TextControlStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Generic\BaseControlStyles\TextBlockStyle.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="Generic\BaseControlStyles\TextBoxStyle.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Generic\CustomControlsStyles\NavigationBarStyle.xaml">
+    <Page Include="Generic\CustomControlStyles\NavigationBarStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -73,11 +78,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Generic\NamedStyles\CaptionStyle.xaml">
+    <Page Include="Generic\NamedStyles\TextControlHintStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Generic\NamedStyles\HyperlinkButtonStyle.xaml">
+    <Page Include="Generic\NamedStyles\TextControlCaptionStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Generic\NamedStyles\ButtonHyperlinkStyle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
