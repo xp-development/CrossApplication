@@ -22,6 +22,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Wpf.Contracts", "Wpf\CrossApplication.Wpf.Contracts\CrossApplication.Wpf.Contracts.csproj", "{25B722B3-FB2D-499C-BD67-2EC24D8C72F7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Wpf.Application", "Wpf\CrossApplication.Wpf.Application\CrossApplication.Wpf.Application.csproj", "{E2290F54-107F-4D13-9604-FDDFF983596D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B59ADDA4-E2FE-4698-A048-87BCD4F95151} = {B59ADDA4-E2FE-4698-A048-87BCD4F95151}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Wpf.Application.UnitTest", "Wpf\CrossApplication.Wpf.Application.UnitTest\CrossApplication.Wpf.Application.UnitTest.csproj", "{DC532EBF-71B3-4576-B3AD-04F03E295DB0}"
 EndProject
@@ -54,6 +57,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Core.Themes", "Core\CrossApplication.Core.Themes\CrossApplication.Core.Themes.csproj", "{5EB5D7AB-7D46-47CB-9978-54D70EC768C3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Core.Net.Themes", "Core\Net\CrossApplication.Core.Net.Themes\CrossApplication.Core.Net.Themes.csproj", "{9EC03910-7516-4CFD-B69D-B634DE7702FF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{799B2EED-AB09-4CEE-A7DF-D2041767AF0F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -165,9 +170,10 @@ Global
 		{5D2FF9E6-0258-4B90-98F4-BC0C8CAF6942} = {42869309-07FB-43FE-81BD-3C52AA6C9A58}
 		{ADD00E03-B090-4AF7-A9F0-5B20DF299A9E} = {42869309-07FB-43FE-81BD-3C52AA6C9A58}
 		{94F23661-D101-4258-BA92-0E26EEF2AAC9} = {3C44BF94-BDD3-460F-A470-10624FD33AB7}
-		{3C44BF94-BDD3-460F-A470-10624FD33AB7} = {A0F0B07A-D8CB-4A76-BAFC-98F5F7E8B129}
+		{3C44BF94-BDD3-460F-A470-10624FD33AB7} = {799B2EED-AB09-4CEE-A7DF-D2041767AF0F}
 		{50CAF89A-FE45-4F39-A093-7119FAA45E0A} = {E02382C8-899A-4828-9C04-734DBB06382F}
 		{5EB5D7AB-7D46-47CB-9978-54D70EC768C3} = {429ED231-9DE0-4B4C-8C35-E1B41C7294BA}
 		{9EC03910-7516-4CFD-B69D-B634DE7702FF} = {42869309-07FB-43FE-81BD-3C52AA6C9A58}
+		{799B2EED-AB09-4CEE-A7DF-D2041767AF0F} = {A0F0B07A-D8CB-4A76-BAFC-98F5F7E8B129}
 	EndGlobalSection
 EndGlobal

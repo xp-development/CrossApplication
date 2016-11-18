@@ -5,15 +5,18 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:viewModels="clr-namespace:CrossApplication.Wpf.Common.ViewModels;assembly=CrossApplication.Wpf.Common"
              xmlns:ca="urn:cross-application"
+             xmlns:regions="http://prismlibrary.com/"
+             xmlns:core="clr-namespace:CrossApplication.Mail.Core.Navigation;assembly=CrossApplication.Mail.Core"
              mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300"
              viewModels:ViewModelLocator.AutoWireViewModel="True">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <Grid Grid.Row="1">
-            <ca:TextControl>Mailing</ca:TextControl>
-        </Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="2" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <ContentControl regions:RegionManager.RegionName="{x:Static core:MailRegionNames.NavigationRegion}" />
+        <GridSplitter HorizontalAlignment="Stretch" Grid.Column="1" ResizeDirection="Columns" />
+        <ca:TextControl Grid.Column="2">Mailing</ca:TextControl>
     </Grid>
 </UserControl>

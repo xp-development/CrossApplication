@@ -31,9 +31,36 @@ namespace CrossApplication.Core.Net.Common.Container
             }
         }
 
-        public void RegisterInstance<TInterface>(TInterface instance)
+        public void RegisterInstance<TInterface>(TInterface instance, Lifetime lifetime = Lifetime.PerResolve)
         {
-            _kernel.Bind<TInterface>().ToConstant(instance);
+            var binding = _kernel.Bind<TInterface>().ToConstant(instance);
+            if (lifetime == Lifetime.PerContainer)
+            {
+                binding.InSingletonScope();
+            }
+        }
+
+        public void RegisterType<T>(string name, Lifetime lifetime = Lifetime.PerResolve)
+        {
+            var binding = _kernel.Bind<T>().To<T>();
+            if (lifetime == Lifetime.PerContainer)
+            {
+                binding.InSingletonScope();
+            }
+
+            binding.Named(name);
+        }
+
+        public void RegisterType<TInterface, TImplementation>(string name, Lifetime lifetime = Lifetime.PerResolve)
+            where TImplementation : TInterface
+        {
+            var binding = _kernel.Bind<TInterface>().To<TImplementation>();
+            if (lifetime == Lifetime.PerContainer)
+            {
+                binding.InSingletonScope();
+            }
+
+            binding.Named(name);
         }
 
         public TInterface Resolve<TInterface>()
@@ -49,17 +76,6 @@ namespace CrossApplication.Core.Net.Common.Container
         public IEnumerable<TInterface> ResolveAll<TInterface>()
         {
             return _kernel.GetAll<TInterface>();
-        }
-
-        public void RegisterType<T>(string name)
-        {
-            _kernel.Bind<T>().To<T>().Named(name);
-        }
-
-        public void RegisterType<TInterface, TImplementation>(string name)
-            where TImplementation : TInterface
-        {
-            _kernel.Bind<TInterface>().To<TImplementation>().Named(name);
         }
 
         private readonly IKernel _kernel;

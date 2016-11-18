@@ -13,6 +13,7 @@ using CrossApplication.Wpf.Application.Properties;
 using CrossApplication.Wpf.Application.Shell;
 using CrossApplication.Wpf.Application.Shell.RibbonTabs;
 using CrossApplication.Wpf.Common;
+using CrossApplication.Wpf.Common.Navigation;
 using CrossApplication.Wpf.Common.RegionAdapters;
 using CrossApplication.Wpf.Common.ViewModels;
 using CrossApplication.Wpf.Contracts.Navigation;

@@ -7,11 +7,11 @@ namespace CrossApplication.Core.Contracts.Common.Container
     {
         void RegisterType<TInterface, TImplementation>(Lifetime lifetime = Lifetime.PerResolve) where TImplementation : TInterface;
         void RegisterType<TImplementation>(Lifetime lifetime = Lifetime.PerResolve);
-        void RegisterInstance<TInterface>(TInterface instance);
+        void RegisterInstance<TInterface>(TInterface instance, Lifetime lifetime = Lifetime.PerResolve);
+        void RegisterType<T>(string name, Lifetime lifetime = Lifetime.PerResolve);
+        void RegisterType<TInterface, TImplementation>(string name, Lifetime lifetime = Lifetime.PerResolve) where TImplementation : TInterface;
         TInterface Resolve<TInterface>();
         object Resolve(Type type);
         IEnumerable<TInterface> ResolveAll<TInterface>();
-        void RegisterType<T>(string name);
-        void RegisterType<TInterface, TImplementation>(string name) where TImplementation : TInterface;
     }
 }

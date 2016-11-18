@@ -95,7 +95,7 @@
     </ProjectReference>
     <ProjectReference Include="..\CrossApplication.Core.Net.Common\CrossApplication.Core.Net.Common.csproj">
       <Project>{A987FDAA-C4BC-4854-A70C-BF803C0100A0}</Project>
-      <Name>CrossApplication.Core.Net.Application</Name>
+      <Name>CrossApplication.Core.Net.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

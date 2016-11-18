@@ -3,8 +3,9 @@ using CrossApplication.Core.Contracts.Application.Modules;
 using CrossApplication.Core.Contracts.Common.Container;
 using CrossApplication.Core.Contracts.Common.Navigation;
 using CrossApplication.Mail.Core.Navigation;
+using CrossApplication.Mail.Wpf.Navigation;
 using CrossApplication.Mail.Wpf.Shell;
-using CrossApplication.Wpf.Common;
+using CrossApplication.Wpf.Common.Navigation;
 using CrossApplication.Wpf.Contracts.Navigation;
 
 namespace CrossApplication.Mail.Wpf
@@ -22,8 +23,11 @@ namespace CrossApplication.Mail.Wpf
         public Task InitializeAsync()
         {
             _container.RegisterType<ShellViewModel>();
-            _container.RegisterType<object, ShellView>(ViewKeys.Shell);
-            _container.RegisterType<object, RibbonStartView>(typeof(RibbonStartView).FullName);
+            _container.RegisterType<object, ShellView>(ViewKeys.Shell, Lifetime.PerContainer);
+            _container.RegisterType<object, RibbonStartView>(typeof(RibbonStartView).FullName, Lifetime.PerContainer);
+
+            _container.RegisterType<NavigationViewModel>();
+            _container.RegisterType<object, NavigationView>(typeof(NavigationView).FullName, Lifetime.PerContainer);
 
             RegisterViews();
             return Task.FromResult(false);
@@ -39,7 +43,7 @@ namespace CrossApplication.Mail.Wpf
         {
             var shellViewItem = new ViewItem(ViewKeys.Shell, RegionNames.MainRegion, true);
             shellViewItem.SubViewItems.Add(new ViewItem(typeof(RibbonStartView).FullName, RegionNames.RibbonRegion));
-
+            shellViewItem.SubViewItems.Add(new ViewItem(typeof(NavigationView).FullName, MailRegionNames.NavigationRegion));
             _viewManager.AddViewItem(shellViewItem);
         }
 

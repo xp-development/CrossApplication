@@ -88,7 +88,7 @@
     </Compile>
     <Compile Include="RegionAdapters\BackstageTabControlAdapter.cs" />
     <Compile Include="RegionAdapters\RibbonRegionAdapter.cs" />
-    <Compile Include="RegionNames.cs" />
+    <Compile Include="Navigation\RegionNames.cs" />
     <Compile Include="UserManager.cs" />
     <Compile Include="ViewModels\IViewLoadedAsync.cs" />
     <Compile Include="ViewModels\ViewModelProvider.cs" />
@@ -121,7 +121,7 @@
     </ProjectReference>
     <ProjectReference Include="..\..\Core\Net\CrossApplication.Core.Net.Common\CrossApplication.Core.Net.Common.csproj">
       <Project>{a987fdaa-c4bc-4854-a70c-bf803c0100a0}</Project>
-      <Name>CrossApplication.Core.Net.Application</Name>
+      <Name>CrossApplication.Core.Net.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\CrossApplication.Wpf.Contracts\CrossApplication.Wpf.Contracts.csproj">
       <Project>{25B722B3-FB2D-499C-BD67-2EC24D8C72F7}</Project>

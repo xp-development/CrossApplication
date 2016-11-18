@@ -1,4 +1,4 @@
-﻿namespace CrossApplication.Wpf.Common
+﻿namespace CrossApplication.Wpf.Common.Navigation
 {
     public static class RegionNames
     {

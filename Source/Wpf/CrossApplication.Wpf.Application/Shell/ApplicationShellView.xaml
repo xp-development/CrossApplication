@@ -6,8 +6,8 @@
                      xmlns:fluent="urn:fluent-ribbon"
                      xmlns:mvvm="http://prismlibrary.com/"
                      xmlns:resources="clr-namespace:CrossApplication.Core.Resources;assembly=CrossApplication.Core.Resources"
-                     xmlns:common="clr-namespace:CrossApplication.Wpf.Common;assembly=CrossApplication.Wpf.Common"
                      xmlns:viewModels="clr-namespace:CrossApplication.Wpf.Common.ViewModels;assembly=CrossApplication.Wpf.Common"
+                     xmlns:navigation="clr-namespace:CrossApplication.Wpf.Common.Navigation;assembly=CrossApplication.Wpf.Common"
                      mc:Ignorable="d"
                      Height="{Binding Source={StaticResource Settings}, Path=Default.ShellHeight, Mode=TwoWay}"
                      Width="{Binding Source={StaticResource Settings}, Path=Default.ShellWidth, Mode=TwoWay}"
@@ -16,5 +16,5 @@
                      WindowState="{Binding Source={StaticResource Settings}, Path=Default.ShellWindowState, Mode=TwoWay}"
                      Title="{x:Static resources:CommonResources.ApplicationName}"
                      viewModels:ViewModelLocator.AutoWireViewModel="True">
-    <ContentControl mvvm:RegionManager.RegionName="{x:Static common:RegionNames.RichRegion}" />
+    <ContentControl mvvm:RegionManager.RegionName="{x:Static navigation:RegionNames.RichRegion}" />
 </fluent:RibbonWindow>
