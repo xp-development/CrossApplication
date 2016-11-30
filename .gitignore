@@ -9,3 +9,4 @@ Source/.vs/CrossApplication/v14/.suo
 **/AppPackages/**
 *.csproj.user
 Source/CrossApplication.sln.DotSettings.user
+Source/.idea/**

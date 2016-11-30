@@ -39,13 +39,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="MailMessaging.Plain.Contracts, Version=2016.0.26.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\MailMessaging.Plain.Contracts.2016.0.26\lib\portable-net451+wpa81+win81+Xamarin.iOS+Xamarin.Android+Xamarin.iOSClassic\MailMessaging.Plain.Contracts.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="MailMessaging.Plain.Contracts, Version=2016.0.28.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\MailMessaging.Plain.Contracts.2016.0.28\lib\portable-net451+wpa81+win81+Xamarin.iOS+Xamarin.Android+Xamarin.iOSClassic\MailMessaging.Plain.Contracts.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <Content Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Target Name="BeforeBuild">
