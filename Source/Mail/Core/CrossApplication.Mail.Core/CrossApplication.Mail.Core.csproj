@@ -40,7 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MailMessaging.Plain.Contracts, Version=2016.0.28.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\..\packages\MailMessaging.Plain.Contracts.2016.0.28\lib\portable-net451+wpa81+win81+Xamarin.iOS+Xamarin.Android+Xamarin.iOSClassic\MailMessaging.Plain.Contracts.dll</HintPath>
+      <HintPath>..\..\..\packages\MailMessaging.Plain.Contracts.2016.0.28\lib\portable-net451+wpa81+win81+Xamarin.iOS+Xamarin.Android+Xamarin.iOSClassic\MailMessaging.Plain.Contracts.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -50,7 +50,7 @@
   <Target Name="BeforeBuild">
   </Target>
   <Target Name="AfterBuild">
-    <Copy SourceFiles="$(OutputPath)CrossApplication.Mail.Core.dll" DestinationFolder="..\..\Wpf\CrossApplication.Wpf.Application\$(OutputPath)Modules\" ContinueOnError="false" />
-    <Copy SourceFiles="$(OutputPath)MailMessaging.Plain.Contracts.dll" DestinationFolder="..\..\Wpf\CrossApplication.Wpf.Application\$(OutputPath)Modules\" ContinueOnError="false" />
+    <Copy SourceFiles="$(OutputPath)CrossApplication.Mail.Core.dll" DestinationFolder="..\..\..\Wpf\CrossApplication.Wpf.Application\$(OutputPath)Modules\" ContinueOnError="false" />
+    <Copy SourceFiles="$(OutputPath)MailMessaging.Plain.Contracts.dll" DestinationFolder="..\..\..\Wpf\CrossApplication.Wpf.Application\$(OutputPath)Modules\" ContinueOnError="false" />
   </Target>
 </Project>
