@@ -54,15 +54,20 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Core\CrossApplication.Core.Contracts\CrossApplication.Core.Contracts.csproj">
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Core\CrossApplication.Core.Contracts\CrossApplication.Core.Contracts.csproj">
       <Project>{D4B1B8A8-8078-4AFA-A702-E71449AFB433}</Project>
       <Name>CrossApplication.Core.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Core\Net\CrossApplication.Core.Net.Common\CrossApplication.Core.Net.Common.csproj">
+    <ProjectReference Include="..\..\..\..\Core\Net\CrossApplication.Core.Net.Common\CrossApplication.Core.Net.Common.csproj">
       <Project>{A987FDAA-C4BC-4854-A70C-BF803C0100A0}</Project>
       <Name>CrossApplication.Core.Net.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Core\Net\CrossApplication.Core.Net.Contracts\CrossApplication.Core.Net.Contracts.csproj">
+    <ProjectReference Include="..\..\..\..\Core\Net\CrossApplication.Core.Net.Contracts\CrossApplication.Core.Net.Contracts.csproj">
       <Project>{ADD00E03-B090-4AF7-A9F0-5B20DF299A9E}</Project>
       <Name>CrossApplication.Core.Net.Contracts</Name>
     </ProjectReference>
@@ -70,11 +75,6 @@
       <Project>{AB8263CB-B58C-4F7B-9E68-EBE89EDFF341}</Project>
       <Name>CrossApplication.Mail.Core</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="BeforeBuild">

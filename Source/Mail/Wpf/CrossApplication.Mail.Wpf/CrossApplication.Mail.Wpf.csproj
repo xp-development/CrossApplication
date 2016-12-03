@@ -151,7 +151,11 @@
       <Project>{50CAF89A-FE45-4F39-A093-7119FAA45E0A}</Project>
       <Name>CrossApplication.Wpf.Themes</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\CrossApplication.Mail.Core\CrossApplication.Mail.Core.csproj">
+    <ProjectReference Include="..\..\Core\CrossApplication.Mail.Contracts\CrossApplication.Mail.Contracts.csproj">
+      <Project>{98D2C0F2-BFBF-49DB-961A-CD8F229A80FB}</Project>
+      <Name>CrossApplication.Mail.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\CrossApplication.Mail.Core\CrossApplication.Mail.Core.csproj">
       <Project>{AB8263CB-B58C-4F7B-9E68-EBE89EDFF341}</Project>
       <Name>CrossApplication.Mail.Core</Name>
     </ProjectReference>

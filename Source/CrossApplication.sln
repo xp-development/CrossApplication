@@ -36,7 +36,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Mail.Wpf",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Mail.Wpf.UnitTest", "Mail\Wpf\CrossApplication.Mail.Wpf.UnitTest\CrossApplication.Mail.Wpf.UnitTest.csproj", "{0463D61F-CA70-40EE-8FC0-891F0BA1D9C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Mail.Core", "Mail\CrossApplication.Mail.Core\CrossApplication.Mail.Core.csproj", "{AB8263CB-B58C-4F7B-9E68-EBE89EDFF341}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Mail.Core", "Mail\Core\CrossApplication.Mail.Core\CrossApplication.Mail.Core.csproj", "{AB8263CB-B58C-4F7B-9E68-EBE89EDFF341}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Core.Common.UnitTest", "Core\CrossApplication.Core.Common.UnitTest\CrossApplication.Core.Common.UnitTest.csproj", "{938B80D9-2053-4B36-A126-1F4A471EE790}"
 EndProject
@@ -48,7 +48,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Core.Net.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Core.Net.Contracts", "Core\Net\CrossApplication.Core.Net.Contracts\CrossApplication.Core.Net.Contracts.csproj", "{ADD00E03-B090-4AF7-A9F0-5B20DF299A9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Mail.Core.Net", "Mail\Net\CrossApplication.Mail.Core.Net\CrossApplication.Mail.Core.Net.csproj", "{94F23661-D101-4258-BA92-0E26EEF2AAC9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Mail.Core.Net", "Mail\Core\Net\CrossApplication.Mail.Core.Net\CrossApplication.Mail.Core.Net.csproj", "{94F23661-D101-4258-BA92-0E26EEF2AAC9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Net", "Net", "{3C44BF94-BDD3-460F-A470-10624FD33AB7}"
 EndProject
@@ -59,6 +59,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Core.Net.Themes", "Core\Net\CrossApplication.Core.Net.Themes\CrossApplication.Core.Net.Themes.csproj", "{9EC03910-7516-4CFD-B69D-B634DE7702FF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{799B2EED-AB09-4CEE-A7DF-D2041767AF0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Mail.Contracts", "Mail\Core\CrossApplication.Mail.Contracts\CrossApplication.Mail.Contracts.csproj", "{98D2C0F2-BFBF-49DB-961A-CD8F229A80FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -146,6 +148,10 @@ Global
 		{9EC03910-7516-4CFD-B69D-B634DE7702FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EC03910-7516-4CFD-B69D-B634DE7702FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EC03910-7516-4CFD-B69D-B634DE7702FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98D2C0F2-BFBF-49DB-961A-CD8F229A80FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98D2C0F2-BFBF-49DB-961A-CD8F229A80FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98D2C0F2-BFBF-49DB-961A-CD8F229A80FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98D2C0F2-BFBF-49DB-961A-CD8F229A80FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -163,7 +169,6 @@ Global
 		{9F56759A-B00A-4A15-9CAD-FBA3E5FEDBD8} = {A0F0B07A-D8CB-4A76-BAFC-98F5F7E8B129}
 		{B59ADDA4-E2FE-4698-A048-87BCD4F95151} = {9F56759A-B00A-4A15-9CAD-FBA3E5FEDBD8}
 		{0463D61F-CA70-40EE-8FC0-891F0BA1D9C1} = {9F56759A-B00A-4A15-9CAD-FBA3E5FEDBD8}
-		{AB8263CB-B58C-4F7B-9E68-EBE89EDFF341} = {A0F0B07A-D8CB-4A76-BAFC-98F5F7E8B129}
 		{938B80D9-2053-4B36-A126-1F4A471EE790} = {429ED231-9DE0-4B4C-8C35-E1B41C7294BA}
 		{A987FDAA-C4BC-4854-A70C-BF803C0100A0} = {42869309-07FB-43FE-81BD-3C52AA6C9A58}
 		{42869309-07FB-43FE-81BD-3C52AA6C9A58} = {429ED231-9DE0-4B4C-8C35-E1B41C7294BA}
@@ -175,5 +180,7 @@ Global
 		{5EB5D7AB-7D46-47CB-9978-54D70EC768C3} = {429ED231-9DE0-4B4C-8C35-E1B41C7294BA}
 		{9EC03910-7516-4CFD-B69D-B634DE7702FF} = {42869309-07FB-43FE-81BD-3C52AA6C9A58}
 		{799B2EED-AB09-4CEE-A7DF-D2041767AF0F} = {A0F0B07A-D8CB-4A76-BAFC-98F5F7E8B129}
+		{AB8263CB-B58C-4F7B-9E68-EBE89EDFF341} = {799B2EED-AB09-4CEE-A7DF-D2041767AF0F}
+		{98D2C0F2-BFBF-49DB-961A-CD8F229A80FB} = {799B2EED-AB09-4CEE-A7DF-D2041767AF0F}
 	EndGlobalSection
 EndGlobal
