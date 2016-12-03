@@ -71,11 +71,11 @@ namespace CrossApplication.Wpf.Application
             ResourceDictionary myResourceDictionary;
             switch (Settings.Default.Theme)
             {
-                case Theme.Light:
-                    myResourceDictionary = new ResourceDictionary {Source = new Uri("/CrossApplication.Wpf.Themes;component/Light/Colors.xaml", UriKind.Relative)};
+                case Theme.LightBlue:
+                    myResourceDictionary = new ResourceDictionary {Source = new Uri("/CrossApplication.Wpf.Themes;component/LightBlue/Colors.xaml", UriKind.Relative)};
                     break;
                 default:
-                    myResourceDictionary = new ResourceDictionary {Source = new Uri("/CrossApplication.Wpf.Themes;component/Light/Colors.xaml", UriKind.Relative)};
+                    myResourceDictionary = new ResourceDictionary {Source = new Uri("/CrossApplication.Wpf.Themes;component/LightBlue/Colors.xaml", UriKind.Relative)};
                     break;
             }
 

@@ -2,6 +2,6 @@
 {
     public enum Theme
     {
-        Light
+        LightBlue
     }
 }

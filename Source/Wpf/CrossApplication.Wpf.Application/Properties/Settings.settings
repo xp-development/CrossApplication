@@ -23,7 +23,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Theme" Type="CrossApplication.Core.Contracts.Application.Theming.Theme" Scope="User">
-      <Value Profile="(Default)">Light</Value>
+      <Value Profile="(Default)">LightBlue</Value>
     </Setting>
   </Settings>
 </SettingsFile>

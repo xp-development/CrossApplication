@@ -16,7 +16,7 @@
   <Style TargetType="{x:Type controls:TextControl}" BasedOn="{StaticResource DefaultTextControlStyle}" />
   <Style TargetType="{x:Type controls:NavigationBar}">
     <Setter Property="FontSize" Value="20" />
-    <Setter Property="Background" Value="#E2E2E2" />
+    <Setter Property="Background" Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly={x:Type themes:Colors}, ResourceId=NavigationBarBackgroundColorKey}}" />
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="{x:Type controls:NavigationBar}">
