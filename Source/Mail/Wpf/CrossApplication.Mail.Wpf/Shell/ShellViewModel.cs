@@ -1,8 +1,6 @@
-﻿using Prism.Mvvm;
-
-namespace CrossApplication.Mail.Wpf.Shell
+﻿namespace CrossApplication.Mail.Wpf.Shell
 {
-    public class ShellViewModel : BindableBase
+    public class ShellViewModel
     {
     }
 }

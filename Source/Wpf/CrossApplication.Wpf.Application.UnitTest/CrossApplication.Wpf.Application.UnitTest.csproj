@@ -114,6 +114,7 @@
     </Compile>
     <Compile Include="_Login\_LoginViewModel\LoginCommand.cs" />
     <Compile Include="_Shell\_RibbonTabs\_AboutViewModel\ViewLoadedAsync.cs" />
+    <Compile Include="_Shell\_RichShellViewModel\StateMessage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">
@@ -131,6 +132,10 @@
     <ProjectReference Include="..\..\Core\CrossApplication.Core.Contracts\CrossApplication.Core.Contracts.csproj">
       <Project>{D4B1B8A8-8078-4AFA-A702-E71449AFB433}</Project>
       <Name>CrossApplication.Core.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Net\CrossApplication.Core.Net.Contracts\CrossApplication.Core.Net.Contracts.csproj">
+      <Project>{ADD00E03-B090-4AF7-A9F0-5B20DF299A9E}</Project>
+      <Name>CrossApplication.Core.Net.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\CrossApplication.Wpf.Application\CrossApplication.Wpf.Application.csproj">
       <Project>{E2290F54-107F-4D13-9604-FDDFF983596D}</Project>

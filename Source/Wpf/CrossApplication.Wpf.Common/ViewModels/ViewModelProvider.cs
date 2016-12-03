@@ -14,14 +14,29 @@ namespace CrossApplication.Wpf.Common.ViewModels
             frameworkElement.DataContext = viewModel;
             var viewLoaded = viewModel as IViewLoadedAsync;
             if (viewLoaded != null)
+            {
                 frameworkElement.Loaded += FrameworkElementOnLoaded;
+                frameworkElement.Unloaded += FrameworkElementOnUnloaded;
+            }
         }
 
         private static async void FrameworkElementOnLoaded(object sender, RoutedEventArgs routedEventArgs)
         {
             var frameworkElement = (FrameworkElement) sender;
-            frameworkElement.Loaded -= FrameworkElementOnLoaded;
             await ((IViewLoadedAsync) frameworkElement.DataContext).OnViewLoadedAsync();
+        }
+
+        private static async void FrameworkElementOnUnloaded(object sender, RoutedEventArgs e)
+        {
+            var frameworkElement = (FrameworkElement) sender;
+            frameworkElement.Loaded -= FrameworkElementOnLoaded;
+            frameworkElement.Unloaded -= FrameworkElementOnUnloaded;
+
+            var viewLoaded = frameworkElement.DataContext as IViewUnloadedAsync;
+            if (viewLoaded != null)
+            {
+                await ((IViewUnloadedAsync) frameworkElement.DataContext).OnViewUnloadedAsync();
+            }
         }
 
         public static void SetViewModelFactoryMethod(Func<Type, object> factoryMethod)

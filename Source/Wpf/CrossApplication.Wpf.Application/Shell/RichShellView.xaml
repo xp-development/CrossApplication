@@ -27,6 +27,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <fluent:Ribbon IsQuickAccessToolBarVisible="False"
                        mvvm:RegionManager.RegionName="{x:Static navigation:RegionNames.RibbonRegion}">
@@ -38,7 +39,7 @@
             </fluent:Ribbon.Menu>
         </fluent:Ribbon>
         <ContentControl mvvm:RegionManager.RegionName="{x:Static navigation:RegionNames.MainRegion}" Grid.Row="1" />
-        <controls:NavigationBar FontSize="20" ItemsSource="{Binding NavigationItems}" MaximumCountVisibleElements="2" Grid.Row="2">
+        <controls:NavigationBar ItemsSource="{Binding NavigationItems}" MaximumCountVisibleElements="2" Grid.Row="2">
             <controls:NavigationBar.BarItemTemplate>
                 <DataTemplate>
                     <Button Content="{Binding Path=Label}" Style="{StaticResource ButtonHyperlinkStyle}"
@@ -46,5 +47,10 @@
                 </DataTemplate>
             </controls:NavigationBar.BarItemTemplate>
         </controls:NavigationBar>
+        <fluent:StatusBar Grid.Row="3">
+            <fluent:StatusBarItem HorizontalAlignment="Left">
+                <TextBlock Text="{Binding StateMessage}" />
+            </fluent:StatusBarItem>
+        </fluent:StatusBar>
     </Grid>
 </UserControl>
