@@ -1,6 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using CrossApplication.Core.Contracts.Application.Events;
 using CrossApplication.Core.Contracts.Common.Navigation;
@@ -45,12 +48,12 @@ namespace CrossApplication.Wpf.Application.Shell
 
         private void OnStateMessageEvent(StateMessageEvent args)
         {
-            StateMessage = args.Message;
+            _stateMessages.Add(args.Message);
         }
 
         public Task OnViewLoadedAsync()
         {
-            _eventAggregator.GetEvent<PubSubEvent<StateMessageEvent>>().Subscribe(OnStateMessageEvent);
+            _eventAggregator.GetEvent<PubSubEvent<StateMessageEvent>>().Subscribe(OnStateMessageEvent, ThreadOption.BackgroundThread);
 
             foreach (var mainNavigationItem in _mainNavigationItems)
             {
@@ -62,11 +65,26 @@ namespace CrossApplication.Wpf.Application.Shell
                 _regionManager.AddToRegion(RegionNames.BackstageRegion, backstageTab);
             }
 
+            HandleStateMessages();
+
             return Task.FromResult(false);
+        }
+
+        private void HandleStateMessages()
+        {
+            Task.Run(() =>
+            {
+                while (!_stateMessages.IsCompleted)
+                {
+                    StateMessage = _stateMessages.Take();
+                    Thread.Sleep(TimeSpan.FromMilliseconds(800));
+                }
+            });
         }
 
         public Task OnViewUnloadedAsync()
         {
+            _stateMessages.CompleteAdding();
             _eventAggregator.GetEvent<PubSubEvent<StateMessageEvent>>().Unsubscribe(OnStateMessageEvent);
 
             return Task.FromResult(false);
@@ -78,5 +96,6 @@ namespace CrossApplication.Wpf.Application.Shell
         private readonly IRegionManager _regionManager;
         private readonly IEventAggregator _eventAggregator;
         private string _stateMessage;
+        private readonly BlockingCollection<string> _stateMessages = new BlockingCollection<string>();
     }
 }

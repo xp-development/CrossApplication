@@ -4,7 +4,10 @@ namespace CrossApplication.Core.Contracts.Application.Events
 {
     public class StateMessageEvent : PubSubEvent
     {
-        public string Message { get; }
+        public string Message { get; set; }
+
+        public StateMessageEvent()
+        {}
 
         public StateMessageEvent(string message)
         {

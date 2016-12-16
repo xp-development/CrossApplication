@@ -1,7 +1,9 @@
 using System.Threading.Tasks;
 using CrossApplication.Core.Common.Modules;
+using CrossApplication.Core.Common.Security;
 using CrossApplication.Core.Contracts.Application.Modules;
 using CrossApplication.Core.Contracts.Common.Container;
+using CrossApplication.Core.Contracts.Security;
 using Microsoft.Practices.ServiceLocation;
 using Prism.Events;
 using Prism.Logging;
@@ -105,6 +107,7 @@ namespace CrossApplication.Core.Common
             Container.RegisterInstance(Container);
             Container.RegisterType<IEventAggregator, EventAggregator>(Lifetime.PerContainer);
             Container.RegisterType<IModuleManager, ModuleManager>(Lifetime.PerContainer);
+            Container.RegisterType<IStringEncryption, StringEncryption>(Lifetime.PerContainer);
             Container.RegisterInstance(_logger);
         }
 

@@ -30,11 +30,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MailMessaging.Plain.Contracts, Version=2016.0.28.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\..\..\..\packages\MailMessaging.Plain.Contracts.2016.0.28\lib\portable-net451+wpa81+win81+Xamarin.iOS+Xamarin.Android+Xamarin.iOSClassic\MailMessaging.Plain.Contracts.dll</HintPath>
+    <Reference Include="MailMessaging.Plain.Contracts, Version=2016.0.30.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\..\..\packages\MailMessaging.Plain.Contracts.2016.0.30\lib\portable-net451+wpa81+win81+Xamarin.iOS+Xamarin.Android+Xamarin.iOSClassic\MailMessaging.Plain.Contracts.dll</HintPath>
     </Reference>
-    <Reference Include="MailMessaging.Plain.Net, Version=2016.0.28.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\..\..\..\packages\MailMessaging.Plain.Net.2016.0.28\lib\net45\MailMessaging.Plain.Net.dll</HintPath>
+    <Reference Include="MailMessaging.Plain.Net, Version=2016.0.30.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\..\..\packages\MailMessaging.Plain.Net.2016.0.30\lib\net45\MailMessaging.Plain.Net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>

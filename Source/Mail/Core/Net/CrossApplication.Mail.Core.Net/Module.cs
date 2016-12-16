@@ -5,7 +5,9 @@ using CrossApplication.Core.Net.Common.Navigation;
 using CrossApplication.Core.Net.Contracts.Navigation;
 using CrossApplication.Mail.Core.Navigation;
 using MailMessaging.Plain.Contracts;
+using MailMessaging.Plain.Contracts.Services;
 using MailMessaging.Plain.Core;
+using MailMessaging.Plain.Core.Services;
 
 namespace CrossApplication.Mail.Core.Net
 {
@@ -22,6 +24,7 @@ namespace CrossApplication.Mail.Core.Net
             _container.RegisterInstance<IMainNavigationItem>(new MainNavigationItem("E-Mail", ViewKeys.Shell));
             _container.RegisterType<IMailMessenger, MailMessenger>();
             _container.RegisterType<ITcpClient, TcpClient>();
+            _container.RegisterType<ITagService, TagService>();
             return Task.FromResult(false);
         }
 
