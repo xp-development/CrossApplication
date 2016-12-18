@@ -41,7 +41,7 @@ namespace CrossApplication.Wpf.Application.UnitTest._Shell._RichShellViewModel
 
             eventAggregator.GetEvent<PubSubEvent<StateMessageEvent>>().Publish(new StateMessageEvent("Test message."));
 
-            resetEvent.WaitOne(200).Should().BeTrue();
+            resetEvent.WaitOne(1000).Should().BeTrue();
             await viewModel.OnViewUnloadedAsync();
             eventAggregator.GetEvent<PubSubEvent<StateMessageEvent>>().Publish(new StateMessageEvent("Next test message."));
 
