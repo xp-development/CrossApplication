@@ -10,3 +10,7 @@ Source/.vs/CrossApplication/v14/.suo
 *.csproj.user
 Source/CrossApplication.sln.DotSettings.user
 Source/.idea/**
+/Source/Mail/Xamarins/CrossApplication.Mail.Xamarins/CrossApplication.Mail.Xamarins.iOS/bin/iPhone/Debug
+/Source/Mail/Xamarins/CrossApplication.Mail.Xamarins/CrossApplication.Mail.Xamarins.iOS/obj/iPhone/Debug
+/Source/Mail/Xamarins/CrossApplication.Mail.Xamarins/CrossApplication.Mail.Xamarins.UWP/bin/x86/Debug
+/Source/Mail/Xamarins/CrossApplication.Mail.Xamarins/CrossApplication.Mail.Xamarins.UWP/obj/x86/Debug

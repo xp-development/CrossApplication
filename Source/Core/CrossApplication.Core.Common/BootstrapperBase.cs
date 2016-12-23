@@ -1,10 +1,12 @@
 using System.Threading.Tasks;
+using CrossApplication.Core.Common.Container;
 using CrossApplication.Core.Common.Modules;
 using CrossApplication.Core.Common.Security;
 using CrossApplication.Core.Contracts.Application.Modules;
 using CrossApplication.Core.Contracts.Common.Container;
 using CrossApplication.Core.Contracts.Security;
 using Microsoft.Practices.ServiceLocation;
+using Ninject;
 using Prism.Events;
 using Prism.Logging;
 
@@ -100,7 +102,13 @@ namespace CrossApplication.Core.Common
             ServiceLocator.SetLocatorProvider(() => Container.Resolve<IServiceLocator>());
         }
 
-        protected abstract IContainer CreateContainer();
+        protected virtual IContainer CreateContainer()
+        {
+            var standardKernel = new StandardKernel();
+            var container = new NinjectContainer(standardKernel);
+            container.RegisterInstance<IServiceLocator>(new NinjectServiceLocator(standardKernel));
+            return container;
+        }
 
         protected virtual void ConfigureContainer()
         {

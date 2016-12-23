@@ -34,10 +34,6 @@
       <HintPath>..\..\..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
       <Private>True</Private>
     </Reference>
-      <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
-          <HintPath>..\..\..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
-          <Private>True</Private>
-    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -51,8 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BootstrapperBase.cs" />
-    <Compile Include="Container\NinjectContainer.cs" />
-    <Compile Include="Container\NinjectServiceLocator.cs" />
     <Compile Include="Modules\AggregateModuleCatalog.cs" />
     <Compile Include="Modules\DirectoryModuleCatalog.cs" />
     <Compile Include="Navigation\MainNavigationItem.cs" />
