@@ -9,10 +9,10 @@ environment:
   XAMARIN_COOKIE: dc489106db6e4099bc7cf0d2472de180
 
 install:
-$zipPath = "$($env:APPVEYOR_BUILD_FOLDER)\xpkg.zip"
-(New-Object Net.WebClient).DownloadFile('https://components.xamarin.com/submit/xpkg', $zipPath)
-7z x $zipPath | Out-Null
-Set-Content -path "$env:USERPROFILE\.xamarin-credentials" -value "xamarin.com,$env:XAMARIN_COOKIE"
+- ps: $zipPath = "$($env:APPVEYOR_BUILD_FOLDER)\xpkg.zip"
+- ps: (New-Object Net.WebClient).DownloadFile('https://components.xamarin.com/submit/xpkg', $zipPath)
+- ps: 7z x $zipPath | Out-Null
+- ps: Set-Content -path "$env:USERPROFILE\.xamarin-credentials" -value "xamarin.com,$env:XAMARIN_COOKIE"
 
 before_build:
 - xamarin-component.exe restore Source\CrossApplication.sln
