@@ -18,7 +18,7 @@
     <PackageCertificateKeyFile>CrossApplication.Mail.Xamarins.Windows_TemporaryKey.pfx</PackageCertificateKeyFile>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <PackageCertificateThumbprint>13D67954C13FFAFC82E3CA0F1AD75AF2D13D0F8A</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>023A7BEE87347C0368F1AC2E7D465E2512A47F05</PackageCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
