@@ -2,7 +2,7 @@
 using Microsoft.Practices.ServiceLocation;
 using Xamarin.Forms;
 
-namespace CrossApplication.Mail.Xamarins
+namespace CrossApplication.Core.Xamarins
 {
     public class Bootstrapper : BootstrapperBase
     {

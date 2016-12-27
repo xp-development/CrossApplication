@@ -1,4 +1,4 @@
-﻿namespace CrossApplication.Mail.Xamarins
+﻿namespace CrossApplication.Core.Xamarins
 {
     public partial class App
     {
