@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using CrossApplication.Core.Common.ViewModels;
 
 namespace CrossApplication.Wpf.Common.ViewModels
 {

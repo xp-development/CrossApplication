@@ -1,26 +1,29 @@
 ﻿using System;
+using System.Globalization;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using CrossApplication.Core.Common.ViewModels;
 using CrossApplication.Core.Contracts.Application.Modules;
 using CrossApplication.Core.Contracts.Application.Theming;
 using CrossApplication.Core.Contracts.Common.Container;
+using CrossApplication.Core.Contracts.Views;
 using CrossApplication.Core.Net.Common;
 using CrossApplication.Core.Net.Common.Modules;
 using CrossApplication.Wpf.Application.Login;
 using CrossApplication.Wpf.Application.Properties;
 using CrossApplication.Wpf.Application.Shell;
 using CrossApplication.Wpf.Application.Shell.RibbonTabs;
-using CrossApplication.Wpf.Common;
 using CrossApplication.Wpf.Common.Navigation;
 using CrossApplication.Wpf.Common.RegionAdapters;
-using CrossApplication.Wpf.Common.ViewModels;
 using CrossApplication.Wpf.Contracts.Navigation;
 using Fluent;
 using Microsoft.Practices.ServiceLocation;
 using Prism.Regions;
 using Prism.Regions.Behaviors;
+using System.Reflection;
+using Module = CrossApplication.Wpf.Common.Module;
 
 namespace CrossApplication.Wpf.Application
 {
@@ -87,7 +90,37 @@ namespace CrossApplication.Wpf.Application
 
         protected override void ConfigureViewModelLocator()
         {
-            ViewModelProvider.SetViewModelFactoryMethod(t => Container.Resolve(t));
+            base.ConfigureViewModelLocator();
+
+            ViewModelProvider.SetViewEventCallback(ViewEventCallback);
+            ViewModelProvider.SetGetTypeCallback(viewType => Type.GetType(string.Format(CultureInfo.InvariantCulture, "{0}Model, {1}", viewType.FullName, viewType.GetTypeInfo().Assembly.FullName), name => viewType.GetTypeInfo().Assembly, null, true));
+            ViewModelProvider.SetDataContextCallback((view, viewModel) => { ((FrameworkElement) view).DataContext = viewModel; });
+        }
+
+        private static void ViewEventCallback(object view, object viewModel)
+        {
+            var viewLoading = viewModel as IViewLoadingAsync;
+            if (viewLoading != null)
+                throw new NotSupportedException("IViewLoadingAsync is not supported.");
+
+            var viewUnloading = viewModel as IViewUnloadingAsync;
+            if (viewUnloading != null)
+                throw new NotSupportedException("IViewUnloadingAsync is not supported.");
+
+            var viewLoaded = viewModel as IViewLoadedAsync;
+            if (viewLoaded != null)
+            {
+                var frameworkElement = (FrameworkElement) view;
+                frameworkElement.Loaded += FrameworkElementOnLoaded;
+                frameworkElement.Unloaded += FrameworkElementOnUnloaded;
+            }
+
+            var viewUnloaded = viewModel as IViewUnloadedAsync;
+            if (viewUnloaded != null)
+            {
+                var frameworkElement = (FrameworkElement)view;
+                frameworkElement.Unloaded += FrameworkElementOnUnloaded;
+            }
         }
 
         protected override void ConfigureContainer()
@@ -126,6 +159,25 @@ namespace CrossApplication.Wpf.Application
             var viewManager = Container.Resolve<IViewManager>();
             viewManager.RichViewItem = new ViewItem(typeof(RichShellView).FullName, RegionNames.RichRegion);
             viewManager.LoginViewItem = new ViewItem(typeof(LoginView).FullName, RegionNames.RichRegion);
+        }
+
+        private static async void FrameworkElementOnLoaded(object sender, RoutedEventArgs routedEventArgs)
+        {
+            var frameworkElement = (FrameworkElement) sender;
+            await ((IViewLoadedAsync) frameworkElement.DataContext).OnViewLoadedAsync();
+        }
+
+        private static async void FrameworkElementOnUnloaded(object sender, RoutedEventArgs e)
+        {
+            var frameworkElement = (FrameworkElement) sender;
+            frameworkElement.Loaded -= FrameworkElementOnLoaded;
+            frameworkElement.Unloaded -= FrameworkElementOnUnloaded;
+
+            var viewLoaded = frameworkElement.DataContext as IViewUnloadedAsync;
+            if (viewLoaded != null)
+            {
+                await ((IViewUnloadedAsync) frameworkElement.DataContext).OnViewUnloadedAsync();
+            }
         }
 
         private DependencyObject _shell;

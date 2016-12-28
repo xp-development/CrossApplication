@@ -1,10 +1,9 @@
 ﻿using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using CrossApplication.Core.Contracts.Common.Navigation;
+using CrossApplication.Core.Contracts.Views;
 using CrossApplication.Mail.Contracts.Messaging;
 using CrossApplication.Wpf.Common.Navigation;
-using CrossApplication.Wpf.Common.ViewModels;
-using MailMessaging.Plain.Contracts;
 
 namespace CrossApplication.Mail.Wpf.Navigation
 {
@@ -12,10 +11,9 @@ namespace CrossApplication.Mail.Wpf.Navigation
     {
         public ObservableCollection<NavigationItem> NavigationItems { get; } = new ObservableCollection<NavigationItem>();
 
-        public NavigationViewModel(INavigationService navigationService, IMailMessenger messenger, IMailManager mailManager)
+        public NavigationViewModel(INavigationService navigationService, IMailManager mailManager)
         {
             _navigationService = navigationService;
-            _messenger = messenger;
             _mailManager = mailManager;
         }
 
@@ -31,7 +29,6 @@ namespace CrossApplication.Mail.Wpf.Navigation
         }
 
         private readonly INavigationService _navigationService;
-        private readonly IMailMessenger _messenger;
         private readonly IMailManager _mailManager;
     }
 }

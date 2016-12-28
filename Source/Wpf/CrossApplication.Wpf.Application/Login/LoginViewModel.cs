@@ -2,8 +2,8 @@
 using System.Windows.Input;
 using CrossApplication.Core.Contracts;
 using CrossApplication.Core.Contracts.Common.Navigation;
+using CrossApplication.Core.Contracts.Views;
 using CrossApplication.Wpf.Application.Properties;
-using CrossApplication.Wpf.Common.ViewModels;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Regions;

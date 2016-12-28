@@ -90,9 +90,6 @@
     <Compile Include="RegionAdapters\RibbonRegionAdapter.cs" />
     <Compile Include="Navigation\RegionNames.cs" />
     <Compile Include="UserManager.cs" />
-    <Compile Include="ViewModels\IViewLoadedAsync.cs" />
-    <Compile Include="ViewModels\IViewUnloadedAsync.cs" />
-    <Compile Include="ViewModels\ViewModelProvider.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
   </ItemGroup>
   <ItemGroup>

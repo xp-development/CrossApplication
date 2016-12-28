@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using CrossApplication.Core.Common.Container;
 using CrossApplication.Core.Common.Modules;
 using CrossApplication.Core.Common.Security;
+using CrossApplication.Core.Common.ViewModels;
 using CrossApplication.Core.Contracts.Application.Modules;
 using CrossApplication.Core.Contracts.Common.Container;
 using CrossApplication.Core.Contracts.Security;
@@ -47,6 +48,7 @@ namespace CrossApplication.Core.Common
 
         protected virtual void ConfigureViewModelLocator()
         {
+            ViewModelProvider.SetViewModelFactoryMethod(t => Container.Resolve(t));
         }
 
         private ILoggerFacade CreateLogger()

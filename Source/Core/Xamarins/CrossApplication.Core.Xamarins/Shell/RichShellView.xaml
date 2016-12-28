@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:viewModels="clr-namespace:CrossApplication.Core.Xamarins.ViewModels;assembly=CrossApplication.Core.Xamarins"
+                  x:Class="CrossApplication.Core.Xamarins.Shell.RichShellView"
+                  viewModels:ViewModelLocator.AutoWireViewModel="True">
+    <MasterDetailPage.Master>
+      <ContentPage Title="CA">
+        <StackLayout VerticalOptions="FillAndExpand">
+            <ListView VerticalOptions="FillAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate />
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+      </ContentPage>
+    </MasterDetailPage.Master>
+  <MasterDetailPage.Detail>
+    <ContentPage>
+      <Label>detail</Label>
+    </ContentPage>
+  </MasterDetailPage.Detail>
+</MasterDetailPage>

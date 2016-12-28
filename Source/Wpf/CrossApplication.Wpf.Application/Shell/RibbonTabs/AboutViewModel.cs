@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using CrossApplication.Core.Contracts.Application.Modules;
 using CrossApplication.Core.Contracts.Application.Services;
-using CrossApplication.Wpf.Common.ViewModels;
+using CrossApplication.Core.Contracts.Views;
 using Prism.Mvvm;
 
 namespace CrossApplication.Wpf.Application.Shell.RibbonTabs
