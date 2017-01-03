@@ -1,4 +1,4 @@
-﻿namespace CrossApplication.Core.Net.Contracts.Navigation
+﻿namespace CrossApplication.Core.Contracts.Navigation
 {
     public interface IMainNavigationItem
     {

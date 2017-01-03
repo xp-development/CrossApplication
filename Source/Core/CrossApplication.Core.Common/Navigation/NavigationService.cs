@@ -1,10 +1,12 @@
 using System;
+using System.Threading.Tasks;
 using CrossApplication.Core.Contracts;
 using CrossApplication.Core.Contracts.Common.Navigation;
-using CrossApplication.Wpf.Contracts.Navigation;
-using Prism.Regions;
+using CrossApplication.Core.Contracts.Navigation;
+using Prism.Navigation;
+using INavigationService = CrossApplication.Core.Contracts.Common.Navigation.INavigationService;
 
-namespace CrossApplication.Wpf.Common.Navigation
+namespace CrossApplication.Core.Common.Navigation
 {
     public class NavigationService : INavigationService
     {
@@ -15,39 +17,39 @@ namespace CrossApplication.Wpf.Common.Navigation
             _userManager = userManager;
         }
 
-        public void NavigateTo(string navigationKey)
+        public async Task NavigateToAsync(string navigationKey)
         {
-            NavigateTo(_viewManager.GetViewItem(navigationKey));
+            await NavigateTo(_viewManager.GetViewItem(navigationKey));
         }
 
-        private void NavigateTo(ViewItem viewItem)
+        private async Task NavigateTo(ViewItem viewItem)
         {
             if (viewItem.IsAuthorizationRequired && !_userManager.IsAuthorized)
             {
                 _lastRichView = _viewManager.LoginViewItem;
-                NavigateToViewItem(_lastRichView, viewItem.ViewKey);
+                await NavigateToViewItem(_lastRichView, viewItem.ViewKey);
                 return;
             }
 
             if (_lastRichView != _viewManager.RichViewItem)
             {
-                NavigateToViewItem(_viewManager.RichViewItem);
+                await NavigateToViewItem(_viewManager.RichViewItem);
                 _lastRichView = _viewManager.RichViewItem;
             }
 
-            NavigateToViewItem(viewItem);
+            await NavigateToViewItem(viewItem);
         }
 
-        private void NavigateToViewItem(ViewItem viewItem, object navigationParameter = null)
+        private async Task NavigateToViewItem(ViewItem viewItem, object navigationParameter = null)
         {
             if(navigationParameter == null)
-                _regionManager.RequestNavigate(viewItem.RegionName, new Uri(viewItem.ViewKey, UriKind.Relative));
+                await _regionManager.RequestNavigateAsync(viewItem.RegionName, new Uri(viewItem.ViewKey, UriKind.Relative));
             else
-                _regionManager.RequestNavigate(viewItem.RegionName, new Uri(viewItem.ViewKey, UriKind.Relative), new NavigationParameters { { "RequestedView", navigationParameter } });
+                await _regionManager.RequestNavigateAsync(viewItem.RegionName, new Uri(viewItem.ViewKey, UriKind.Relative), new NavigationParameters { { "RequestedView", navigationParameter } });
 
             foreach (var subViewItem in viewItem.SubViewItems)
             {
-                NavigateTo(subViewItem);
+                await NavigateTo(subViewItem);
             }
         }
 

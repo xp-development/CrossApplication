@@ -1,10 +1,14 @@
 using System.Threading.Tasks;
 using CrossApplication.Core.Common.Container;
 using CrossApplication.Core.Common.Modules;
+using CrossApplication.Core.Common.Mvvm;
+using CrossApplication.Core.Common.Navigation;
 using CrossApplication.Core.Common.Security;
-using CrossApplication.Core.Common.ViewModels;
+using CrossApplication.Core.Contracts;
 using CrossApplication.Core.Contracts.Application.Modules;
 using CrossApplication.Core.Contracts.Common.Container;
+using CrossApplication.Core.Contracts.Common.Navigation;
+using CrossApplication.Core.Contracts.Navigation;
 using CrossApplication.Core.Contracts.Security;
 using Microsoft.Practices.ServiceLocation;
 using Ninject;
@@ -115,9 +119,12 @@ namespace CrossApplication.Core.Common
         protected virtual void ConfigureContainer()
         {
             Container.RegisterInstance(Container);
+            Container.RegisterType<INavigationService, NavigationService>(Lifetime.PerContainer);
             Container.RegisterType<IEventAggregator, EventAggregator>(Lifetime.PerContainer);
             Container.RegisterType<IModuleManager, ModuleManager>(Lifetime.PerContainer);
             Container.RegisterType<IStringEncryption, StringEncryption>(Lifetime.PerContainer);
+            Container.RegisterType<IViewManager, ViewManager>(Lifetime.PerContainer);
+            Container.RegisterType<IUserManager, UserManager>(Lifetime.PerContainer);
             Container.RegisterInstance(_logger);
         }
 

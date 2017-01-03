@@ -1,13 +1,13 @@
 ﻿using System;
-using System.Globalization;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
-using CrossApplication.Core.Common.ViewModels;
+using CrossApplication.Core.Common.Mvvm;
 using CrossApplication.Core.Contracts.Application.Modules;
 using CrossApplication.Core.Contracts.Application.Theming;
 using CrossApplication.Core.Contracts.Common.Container;
+using CrossApplication.Core.Contracts.Navigation;
 using CrossApplication.Core.Contracts.Views;
 using CrossApplication.Core.Net.Common;
 using CrossApplication.Core.Net.Common.Modules;
@@ -17,13 +17,12 @@ using CrossApplication.Wpf.Application.Shell;
 using CrossApplication.Wpf.Application.Shell.RibbonTabs;
 using CrossApplication.Wpf.Common.Navigation;
 using CrossApplication.Wpf.Common.RegionAdapters;
-using CrossApplication.Wpf.Contracts.Navigation;
 using Fluent;
 using Microsoft.Practices.ServiceLocation;
 using Prism.Regions;
 using Prism.Regions.Behaviors;
-using System.Reflection;
 using Module = CrossApplication.Wpf.Common.Module;
+using RegionManager = Prism.Regions.RegionManager;
 
 namespace CrossApplication.Wpf.Application
 {
@@ -93,7 +92,6 @@ namespace CrossApplication.Wpf.Application
             base.ConfigureViewModelLocator();
 
             ViewModelProvider.SetViewEventCallback(ViewEventCallback);
-            ViewModelProvider.SetGetTypeCallback(viewType => Type.GetType(string.Format(CultureInfo.InvariantCulture, "{0}Model, {1}", viewType.FullName, viewType.GetTypeInfo().Assembly.FullName), name => viewType.GetTypeInfo().Assembly, null, true));
             ViewModelProvider.SetDataContextCallback((view, viewModel) => { ((FrameworkElement) view).DataContext = viewModel; });
         }
 
@@ -127,6 +125,7 @@ namespace CrossApplication.Wpf.Application
         {
             Container.RegisterType<IRegionBehaviorFactory, RegionBehaviorFactory>(Lifetime.PerContainer);
             Container.RegisterType<IRegionManager, RegionManager>(Lifetime.PerContainer);
+            Container.RegisterType<Core.Contracts.Common.Navigation.IRegionManager, Common.Navigation.RegionManager>(Lifetime.PerContainer);
             Container.RegisterType<IRegionViewRegistry, RegionViewRegistry>(Lifetime.PerContainer);
             Container.RegisterType<IRegionNavigationJournalEntry, RegionNavigationJournalEntry>();
             Container.RegisterType<IRegionNavigationJournal, RegionNavigationJournal>();

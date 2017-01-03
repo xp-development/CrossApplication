@@ -1,4 +1,4 @@
-﻿namespace CrossApplication.Wpf.Common.UnitTest.Navigation
+﻿namespace CrossApplication.Core.Common.UnitTest._Navigation
 {
     /// <summary>
     ///     Interaction logic for TestLoginView.xaml

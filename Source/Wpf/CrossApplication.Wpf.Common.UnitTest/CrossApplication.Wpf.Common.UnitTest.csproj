@@ -94,15 +94,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Navigation\TestLoginView.xaml.cs">
-      <DependentUpon>TestLoginView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Navigation\TestView.xaml.cs">
-      <DependentUpon>TestView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Navigation\_NavigationService\NavigateTo.cs" />
-    <Compile Include="Navigation\_ViewManager\AddViewItem.cs" />
-    <Compile Include="Navigation\_ViewManager\GetViewItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -134,16 +125,6 @@
       <Project>{25b722b3-fb2d-499c-bd67-2ec24d8c72f7}</Project>
       <Name>CrossApplication.Wpf.Contracts</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="Navigation\TestLoginView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Navigation\TestView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

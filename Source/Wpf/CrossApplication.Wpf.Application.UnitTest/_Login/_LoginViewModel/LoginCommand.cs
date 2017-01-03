@@ -24,7 +24,7 @@ namespace CrossApplication.Wpf.Application.UnitTest._Login._LoginViewModel
             viewModel.LoginCommand.Execute(null);
 
             viewModel.Message.Should().BeNullOrEmpty();
-            _navigationServiceMock.Verify(x => x.NavigateTo("MyRequestedView"), Times.Once);
+            _navigationServiceMock.Verify(x => x.NavigateToAsync("MyRequestedView"), Times.Once);
         }
 
         [Fact]
@@ -36,7 +36,7 @@ namespace CrossApplication.Wpf.Application.UnitTest._Login._LoginViewModel
             viewModel.LoginCommand.Execute(null);
 
             viewModel.Message.Should().Be("Login failed.");
-            _navigationServiceMock.Verify(x => x.NavigateTo("MyRequestedView"), Times.Never);
+            _navigationServiceMock.Verify(x => x.NavigateToAsync("MyRequestedView"), Times.Never);
         }
 
         private LoginViewModel CreateViewModel(bool loginResult)

@@ -1,6 +1,6 @@
-﻿using CrossApplication.Core.Net.Contracts.Navigation;
+﻿using CrossApplication.Core.Contracts.Navigation;
 
-namespace CrossApplication.Core.Net.Common.Navigation
+namespace CrossApplication.Core.Common.Navigation
 {
     public class MainNavigationItem : IMainNavigationItem
     {

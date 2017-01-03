@@ -1,4 +1,4 @@
-﻿namespace CrossApplication.Wpf.Contracts.Navigation
+﻿namespace CrossApplication.Core.Contracts.Navigation
 {
     public interface IViewManager
     {

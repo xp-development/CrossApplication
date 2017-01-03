@@ -1,28 +1,29 @@
-﻿using System.Windows;
-using CrossApplication.Core.Common.ViewModels;
+﻿using System;
+using System.Windows;
+using CrossApplication.Core.Common.Mvvm;
 
 namespace CrossApplication.Wpf.Common.ViewModels
 {
     public static class ViewModelLocator
     {
-        public static void SetAutoWireViewModel(DependencyObject element, bool value)
+        public static void SetAutoWireViewModel(DependencyObject element, Type value)
         {
             element.SetValue(AutoWireViewModelProperty, value);
         }
 
-        public static bool GetAutoWireViewModel(DependencyObject element)
+        public static Type GetAutoWireViewModel(DependencyObject element)
         {
-            return (bool) element.GetValue(AutoWireViewModelProperty);
+            return (Type) element.GetValue(AutoWireViewModelProperty);
         }
 
         private static void OnAutoWireViewModelChanged(DependencyObject view, DependencyPropertyChangedEventArgs e)
         {
-            if (!(bool) e.NewValue)
+            if (e.NewValue == null)
                 return;
 
-            ViewModelProvider.AutoWireViewModelChanged(view);
+            ViewModelProvider.AutoWireViewModelChanged(view, (Type) e.NewValue);
         }
 
-        public static readonly DependencyProperty AutoWireViewModelProperty = DependencyProperty.RegisterAttached("AutoWireViewModel", typeof(bool), typeof(ViewModelLocator), new PropertyMetadata(false, OnAutoWireViewModelChanged));
+        public static readonly DependencyProperty AutoWireViewModelProperty = DependencyProperty.RegisterAttached("AutoWireViewModel", typeof(Type), typeof(ViewModelLocator), new PropertyMetadata(null, OnAutoWireViewModelChanged));
     }
 }

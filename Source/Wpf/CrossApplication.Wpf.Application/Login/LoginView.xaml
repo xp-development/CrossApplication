@@ -8,7 +8,8 @@
              xmlns:application="clr-namespace:CrossApplication.Wpf.Application.Properties"
              xmlns:ca="urn:cross-application"
              mc:Ignorable="d" Margin="15"
-             viewModels:ViewModelLocator.AutoWireViewModel="True" d:DataContext="{d:DesignInstance login:LoginViewModel}">
+             viewModels:ViewModelLocator.AutoWireViewModel="{x:Type login:LoginViewModel}"
+             d:DataContext="{d:DesignInstance login:LoginViewModel}">
     <DockPanel>
         <Button Content="{x:Static application:Resources.LoginButtonText}" IsDefault="True"
                 Command="{Binding Path=LoginCommand}"

@@ -59,6 +59,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Core\CrossApplication.Core.Common\CrossApplication.Core.Common.csproj">
+      <Project>{b89655fb-6f0a-4a5d-8bf0-d0ea43b90911}</Project>
+      <Name>CrossApplication.Core.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\..\Core\CrossApplication.Core.Contracts\CrossApplication.Core.Contracts.csproj">
       <Project>{D4B1B8A8-8078-4AFA-A702-E71449AFB433}</Project>
       <Name>CrossApplication.Core.Contracts</Name>

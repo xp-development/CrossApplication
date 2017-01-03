@@ -2,13 +2,12 @@
 using System.Threading;
 using CrossApplication.Core.Contracts.Application.Events;
 using CrossApplication.Core.Contracts.Common.Navigation;
-using CrossApplication.Core.Net.Contracts.Navigation;
+using CrossApplication.Core.Contracts.Navigation;
 using CrossApplication.Wpf.Application.Shell;
 using CrossApplication.Wpf.Application.Shell.RibbonTabs;
 using FluentAssertions;
 using Moq;
 using Prism.Events;
-using Prism.Regions;
 using Xunit;
 
 namespace CrossApplication.Wpf.Application.UnitTest._Shell._RichShellViewModel
@@ -19,7 +18,7 @@ namespace CrossApplication.Wpf.Application.UnitTest._Shell._RichShellViewModel
         public async void ShouldSetStateIfStateMessageEventIsPublished()
         {
             var eventAggregator = new EventAggregator();
-            var viewModel = new RichShellViewModel(null, new List<IMainNavigationItem>(), new Mock<INavigationService>().Object, new List<IBackstageTabViewModel>(), new Mock<IRegionManager>().Object, eventAggregator);
+            var viewModel = new RichShellViewModel(null, new List<IMainNavigationItem>(), new Mock<INavigationService>().Object, new List<IBackstageTabViewModel>(), new Mock<Prism.Regions.IRegionManager>().Object, eventAggregator);
             await viewModel.OnViewLoadedAsync();
             var resetEvent = new AutoResetEvent(false);
             viewModel.PropertyChanged += (sender, args) => resetEvent.Set();
@@ -34,7 +33,7 @@ namespace CrossApplication.Wpf.Application.UnitTest._Shell._RichShellViewModel
         public async void ShouldNotRefreshStateIfViewIsUnloaded()
         {
             var eventAggregator = new EventAggregator();
-            var viewModel = new RichShellViewModel(null, new List<IMainNavigationItem>(), new Mock<INavigationService>().Object, new List<IBackstageTabViewModel>(), new Mock<IRegionManager>().Object, eventAggregator);
+            var viewModel = new RichShellViewModel(null, new List<IMainNavigationItem>(), new Mock<INavigationService>().Object, new List<IBackstageTabViewModel>(), new Mock<Prism.Regions.IRegionManager>().Object, eventAggregator);
             await viewModel.OnViewLoadedAsync();
             var resetEvent = new AutoResetEvent(false);
             viewModel.PropertyChanged += (sender, args) => resetEvent.Set();

@@ -10,14 +10,13 @@
     xmlns:resources="clr-namespace:CrossApplication.Core.Resources;assembly=CrossApplication.Core.Resources"
     xmlns:ribbonTabs="clr-namespace:CrossApplication.Wpf.Application.Shell.RibbonTabs"
     xmlns:viewModels="clr-namespace:CrossApplication.Wpf.Common.ViewModels;assembly=CrossApplication.Wpf.Common"
-    xmlns:application="clr-namespace:CrossApplication.Wpf.Application.Properties"
     xmlns:ca="urn:cross-application"
-    mc:Ignorable="d" viewModels:ViewModelLocator.AutoWireViewModel="True"
+    mc:Ignorable="d" viewModels:ViewModelLocator.AutoWireViewModel="{x:Type ribbonTabs:AboutViewModel}"
     d:DesignHeight="300" d:DesignWidth="300" d:DataContext="{d:DesignInstance ribbonTabs:AboutViewModel}">
     <StackPanel Margin="10,0">
         <ca:TextControl Style="{StaticResource TextControlCaptionStyle}" Text="{x:Static resources:CommonResources.ApplicationName}" />
         <ca:TextControl>
-            <TextBlock Text="{x:Static application:Resources.Version}" /> <TextBlock Text="{Binding Path=Version}" />
+            <TextBlock Text="{x:Static resources:CommonResources.Version}" /> <TextBlock Text="{Binding Path=Version}" />
         </ca:TextControl>
         <ItemsControl ItemsSource="{Binding Path=ModuleInfos}">
             <ItemsControl.ItemTemplate>

@@ -7,7 +7,7 @@
              xmlns:viewModels="clr-namespace:CrossApplication.Wpf.Common.ViewModels;assembly=CrossApplication.Wpf.Common"
              xmlns:ca="urn:cross-application"
              mc:Ignorable="d"
-             viewModels:ViewModelLocator.AutoWireViewModel="True"
+             viewModels:ViewModelLocator.AutoWireViewModel="{x:Type navigation:NavigationViewModel}"
              d:DataContext="{d:DesignInstance navigation:NavigationViewModel}">
     <TreeView ItemsSource="{Binding NavigationItems}">
         <TreeView.ItemTemplate>

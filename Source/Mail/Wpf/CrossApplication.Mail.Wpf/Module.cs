@@ -2,11 +2,11 @@
 using CrossApplication.Core.Contracts.Application.Modules;
 using CrossApplication.Core.Contracts.Common.Container;
 using CrossApplication.Core.Contracts.Common.Navigation;
+using CrossApplication.Core.Contracts.Navigation;
 using CrossApplication.Mail.Core.Navigation;
 using CrossApplication.Mail.Wpf.Navigation;
 using CrossApplication.Mail.Wpf.Shell;
 using CrossApplication.Wpf.Common.Navigation;
-using CrossApplication.Wpf.Contracts.Navigation;
 
 namespace CrossApplication.Mail.Wpf
 {
@@ -33,10 +33,9 @@ namespace CrossApplication.Mail.Wpf
             return Task.FromResult(false);
         }
 
-        public Task ActivateAsync()
+        public async Task ActivateAsync()
         {
-            _navigationService.NavigateTo(ViewKeys.Shell);
-            return Task.FromResult(false);
+            await _navigationService.NavigateToAsync(ViewKeys.Shell);
         }
 
         private void RegisterViews()

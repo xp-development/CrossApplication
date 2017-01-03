@@ -126,7 +126,4 @@
   <data name="LoginName" xml:space="preserve">
     <value>Name:</value>
   </data>
-  <data name="Version" xml:space="preserve">
-    <value>Version:</value>
-  </data>
 </root>

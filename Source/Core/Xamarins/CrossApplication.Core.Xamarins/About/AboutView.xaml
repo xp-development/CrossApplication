@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:shell="clr-namespace:CrossApplication.Core.Xamarins.About;assembly=CrossApplication.Core.Xamarins"
+             xmlns:viewModels="clr-namespace:CrossApplication.Core.Xamarins.ViewModels;assembly=CrossApplication.Core.Xamarins"
+            
+             x:Class="CrossApplication.Core.Xamarins.About.AboutView"
+             viewModels:ViewModelLocator.AutoWireViewModel="{x:Type shell:AboutViewModel}">
+    <StackLayout>
+<!--        <Label Text="{x:Static resources:CommonResources.ApplicationName}" />-->
+        <Label Text="{Binding Path=Version}">
+            <Label.FormattedText>
+                <FormattedString>
+                    <!--                    <Span Text="{x:Static resources:CommonResources.Version}" />-->
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <ListView ItemsSource="{Binding Path=ModuleInfos}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Path=ModuleType}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

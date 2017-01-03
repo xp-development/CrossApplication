@@ -5,22 +5,23 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using CrossApplication.Core.Common.Mvvm;
 using CrossApplication.Core.Contracts.Application.Events;
 using CrossApplication.Core.Contracts.Common.Navigation;
+using CrossApplication.Core.Contracts.Navigation;
 using CrossApplication.Core.Contracts.Views;
-using CrossApplication.Core.Net.Contracts.Navigation;
 using CrossApplication.Wpf.Application.Shell.RibbonTabs;
 using CrossApplication.Wpf.Common.Navigation;
 using Prism.Events;
 using Prism.Interactivity.InteractionRequest;
 using Prism.Mvvm;
-using Prism.Regions;
+using IRegionManager = Prism.Regions.IRegionManager;
 
 namespace CrossApplication.Wpf.Application.Shell
 {
     public class RichShellViewModel : BindableBase, IViewLoadedAsync, IViewUnloadedAsync
     {
-        public ObservableCollection<NavigationItem> NavigationItems { get; set; } = new ObservableCollection<NavigationItem>();
+        public ObservableCollection<NavigationItem> NavigationItems { get; } = new ObservableCollection<NavigationItem>();
 
         public InteractionRequest<INotification> NotificationRequest { get; }
 

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using CrossApplication.Wpf.Contracts.Navigation;
+using CrossApplication.Core.Contracts.Navigation;
 
-namespace CrossApplication.Wpf.Common.Navigation
+namespace CrossApplication.Core.Common.Navigation
 {
     public class ViewManager : IViewManager
     {

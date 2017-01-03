@@ -1,9 +1,9 @@
 ﻿using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using CrossApplication.Core.Common.Mvvm;
 using CrossApplication.Core.Contracts.Common.Navigation;
 using CrossApplication.Core.Contracts.Views;
 using CrossApplication.Mail.Contracts.Messaging;
-using CrossApplication.Wpf.Common.Navigation;
 
 namespace CrossApplication.Mail.Wpf.Navigation
 {

@@ -1,10 +1,10 @@
 ﻿using System;
-using CrossApplication.Wpf.Common.Navigation;
-using CrossApplication.Wpf.Contracts.Navigation;
+using CrossApplication.Core.Common.Navigation;
+using CrossApplication.Core.Contracts.Navigation;
 using FluentAssertions;
 using Xunit;
 
-namespace CrossApplication.Wpf.Common.UnitTest.Navigation._ViewManager
+namespace CrossApplication.Core.Common.UnitTest._Navigation._ViewManager
 {
     public class GetViewItem
     {

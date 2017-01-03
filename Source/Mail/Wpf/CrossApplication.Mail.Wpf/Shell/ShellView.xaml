@@ -7,8 +7,9 @@
              xmlns:ca="urn:cross-application"
              xmlns:regions="http://prismlibrary.com/"
              xmlns:core="clr-namespace:CrossApplication.Mail.Core.Navigation;assembly=CrossApplication.Mail.Core"
+             xmlns:shell="clr-namespace:CrossApplication.Mail.Wpf.Shell"
              mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300"
-             viewModels:ViewModelLocator.AutoWireViewModel="True">
+             viewModels:ViewModelLocator.AutoWireViewModel="{x:Type shell:ShellViewModel}">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150" />

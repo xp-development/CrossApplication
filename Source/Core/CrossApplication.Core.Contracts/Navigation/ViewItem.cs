@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace CrossApplication.Wpf.Contracts.Navigation
+namespace CrossApplication.Core.Contracts.Navigation
 {
     public class ViewItem
     {

@@ -11,7 +11,7 @@
              xmlns:viewModels="clr-namespace:CrossApplication.Wpf.Common.ViewModels;assembly=CrossApplication.Wpf.Common"
              xmlns:controls="clr-namespace:CrossApplication.Wpf.Themes.Controls;assembly=CrossApplication.Wpf.Themes"
              xmlns:navigation="clr-namespace:CrossApplication.Wpf.Common.Navigation;assembly=CrossApplication.Wpf.Common"
-             mc:Ignorable="d" viewModels:ViewModelLocator.AutoWireViewModel="True"
+             mc:Ignorable="d" viewModels:ViewModelLocator.AutoWireViewModel="{x:Type shell:RichShellViewModel}"
              d:DataContext="{d:DesignInstance shell:RichShellViewModel}">
     <i:Interaction.Triggers>
         <mvvm:InteractionRequestTrigger SourceObject="{Binding NotificationRequest, Mode=OneWay}">

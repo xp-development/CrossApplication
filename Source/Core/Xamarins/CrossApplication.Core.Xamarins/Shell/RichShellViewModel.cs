@@ -1,6 +1,34 @@
-﻿namespace CrossApplication.Core.Xamarins.Shell
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Threading.Tasks;
+using CrossApplication.Core.Common.Mvvm;
+using CrossApplication.Core.Contracts.Common.Navigation;
+using CrossApplication.Core.Contracts.Navigation;
+using CrossApplication.Core.Contracts.Views;
+
+namespace CrossApplication.Core.Xamarins.Shell
 {
-    public class RichShellViewModel
+    public class RichShellViewModel : IViewLoadingAsync
     {
+        public ObservableCollection<NavigationItem> NavigationItems { get; } = new ObservableCollection<NavigationItem>();
+
+        public RichShellViewModel(IEnumerable<IMainNavigationItem> mainNavigationItems, INavigationService navigationService)
+        {
+            _mainNavigationItems = mainNavigationItems;
+            _navigationService = navigationService;
+        }
+
+        public Task OnViewLoadingAsync()
+        {
+            foreach (var mainNavigationItem in _mainNavigationItems)
+            {
+                NavigationItems.Add(new NavigationItem(_navigationService, mainNavigationItem.Label, mainNavigationItem.NavigationKey));
+            }
+
+            return Task.FromResult(false);
+        }
+
+        private readonly IEnumerable<IMainNavigationItem> _mainNavigationItems;
+        private readonly INavigationService _navigationService;
     }
 }

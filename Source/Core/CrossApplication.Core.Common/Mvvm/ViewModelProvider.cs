@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace CrossApplication.Core.Common.ViewModels
+namespace CrossApplication.Core.Common.Mvvm
 {
     public static class ViewModelProvider
     {
-        public static void AutoWireViewModelChanged(object view)
+        public static void AutoWireViewModelChanged(object view, Type viewModelType)
         {
-            var viewModel = GetViewModelByView(view);
+            var viewModel = _factoryMethod(viewModelType);
             _dataContextCallback(view, viewModel);
             _viewEventCallback(view, viewModel);
         }
@@ -16,20 +16,9 @@ namespace CrossApplication.Core.Common.ViewModels
             _factoryMethod = factoryMethod;
         }
 
-        private static object GetViewModelByView(object view)
-        {
-            var viewModelType = _getTypeCallback(view.GetType());
-            return _factoryMethod(viewModelType);
-        }
-
         public static void SetDataContextCallback(Action<object, object> dataContextCallback)
         {
             _dataContextCallback = dataContextCallback;
-        }
-
-        public static void SetGetTypeCallback(Func<Type, Type> getTypeCallback)
-        {
-            _getTypeCallback = getTypeCallback;
         }
 
         public static void SetViewEventCallback(Action<object, object> viewEventCallback)
@@ -37,9 +26,8 @@ namespace CrossApplication.Core.Common.ViewModels
             _viewEventCallback = viewEventCallback;
         }
 
-        private static Func<Type, object> _factoryMethod;
         private static Action<object, object> _dataContextCallback;
-        private static Func<Type, Type> _getTypeCallback;
         private static Action<object, object> _viewEventCallback;
+        private static Func<Type, object> _factoryMethod;
     }
 }

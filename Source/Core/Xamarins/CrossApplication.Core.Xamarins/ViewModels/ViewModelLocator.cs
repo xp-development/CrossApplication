@@ -1,28 +1,29 @@
-﻿using CrossApplication.Core.Common.ViewModels;
+﻿using System;
+using CrossApplication.Core.Common.Mvvm;
 using Xamarin.Forms;
 
 namespace CrossApplication.Core.Xamarins.ViewModels
 {
     public static class ViewModelLocator
     {
-        public static void SetAutoWireViewModel(BindableObject element, bool value)
+        public static void SetAutoWireViewModel(BindableObject element, Type value)
         {
             element.SetValue(AutoWireViewModelProperty, value);
         }
 
-        public static bool GetAutoWireViewModel(BindableObject element)
+        public static Type GetAutoWireViewModel(BindableObject element)
         {
-            return (bool)element.GetValue(AutoWireViewModelProperty);
+            return (Type) element.GetValue(AutoWireViewModelProperty);
         }
 
         private static void OnAutoWireViewModelChanged(BindableObject view, object oldValue, object newValue)
         {
-            if (!(bool)newValue)
+            if (newValue == null)
                 return;
 
-            ViewModelProvider.AutoWireViewModelChanged(view);
+            ViewModelProvider.AutoWireViewModelChanged(view, (Type) newValue);
         }
 
-        public static readonly BindableProperty AutoWireViewModelProperty = BindableProperty.CreateAttached("AutoWireViewModel", typeof(bool), typeof(ViewModelLocator), false, propertyChanged: OnAutoWireViewModelChanged);
+        public static readonly BindableProperty AutoWireViewModelProperty = BindableProperty.CreateAttached("AutoWireViewModel", typeof(Type), typeof(ViewModelLocator), null, propertyChanged: OnAutoWireViewModelChanged);
     }
 }

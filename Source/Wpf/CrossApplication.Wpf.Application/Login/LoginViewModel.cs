@@ -56,7 +56,7 @@ namespace CrossApplication.Wpf.Application.Login
         {
             var isLoggedIn = await _userManager.LoginAsync(UserName);
             if (isLoggedIn)
-                _navigationService.NavigateTo(_requestedView);
+                await _navigationService.NavigateToAsync(_requestedView);
             else
                 Message = Resources.LoginFailed;
         }

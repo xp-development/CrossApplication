@@ -2,7 +2,7 @@
 using Prism.Commands;
 using Prism.Mvvm;
 
-namespace CrossApplication.Wpf.Common.Navigation
+namespace CrossApplication.Core.Common.Mvvm
 {
     public class NavigationItem : BindableBase
     {
@@ -18,9 +18,9 @@ namespace CrossApplication.Wpf.Common.Navigation
             NavigateCommand = new DelegateCommand(OnNavigate);
         }
 
-        private void OnNavigate()
+        private async void OnNavigate()
         {
-            _navigationService.NavigateTo(_navigationKey);
+            await _navigationService.NavigateToAsync(_navigationKey);
         }
 
         private readonly string _navigationKey;

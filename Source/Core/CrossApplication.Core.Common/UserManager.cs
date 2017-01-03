@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using CrossApplication.Core.Contracts;
 
-namespace CrossApplication.Wpf.Common
+namespace CrossApplication.Core.Common
 {
     public class UserManager : IUserManager
     {
