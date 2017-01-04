@@ -4,11 +4,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:shell="clr-namespace:CrossApplication.Core.Xamarins.About;assembly=CrossApplication.Core.Xamarins"
              xmlns:viewModels="clr-namespace:CrossApplication.Core.Xamarins.ViewModels;assembly=CrossApplication.Core.Xamarins"
-            
+             xmlns:resources="clr-namespace:CrossApplication.Core.Resource;assembly=CrossApplication.Core.Resource"
+
              x:Class="CrossApplication.Core.Xamarins.About.AboutView"
              viewModels:ViewModelLocator.AutoWireViewModel="{x:Type shell:AboutViewModel}">
     <StackLayout>
-<!--        <Label Text="{x:Static resources:CommonResources.ApplicationName}" />-->
+        <Label Text="{x:Static resources:CommonResources.ApplicationName}" />
         <Label Text="{Binding Path=Version}">
             <Label.FormattedText>
                 <FormattedString>

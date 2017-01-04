@@ -8,8 +8,8 @@
     <ProjectGuid>{084E738C-B285-4EA7-A01F-53E80491774B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CrossApplication.Core.Resources</RootNamespace>
-    <AssemblyName>CrossApplication.Core.Resources</AssemblyName>
+    <RootNamespace>CrossApplication.Core.Resource</RootNamespace>
+    <AssemblyName>CrossApplication.Core.Resource</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>

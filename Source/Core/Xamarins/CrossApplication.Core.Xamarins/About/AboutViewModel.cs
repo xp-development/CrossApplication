@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using CrossApplication.Core.Contracts.Application.Modules;
 using CrossApplication.Core.Contracts.Application.Services;
 using CrossApplication.Core.Contracts.Views;
-using CrossApplication.Core.Resources;
 using Prism.Mvvm;
 
 namespace CrossApplication.Core.Xamarins.About

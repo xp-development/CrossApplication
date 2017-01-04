@@ -106,7 +106,7 @@
       <Project>{d4b1b8a8-8078-4afa-a702-e71449afb433}</Project>
       <Name>CrossApplication.Core.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\CrossApplication.Core.Resources\CrossApplication.Core.Resources.csproj">
+    <ProjectReference Include="..\..\CrossApplication.Core.Resource\CrossApplication.Core.Resource.csproj">
       <Project>{084e738c-b285-4ea7-a01f-53e80491774b}</Project>
       <Name>CrossApplication.Core.Resources</Name>
     </ProjectReference>

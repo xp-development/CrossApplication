@@ -187,9 +187,9 @@
       <Project>{d4b1b8a8-8078-4afa-a702-e71449afb433}</Project>
       <Name>CrossApplication.Core.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Core\CrossApplication.Core.Resources\CrossApplication.Core.Resources.csproj">
-      <Project>{084E738C-B285-4EA7-A01F-53E80491774B}</Project>
-      <Name>CrossApplication.Core.Resources</Name>
+    <ProjectReference Include="..\..\Core\CrossApplication.Core.Resource\CrossApplication.Core.Resource.csproj">
+      <Project>{084e738c-b285-4ea7-a01f-53e80491774b}</Project>
+      <Name>CrossApplication.Core.Resource</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Core\Net\CrossApplication.Core.Net.Common\CrossApplication.Core.Net.Common.csproj">
       <Project>{A987FDAA-C4BC-4854-A70C-BF803C0100A0}</Project>

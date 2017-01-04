@@ -7,16 +7,16 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:resources="clr-namespace:CrossApplication.Core.Resources;assembly=CrossApplication.Core.Resources"
     xmlns:ribbonTabs="clr-namespace:CrossApplication.Wpf.Application.Shell.RibbonTabs"
     xmlns:viewModels="clr-namespace:CrossApplication.Wpf.Common.ViewModels;assembly=CrossApplication.Wpf.Common"
     xmlns:ca="urn:cross-application"
+    xmlns:resource="clr-namespace:CrossApplication.Core.Resource;assembly=CrossApplication.Core.Resource"
     mc:Ignorable="d" viewModels:ViewModelLocator.AutoWireViewModel="{x:Type ribbonTabs:AboutViewModel}"
     d:DesignHeight="300" d:DesignWidth="300" d:DataContext="{d:DesignInstance ribbonTabs:AboutViewModel}">
     <StackPanel Margin="10,0">
-        <ca:TextControl Style="{StaticResource TextControlCaptionStyle}" Text="{x:Static resources:CommonResources.ApplicationName}" />
+        <ca:TextControl Style="{StaticResource TextControlCaptionStyle}" Text="{x:Static resource:CommonResources.ApplicationName}" />
         <ca:TextControl>
-            <TextBlock Text="{x:Static resources:CommonResources.Version}" /> <TextBlock Text="{Binding Path=Version}" />
+            <TextBlock Text="{x:Static resource:CommonResources.Version}" /> <TextBlock Text="{Binding Path=Version}" />
         </ca:TextControl>
         <ItemsControl ItemsSource="{Binding Path=ModuleInfos}">
             <ItemsControl.ItemTemplate>

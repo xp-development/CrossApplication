@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{429ED231-9
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Core.Contracts", "Core\CrossApplication.Core.Contracts\CrossApplication.Core.Contracts.csproj", "{D4B1B8A8-8078-4AFA-A702-E71449AFB433}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Core.Resources", "Core\CrossApplication.Core.Resources\CrossApplication.Core.Resources.csproj", "{084E738C-B285-4EA7-A01F-53E80491774B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Core.Resource", "Core\CrossApplication.Core.Resource\CrossApplication.Core.Resource.csproj", "{084E738C-B285-4EA7-A01F-53E80491774B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossApplication.Core.Common", "Core\CrossApplication.Core.Common\CrossApplication.Core.Common.csproj", "{B89655FB-6F0A-4A5D-8BF0-D0EA43B90911}"
 EndProject

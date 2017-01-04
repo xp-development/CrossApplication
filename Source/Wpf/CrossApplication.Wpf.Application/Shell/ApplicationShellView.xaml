@@ -5,17 +5,17 @@
                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                      xmlns:fluent="urn:fluent-ribbon"
                      xmlns:mvvm="http://prismlibrary.com/"
-                     xmlns:resources="clr-namespace:CrossApplication.Core.Resources;assembly=CrossApplication.Core.Resources"
                      xmlns:viewModels="clr-namespace:CrossApplication.Wpf.Common.ViewModels;assembly=CrossApplication.Wpf.Common"
                      xmlns:navigation="clr-namespace:CrossApplication.Wpf.Common.Navigation;assembly=CrossApplication.Wpf.Common"
                      xmlns:shell="clr-namespace:CrossApplication.Wpf.Application.Shell"
+                     xmlns:resource="clr-namespace:CrossApplication.Core.Resource;assembly=CrossApplication.Core.Resource"
                      mc:Ignorable="d"
                      Height="{Binding Source={StaticResource Settings}, Path=Default.ShellHeight, Mode=TwoWay}"
                      Width="{Binding Source={StaticResource Settings}, Path=Default.ShellWidth, Mode=TwoWay}"
                      Top="{Binding Source={StaticResource Settings}, Path=Default.ShellTop, Mode=TwoWay}"
                      Left="{Binding Source={StaticResource Settings}, Path=Default.ShellLeft, Mode=TwoWay}"
                      WindowState="{Binding Source={StaticResource Settings}, Path=Default.ShellWindowState, Mode=TwoWay}"
-                     Title="{x:Static resources:CommonResources.ApplicationName}"
+                     Title="{x:Static resource:CommonResources.ApplicationName}"
                      viewModels:ViewModelLocator.AutoWireViewModel="{x:Type shell:ApplicationShellViewModel}">
     <ContentControl mvvm:RegionManager.RegionName="{x:Static navigation:RegionNames.RichRegion}" />
 </fluent:RibbonWindow>
