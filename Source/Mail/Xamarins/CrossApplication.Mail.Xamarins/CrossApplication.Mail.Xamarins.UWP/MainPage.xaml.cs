@@ -4,9 +4,9 @@
     {
         public MainPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
 
-            LoadApplication(new Core.Xamarins.App());
+            LoadApplication(new Xamarins.App());
         }
     }
 }

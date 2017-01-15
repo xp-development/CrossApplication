@@ -1,13 +1,14 @@
 ﻿using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using CrossApplication.Core.Common.Mvvm;
-using CrossApplication.Core.Contracts.Common.Navigation;
 using CrossApplication.Core.Contracts.Views;
 using CrossApplication.Mail.Contracts.Messaging;
+using Prism.Navigation;
+using INavigationService = CrossApplication.Core.Contracts.Common.Navigation.INavigationService;
 
 namespace CrossApplication.Mail.Wpf.Navigation
 {
-    public class NavigationViewModel : IViewLoadedAsync
+    public class NavigationViewModel : IViewActivatedAsync, IViewDeactivatedAsync
     {
         public ObservableCollection<NavigationItem> NavigationItems { get; } = new ObservableCollection<NavigationItem>();
 
@@ -17,7 +18,7 @@ namespace CrossApplication.Mail.Wpf.Navigation
             _mailManager = mailManager;
         }
 
-        public async Task OnViewLoadedAsync()
+        public async Task OnViewActivatedAsync(NavigationParameters navigationParameters)
         {
             foreach (var mailAccount in await _mailManager.GetAccountsAsync())
             {
@@ -26,6 +27,12 @@ namespace CrossApplication.Mail.Wpf.Navigation
                     NavigationItems.Add(new NavigationItem(_navigationService, mailFolder.Name, ""));
                 }
             }
+        }
+
+        public Task OnViewDeactivatedAsync()
+        {
+            NavigationItems.Clear();
+            return Task.FromResult(false);
         }
 
         private readonly INavigationService _navigationService;

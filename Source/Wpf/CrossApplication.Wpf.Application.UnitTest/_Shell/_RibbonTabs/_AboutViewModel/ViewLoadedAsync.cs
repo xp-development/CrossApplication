@@ -29,7 +29,7 @@ namespace CrossApplication.Wpf.Application.UnitTest._Shell._RibbonTabs._AboutVie
         {
             var viewModel = GetInitializedAboutViewModel();
 
-            await viewModel.OnViewLoadedAsync();
+            await viewModel.OnViewActivatedAsync(null);
 
             viewModel.ModuleInfos.Count.Should().Be(2);
             viewModel.ModuleInfos[0].Name.Should().Be("MyModule");
@@ -41,7 +41,7 @@ namespace CrossApplication.Wpf.Application.UnitTest._Shell._RibbonTabs._AboutVie
         {
             var viewModel = GetInitializedAboutViewModel();
 
-            await viewModel.OnViewLoadedAsync();
+            await viewModel.OnViewActivatedAsync(null);
 
             viewModel.Version.Should().Be(new Version(1, 2, 3, 4));
         }

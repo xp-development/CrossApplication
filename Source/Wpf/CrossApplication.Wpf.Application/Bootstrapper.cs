@@ -8,15 +8,16 @@ using CrossApplication.Core.Contracts.Application.Modules;
 using CrossApplication.Core.Contracts.Application.Theming;
 using CrossApplication.Core.Contracts.Common.Container;
 using CrossApplication.Core.Contracts.Navigation;
-using CrossApplication.Core.Contracts.Views;
 using CrossApplication.Core.Net.Common;
 using CrossApplication.Core.Net.Common.Modules;
+using CrossApplication.Wpf.Application.Backstages;
 using CrossApplication.Wpf.Application.Login;
 using CrossApplication.Wpf.Application.Properties;
 using CrossApplication.Wpf.Application.Shell;
 using CrossApplication.Wpf.Application.Shell.RibbonTabs;
 using CrossApplication.Wpf.Common.Navigation;
 using CrossApplication.Wpf.Common.RegionAdapters;
+using CrossApplication.Wpf.Contracts.Backstages;
 using Fluent;
 using Microsoft.Practices.ServiceLocation;
 using Prism.Regions;
@@ -90,35 +91,7 @@ namespace CrossApplication.Wpf.Application
         protected override void ConfigureViewModelLocator()
         {
             base.ConfigureViewModelLocator();
-
-            ViewModelProvider.SetViewEventCallback(ViewEventCallback);
             ViewModelProvider.SetDataContextCallback((view, viewModel) => { ((FrameworkElement) view).DataContext = viewModel; });
-        }
-
-        private static void ViewEventCallback(object view, object viewModel)
-        {
-            var viewLoading = viewModel as IViewLoadingAsync;
-            if (viewLoading != null)
-                throw new NotSupportedException("IViewLoadingAsync is not supported.");
-
-            var viewUnloading = viewModel as IViewUnloadingAsync;
-            if (viewUnloading != null)
-                throw new NotSupportedException("IViewUnloadingAsync is not supported.");
-
-            var viewLoaded = viewModel as IViewLoadedAsync;
-            if (viewLoaded != null)
-            {
-                var frameworkElement = (FrameworkElement) view;
-                frameworkElement.Loaded += FrameworkElementOnLoaded;
-                frameworkElement.Unloaded += FrameworkElementOnUnloaded;
-            }
-
-            var viewUnloaded = viewModel as IViewUnloadedAsync;
-            if (viewUnloaded != null)
-            {
-                var frameworkElement = (FrameworkElement)view;
-                frameworkElement.Unloaded += FrameworkElementOnUnloaded;
-            }
         }
 
         protected override void ConfigureContainer()
@@ -136,18 +109,21 @@ namespace CrossApplication.Wpf.Application
             RegisterViews();
 
             base.ConfigureContainer();
+
+            Container.Resolve<IViewManager>().AddViewItem(new ViewItem("About", RegionNames.BackstageRegion));
+            Container.RegisterInstance<IBackstageNavigationItem>(new BackstageNavigationItem(Common.Properties.Resources.ShellRibbonBackstageAbout, "About"));
         }
 
         private void RegisterViews()
         {
-            Container.RegisterType<RichShellViewModel>();
-            Container.RegisterType<object, RichShellView>(typeof(RichShellView).FullName);
+            Container.RegisterType<RichShellViewModel>(Lifetime.PerContainer);
+            Container.RegisterType<object, RichShellView>(typeof(RichShellView).FullName, Lifetime.PerContainer);
 
             Container.RegisterType<LoginViewModel>();
             Container.RegisterType<object, LoginView>(typeof(LoginView).FullName);
 
-            Container.RegisterType<AboutViewModel>();
-            Container.RegisterType<IBackstageTabViewModel, AboutView>(typeof(AboutView).FullName);
+            Container.RegisterType<AboutViewModel>(Lifetime.PerContainer);
+            Container.RegisterType<object, AboutView>("About", Lifetime.PerContainer);
         }
 
         protected override void InitializeShell()
@@ -158,25 +134,6 @@ namespace CrossApplication.Wpf.Application
             var viewManager = Container.Resolve<IViewManager>();
             viewManager.RichViewItem = new ViewItem(typeof(RichShellView).FullName, RegionNames.RichRegion);
             viewManager.LoginViewItem = new ViewItem(typeof(LoginView).FullName, RegionNames.RichRegion);
-        }
-
-        private static async void FrameworkElementOnLoaded(object sender, RoutedEventArgs routedEventArgs)
-        {
-            var frameworkElement = (FrameworkElement) sender;
-            await ((IViewLoadedAsync) frameworkElement.DataContext).OnViewLoadedAsync();
-        }
-
-        private static async void FrameworkElementOnUnloaded(object sender, RoutedEventArgs e)
-        {
-            var frameworkElement = (FrameworkElement) sender;
-            frameworkElement.Loaded -= FrameworkElementOnLoaded;
-            frameworkElement.Unloaded -= FrameworkElementOnUnloaded;
-
-            var viewLoaded = frameworkElement.DataContext as IViewUnloadedAsync;
-            if (viewLoaded != null)
-            {
-                await ((IViewUnloadedAsync) frameworkElement.DataContext).OnViewUnloadedAsync();
-            }
         }
 
         private DependencyObject _shell;

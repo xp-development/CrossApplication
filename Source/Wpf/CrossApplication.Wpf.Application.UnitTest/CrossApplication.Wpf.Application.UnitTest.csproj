@@ -155,6 +155,10 @@
       <Project>{5C6B8785-7E1E-4A4A-ACCD-DB14A6D68CC1}</Project>
       <Name>CrossApplication.Wpf.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CrossApplication.Wpf.Contracts\CrossApplication.Wpf.Contracts.csproj">
+      <Project>{25B722B3-FB2D-499C-BD67-2EC24D8C72F7}</Project>
+      <Name>CrossApplication.Wpf.Contracts</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.3.175\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.3.175\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

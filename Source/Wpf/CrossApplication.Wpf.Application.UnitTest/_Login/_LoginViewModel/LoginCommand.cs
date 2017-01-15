@@ -45,15 +45,8 @@ namespace CrossApplication.Wpf.Application.UnitTest._Login._LoginViewModel
             _userMoanagerMock.Setup(x => x.LoginAsync(It.IsAny<string>())).ReturnsAsync(loginResult);
             _navigationServiceMock = new Mock<INavigationService>();
             var viewModel = new LoginViewModel(_userMoanagerMock.Object, _navigationServiceMock.Object);
-            viewModel.OnNavigatedTo(CreateNavigationContext(new NavigationParameters {{"RequestedView", "MyRequestedView"}}));
+            viewModel.OnViewActivatingAsync(new Prism.Navigation.NavigationParameters {{"RequestedView", "MyRequestedView"}});
             return viewModel;
-        }
-
-        private static NavigationContext CreateNavigationContext(NavigationParameters navigationParameters)
-        {
-            var mock = new Mock<IRegionNavigationService>();
-            mock.Setup(x => x.Region).Returns(new Region());
-            return new NavigationContext(mock.Object, new Uri("MyUri", UriKind.RelativeOrAbsolute), navigationParameters);
         }
     }
 }

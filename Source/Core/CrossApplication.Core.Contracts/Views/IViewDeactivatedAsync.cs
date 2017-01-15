@@ -2,8 +2,8 @@
 
 namespace CrossApplication.Core.Contracts.Views
 {
-    public interface IViewUnloadingAsync
+    public interface IViewDeactivatedAsync
     {
-        Task OnViewUnloadingAsync();
+        Task OnViewDeactivatedAsync();
     }
 }

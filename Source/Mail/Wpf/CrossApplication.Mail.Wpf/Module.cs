@@ -47,7 +47,6 @@ namespace CrossApplication.Mail.Wpf
         }
 
         private readonly IContainer _container;
-
         private readonly INavigationService _navigationService;
         private readonly IViewManager _viewManager;
     }

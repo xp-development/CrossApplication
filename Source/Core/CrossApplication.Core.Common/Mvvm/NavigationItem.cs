@@ -15,15 +15,23 @@ namespace CrossApplication.Core.Common.Mvvm
             _navigationKey = navigationKey;
 
             Label = label;
-            NavigateCommand = new DelegateCommand(OnNavigate);
+            NavigateCommand = new DelegateCommand(OnNavigate, CanNavigate);
         }
 
         private async void OnNavigate()
         {
+            _isNavigating = true;
             await _navigationService.NavigateToAsync(_navigationKey);
+            _isNavigating = false;
+        }
+
+        private bool CanNavigate()
+        {
+            return !_isNavigating;
         }
 
         private readonly string _navigationKey;
         private readonly INavigationService _navigationService;
+        private bool _isNavigating;
     }
 }

@@ -56,10 +56,10 @@
     <Compile Include="Navigation\ViewItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\IStringEncryption.cs" />
-    <Compile Include="Views\IViewLoadedAsync.cs" />
-    <Compile Include="Views\IViewLoadingAsync.cs" />
+    <Compile Include="Views\IViewActivatedAsync.cs" />
+    <Compile Include="Views\IViewActivatingAsync.cs" />
+    <Compile Include="Views\IViewDeactivatedAsync.cs" />
     <Compile Include="Views\IViewUnloadedAsync.cs" />
-    <Compile Include="Views\IViewUnloadingAsync.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Prism, Version=6.2.0.0, Culture=neutral, PublicKeyToken=91a96d2a154366d8">

@@ -20,7 +20,7 @@
         <ListView ItemsSource="{Binding Path=ModuleInfos}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding Path=ModuleType}" />
+                    <TextCell Text="{Binding Path=ModuleType.Name}" />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

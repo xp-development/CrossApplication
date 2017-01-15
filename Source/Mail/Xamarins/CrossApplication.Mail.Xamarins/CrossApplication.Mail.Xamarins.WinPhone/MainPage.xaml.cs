@@ -15,7 +15,7 @@ namespace CrossApplication.Mail.Xamarins.WinPhone
 
             NavigationCacheMode = NavigationCacheMode.Required;
 
-            LoadApplication(new Core.Xamarins.App());
+            LoadApplication(new Xamarins.App());
         }
 
         /// <summary>

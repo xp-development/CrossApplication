@@ -1,16 +1,16 @@
 ﻿using System.Threading.Tasks;
 using System.Windows.Input;
 using CrossApplication.Core.Contracts;
-using CrossApplication.Core.Contracts.Common.Navigation;
 using CrossApplication.Core.Contracts.Views;
 using CrossApplication.Wpf.Application.Properties;
 using Prism.Commands;
 using Prism.Mvvm;
-using Prism.Regions;
+using Prism.Navigation;
+using INavigationService = CrossApplication.Core.Contracts.Common.Navigation.INavigationService;
 
 namespace CrossApplication.Wpf.Application.Login
 {
-    public class LoginViewModel : BindableBase, INavigationAware, IViewLoadedAsync
+    public class LoginViewModel : BindableBase, IViewActivatingAsync, IViewActivatedAsync
     {
         public string UserName { get; set; }
         public ICommand LoginCommand { get; }
@@ -32,21 +32,13 @@ namespace CrossApplication.Wpf.Application.Login
             LoginCommand = DelegateCommand.FromAsyncHandler(LoginAsync);
         }
 
-        public void OnNavigatedTo(NavigationContext navigationContext)
+        public Task OnViewActivatingAsync(NavigationParameters navigationParameters)
         {
-            _requestedView = (string) navigationContext.Parameters["RequestedView"];
+            _requestedView = (string) navigationParameters["RequestedView"];
+            return Task.FromResult(false);
         }
 
-        public bool IsNavigationTarget(NavigationContext navigationContext)
-        {
-            return true;
-        }
-
-        public void OnNavigatedFrom(NavigationContext navigationContext)
-        {
-        }
-
-        public Task OnViewLoadedAsync()
+        public Task OnViewActivatedAsync(NavigationParameters navigationParameters)
         {
             Message = "";
             return Task.FromResult(false);

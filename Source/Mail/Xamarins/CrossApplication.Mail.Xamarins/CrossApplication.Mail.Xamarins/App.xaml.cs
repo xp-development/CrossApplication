@@ -1,11 +1,10 @@
-﻿namespace CrossApplication.Core.Xamarins
+﻿namespace CrossApplication.Mail.Xamarins
 {
     public partial class App
     {
         public App()
         {
             InitializeComponent();
-
             new Bootstrapper().Run().ConfigureAwait(false);
         }
 

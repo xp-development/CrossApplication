@@ -40,10 +40,7 @@
       <DependentUpon>AboutView.xaml</DependentUpon>
     </Compile>
     <Compile Include="About\AboutViewModel.cs" />
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="BootstrapperBase.cs" />
     <Compile Include="Navigation\RegionManager.cs" />
     <Compile Include="Shell\RichShellView.xaml.cs">
       <DependentUpon>RichShellView.xaml</DependentUpon>
@@ -110,12 +107,6 @@
       <Project>{084e738c-b285-4ea7-a01f-53e80491774b}</Project>
       <Name>CrossApplication.Core.Resources</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="App.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="About\AboutView.xaml">

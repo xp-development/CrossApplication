@@ -12,6 +12,7 @@
              xmlns:controls="clr-namespace:CrossApplication.Wpf.Themes.Controls;assembly=CrossApplication.Wpf.Themes"
              xmlns:navigation="clr-namespace:CrossApplication.Wpf.Common.Navigation;assembly=CrossApplication.Wpf.Common"
              mc:Ignorable="d" viewModels:ViewModelLocator.AutoWireViewModel="{x:Type shell:RichShellViewModel}"
+             x:Name="RichShell"
              d:DataContext="{d:DesignInstance shell:RichShellViewModel}">
     <i:Interaction.Triggers>
         <mvvm:InteractionRequestTrigger SourceObject="{Binding NotificationRequest, Mode=OneWay}">
@@ -33,8 +34,38 @@
                        mvvm:RegionManager.RegionName="{x:Static navigation:RegionNames.RibbonRegion}">
             <fluent:Ribbon.Menu>
                 <fluent:Backstage>
-                    <fluent:BackstageTabControl
-                        mvvm:RegionManager.RegionName="{x:Static navigation:RegionNames.BackstageRegion}" />
+                    <Grid DataContext="{Binding Path=DataContext, ElementName=RichShell}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition MinWidth="115" Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid VerticalAlignment="Stretch" Background="{DynamicResource RibbonThemeColorBrush}">
+                            <Button Style="{DynamicResource BackstageBackButtonStyle}" Command="{x:Static fluent:RibbonCommands.OpenBackstage}" Margin="22,19,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" />
+                            <ListBox Background="{DynamicResource RibbonThemeColorBrush}" Height="Auto" Margin="0,69,0,0" ItemsSource="{Binding Path=BackstageNavigationItems}">
+                                <ListBox.ItemContainerStyle>
+                                    <Style TargetType="ListBoxItem">
+                                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+                                        <Setter Property="Padding" Value="0" />
+                                    </Style>
+                                </ListBox.ItemContainerStyle>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Button Margin="0" Height="38" FontSize="14" FontWeight="SemiBold" BorderThickness="0,0,0,1" BorderBrush="White"
+                                                Foreground="{DynamicResource BackstageFontBrush}" Background="#00000000"
+                                                HorizontalContentAlignment="Left" Padding="10,0,0,0"
+                                                Command="{Binding Path=NavigateCommand}">
+                                            <TextBlock Text="{Binding Path=Label}" />
+                                        </Button>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </Grid>
+
+                        <Grid Height="Auto" Grid.Column="1" Background="White">
+                            <ContentControl mvvm:RegionManager.RegionName="{x:Static navigation:RegionNames.BackstageRegion}" />
+                        </Grid>
+                    </Grid>
                 </fluent:Backstage>
             </fluent:Ribbon.Menu>
         </fluent:Ribbon>

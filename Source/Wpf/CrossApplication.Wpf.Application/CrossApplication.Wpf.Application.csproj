@@ -109,6 +109,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Backstages\BackstageNavigationItem.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Login\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
@@ -127,7 +128,6 @@
       <DependentUpon>AboutView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Shell\RibbonTabs\AboutViewModel.cs" />
-    <Compile Include="Shell\RibbonTabs\IBackstageTabViewModel.cs" />
     <Compile Include="Shell\RichShellView.xaml.cs">
       <DependentUpon>RichShellView.xaml</DependentUpon>
     </Compile>

@@ -5,10 +5,11 @@ using CrossApplication.Core.Contracts.Application.Modules;
 using CrossApplication.Core.Contracts.Application.Services;
 using CrossApplication.Core.Contracts.Views;
 using Prism.Mvvm;
+using Prism.Navigation;
 
 namespace CrossApplication.Wpf.Application.Shell.RibbonTabs
 {
-    public class AboutViewModel : BindableBase, IViewLoadedAsync
+    public class AboutViewModel : BindableBase, IViewActivatedAsync
     {
         public Version Version
         {
@@ -27,7 +28,7 @@ namespace CrossApplication.Wpf.Application.Shell.RibbonTabs
             _aboutService = aboutService;
         }
 
-        public async Task OnViewLoadedAsync()
+        public async Task OnViewActivatedAsync(NavigationParameters navigationParameters)
         {
             Version = await _aboutService.GetVersionAsync();
 
