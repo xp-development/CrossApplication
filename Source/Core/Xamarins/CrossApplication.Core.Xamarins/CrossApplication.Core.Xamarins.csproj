@@ -39,7 +39,6 @@
     <Compile Include="About\AboutView.xaml.cs">
       <DependentUpon>AboutView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="About\AboutViewModel.cs" />
     <Compile Include="BootstrapperBase.cs" />
     <Compile Include="Navigation\RegionManager.cs" />
     <Compile Include="Shell\RichShellView.xaml.cs">
@@ -106,6 +105,10 @@
     <ProjectReference Include="..\..\CrossApplication.Core.Resource\CrossApplication.Core.Resource.csproj">
       <Project>{084e738c-b285-4ea7-a01f-53e80491774b}</Project>
       <Name>CrossApplication.Core.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CrossApplication.Core\CrossApplication.Core.csproj">
+      <Project>{48580624-408C-4E06-B48C-16BA47951440}</Project>
+      <Name>CrossApplication.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -7,7 +7,7 @@ using CrossApplication.Core.Contracts.Views;
 using Prism.Mvvm;
 using Prism.Navigation;
 
-namespace CrossApplication.Wpf.Application.Shell.RibbonTabs
+namespace CrossApplication.Core.About
 {
     public class AboutViewModel : BindableBase, IViewActivatedAsync
     {

@@ -127,7 +127,6 @@
     <Compile Include="Shell\RibbonTabs\AboutView.xaml.cs">
       <DependentUpon>AboutView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Shell\RibbonTabs\AboutViewModel.cs" />
     <Compile Include="Shell\RichShellView.xaml.cs">
       <DependentUpon>RichShellView.xaml</DependentUpon>
     </Compile>
@@ -190,6 +189,10 @@
     <ProjectReference Include="..\..\Core\CrossApplication.Core.Resource\CrossApplication.Core.Resource.csproj">
       <Project>{084e738c-b285-4ea7-a01f-53e80491774b}</Project>
       <Name>CrossApplication.Core.Resource</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\CrossApplication.Core\CrossApplication.Core.csproj">
+      <Project>{48580624-408c-4e06-b48c-16ba47951440}</Project>
+      <Name>CrossApplication.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Core\Net\CrossApplication.Core.Net.Common\CrossApplication.Core.Net.Common.csproj">
       <Project>{A987FDAA-C4BC-4854-A70C-BF803C0100A0}</Project>

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using CrossApplication.Core.About;
 using CrossApplication.Core.Contracts.Application.Modules;
 using CrossApplication.Core.Contracts.Application.Services;
-using CrossApplication.Wpf.Application.Shell.RibbonTabs;
 using FluentAssertions;
 using Moq;
 using Xunit;

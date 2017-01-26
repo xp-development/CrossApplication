@@ -143,6 +143,10 @@
       <Project>{D4B1B8A8-8078-4AFA-A702-E71449AFB433}</Project>
       <Name>CrossApplication.Core.Contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Core\CrossApplication.Core\CrossApplication.Core.csproj">
+      <Project>{48580624-408C-4E06-B48C-16BA47951440}</Project>
+      <Name>CrossApplication.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Core\Net\CrossApplication.Core.Net.Contracts\CrossApplication.Core.Net.Contracts.csproj">
       <Project>{ADD00E03-B090-4AF7-A9F0-5B20DF299A9E}</Project>
       <Name>CrossApplication.Core.Net.Contracts</Name>
