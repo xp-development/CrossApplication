@@ -14,3 +14,6 @@ Source/.idea/**
 /Source/Mail/Xamarins/CrossApplication.Mail.Xamarins/CrossApplication.Mail.Xamarins.iOS/obj/iPhone/Debug
 /Source/Mail/Xamarins/CrossApplication.Mail.Xamarins/CrossApplication.Mail.Xamarins.UWP/bin/x86/Debug
 /Source/Mail/Xamarins/CrossApplication.Mail.Xamarins/CrossApplication.Mail.Xamarins.UWP/obj/x86/Debug
+/Source/Mail/Xamarins/CrossApplication.Mail.Xamarins/CrossApplication.Mail.Xamarins.iOS/obj
+/Source/Mail/Xamarins/CrossApplication.Mail.Xamarins/CrossApplication.Mail.Xamarins.UWP/bin/ARM/Debug
+/Source/Mail/Xamarins/CrossApplication.Mail.Xamarins/CrossApplication.Mail.Xamarins.UWP/obj
