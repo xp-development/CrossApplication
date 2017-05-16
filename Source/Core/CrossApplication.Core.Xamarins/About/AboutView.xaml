@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:CrossApplication.Core.Xamarins.ViewModels;assembly=CrossApplication.Core.Xamarins"
+             xmlns:resources="clr-namespace:CrossApplication.Core.Resource;assembly=CrossApplication.Core.Resource"
+             xmlns:shell="clr-namespace:CrossApplication.Core.About;assembly=CrossApplication.Core"
+             xmlns:valueConverters="clr-namespace:CrossApplication.Core.Xamarins.ValueConverters;assembly=CrossApplication.Core.Xamarins"
+             x:Class="CrossApplication.Core.Xamarins.About.AboutView"
+             viewModels:ViewModelLocator.AutoWireViewModel="{x:Type shell:AboutViewModel}">
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <valueConverters:VersionConverter x:Key="VersionConverter" />
+    </ResourceDictionary>
+  </ContentPage.Resources>
+  <StackLayout>
+    <Label Text="{x:Static resources:CommonResources.ApplicationName}" />
+    <Label Text="{x:Static resources:CommonResources.Version}" />
+    <Label Text="{Binding Path=Version, Converter={StaticResource VersionConverter}}" />
+
+    <ListView ItemsSource="{Binding Path=ModuleInfos}">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <TextCell Text="{Binding Path=ModuleType.Name}" />
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+  </StackLayout>
+</ContentPage>

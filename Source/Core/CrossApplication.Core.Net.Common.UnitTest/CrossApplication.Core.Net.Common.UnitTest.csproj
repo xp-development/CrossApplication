@@ -1,18 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D49EE332-8C7D-45F9-8368-8A0C651868AB}</ProjectGuid>
+    <ProjectGuid>{5D2FF9E6-0258-4B90-98F4-BC0C8CAF6942}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CrossApplication.Wpf.Common.UnitTest</RootNamespace>
-    <AssemblyName>CrossApplication.Wpf.Common.UnitTest</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <RootNamespace>CrossApplication.Core.Net.Common.UnitTest</RootNamespace>
+    <AssemblyName>CrossApplication.Core.Net.Common.UnitTest</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,33 +39,17 @@
     <Reference Include="FluentAssertions.Core, Version=4.18.0.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\FluentAssertions.4.18.0\lib\net45\FluentAssertions.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
-    </Reference>
     <Reference Include="Moq, Version=4.5.29.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Moq.4.5.29\lib\net45\Moq.dll</HintPath>
     </Reference>
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
-    <Reference Include="Prism, Version=6.2.0.0, Culture=neutral, PublicKeyToken=91a96d2a154366d8, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Prism.Core.6.2.0\lib\net45\Prism.dll</HintPath>
-    </Reference>
-    <Reference Include="Prism.Wpf, Version=6.2.0.0, Culture=neutral, PublicKeyToken=91a96d2a154366d8, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Prism.Wpf.6.2.0\lib\net45\Prism.Wpf.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Prism.Wpf.6.2.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="WindowsBase" />
     <Reference Include="xunit.abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
       <HintPath>..\..\packages\xunit.abstractions.2.0.0\lib\net35\xunit.abstractions.dll</HintPath>
     </Reference>
@@ -82,37 +64,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="_Modules\TestModules\ModuleA.cs" />
+    <Compile Include="_Modules\TestModules\ModuleB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
+    <Compile Include="_Modules\_DirectoryModuleCatalog\GetModuleInfos.cs" />
+    <Compile Include="_Storage\_LocalStorage\ReadAsync.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Properties\Resources.de.resx" />
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Core\CrossApplication.Core.Contracts\CrossApplication.Core.Contracts.csproj">
-      <Project>{d4b1b8a8-8078-4afa-a702-e71449afb433}</Project>
+    <ProjectReference Include="..\CrossApplication.Core.Contracts\CrossApplication.Core.Contracts.csproj">
+      <Project>{D4B1B8A8-8078-4AFA-A702-E71449AFB433}</Project>
       <Name>CrossApplication.Core.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CrossApplication.Wpf.Common\CrossApplication.Wpf.Common.csproj">
-      <Project>{5c6b8785-7e1e-4a4a-accd-db14a6d68cc1}</Project>
-      <Name>CrossApplication.Wpf.Common</Name>
+    <ProjectReference Include="..\CrossApplication.Core.Net.Common\CrossApplication.Core.Net.Common.csproj">
+      <Project>{A987FDAA-C4BC-4854-A70C-BF803C0100A0}</Project>
+      <Name>CrossApplication.Core.Net.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CrossApplication.Wpf.Contracts\CrossApplication.Wpf.Contracts.csproj">
-      <Project>{25b722b3-fb2d-499c-bd67-2ec24d8c72f7}</Project>
-      <Name>CrossApplication.Wpf.Contracts</Name>
-    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

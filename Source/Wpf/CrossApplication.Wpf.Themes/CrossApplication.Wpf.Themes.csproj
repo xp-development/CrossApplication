@@ -104,14 +104,12 @@
     <Content Include="XamlCombine.exe" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\Net\CrossApplication.Core.Net.Themes\CrossApplication.Core.Net.Themes.csproj">
+    <ProjectReference Include="..\..\Core\CrossApplication.Core.Net.Themes\CrossApplication.Core.Net.Themes.csproj">
       <Project>{9ec03910-7516-4cfd-b69d-b634de7702ff}</Project>
       <Name>CrossApplication.Core.Net.Themes</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Generic\BaseControlStyles" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>

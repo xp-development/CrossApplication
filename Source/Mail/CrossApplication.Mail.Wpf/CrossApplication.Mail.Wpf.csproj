@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5C6B8785-7E1E-4A4A-ACCD-DB14A6D68CC1}</ProjectGuid>
+    <ProjectGuid>{B59ADDA4-E2FE-4698-A048-87BCD4F95151}</ProjectGuid>
     <OutputType>library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CrossApplication.Wpf.Common</RootNamespace>
-    <AssemblyName>CrossApplication.Wpf.Common</AssemblyName>
+    <RootNamespace>CrossApplication.Mail.Wpf</RootNamespace>
+    <AssemblyName>CrossApplication.Mail.Wpf</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -35,29 +35,42 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ControlzEx, Version=2.1.4.13, Culture=neutral, PublicKeyToken=f08b075e934b7045, processorArchitecture=MSIL">
+    <Reference Include="ControlzEx">
       <HintPath>..\..\packages\ControlzEx.2.1.4.13\lib\net45\ControlzEx.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Fluent, Version=4.0.3.394, Culture=neutral, PublicKeyToken=3e436e32a8c5546f, processorArchitecture=MSIL">
+    <Reference Include="Fluent">
       <HintPath>..\..\packages\Fluent.Ribbon.4.0.3.394\lib\net45\Fluent.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="MailMessaging.Plain.Contracts">
+      <HintPath>..\..\packages\MailMessaging.Plain.Contracts.2016.0.30\lib\portable-net451+wpa81+win81+Xamarin.iOS+Xamarin.Android+Xamarin.iOSClassic\MailMessaging.Plain.Contracts.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
       <HintPath>..\..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Prism, Version=6.2.0.0, Culture=neutral, PublicKeyToken=91a96d2a154366d8, processorArchitecture=MSIL">
+    <Reference Include="Prism">
       <HintPath>..\..\packages\Prism.Core.6.2.0\lib\net45\Prism.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Prism.Forms, Version=6.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Prism.Forms">
       <HintPath>..\..\packages\Prism.Forms.6.2.0\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Prism.Forms.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="Prism.Wpf, Version=6.2.0.0, Culture=neutral, PublicKeyToken=91a96d2a154366d8, processorArchitecture=MSIL">
+    <Reference Include="Prism.Wpf">
       <HintPath>..\..\packages\Prism.Wpf.6.2.0\lib\net45\Prism.Wpf.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+    <Reference Include="System.Windows.Interactivity">
       <HintPath>..\..\packages\Prism.Wpf.6.2.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -82,34 +95,61 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Module.cs" />
-    <Compile Include="Navigation\RegionManager.cs" />
+    <Compile Include="Navigation\NavigationView.xaml.cs">
+      <DependentUpon>NavigationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Navigation\NavigationViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <AppDesigner Include="Properties\" />
     <Compile Include="Properties\Resources.Designer.cs">
-      <DependentUpon>Resources.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="RegionAdapters\BackstageTabControlAdapter.cs" />
-    <Compile Include="RegionAdapters\RibbonRegionAdapter.cs" />
-    <Compile Include="Navigation\RegionNames.cs" />
-    <Compile Include="ViewModels\ViewModelLocator.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Properties\Resources.de.resx">
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Shell\RibbonStartView.xaml.cs">
+      <DependentUpon>RibbonStartView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shell\RibbonStartViewModel.cs" />
+    <Compile Include="Shell\ShellViewModel.cs" />
+    <Compile Include="Shell\ShellView.xaml.cs">
+      <DependentUpon>ShellView.xaml</DependentUpon>
+    </Compile>
+    <None Include="app.config">
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
+    </None>
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Navigation\NavigationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Shell\RibbonStartView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Shell\ShellView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.de.resx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Core\CrossApplication.Core.Common\CrossApplication.Core.Common.csproj">
@@ -124,15 +164,43 @@
       <Project>{a987fdaa-c4bc-4854-a70c-bf803c0100a0}</Project>
       <Name>CrossApplication.Core.Net.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CrossApplication.Wpf.Contracts\CrossApplication.Wpf.Contracts.csproj">
-      <Project>{25B722B3-FB2D-499C-BD67-2EC24D8C72F7}</Project>
+    <ProjectReference Include="..\..\Core\CrossApplication.Core.Net.Contracts\CrossApplication.Core.Net.Contracts.csproj">
+      <Project>{add00e03-b090-4af7-a9f0-5b20df299a9e}</Project>
+      <Name>CrossApplication.Core.Net.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\CrossApplication.Core.Net.Themes\CrossApplication.Core.Net.Themes.csproj">
+      <Project>{9ec03910-7516-4cfd-b69d-b634de7702ff}</Project>
+      <Name>CrossApplication.Core.Net.Themes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Wpf\CrossApplication.Wpf.Common\CrossApplication.Wpf.Common.csproj">
+      <Project>{5c6b8785-7e1e-4a4a-accd-db14a6d68cc1}</Project>
+      <Name>CrossApplication.Wpf.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Wpf\CrossApplication.Wpf.Contracts\CrossApplication.Wpf.Contracts.csproj">
+      <Project>{25b722b3-fb2d-499c-bd67-2ec24d8c72f7}</Project>
       <Name>CrossApplication.Wpf.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Wpf\CrossApplication.Wpf.Themes\CrossApplication.Wpf.Themes.csproj">
+      <Project>{50caf89a-fe45-4f39-a093-7119faa45e0a}</Project>
+      <Name>CrossApplication.Wpf.Themes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CrossApplication.Mail.Contracts\CrossApplication.Mail.Contracts.csproj">
+      <Project>{98d2c0f2-bfbf-49db-961a-cd8f229a80fb}</Project>
+      <Name>CrossApplication.Mail.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CrossApplication.Mail.Core\CrossApplication.Mail.Core.csproj">
+      <Project>{ab8263cb-b58c-4f7b-9e68-ebe89edff341}</Project>
+      <Name>CrossApplication.Mail.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  -->
   <Target Name="BeforeBuild">
   </Target>
   <Target Name="AfterBuild">
+    <Copy SourceFiles="$(OutputPath)CrossApplication.Mail.Wpf.dll" DestinationFolder="..\..\Wpf\CrossApplication.Wpf.Application\$(OutputPath)Modules\" ContinueOnError="false" />
   </Target>
   <Import Project="..\..\packages\Xamarin.Forms.2.3.1.114\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.1.114\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
