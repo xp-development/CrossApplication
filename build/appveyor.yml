@@ -2,6 +2,7 @@ branches:
     only:
       - develop
 
+image: Visual Studio 2017
 version: 2017.0.{build}
 configuration: Release
 
