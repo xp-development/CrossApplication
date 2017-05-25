@@ -1,5 +1,4 @@
-﻿using CrossApplication.Core.Xamarins;
-using Foundation;
+﻿using Foundation;
 using UIKit;
 
 namespace CrossApplication.Mail.Xamarins.iOS

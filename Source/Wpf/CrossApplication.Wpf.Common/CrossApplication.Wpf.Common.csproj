@@ -81,6 +81,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AttachedProperties\ImageExtensions.cs" />
     <Compile Include="Module.cs" />
     <Compile Include="Navigation\RegionManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

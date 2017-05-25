@@ -8,19 +8,35 @@
     xmlns:ca="urn:cross-application"
     xmlns:resource="clr-namespace:CrossApplication.Core.Resource;assembly=CrossApplication.Core.Resource"
     xmlns:about="clr-namespace:CrossApplication.Core.About;assembly=CrossApplication.Core"
+    xmlns:attachedProperties="clr-namespace:CrossApplication.Wpf.Common.AttachedProperties;assembly=CrossApplication.Wpf.Common"
     mc:Ignorable="d" viewModels:ViewModelLocator.AutoWireViewModel="{x:Type about:AboutViewModel}"
     d:DesignHeight="300" d:DesignWidth="300" d:DataContext="{d:DesignInstance about:AboutViewModel}">
-    <StackPanel Margin="10,0">
-        <ca:TextControl Style="{StaticResource TextControlCaptionStyle}" Text="{x:Static resource:CommonResources.ApplicationName}" />
-        <ca:TextControl>
-            <TextBlock Text="{x:Static resource:CommonResources.Version}" /> <TextBlock Text="{Binding Path=Version}" />
-        </ca:TextControl>
-        <ItemsControl ItemsSource="{Binding Path=ModuleInfos}">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel>
+            <ca:TextControl Style="{StaticResource TextControlCaptionStyle}" Text="{x:Static resource:CommonResources.ApplicationName}" />
+            <ca:TextControl>
+                <TextBlock Text="{x:Static resource:CommonResources.Version}" />
+                <TextBlock Text="{Binding Path=Version}" />
+            </ca:TextControl>
+        </StackPanel>
+
+        <Image Grid.Row="0" Grid.Column="1" attachedProperties:ImageExtensions.Uri="pack://application:,,,/CrossApplication.Core.Resource;component/64/Main.png" Width="64" Height="64" />
+
+        <ItemsControl Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" ItemsSource="{Binding Path=ModuleInfos}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <ca:TextControl Text="{Binding Path=ModuleType}" />
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
-    </StackPanel>
+    </Grid>
 </UserControl>

@@ -170,13 +170,13 @@
       <Project>{084e738c-b285-4ea7-a01f-53e80491774b}</Project>
       <Name>CrossApplication.Core.Resource</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Core\CrossApplication.Core\CrossApplication.Core.csproj">
-      <Project>{48580624-408c-4e06-b48c-16ba47951440}</Project>
-      <Name>CrossApplication.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Core\CrossApplication.Core.Xamarins\CrossApplication.Core.Xamarins.csproj">
       <Project>{67f9d3a8-f71e-4428-913f-c37ae82cdb24}</Project>
       <Name>CrossApplication.Core.Xamarins</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\CrossApplication.Core\CrossApplication.Core.csproj">
+      <Project>{48580624-408c-4e06-b48c-16ba47951440}</Project>
+      <Name>CrossApplication.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\CrossApplication.Mail.Xamarins\CrossApplication.Mail.Xamarins.csproj">
       <Project>{134817b8-7b43-48f5-9328-9e4167270017}</Project>

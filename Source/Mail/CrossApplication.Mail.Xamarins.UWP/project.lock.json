@@ -2290,7 +2290,6 @@
         "dependencies": {
           "CrossApplication.Core.Common": "1.0.0",
           "CrossApplication.Core.Contracts": "1.0.0",
-          "CrossApplication.Core.Resource": "1.0.0",
           "CrossApplication.Core.Xamarins": "1.0.0",
           "CrossApplication.Mail.Core": "1.0.0"
         }
@@ -4668,7 +4667,6 @@
         "dependencies": {
           "CrossApplication.Core.Common": "1.0.0",
           "CrossApplication.Core.Contracts": "1.0.0",
-          "CrossApplication.Core.Resource": "1.0.0",
           "CrossApplication.Core.Xamarins": "1.0.0",
           "CrossApplication.Mail.Core": "1.0.0"
         }
@@ -7085,7 +7083,6 @@
         "dependencies": {
           "CrossApplication.Core.Common": "1.0.0",
           "CrossApplication.Core.Contracts": "1.0.0",
-          "CrossApplication.Core.Resource": "1.0.0",
           "CrossApplication.Core.Xamarins": "1.0.0",
           "CrossApplication.Mail.Core": "1.0.0"
         }
@@ -9472,7 +9469,6 @@
         "dependencies": {
           "CrossApplication.Core.Common": "1.0.0",
           "CrossApplication.Core.Contracts": "1.0.0",
-          "CrossApplication.Core.Resource": "1.0.0",
           "CrossApplication.Core.Xamarins": "1.0.0",
           "CrossApplication.Mail.Core": "1.0.0"
         }
@@ -11898,7 +11894,6 @@
         "dependencies": {
           "CrossApplication.Core.Common": "1.0.0",
           "CrossApplication.Core.Contracts": "1.0.0",
-          "CrossApplication.Core.Resource": "1.0.0",
           "CrossApplication.Core.Xamarins": "1.0.0",
           "CrossApplication.Mail.Core": "1.0.0"
         }
@@ -14285,7 +14280,6 @@
         "dependencies": {
           "CrossApplication.Core.Common": "1.0.0",
           "CrossApplication.Core.Contracts": "1.0.0",
-          "CrossApplication.Core.Resource": "1.0.0",
           "CrossApplication.Core.Xamarins": "1.0.0",
           "CrossApplication.Mail.Core": "1.0.0"
         }
@@ -16711,7 +16705,6 @@
         "dependencies": {
           "CrossApplication.Core.Common": "1.0.0",
           "CrossApplication.Core.Contracts": "1.0.0",
-          "CrossApplication.Core.Resource": "1.0.0",
           "CrossApplication.Core.Xamarins": "1.0.0",
           "CrossApplication.Mail.Core": "1.0.0"
         }
@@ -25272,9 +25265,6 @@
             },
             "D:\\dev\\Mailing\\CrossApplication\\Source\\Core\\CrossApplication.Core.Contracts\\CrossApplication.Core.Contracts.csproj": {
               "projectPath": "D:\\dev\\Mailing\\CrossApplication\\Source\\Core\\CrossApplication.Core.Contracts\\CrossApplication.Core.Contracts.csproj"
-            },
-            "D:\\dev\\Mailing\\CrossApplication\\Source\\Core\\CrossApplication.Core.Resource\\CrossApplication.Core.Resource.csproj": {
-              "projectPath": "D:\\dev\\Mailing\\CrossApplication\\Source\\Core\\CrossApplication.Core.Resource\\CrossApplication.Core.Resource.csproj"
             },
             "D:\\dev\\Mailing\\CrossApplication\\Source\\Core\\CrossApplication.Core.Xamarins\\CrossApplication.Core.Xamarins.csproj": {
               "projectPath": "D:\\dev\\Mailing\\CrossApplication\\Source\\Core\\CrossApplication.Core.Xamarins\\CrossApplication.Core.Xamarins.csproj"

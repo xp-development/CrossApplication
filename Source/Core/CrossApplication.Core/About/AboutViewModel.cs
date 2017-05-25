@@ -13,7 +13,7 @@ namespace CrossApplication.Core.About
     {
         public Version Version
         {
-            get { return _version; }
+            get => _version;
             set
             {
                 _version = value;
@@ -34,9 +34,7 @@ namespace CrossApplication.Core.About
 
             ModuleInfos.Clear();
             foreach (var moduleInfo in await _aboutService.GetModuleInfosAsync())
-            {
                 ModuleInfos.Add(moduleInfo);
-            }
         }
 
         private readonly IAboutService _aboutService;

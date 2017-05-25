@@ -1,7 +1,6 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
-using CrossApplication.Core.Xamarins;
 
 namespace CrossApplication.Mail.Xamarins.Droid
 {

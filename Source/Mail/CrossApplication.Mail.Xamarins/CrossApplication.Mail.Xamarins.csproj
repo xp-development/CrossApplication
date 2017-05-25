@@ -51,10 +51,6 @@
       <Project>{d4b1b8a8-8078-4afa-a702-e71449afb433}</Project>
       <Name>CrossApplication.Core.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Core\CrossApplication.Core.Resource\CrossApplication.Core.Resource.csproj">
-      <Project>{084e738c-b285-4ea7-a01f-53e80491774b}</Project>
-      <Name>CrossApplication.Core.Resource</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Core\CrossApplication.Core.Xamarins\CrossApplication.Core.Xamarins.csproj">
       <Project>{67f9d3a8-f71e-4428-913f-c37ae82cdb24}</Project>
       <Name>CrossApplication.Core.Xamarins</Name>
