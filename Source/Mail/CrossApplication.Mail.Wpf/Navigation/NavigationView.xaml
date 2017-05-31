@@ -12,7 +12,7 @@
     <TreeView ItemsSource="{Binding NavigationItems}">
         <TreeView.ItemTemplate>
             <DataTemplate>
-                <ca:TextControl Text="{Binding Label}" />
+                <ca:TextControl Content="{Binding Label}" />
             </DataTemplate>
         </TreeView.ItemTemplate>
     </TreeView>

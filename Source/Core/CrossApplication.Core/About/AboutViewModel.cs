@@ -31,7 +31,6 @@ namespace CrossApplication.Core.About
         public async Task OnViewActivatedAsync(NavigationParameters navigationParameters)
         {
             Version = await _aboutService.GetVersionAsync();
-
             ModuleInfos.Clear();
             foreach (var moduleInfo in await _aboutService.GetModuleInfosAsync())
                 ModuleInfos.Add(moduleInfo);

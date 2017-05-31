@@ -11,6 +11,11 @@
     xmlns:attachedProperties="clr-namespace:CrossApplication.Wpf.Common.AttachedProperties;assembly=CrossApplication.Wpf.Common"
     mc:Ignorable="d" viewModels:ViewModelLocator.AutoWireViewModel="{x:Type about:AboutViewModel}"
     d:DesignHeight="300" d:DesignWidth="300" d:DataContext="{d:DesignInstance about:AboutViewModel}">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type ca:TextControl}" BasedOn="{StaticResource DefaultTextControlStyle}">
+            <Setter Property="LabelFontWeight" Value="SemiBold" />
+        </Style>
+    </UserControl.Resources>
     <Grid Margin="10">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -22,11 +27,8 @@
         </Grid.RowDefinitions>
 
         <StackPanel>
-            <ca:TextControl Style="{StaticResource TextControlCaptionStyle}" Text="{x:Static resource:CommonResources.ApplicationName}" />
-            <ca:TextControl>
-                <TextBlock Text="{x:Static resource:CommonResources.Version}" />
-                <TextBlock Text="{Binding Path=Version}" />
-            </ca:TextControl>
+            <ca:TextControl Style="{StaticResource TextControlCaptionStyle}" Content="{x:Static resource:CommonResources.ApplicationName}" />
+            <ca:TextControl LabelText="{x:Static resource:CommonResources.Version}" LabelAlignment="Top" Content="{Binding Path=Version}" />
         </StackPanel>
 
         <Image Grid.Row="0" Grid.Column="1" attachedProperties:ImageExtensions.Uri="pack://application:,,,/CrossApplication.Core.Resource;component/64/Main.png" Width="64" Height="64" />
@@ -34,7 +36,7 @@
         <ItemsControl Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" ItemsSource="{Binding Path=ModuleInfos}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <ca:TextControl Text="{Binding Path=ModuleType}" />
+                    <ca:TextControl Content="{Binding Path=ModuleType}" />
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>

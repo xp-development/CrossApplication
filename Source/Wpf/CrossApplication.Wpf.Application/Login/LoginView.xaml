@@ -16,10 +16,10 @@
                 DockPanel.Dock="Bottom" HorizontalAlignment="Right" />
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal">
-                <ca:TextControl Text="{x:Static application:Resources.LoginName}" />
-                <TextBox VerticalAlignment="Center" Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}" />
+                <ca:TextControl Content="{x:Static application:Resources.LoginName}" />
+                <TextBox x:Name="UserName" VerticalAlignment="Center" Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
-            <ca:TextControl Style="{StaticResource TextControlHintStyle}" VerticalAlignment="Center" Text="{Binding Message}" />
+            <ca:TextControl Style="{StaticResource TextControlHintStyle}" VerticalAlignment="Center" Content="{Binding Message}" />
         </StackPanel>
     </DockPanel>
 </UserControl>

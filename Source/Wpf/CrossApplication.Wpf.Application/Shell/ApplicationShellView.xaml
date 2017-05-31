@@ -17,5 +17,5 @@
                      WindowState="{Binding Source={StaticResource Settings}, Path=Default.ShellWindowState, Mode=TwoWay}"
                      Title="{x:Static resource:CommonResources.ApplicationName}"
                      viewModels:ViewModelLocator.AutoWireViewModel="{x:Type shell:ApplicationShellViewModel}">
-    <ContentControl mvvm:RegionManager.RegionName="{x:Static navigation:RegionNames.RichRegion}" />
+    <ContentControl mvvm:RegionManager.RegionName="{x:Static navigation:RegionNames.RichRegion}" Focusable="False" />
 </fluent:RibbonWindow>

@@ -2,8 +2,42 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:themes="clr-namespace:CrossApplication.Wpf.Themes"
                     xmlns:controls="clr-namespace:CrossApplication.Wpf.Themes.Controls">
+
     <Style x:Key="DefaultTextControlStyle" TargetType="{x:Type controls:TextControl}">
         <Setter Property="Foreground" Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly={x:Type themes:Colors}, ResourceId=TextColorKey}}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <DockPanel>
+                        <TextBlock
+                            Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=LabelText}"
+                            FontWeight="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=LabelFontWeight}"
+                            DockPanel.Dock="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=LabelAlignment}" />
+                        <ContentPresenter
+                            Focusable="False"
+                            Margin="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Margin}"
+                            Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Content}" />
+                    </DockPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="LabelText" Value="{x:Null}">
+                <Trigger.Setters>
+                    <Setter Property="Focusable" Value="False" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <ContentPresenter
+                                    Focusable="False"
+                                    Margin="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Margin}"
+                                    Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Content}" />
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger.Setters>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
     <Style TargetType="{x:Type controls:TextControl}" BasedOn="{StaticResource DefaultTextControlStyle}" />
