@@ -21,7 +21,7 @@ namespace CrossApplication.Wpf.Application.Login
             private set
             {
                 _message = value;
-                OnPropertyChanged();
+                RaisePropertyChanged();
             }
         }
 
@@ -29,7 +29,7 @@ namespace CrossApplication.Wpf.Application.Login
         {
             _userManager = userManager;
             _navigationService = navigationService;
-            LoginCommand = DelegateCommand.FromAsyncHandler(LoginAsync);
+            LoginCommand = new DelegateCommand(LoginAsync);
         }
 
         public Task OnViewActivatingAsync(NavigationParameters navigationParameters)
@@ -44,7 +44,7 @@ namespace CrossApplication.Wpf.Application.Login
             return Task.FromResult(false);
         }
 
-        private async Task LoginAsync()
+        private async void LoginAsync()
         {
             var isLoggedIn = await _userManager.LoginAsync(UserName);
             if (isLoggedIn)

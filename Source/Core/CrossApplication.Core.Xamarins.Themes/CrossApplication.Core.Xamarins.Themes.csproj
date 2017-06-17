@@ -2,19 +2,18 @@
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
-    <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
+    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D4B1B8A8-8078-4AFA-A702-E71449AFB433}</ProjectGuid>
+    <ProjectGuid>{29E9B1B2-9BEA-4F37-B50C-2C9E430EBFEF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CrossApplication.Core.Contracts</RootNamespace>
-    <AssemblyName>CrossApplication.Core.Contracts</AssemblyName>
-    <DefaultLanguage>en-US</DefaultLanguage>
+    <RootNamespace>CrossApplication.Core.Xamarins.Themes</RootNamespace>
+    <AssemblyName>CrossApplication.Core.Xamarins.Themes</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <TargetFrameworkProfile>Profile151</TargetFrameworkProfile>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
@@ -36,38 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Application\Events\StateMessageEvent.cs" />
-    <Compile Include="Application\Services\IAboutService.cs" />
-    <Compile Include="Application\Theming\Theme.cs" />
-    <Compile Include="Common\Container\IContainer.cs" />
-    <Compile Include="Common\Container\Lifetime.cs" />
-    <Compile Include="Application\Modules\ModuleAttribute.cs" />
-    <Compile Include="Application\Modules\ModuleInfo.cs" />
-    <Compile Include="Application\Modules\ModuleTags.cs" />
-    <Compile Include="Common\Navigation\INavigationService.cs" />
-    <Compile Include="Common\Navigation\IRegionManager.cs" />
-    <Compile Include="Common\Storage\IStorage.cs" />
-    <Compile Include="IUserManager.cs" />
-    <Compile Include="Application\Modules\IModule.cs" />
-    <Compile Include="Application\Modules\IModuleCatalog.cs" />
-    <Compile Include="Application\Modules\IModuleManager.cs" />
-    <Compile Include="Navigation\IMainNavigationItem.cs" />
-    <Compile Include="Navigation\IViewManager.cs" />
-    <Compile Include="Navigation\ViewItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Security\IStringEncryption.cs" />
-    <Compile Include="Views\IViewActivatedAsync.cs" />
-    <Compile Include="Views\IViewActivatingAsync.cs" />
-    <Compile Include="Views\IViewDeactivatedAsync.cs" />
-    <Compile Include="Views\IViewUnloadedAsync.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Prism, Version=6.3.0.0, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Prism.Core.6.3.0\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Prism.dll</HintPath>
-    </Reference>
-    <Reference Include="Prism.Forms, Version=6.3.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Prism.Forms.6.3.0\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Prism.Forms.dll</HintPath>
-    </Reference>
     <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Forms.2.3.4.247\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Core.dll</HintPath>
     </Reference>

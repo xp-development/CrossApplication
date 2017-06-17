@@ -340,7 +340,7 @@
           "lib/win8/Ninject.dll": {}
         }
       },
-      "Prism.Core/6.2.0": {
+      "Prism.Core/6.3.0": {
         "type": "package",
         "compile": {
           "lib/wpa81/Prism.dll": {}
@@ -2230,7 +2230,7 @@
           }
         }
       },
-      "Xamarin.Forms/2.3.4.231": {
+      "Xamarin.Forms/2.3.4.247": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
@@ -2582,7 +2582,7 @@
           "lib/win8/Ninject.dll": {}
         }
       },
-      "Prism.Core/6.2.0": {
+      "Prism.Core/6.3.0": {
         "type": "package",
         "compile": {
           "lib/wpa81/Prism.dll": {}
@@ -4607,7 +4607,7 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Xamarin.Forms/2.3.4.231": {
+      "Xamarin.Forms/2.3.4.247": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
@@ -4960,7 +4960,7 @@
           "lib/win8/Ninject.dll": {}
         }
       },
-      "Prism.Core/6.2.0": {
+      "Prism.Core/6.3.0": {
         "type": "package",
         "compile": {
           "lib/wpa81/Prism.dll": {}
@@ -7023,7 +7023,7 @@
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Xamarin.Forms/2.3.4.231": {
+      "Xamarin.Forms/2.3.4.247": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
@@ -7378,7 +7378,7 @@
           "lib/win8/Ninject.dll": {}
         }
       },
-      "Prism.Core/6.2.0": {
+      "Prism.Core/6.3.0": {
         "type": "package",
         "compile": {
           "lib/wpa81/Prism.dll": {}
@@ -9409,7 +9409,7 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Xamarin.Forms/2.3.4.231": {
+      "Xamarin.Forms/2.3.4.247": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
@@ -9765,7 +9765,7 @@
           "lib/win8/Ninject.dll": {}
         }
       },
-      "Prism.Core/6.2.0": {
+      "Prism.Core/6.3.0": {
         "type": "package",
         "compile": {
           "lib/wpa81/Prism.dll": {}
@@ -11834,7 +11834,7 @@
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Xamarin.Forms/2.3.4.231": {
+      "Xamarin.Forms/2.3.4.247": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
@@ -12189,7 +12189,7 @@
           "lib/win8/Ninject.dll": {}
         }
       },
-      "Prism.Core/6.2.0": {
+      "Prism.Core/6.3.0": {
         "type": "package",
         "compile": {
           "lib/wpa81/Prism.dll": {}
@@ -14220,7 +14220,7 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Xamarin.Forms/2.3.4.231": {
+      "Xamarin.Forms/2.3.4.247": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
@@ -14576,7 +14576,7 @@
           "lib/win8/Ninject.dll": {}
         }
       },
-      "Prism.Core/6.2.0": {
+      "Prism.Core/6.3.0": {
         "type": "package",
         "compile": {
           "lib/wpa81/Prism.dll": {}
@@ -16645,7 +16645,7 @@
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "Xamarin.Forms/2.3.4.231": {
+      "Xamarin.Forms/2.3.4.247": {
         "type": "package",
         "compile": {
           "lib/uap10.0/Xamarin.Forms.Core.dll": {},
@@ -19149,13 +19149,11 @@
         "portable.ninject.nuspec"
       ]
     },
-    "Prism.Core/6.2.0": {
-      "sha512": "jWJRmjvR/bJqVyLr3T9hKToyV6X0Q2DONtyfa8ZjHJwlkD/SF3YJM+z8xSdqQl8uPfLOmgBG6Xm4lPk69P5o0g==",
+    "Prism.Core/6.3.0": {
+      "sha512": "8KKRF/1Hx76dXFrYb3XUbkGFWTZjjI99DTGcPt5/aGghb3iYBscxiT4WDVlGmUpfqw7QS/jDI2BGs5ZsAy8XVA==",
       "type": "package",
-      "path": "prism.core/6.2.0",
+      "path": "prism.core/6.3.0",
       "files": [
-        "Prism.Core.6.2.0.nupkg.sha512",
-        "Prism.Core.nuspec",
         "lib/MonoAndroid10/Prism.dll",
         "lib/MonoAndroid10/Prism.xml",
         "lib/MonoTouch10/Prism.dll",
@@ -19171,7 +19169,9 @@
         "lib/wp81/Prism.dll",
         "lib/wp81/Prism.xml",
         "lib/wpa81/Prism.dll",
-        "lib/wpa81/Prism.xml"
+        "lib/wpa81/Prism.xml",
+        "prism.core.6.3.0.nupkg.sha512",
+        "prism.core.nuspec"
       ]
     },
     "runtime.any.System.Collections/4.0.11": {
@@ -25038,10 +25038,10 @@
         "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll"
       ]
     },
-    "Xamarin.Forms/2.3.4.231": {
-      "sha512": "Tar4nHke8Rl0Mz2Y1MdNAMvo8wKc/wVVW2rN7loXMc+2R1ex3n/fzs7eD2F7gDw3TceGLQku52kyc5LuN8Hlgw==",
+    "Xamarin.Forms/2.3.4.247": {
+      "sha512": "+6VN8IBSah7EcNJ4SV3pIhNA8tNlBaPLfr3+hQpPIllueJrXI5QtjM0tAJusPc2V1cYyC4YKvA1fs5c/A8RrBw==",
       "type": "package",
-      "path": "xamarin.forms/2.3.4.231",
+      "path": "xamarin.forms/2.3.4.247",
       "files": [
         "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Mono.Cecil.Mdb.dll",
         "build/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20/Mono.Cecil.Pdb.dll",
@@ -25192,7 +25192,7 @@
         "lib/wpa81/Xamarin.Forms.Platform.dll",
         "lib/wpa81/Xamarin.Forms.Xaml.dll",
         "lib/wpa81/Xamarin.Forms.Xaml.xml",
-        "xamarin.forms.2.3.4.231.nupkg.sha512",
+        "xamarin.forms.2.3.4.247.nupkg.sha512",
         "xamarin.forms.nuspec"
       ]
     },
@@ -25242,8 +25242,8 @@
       "CommonServiceLocator >= 1.3.0",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.3.3",
       "Portable.Ninject >= 3.3.1",
-      "Prism.Core >= 6.2.0",
-      "Xamarin.Forms >= 2.3.4.231"
+      "Prism.Core >= 6.3.0",
+      "Xamarin.Forms >= 2.3.4.247"
     ],
     "UAP,Version=v10.0": []
   },
@@ -25280,8 +25280,8 @@
       "CommonServiceLocator": "1.3.0",
       "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.3",
       "Portable.Ninject": "3.3.1",
-      "Prism.Core": "6.2.0",
-      "Xamarin.Forms": "2.3.4.231"
+      "Prism.Core": "[6.3.0, )",
+      "Xamarin.Forms": "2.3.4.247"
     },
     "frameworks": {
       "uap10.0": {}
