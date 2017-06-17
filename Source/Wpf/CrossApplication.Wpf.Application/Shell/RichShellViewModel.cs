@@ -8,7 +8,7 @@ using CrossApplication.Core.Common.Mvvm;
 using CrossApplication.Core.Contracts.Application.Events;
 using CrossApplication.Core.Contracts.Navigation;
 using CrossApplication.Core.Contracts.Views;
-using CrossApplication.Wpf.Contracts.Backstages;
+using CrossApplication.Core.Wpf.Contracts.Backstages;
 using Prism.Events;
 using Prism.Interactivity.InteractionRequest;
 using Prism.Mvvm;

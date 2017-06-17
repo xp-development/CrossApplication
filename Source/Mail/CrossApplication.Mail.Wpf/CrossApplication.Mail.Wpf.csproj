@@ -172,17 +172,17 @@
       <Project>{9ec03910-7516-4cfd-b69d-b634de7702ff}</Project>
       <Name>CrossApplication.Core.Net.Themes</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Wpf\CrossApplication.Wpf.Common\CrossApplication.Wpf.Common.csproj">
+    <ProjectReference Include="..\..\Core\CrossApplication.Core.Wpf.Common\CrossApplication.Core.Wpf.Common.csproj">
       <Project>{5c6b8785-7e1e-4a4a-accd-db14a6d68cc1}</Project>
-      <Name>CrossApplication.Wpf.Common</Name>
+      <Name>CrossApplication.Core.Wpf.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Wpf\CrossApplication.Wpf.Contracts\CrossApplication.Wpf.Contracts.csproj">
+    <ProjectReference Include="..\..\Core\CrossApplication.Core.Wpf.Contracts\CrossApplication.Core.Wpf.Contracts.csproj">
       <Project>{25b722b3-fb2d-499c-bd67-2ec24d8c72f7}</Project>
-      <Name>CrossApplication.Wpf.Contracts</Name>
+      <Name>CrossApplication.Core.Wpf.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Wpf\CrossApplication.Wpf.Themes\CrossApplication.Wpf.Themes.csproj">
+    <ProjectReference Include="..\..\Core\CrossApplication.Core.Wpf.Themes\CrossApplication.Core.Wpf.Themes.csproj">
       <Project>{50caf89a-fe45-4f39-a093-7119faa45e0a}</Project>
-      <Name>CrossApplication.Wpf.Themes</Name>
+      <Name>CrossApplication.Core.Wpf.Themes</Name>
     </ProjectReference>
     <ProjectReference Include="..\CrossApplication.Mail.Contracts\CrossApplication.Mail.Contracts.csproj">
       <Project>{98d2c0f2-bfbf-49db-961a-cd8f229a80fb}</Project>

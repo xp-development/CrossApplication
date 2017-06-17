@@ -1,4 +1,4 @@
-﻿using CrossApplication.Wpf.Contracts.Backstages;
+﻿using CrossApplication.Core.Wpf.Contracts.Backstages;
 
 namespace CrossApplication.Wpf.Application.Backstages
 {

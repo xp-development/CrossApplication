@@ -8,10 +8,10 @@
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:accountManagement="clr-namespace:CrossApplication.Wpf.Application.AccountManagement"
              xmlns:shell="clr-namespace:CrossApplication.Wpf.Application.Shell"
-             xmlns:viewModels="clr-namespace:CrossApplication.Wpf.Common.ViewModels;assembly=CrossApplication.Wpf.Common"
-             xmlns:controls="clr-namespace:CrossApplication.Wpf.Themes.Controls;assembly=CrossApplication.Wpf.Themes"
-             xmlns:navigation="clr-namespace:CrossApplication.Wpf.Common.Navigation;assembly=CrossApplication.Wpf.Common"
-             mc:Ignorable="d" viewModels:ViewModelLocator.AutoWireViewModel="{x:Type shell:RichShellViewModel}"
+             xmlns:viewModels1="clr-namespace:CrossApplication.Core.Wpf.Common.ViewModels;assembly=CrossApplication.Core.Wpf.Common"
+             xmlns:navigation1="clr-namespace:CrossApplication.Core.Wpf.Common.Navigation;assembly=CrossApplication.Core.Wpf.Common"
+             xmlns:controls1="clr-namespace:CrossApplication.Core.Wpf.Themes.Controls;assembly=CrossApplication.Core.Wpf.Themes"
+             mc:Ignorable="d" viewModels1:ViewModelLocator.AutoWireViewModel="{x:Type shell:RichShellViewModel}"
              x:Name="RichShell"
              d:DataContext="{d:DesignInstance shell:RichShellViewModel}">
     <i:Interaction.Triggers>
@@ -31,7 +31,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <fluent:Ribbon IsQuickAccessToolBarVisible="False"
-                       mvvm:RegionManager.RegionName="{x:Static navigation:RegionNames.RibbonRegion}">
+                       mvvm:RegionManager.RegionName="{x:Static navigation1:RegionNames.RibbonRegion}">
             <fluent:Ribbon.Menu>
                 <fluent:Backstage>
                     <Grid DataContext="{Binding Path=DataContext, ElementName=RichShell}">
@@ -63,21 +63,21 @@
                         </Grid>
 
                         <Grid Height="Auto" Grid.Column="1" Background="White">
-                            <ContentControl mvvm:RegionManager.RegionName="{x:Static navigation:RegionNames.BackstageRegion}" />
+                            <ContentControl mvvm:RegionManager.RegionName="{x:Static navigation1:RegionNames.BackstageRegion}" />
                         </Grid>
                     </Grid>
                 </fluent:Backstage>
             </fluent:Ribbon.Menu>
         </fluent:Ribbon>
-        <ContentControl mvvm:RegionManager.RegionName="{x:Static navigation:RegionNames.MainRegion}" Grid.Row="1" />
-        <controls:NavigationBar ItemsSource="{Binding NavigationItems}" MaximumCountVisibleElements="2" Grid.Row="2">
-            <controls:NavigationBar.BarItemTemplate>
+        <ContentControl mvvm:RegionManager.RegionName="{x:Static navigation1:RegionNames.MainRegion}" Grid.Row="1" />
+        <controls1:NavigationBar ItemsSource="{Binding NavigationItems}" MaximumCountVisibleElements="2" Grid.Row="2">
+            <controls1:NavigationBar.BarItemTemplate>
                 <DataTemplate>
                     <Button Content="{Binding Path=Label}" Style="{StaticResource ButtonHyperlinkStyle}"
                             Command="{Binding Path=NavigateCommand}" />
                 </DataTemplate>
-            </controls:NavigationBar.BarItemTemplate>
-        </controls:NavigationBar>
+            </controls1:NavigationBar.BarItemTemplate>
+        </controls1:NavigationBar>
         <fluent:StatusBar Grid.Row="3">
             <fluent:StatusBarItem HorizontalAlignment="Left">
                 <TextBlock Text="{Binding StateMessage}" />

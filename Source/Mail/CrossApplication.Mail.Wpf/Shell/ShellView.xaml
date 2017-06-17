@@ -3,13 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:viewModels="clr-namespace:CrossApplication.Wpf.Common.ViewModels;assembly=CrossApplication.Wpf.Common"
-             xmlns:ca="urn:cross-application"
              xmlns:regions="http://prismlibrary.com/"
              xmlns:core="clr-namespace:CrossApplication.Mail.Core.Navigation;assembly=CrossApplication.Mail.Core"
              xmlns:shell="clr-namespace:CrossApplication.Mail.Wpf.Shell"
+             xmlns:controls="clr-namespace:CrossApplication.Core.Wpf.Themes.Controls;assembly=CrossApplication.Core.Wpf.Themes"
+             xmlns:viewModels1="clr-namespace:CrossApplication.Core.Wpf.Common.ViewModels;assembly=CrossApplication.Core.Wpf.Common"
              mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300"
-             viewModels:ViewModelLocator.AutoWireViewModel="{x:Type shell:ShellViewModel}">
+             viewModels1:ViewModelLocator.AutoWireViewModel="{x:Type shell:ShellViewModel}">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150" />
@@ -18,6 +18,6 @@
         </Grid.ColumnDefinitions>
         <ContentControl regions:RegionManager.RegionName="{x:Static core:MailRegionNames.NavigationRegion}" />
         <GridSplitter HorizontalAlignment="Stretch" Grid.Column="1" ResizeDirection="Columns" />
-        <ca:TextControl Grid.Column="2">Mailing</ca:TextControl>
+        <controls:TextControl Grid.Column="2">Mailing</controls:TextControl>
     </Grid>
 </UserControl>

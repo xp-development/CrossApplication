@@ -4,12 +4,12 @@
                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                       xmlns:fluent="urn:fluent-ribbon"
-                      xmlns:properties="clr-namespace:CrossApplication.Wpf.Common.Properties;assembly=CrossApplication.Wpf.Common"
-                      xmlns:viewModels="clr-namespace:CrossApplication.Wpf.Common.ViewModels;assembly=CrossApplication.Wpf.Common"
                       xmlns:shell="clr-namespace:CrossApplication.Mail.Wpf.Shell"
-                      mc:Ignorable="d" Header="{x:Static properties:Resources.ShellRibbonTabStart}"
-                      viewModels:ViewModelLocator.AutoWireViewModel="{x:Type shell:RibbonStartViewModel}">
-    <fluent:RibbonGroupBox Header="{x:Static properties:Resources.ShellRibbonTabStartGroupNew}">
-        <fluent:Button Header="{x:Static properties:Resources.ShellRibbonTabStartGroupNewNewMail}" />
+                      xmlns:viewModels1="clr-namespace:CrossApplication.Core.Wpf.Common.ViewModels;assembly=CrossApplication.Core.Wpf.Common"
+                      xmlns:properties1="clr-namespace:CrossApplication.Core.Wpf.Common.Properties;assembly=CrossApplication.Core.Wpf.Common"
+                      mc:Ignorable="d" Header="{x:Static properties1:Resources.ShellRibbonTabStart}"
+                      viewModels1:ViewModelLocator.AutoWireViewModel="{x:Type shell:RibbonStartViewModel}">
+    <fluent:RibbonGroupBox Header="{x:Static properties1:Resources.ShellRibbonTabStartGroupNew}">
+        <fluent:Button Header="{x:Static properties1:Resources.ShellRibbonTabStartGroupNewNewMail}" />
     </fluent:RibbonGroupBox>
 </fluent:RibbonTabItem>

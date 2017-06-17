@@ -4,12 +4,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:viewModels="clr-namespace:CrossApplication.Wpf.Common.ViewModels;assembly=CrossApplication.Wpf.Common"
-    xmlns:ca="urn:cross-application"
     xmlns:resource="clr-namespace:CrossApplication.Core.Resource;assembly=CrossApplication.Core.Resource"
     xmlns:about="clr-namespace:CrossApplication.Core.About;assembly=CrossApplication.Core"
-    xmlns:attachedProperties="clr-namespace:CrossApplication.Wpf.Common.AttachedProperties;assembly=CrossApplication.Wpf.Common"
-    mc:Ignorable="d" viewModels:ViewModelLocator.AutoWireViewModel="{x:Type about:AboutViewModel}"
+    xmlns:ca="clr-namespace:CrossApplication.Core.Wpf.Themes.Controls;assembly=CrossApplication.Core.Wpf.Themes"
+    xmlns:viewModels1="clr-namespace:CrossApplication.Core.Wpf.Common.ViewModels;assembly=CrossApplication.Core.Wpf.Common"
+    xmlns:attachedProperties1="clr-namespace:CrossApplication.Core.Wpf.Common.AttachedProperties;assembly=CrossApplication.Core.Wpf.Common"
+    mc:Ignorable="d" viewModels1:ViewModelLocator.AutoWireViewModel="{x:Type about:AboutViewModel}"
     d:DesignHeight="300" d:DesignWidth="300" d:DataContext="{d:DesignInstance about:AboutViewModel}">
     <UserControl.Resources>
         <Style TargetType="{x:Type ca:TextControl}" BasedOn="{StaticResource DefaultTextControlStyle}">
@@ -31,7 +31,7 @@
             <ca:TextControl LabelText="{x:Static resource:CommonResources.Version}" LabelAlignment="Top" Content="{Binding Path=Version}" />
         </StackPanel>
 
-        <Image Grid.Row="0" Grid.Column="1" attachedProperties:ImageExtensions.Uri="pack://application:,,,/CrossApplication.Core.Resource;component/64/Main.png" Width="64" Height="64" />
+        <Image Grid.Row="0" Grid.Column="1" attachedProperties1:ImageExtensions.Uri="pack://application:,,,/CrossApplication.Core.Resource;component/64/Main.png" Width="64" Height="64" />
 
         <ItemsControl Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" ItemsSource="{Binding Path=ModuleInfos}">
             <ItemsControl.ItemTemplate>

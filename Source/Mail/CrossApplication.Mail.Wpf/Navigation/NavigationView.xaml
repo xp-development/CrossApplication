@@ -4,15 +4,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:navigation="clr-namespace:CrossApplication.Mail.Wpf.Navigation"
-             xmlns:viewModels="clr-namespace:CrossApplication.Wpf.Common.ViewModels;assembly=CrossApplication.Wpf.Common"
-             xmlns:ca="urn:cross-application"
+             xmlns:controls="clr-namespace:CrossApplication.Core.Wpf.Themes.Controls;assembly=CrossApplication.Core.Wpf.Themes"
+             xmlns:viewModels1="clr-namespace:CrossApplication.Core.Wpf.Common.ViewModels;assembly=CrossApplication.Core.Wpf.Common"
              mc:Ignorable="d"
-             viewModels:ViewModelLocator.AutoWireViewModel="{x:Type navigation:NavigationViewModel}"
+             viewModels1:ViewModelLocator.AutoWireViewModel="{x:Type navigation:NavigationViewModel}"
              d:DataContext="{d:DesignInstance navigation:NavigationViewModel}">
     <TreeView ItemsSource="{Binding NavigationItems}">
         <TreeView.ItemTemplate>
             <DataTemplate>
-                <ca:TextControl Content="{Binding Label}" />
+                <controls:TextControl Content="{Binding Label}" />
             </DataTemplate>
         </TreeView.ItemTemplate>
     </TreeView>

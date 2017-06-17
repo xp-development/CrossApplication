@@ -3,10 +3,10 @@ using CrossApplication.Core.Contracts.Application.Modules;
 using CrossApplication.Core.Contracts.Common.Container;
 using CrossApplication.Core.Contracts.Common.Navigation;
 using CrossApplication.Core.Contracts.Navigation;
+using CrossApplication.Core.Wpf.Common.Navigation;
 using CrossApplication.Mail.Core.Navigation;
 using CrossApplication.Mail.Wpf.Navigation;
 using CrossApplication.Mail.Wpf.Shell;
-using CrossApplication.Wpf.Common.Navigation;
 
 namespace CrossApplication.Mail.Wpf
 {

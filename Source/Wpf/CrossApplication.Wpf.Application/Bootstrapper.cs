@@ -11,19 +11,19 @@ using CrossApplication.Core.Contracts.Common.Container;
 using CrossApplication.Core.Contracts.Navigation;
 using CrossApplication.Core.Net.Common;
 using CrossApplication.Core.Net.Common.Modules;
+using CrossApplication.Core.Wpf.Common.Navigation;
+using CrossApplication.Core.Wpf.Common.RegionAdapters;
+using CrossApplication.Core.Wpf.Contracts.Backstages;
 using CrossApplication.Wpf.Application.Backstages;
 using CrossApplication.Wpf.Application.Login;
 using CrossApplication.Wpf.Application.Properties;
 using CrossApplication.Wpf.Application.Shell;
 using CrossApplication.Wpf.Application.Shell.RibbonTabs;
-using CrossApplication.Wpf.Common.Navigation;
-using CrossApplication.Wpf.Common.RegionAdapters;
-using CrossApplication.Wpf.Contracts.Backstages;
 using Fluent;
 using Microsoft.Practices.ServiceLocation;
 using Prism.Regions;
 using Prism.Regions.Behaviors;
-using Module = CrossApplication.Wpf.Common.Module;
+using Module = CrossApplication.Core.Wpf.Common.Module;
 using RegionManager = Prism.Regions.RegionManager;
 
 namespace CrossApplication.Wpf.Application
@@ -76,15 +76,15 @@ namespace CrossApplication.Wpf.Application
             switch (Settings.Default.Theme)
             {
                 case Theme.LightBlue:
-                    myResourceDictionary = new ResourceDictionary {Source = new Uri("/CrossApplication.Wpf.Themes;component/LightBlue/Colors.xaml", UriKind.Relative)};
+                    myResourceDictionary = new ResourceDictionary {Source = new Uri("/CrossApplication.Core.Wpf.Themes;component/LightBlue/Colors.xaml", UriKind.Relative)};
                     break;
                 default:
-                    myResourceDictionary = new ResourceDictionary {Source = new Uri("/CrossApplication.Wpf.Themes;component/LightBlue/Colors.xaml", UriKind.Relative)};
+                    myResourceDictionary = new ResourceDictionary {Source = new Uri("/CrossApplication.Core.Wpf.Themes;component/LightBlue/Colors.xaml", UriKind.Relative)};
                     break;
             }
 
             System.Windows.Application.Current.Resources.MergedDictionaries.Add(new ResourceDictionary {Source = new Uri("/Fluent;component/themes/office2013/generic.xaml", UriKind.Relative)});
-            System.Windows.Application.Current.Resources.MergedDictionaries.Add(new ResourceDictionary {Source = new Uri("/CrossApplication.Wpf.Themes;component/Generic/Generic.xaml", UriKind.Relative)});
+            System.Windows.Application.Current.Resources.MergedDictionaries.Add(new ResourceDictionary {Source = new Uri("/CrossApplication.Core.Wpf.Themes;component/Generic/Generic.xaml", UriKind.Relative)});
             System.Windows.Application.Current.Resources.MergedDictionaries.Add(myResourceDictionary);
             return base.LoadThemeAsync();
         }
@@ -99,7 +99,7 @@ namespace CrossApplication.Wpf.Application
         {
             Container.RegisterType<IRegionBehaviorFactory, RegionBehaviorFactory>(Lifetime.PerContainer);
             Container.RegisterType<IRegionManager, RegionManager>(Lifetime.PerContainer);
-            Container.RegisterType<Core.Contracts.Common.Navigation.IRegionManager, Common.Navigation.RegionManager>(Lifetime.PerContainer);
+            Container.RegisterType<Core.Contracts.Common.Navigation.IRegionManager, Core.Wpf.Common.Navigation.RegionManager>(Lifetime.PerContainer);
             Container.RegisterType<IRegionViewRegistry, RegionViewRegistry>(Lifetime.PerContainer);
             Container.RegisterType<IRegionNavigationJournalEntry, RegionNavigationJournalEntry>();
             Container.RegisterType<IRegionNavigationJournal, RegionNavigationJournal>();
@@ -112,7 +112,7 @@ namespace CrossApplication.Wpf.Application
             base.ConfigureContainer();
 
             Container.Resolve<IViewManager>().AddViewItem(new ViewItem("About", RegionNames.BackstageRegion));
-            Container.RegisterInstance<IBackstageNavigationItem>(new BackstageNavigationItem(Common.Properties.Resources.ShellRibbonBackstageAbout, "About"));
+            Container.RegisterInstance<IBackstageNavigationItem>(new BackstageNavigationItem(Core.Wpf.Common.Properties.Resources.ShellRibbonBackstageAbout, "About"));
         }
 
         private void RegisterViews()
