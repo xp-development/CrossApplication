@@ -17,7 +17,7 @@ namespace CrossApplication.Core.About
             set
             {
                 _version = value;
-                OnPropertyChanged();
+                RaisePropertyChanged();
             }
         }
 

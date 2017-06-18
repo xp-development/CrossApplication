@@ -30,7 +30,7 @@ namespace CrossApplication.Wpf.Application.Shell
             private set
             {
                 _stateMessage = value;
-                OnPropertyChanged();
+                RaisePropertyChanged();
             }
         }
 
