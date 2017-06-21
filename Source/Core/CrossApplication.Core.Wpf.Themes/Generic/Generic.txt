@@ -1,7 +1,0 @@
-Generic\BaseControlStyles\TextBoxStyle.xaml
-Generic\BaseControlStyles\ButtonStyle.xaml
-Generic\CustomControlStyles\TextControlStyle.xaml
-Generic\CustomControlStyles\NavigationBarStyle.xaml
-Generic\NamedStyles\TextControlCaptionStyle.xaml
-Generic\NamedStyles\TextControlHintStyle.xaml
-Generic\NamedStyles\ButtonHyperlinkStyle.xaml
