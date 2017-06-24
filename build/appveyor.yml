@@ -32,6 +32,10 @@ assembly_info:
  
  
 test:
+  assemblies:
+    only:
+      - '**\*.UnitTest.dll'
+
   categories:
     except:
       - IgnoreOnBuildserver
