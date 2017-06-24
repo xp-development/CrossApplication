@@ -22,7 +22,7 @@ namespace CrossApplication.Core.Net.Common.UnitTest._Modules._DirectoryModuleCat
         private readonly string _moduleAssemblyName = "CrossApplication.Core.Net.Common.UnitTest.dll";
         private readonly string _moduleDirectoryPath = "./Modules";
 
-        [Fact]
+        [Fact, Trait("Category", "IgnoreOnBuildserver")]
         public async void Usage()
         {
             var catalog = new DirectoryModuleCatalog("./Modules");
