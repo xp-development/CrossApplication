@@ -2272,8 +2272,12 @@
           "CrossApplication.Core": "1.0.0",
           "CrossApplication.Core.Common": "1.0.0",
           "CrossApplication.Core.Contracts": "1.0.0",
-          "CrossApplication.Core.Resource": "1.0.0"
+          "CrossApplication.Core.Resource": "1.0.0",
+          "CrossApplication.Core.Xamarins.Themes": "1.0.0"
         }
+      },
+      "CrossApplication.Core.Xamarins.Themes/1.0.0": {
+        "type": "project"
       },
       "CrossApplication.Mail.Contracts/1.0.0": {
         "type": "project"
@@ -4649,8 +4653,12 @@
           "CrossApplication.Core": "1.0.0",
           "CrossApplication.Core.Common": "1.0.0",
           "CrossApplication.Core.Contracts": "1.0.0",
-          "CrossApplication.Core.Resource": "1.0.0"
+          "CrossApplication.Core.Resource": "1.0.0",
+          "CrossApplication.Core.Xamarins.Themes": "1.0.0"
         }
+      },
+      "CrossApplication.Core.Xamarins.Themes/1.0.0": {
+        "type": "project"
       },
       "CrossApplication.Mail.Contracts/1.0.0": {
         "type": "project"
@@ -7065,8 +7073,12 @@
           "CrossApplication.Core": "1.0.0",
           "CrossApplication.Core.Common": "1.0.0",
           "CrossApplication.Core.Contracts": "1.0.0",
-          "CrossApplication.Core.Resource": "1.0.0"
+          "CrossApplication.Core.Resource": "1.0.0",
+          "CrossApplication.Core.Xamarins.Themes": "1.0.0"
         }
+      },
+      "CrossApplication.Core.Xamarins.Themes/1.0.0": {
+        "type": "project"
       },
       "CrossApplication.Mail.Contracts/1.0.0": {
         "type": "project"
@@ -9451,8 +9463,12 @@
           "CrossApplication.Core": "1.0.0",
           "CrossApplication.Core.Common": "1.0.0",
           "CrossApplication.Core.Contracts": "1.0.0",
-          "CrossApplication.Core.Resource": "1.0.0"
+          "CrossApplication.Core.Resource": "1.0.0",
+          "CrossApplication.Core.Xamarins.Themes": "1.0.0"
         }
+      },
+      "CrossApplication.Core.Xamarins.Themes/1.0.0": {
+        "type": "project"
       },
       "CrossApplication.Mail.Contracts/1.0.0": {
         "type": "project"
@@ -11876,8 +11892,12 @@
           "CrossApplication.Core": "1.0.0",
           "CrossApplication.Core.Common": "1.0.0",
           "CrossApplication.Core.Contracts": "1.0.0",
-          "CrossApplication.Core.Resource": "1.0.0"
+          "CrossApplication.Core.Resource": "1.0.0",
+          "CrossApplication.Core.Xamarins.Themes": "1.0.0"
         }
+      },
+      "CrossApplication.Core.Xamarins.Themes/1.0.0": {
+        "type": "project"
       },
       "CrossApplication.Mail.Contracts/1.0.0": {
         "type": "project"
@@ -14262,8 +14282,12 @@
           "CrossApplication.Core": "1.0.0",
           "CrossApplication.Core.Common": "1.0.0",
           "CrossApplication.Core.Contracts": "1.0.0",
-          "CrossApplication.Core.Resource": "1.0.0"
+          "CrossApplication.Core.Resource": "1.0.0",
+          "CrossApplication.Core.Xamarins.Themes": "1.0.0"
         }
+      },
+      "CrossApplication.Core.Xamarins.Themes/1.0.0": {
+        "type": "project"
       },
       "CrossApplication.Mail.Contracts/1.0.0": {
         "type": "project"
@@ -16687,8 +16711,12 @@
           "CrossApplication.Core": "1.0.0",
           "CrossApplication.Core.Common": "1.0.0",
           "CrossApplication.Core.Contracts": "1.0.0",
-          "CrossApplication.Core.Resource": "1.0.0"
+          "CrossApplication.Core.Resource": "1.0.0",
+          "CrossApplication.Core.Xamarins.Themes": "1.0.0"
         }
+      },
+      "CrossApplication.Core.Xamarins.Themes/1.0.0": {
+        "type": "project"
       },
       "CrossApplication.Mail.Contracts/1.0.0": {
         "type": "project"
@@ -25221,6 +25249,11 @@
       "path": "../../Core/CrossApplication.Core.Xamarins/CrossApplication.Core.Xamarins.csproj",
       "msbuildProject": "../../Core/CrossApplication.Core.Xamarins/CrossApplication.Core.Xamarins.csproj"
     },
+    "CrossApplication.Core.Xamarins.Themes/1.0.0": {
+      "type": "project",
+      "path": "../../Core/CrossApplication.Core.Xamarins.Themes/CrossApplication.Core.Xamarins.Themes.csproj",
+      "msbuildProject": "../../Core/CrossApplication.Core.Xamarins.Themes/CrossApplication.Core.Xamarins.Themes.csproj"
+    },
     "CrossApplication.Mail.Contracts/1.0.0": {
       "type": "project",
       "path": "../CrossApplication.Mail.Contracts/CrossApplication.Mail.Contracts.csproj",
@@ -25280,7 +25313,7 @@
       "CommonServiceLocator": "1.3.0",
       "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.3",
       "Portable.Ninject": "3.3.1",
-      "Prism.Core": "[6.3.0, )",
+      "Prism.Core": "6.3.0",
       "Xamarin.Forms": "2.3.4.247"
     },
     "frameworks": {

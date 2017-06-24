@@ -7,23 +7,30 @@
              xmlns:shell="clr-namespace:CrossApplication.Core.About;assembly=CrossApplication.Core"
              xmlns:valueConverters="clr-namespace:CrossApplication.Core.Xamarins.ValueConverters;assembly=CrossApplication.Core.Xamarins"
              x:Class="CrossApplication.Core.Xamarins.About.AboutView"
+             Title="{x:Static resources:CommonResources.ApplicationName}"
              viewModels:ViewModelLocator.AutoWireViewModel="{x:Type shell:AboutViewModel}">
-  <ContentPage.Resources>
-    <ResourceDictionary>
-      <valueConverters:VersionConverter x:Key="VersionConverter" />
-    </ResourceDictionary>
-  </ContentPage.Resources>
-  <StackLayout>
-    <Label Text="{x:Static resources:CommonResources.ApplicationName}" />
-    <Label Text="{x:Static resources:CommonResources.Version}" />
-    <Label Text="{Binding Path=Version, Converter={StaticResource VersionConverter}}" />
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <valueConverters:VersionConverter x:Key="VersionConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout>
+        <TableView>
+            <TableView.Root>
+                <TableSection>
+                    <EntryCell Label="{x:Static resources:CommonResources.Version}"
+                               Text="{Binding Path=Version, Converter={StaticResource VersionConverter}, Mode=OneWay}" 
+                               IsEnabled="False" />
+                </TableSection>
+            </TableView.Root>
+        </TableView>
 
-    <ListView ItemsSource="{Binding Path=ModuleInfos}">
-      <ListView.ItemTemplate>
-        <DataTemplate>
-          <TextCell Text="{Binding Path=ModuleType.Name}" />
-        </DataTemplate>
-      </ListView.ItemTemplate>
-    </ListView>
-  </StackLayout>
+        <ListView ItemsSource="{Binding Path=ModuleInfos}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Path=ModuleType.Name}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
 </ContentPage>

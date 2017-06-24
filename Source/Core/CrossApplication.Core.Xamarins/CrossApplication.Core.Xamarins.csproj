@@ -68,6 +68,10 @@
       <Project>{084e738c-b285-4ea7-a01f-53e80491774b}</Project>
       <Name>CrossApplication.Core.Resource</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CrossApplication.Core.Xamarins.Themes\CrossApplication.Core.Xamarins.Themes.csproj">
+      <Project>{29e9b1b2-9bea-4f37-b50c-2c9e430ebfef}</Project>
+      <Name>CrossApplication.Core.Xamarins.Themes</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CrossApplication.Core\CrossApplication.Core.csproj">
       <Project>{48580624-408c-4e06-b48c-16ba47951440}</Project>
       <Name>CrossApplication.Core</Name>

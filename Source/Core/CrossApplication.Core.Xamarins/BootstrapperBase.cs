@@ -10,6 +10,7 @@ using Prism.Common;
 using Prism.Mvvm;
 using Prism.Ninject.Navigation;
 using Xamarin.Forms;
+using INavigationService = Prism.Navigation.INavigationService;
 
 namespace CrossApplication.Core.Xamarins
 {
@@ -26,7 +27,7 @@ namespace CrossApplication.Core.Xamarins
         protected override void ConfigureContainer()
         {
             Container.RegisterType<IRegionManager, RegionManager>(Lifetime.PerContainer);
-            Container.RegisterType<Prism.Navigation.INavigationService, NinjectPageNavigationService>(Lifetime.PerContainer);
+            Container.RegisterType<INavigationService, NinjectPageNavigationService>(Lifetime.PerContainer);
             Container.RegisterType<IApplicationProvider, ApplicationProvider>(Lifetime.PerContainer);
             Container.RegisterType<IAboutService, AboutService>();
 
