@@ -33,7 +33,7 @@ namespace CrossApplication.Core.Xamarins
 
             base.ConfigureContainer();
 
-            Container.RegisterInstance<IMainNavigationItem>(new MainNavigationItem("About", "About"));
+            Container.RegisterInstance<IMainNavigationItem>(new MainNavigationItem("About", "About", "Help"));
 
             Container.RegisterType<object, AboutView>("About", Lifetime.PerContainer);
             var shellViewItem = new ViewItem("About", "");

@@ -21,7 +21,7 @@ namespace CrossApplication.Mail.Core.Net
 
         public Task InitializeAsync()
         {
-            _container.RegisterInstance<IMainNavigationItem>(new MainNavigationItem("E-Mail", ViewKeys.Shell));
+            _container.RegisterInstance<IMainNavigationItem>(new MainNavigationItem("E-Mail", ViewKeys.Shell, "Email"));
             _container.RegisterType<IMailMessenger, MailMessenger>();
             _container.RegisterType<ITcpClient, TcpClient>();
             _container.RegisterType<ITagService, TagService>();

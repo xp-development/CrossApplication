@@ -1,4 +1,14 @@
-<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:themes="clr-namespace:CrossApplication.Core.Wpf.Themes" xmlns:controls="clr-namespace:CrossApplication.Core.Wpf.Themes.Controls">
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:themes="clr-namespace:CrossApplication.Core.Wpf.Themes" xmlns:controls="clr-namespace:CrossApplication.Core.Wpf.Themes.Controls" xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks" xmlns:converter="clr-namespace:CrossApplication.Core.Wpf.Themes.Converter">
+  <DataTemplate x:Key="HamburgerMenuGlyphItem" DataType="{x:Type mahapps:HamburgerMenuGlyphItem}">
+    <Grid Height="48">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="48" />
+        <ColumnDefinition />
+      </Grid.ColumnDefinitions>
+      <iconPacks:PackIconMaterial Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Kind="{Binding Glyph, Converter={converter:StringToEnumConverter}}" />
+      <TextBlock Grid.Column="1" VerticalAlignment="Center" FontSize="16" Foreground="White" Text="{Binding Label}" />
+    </Grid>
+  </DataTemplate>
   <Style x:Key="DefaultButtonStyle" TargetType="{x:Type Button}">
     <Setter Property="Foreground" Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly={x:Type themes:Colors}, ResourceId=TextColorKey}}" />
     <Setter Property="MinWidth" Value="75" />

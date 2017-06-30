@@ -24,7 +24,7 @@ namespace CrossApplication.Mail.Wpf.Navigation
             {
                 foreach (var mailFolder in mailAccount.Folders)
                 {
-                    NavigationItems.Add(new NavigationItem(_navigationService, mailFolder.Name, ""));
+                    NavigationItems.Add(new NavigationItem(_navigationService, mailFolder.Name, "", ""));
                 }
             }
         }

@@ -35,13 +35,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ControlzEx">
-      <HintPath>..\..\packages\ControlzEx.2.1.4.13\lib\net45\ControlzEx.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Fluent">
-      <HintPath>..\..\packages\Fluent.Ribbon.4.0.3.394\lib\net45\Fluent.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="MahApps.Metro">
+      <HintPath>..\..\packages\MahApps.Metro.1.5.0\lib\net45\MahApps.Metro.dll</HintPath>
     </Reference>
     <Reference Include="MailMessaging.Plain.Contracts">
       <HintPath>..\..\packages\MailMessaging.Plain.Contracts.2016.0.30\lib\portable-net451+wpa81+win81+Xamarin.iOS+Xamarin.Android+Xamarin.iOSClassic\MailMessaging.Plain.Contracts.dll</HintPath>
@@ -65,9 +60,6 @@
     </Reference>
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Prism.Wpf.6.3.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -108,10 +100,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Shell\RibbonStartView.xaml.cs">
-      <DependentUpon>RibbonStartView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Shell\RibbonStartViewModel.cs" />
     <Compile Include="Shell\ShellViewModel.cs" />
     <Compile Include="Shell\ShellView.xaml.cs">
       <DependentUpon>ShellView.xaml</DependentUpon>
@@ -119,7 +107,9 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -128,10 +118,6 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Navigation\NavigationView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Shell\RibbonStartView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
