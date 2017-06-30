@@ -45,8 +45,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\CrossApplication.Core.Contracts\CrossApplication.Core.Contracts.csproj">
-      <Project>{d4b1b8a8-8078-4afa-a702-e71449afb433}</Project>
+    <ProjectReference Include="..\CrossApplication.Core.Contracts\CrossApplication.Core.Contracts.csproj">
+      <Project>{d0245beb-1b25-4ee7-8160-46484bf1d5a8}</Project>
       <Name>CrossApplication.Core.Contracts</Name>
     </ProjectReference>
   </ItemGroup>

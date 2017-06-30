@@ -15,7 +15,7 @@ namespace CrossApplication.Wpf.Application.Login
         {
             Loaded -= OnLoaded;
 
-            UserName.Focus();
+//            UserName.Focus();
         }
     }
 }

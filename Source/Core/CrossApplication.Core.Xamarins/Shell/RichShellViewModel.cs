@@ -23,7 +23,7 @@ namespace CrossApplication.Core.Xamarins.Shell
         {
             foreach (var mainNavigationItem in _mainNavigationItems)
             {
-                NavigationItems.Add(new NavigationItem(_navigationService, mainNavigationItem.Label, mainNavigationItem.NavigationKey));
+                NavigationItems.Add(new NavigationItem(_navigationService, mainNavigationItem.Label, mainNavigationItem.NavigationKey, mainNavigationItem.Glyph));
             }
 
             return Task.FromResult(false);

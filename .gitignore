@@ -19,3 +19,4 @@ Source/packages/**
 /Source/Mail/CrossApplication.Mail.Xamarins.iOS/obj/iPhone/Debug
 /Source/Mail/CrossApplication.Mail.Xamarins.UWP/bin
 /Source/Mail/CrossApplication.Mail.Xamarins.Droid/obj/.cache
+/Source/AuthProviders/CrossApplication.Core.AuthProviders.Google/obj

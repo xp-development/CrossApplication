@@ -1,9 +1,10 @@
-﻿using System.Threading.Tasks;
-using System.Windows.Input;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using CrossApplication.Core.Contracts;
+using CrossApplication.Core.Contracts.Application.Authorization;
 using CrossApplication.Core.Contracts.Views;
 using CrossApplication.Wpf.Application.Properties;
-using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
 using INavigationService = CrossApplication.Core.Contracts.Common.Navigation.INavigationService;
@@ -12,12 +13,11 @@ namespace CrossApplication.Wpf.Application.Login
 {
     public class LoginViewModel : BindableBase, IViewActivatingAsync, IViewActivatedAsync
     {
-        public string UserName { get; set; }
-        public ICommand LoginCommand { get; }
+        public ObservableCollection<IAuthorizationProvider> AuthProviders { get; } = new ObservableCollection<IAuthorizationProvider>();
 
         public string Message
         {
-            get { return _message; }
+            get => _message;
             private set
             {
                 _message = value;
@@ -25,11 +25,23 @@ namespace CrossApplication.Wpf.Application.Login
             }
         }
 
-        public LoginViewModel(IUserManager userManager, INavigationService navigationService)
+        public IAuthorizationProvider SelectedAuthProvider
+        {
+            get { return _selectedAuthProvider; }
+            set
+            {
+                _selectedAuthProvider = value;
+                LoginAsync();
+            }
+        }
+
+        public LoginViewModel(IUserManager userManager, INavigationService navigationService, IEnumerable<IAuthorizationProvider> authorizationProviders)
         {
             _userManager = userManager;
             _navigationService = navigationService;
-            LoginCommand = new DelegateCommand(LoginAsync);
+
+            foreach (var authorizationProvider in authorizationProviders)
+                AuthProviders.Add(authorizationProvider);
         }
 
         public Task OnViewActivatingAsync(NavigationParameters navigationParameters)
@@ -46,7 +58,7 @@ namespace CrossApplication.Wpf.Application.Login
 
         private async void LoginAsync()
         {
-            var isLoggedIn = await _userManager.LoginAsync(UserName);
+            var isLoggedIn = await _userManager.LoginAsync(SelectedAuthProvider);
             if (isLoggedIn)
                 await _navigationService.NavigateToAsync(_requestedView);
             else
@@ -57,5 +69,6 @@ namespace CrossApplication.Wpf.Application.Login
         private readonly IUserManager _userManager;
         private string _message;
         private string _requestedView;
+        private IAuthorizationProvider _selectedAuthProvider;
     }
 }

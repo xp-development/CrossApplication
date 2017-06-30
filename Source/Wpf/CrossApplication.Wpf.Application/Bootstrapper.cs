@@ -12,14 +12,12 @@ using CrossApplication.Core.Contracts.Navigation;
 using CrossApplication.Core.Net.Common;
 using CrossApplication.Core.Net.Common.Modules;
 using CrossApplication.Core.Wpf.Common.Navigation;
-using CrossApplication.Core.Wpf.Common.RegionAdapters;
 using CrossApplication.Core.Wpf.Contracts.Backstages;
 using CrossApplication.Wpf.Application.Backstages;
 using CrossApplication.Wpf.Application.Login;
 using CrossApplication.Wpf.Application.Properties;
 using CrossApplication.Wpf.Application.Shell;
 using CrossApplication.Wpf.Application.Shell.RibbonTabs;
-using Fluent;
 using Microsoft.Practices.ServiceLocation;
 using Prism.Regions;
 using Prism.Regions.Behaviors;
@@ -66,8 +64,6 @@ namespace CrossApplication.Wpf.Application
             regionAdapterMappings.RegisterMapping(typeof(Selector), ServiceLocator.Current.GetInstance<SelectorRegionAdapter>());
             regionAdapterMappings.RegisterMapping(typeof(ItemsControl), ServiceLocator.Current.GetInstance<ItemsControlRegionAdapter>());
             regionAdapterMappings.RegisterMapping(typeof(ContentControl), ServiceLocator.Current.GetInstance<ContentControlRegionAdapter>());
-            regionAdapterMappings.RegisterMapping(typeof(Ribbon), Container.Resolve<RibbonRegionAdapter>());
-            regionAdapterMappings.RegisterMapping(typeof(Backstage), Container.Resolve<BackstageTabControlAdapter>());
         }
 
         protected override Task LoadThemeAsync()
@@ -83,7 +79,11 @@ namespace CrossApplication.Wpf.Application
                     break;
             }
 
-            System.Windows.Application.Current.Resources.MergedDictionaries.Add(new ResourceDictionary {Source = new Uri("/Fluent;component/themes/office2013/generic.xaml", UriKind.Relative)});
+            System.Windows.Application.Current.Resources.MergedDictionaries.Add(new ResourceDictionary {Source = new Uri("/MahApps.Metro;component/Styles/Controls.xaml", UriKind.Relative)});
+            System.Windows.Application.Current.Resources.MergedDictionaries.Add(new ResourceDictionary {Source = new Uri("/MahApps.Metro;component/Styles/Fonts.xaml", UriKind.Relative)});
+            System.Windows.Application.Current.Resources.MergedDictionaries.Add(new ResourceDictionary {Source = new Uri("/MahApps.Metro;component/Styles/Colors.xaml", UriKind.Relative)});
+            System.Windows.Application.Current.Resources.MergedDictionaries.Add(new ResourceDictionary {Source = new Uri("/MahApps.Metro;component/Styles/Accents/Blue.xaml", UriKind.Relative)});
+            System.Windows.Application.Current.Resources.MergedDictionaries.Add(new ResourceDictionary {Source = new Uri("/MahApps.Metro;component/Styles/Accents/BaseLight.xaml", UriKind.Relative)});
             System.Windows.Application.Current.Resources.MergedDictionaries.Add(new ResourceDictionary {Source = new Uri("/CrossApplication.Core.Wpf.Themes;component/Generic/Generic.xaml", UriKind.Relative)});
             System.Windows.Application.Current.Resources.MergedDictionaries.Add(myResourceDictionary);
             return base.LoadThemeAsync();
@@ -111,8 +111,8 @@ namespace CrossApplication.Wpf.Application
 
             base.ConfigureContainer();
 
-            Container.Resolve<IViewManager>().AddViewItem(new ViewItem("About", RegionNames.BackstageRegion));
-            Container.RegisterInstance<IBackstageNavigationItem>(new BackstageNavigationItem(Core.Wpf.Common.Properties.Resources.ShellRibbonBackstageAbout, "About"));
+            Container.Resolve<IViewManager>().AddViewItem(new ViewItem("About", RegionNames.MainRegion));
+            Container.RegisterInstance<IBackstageNavigationItem>(new BackstageNavigationItem(Core.Wpf.Common.Properties.Resources.ShellRibbonBackstageAbout, "About", "Help"));
         }
 
         private void RegisterViews()
@@ -129,7 +129,7 @@ namespace CrossApplication.Wpf.Application
 
         protected override void InitializeShell()
         {
-            System.Windows.Application.Current.MainWindow = (Window) _shell;
+            System.Windows.Application.Current.MainWindow = _shell;
             System.Windows.Application.Current.MainWindow.Show();
 
             var viewManager = Container.Resolve<IViewManager>();
@@ -137,6 +137,6 @@ namespace CrossApplication.Wpf.Application
             viewManager.LoginViewItem = new ViewItem(typeof(LoginView).FullName, RegionNames.RichRegion);
         }
 
-        private DependencyObject _shell;
+        private ApplicationShellView _shell;
     }
 }

@@ -4,22 +4,33 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:login="clr-namespace:CrossApplication.Wpf.Application.Login"
-             xmlns:application="clr-namespace:CrossApplication.Wpf.Application.Properties"
-             xmlns:controls="clr-namespace:CrossApplication.Core.Wpf.Themes.Controls;assembly=CrossApplication.Core.Wpf.Themes"
              xmlns:viewModels1="clr-namespace:CrossApplication.Core.Wpf.Common.ViewModels;assembly=CrossApplication.Core.Wpf.Common"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:converter="clr-namespace:CrossApplication.Core.Wpf.Themes.Converter;assembly=CrossApplication.Core.Wpf.Themes"
              mc:Ignorable="d" Margin="15"
              viewModels1:ViewModelLocator.AutoWireViewModel="{x:Type login:LoginViewModel}"
              d:DataContext="{d:DesignInstance login:LoginViewModel}">
-    <DockPanel>
-        <Button Content="{x:Static application:Resources.LoginButtonText}" IsDefault="True"
-                Command="{Binding Path=LoginCommand}"
-                DockPanel.Dock="Bottom" HorizontalAlignment="Right" />
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <StackPanel Orientation="Horizontal">
-                <controls:TextControl Content="{x:Static application:Resources.LoginName}" />
-                <TextBox x:Name="UserName" VerticalAlignment="Center" Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}" />
-            </StackPanel>
-            <controls:TextControl Style="{StaticResource TextControlHintStyle}" VerticalAlignment="Center" Content="{Binding Message}" />
-        </StackPanel>
-    </DockPanel>
+    <ListBox HorizontalAlignment="Center" VerticalAlignment="Center"
+             ItemsSource="{Binding AuthProviders}" SelectedItem="{Binding SelectedAuthProvider}">
+        <ListBox.ItemTemplate>
+            <DataTemplate>
+                <Grid Height="48">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="48" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <iconPacks:PackIconMaterial Width="20"
+                                                Height="20"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Kind="{Binding Glyph, Converter={converter:StringToEnumConverter}}" />
+                    <TextBlock Grid.Column="1"
+                               VerticalAlignment="Center"
+                               FontSize="16"
+                               Foreground="White"
+                               Text="{Binding Name}" />
+                </Grid>
+            </DataTemplate>
+        </ListBox.ItemTemplate>
+    </ListBox>
 </UserControl>

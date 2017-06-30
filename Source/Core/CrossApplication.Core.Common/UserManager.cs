@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using CrossApplication.Core.Contracts;
+using CrossApplication.Core.Contracts.Application.Authorization;
 
 namespace CrossApplication.Core.Common
 {
@@ -7,12 +8,11 @@ namespace CrossApplication.Core.Common
     {
         public bool IsAuthorized { get; private set; }
 
-        public Task<bool> LoginAsync(string userName)
+        public async Task<bool> LoginAsync(IAuthorizationProvider authorizationProvider)
         {
-            if(userName == "42")
-                IsAuthorized = true;
-
-            return Task.FromResult(IsAuthorized);
+            var authorized = await authorizationProvider.AuthorizeTask("qq");
+            IsAuthorized = authorized != null;
+            return IsAuthorized;
         }
     }
 }

@@ -7,14 +7,16 @@ namespace CrossApplication.Core.Common.Mvvm
     public class NavigationItem : BindableBase
     {
         public string Label { get; }
-        public DelegateCommand NavigateCommand { get; private set; }
+        public string Glyph { get; }
+        public DelegateCommand NavigateCommand { get; }
 
-        public NavigationItem(INavigationService navigationService, string label, string navigationKey)
+        public NavigationItem(INavigationService navigationService, string label, string navigationKey, string glyph)
         {
             _navigationService = navigationService;
             _navigationKey = navigationKey;
 
             Label = label;
+            Glyph = glyph;
             NavigateCommand = new DelegateCommand(OnNavigate, CanNavigate);
         }
 

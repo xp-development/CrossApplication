@@ -21,7 +21,6 @@ namespace CrossApplication.Wpf.Application.Shell
     {
         public ObservableCollection<NavigationItem> NavigationItems { get; } = new ObservableCollection<NavigationItem>();
         public ObservableCollection<NavigationItem> BackstageNavigationItems { get; } = new ObservableCollection<NavigationItem>();
-
         public InteractionRequest<INotification> NotificationRequest { get; }
 
         public string StateMessage
@@ -60,12 +59,12 @@ namespace CrossApplication.Wpf.Application.Shell
         {
             foreach (var mainNavigationItem in _mainNavigationItems)
             {
-                NavigationItems.Add(new NavigationItem(_navigationService, mainNavigationItem.Label, mainNavigationItem.NavigationKey));
+                NavigationItems.Add(new NavigationItem(_navigationService, mainNavigationItem.Label, mainNavigationItem.NavigationKey, mainNavigationItem.Glyph));
             }
 
             foreach (var backstageNavigationItem in _backstageNavigationItems)
             {
-                BackstageNavigationItems.Add(new NavigationItem(_navigationService, backstageNavigationItem.Label, backstageNavigationItem.NavigationKey));
+                BackstageNavigationItems.Add(new NavigationItem(_navigationService, backstageNavigationItem.Label, backstageNavigationItem.NavigationKey, backstageNavigationItem.Glyph));
             }
 
             return Task.FromResult(false);

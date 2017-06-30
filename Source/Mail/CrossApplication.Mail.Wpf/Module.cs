@@ -24,13 +24,12 @@ namespace CrossApplication.Mail.Wpf
         {
             _container.RegisterType<ShellViewModel>();
             _container.RegisterType<object, ShellView>(ViewKeys.Shell, Lifetime.PerContainer);
-            _container.RegisterType<object, RibbonStartView>(typeof(RibbonStartView).FullName, Lifetime.PerContainer);
 
             _container.RegisterType<NavigationViewModel>();
             _container.RegisterType<object, NavigationView>(typeof(NavigationView).FullName, Lifetime.PerContainer);
 
             RegisterViews();
-            return Task.FromResult(false);
+            return Task.CompletedTask;
         }
 
         public async Task ActivateAsync()
@@ -41,7 +40,6 @@ namespace CrossApplication.Mail.Wpf
         private void RegisterViews()
         {
             var shellViewItem = new ViewItem(ViewKeys.Shell, RegionNames.MainRegion, true);
-            shellViewItem.SubViewItems.Add(new ViewItem(typeof(RibbonStartView).FullName, RegionNames.RibbonRegion));
             shellViewItem.SubViewItems.Add(new ViewItem(typeof(NavigationView).FullName, MailRegionNames.NavigationRegion));
             _viewManager.AddViewItem(shellViewItem);
         }
