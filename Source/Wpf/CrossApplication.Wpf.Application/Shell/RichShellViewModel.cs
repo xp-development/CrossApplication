@@ -11,13 +11,12 @@ using CrossApplication.Core.Contracts.Views;
 using CrossApplication.Core.Wpf.Contracts.Backstages;
 using Prism.Events;
 using Prism.Interactivity.InteractionRequest;
-using Prism.Mvvm;
 using Prism.Navigation;
 using INavigationService = CrossApplication.Core.Contracts.Common.Navigation.INavigationService;
 
 namespace CrossApplication.Wpf.Application.Shell
 {
-    public class RichShellViewModel : BindableBase, IViewActivatingAsync, IViewActivatedAsync, IViewDeactivatedAsync
+    public class RichShellViewModel : ViewModelBase, IViewActivatingAsync, IViewActivatedAsync, IViewDeactivatedAsync
     {
         public ObservableCollection<NavigationItem> NavigationItems { get; } = new ObservableCollection<NavigationItem>();
         public ObservableCollection<NavigationItem> BackstageNavigationItems { get; } = new ObservableCollection<NavigationItem>();
@@ -25,11 +24,11 @@ namespace CrossApplication.Wpf.Application.Shell
 
         public string StateMessage
         {
-            get { return _stateMessage; }
+            get => _stateMessage;
             private set
             {
                 _stateMessage = value;
-                RaisePropertyChanged();
+                NotifyPropertyChanged();
             }
         }
 

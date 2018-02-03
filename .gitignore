@@ -20,3 +20,5 @@ Source/packages/**
 /Source/Mail/CrossApplication.Mail.Xamarins.UWP/bin
 /Source/Mail/CrossApplication.Mail.Xamarins.Droid/obj/.cache
 /Source/AuthProviders/CrossApplication.Core.AuthProviders.Google/obj
+/Source/Photos/CrossApplication.Photos.Contracts/obj
+/Source/Photos/CrossApplication.Photos.Core/obj

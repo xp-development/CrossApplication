@@ -1,17 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using CrossApplication.Core.Common.Mvvm;
 using CrossApplication.Core.Contracts;
 using CrossApplication.Core.Contracts.Application.Authorization;
 using CrossApplication.Core.Contracts.Views;
 using CrossApplication.Wpf.Application.Properties;
-using Prism.Mvvm;
 using Prism.Navigation;
 using INavigationService = CrossApplication.Core.Contracts.Common.Navigation.INavigationService;
 
 namespace CrossApplication.Wpf.Application.Login
 {
-    public class LoginViewModel : BindableBase, IViewActivatingAsync, IViewActivatedAsync
+    public class LoginViewModel : ViewModelBase, IViewActivatingAsync, IViewActivatedAsync
     {
         public ObservableCollection<IAuthorizationProvider> AuthProviders { get; } = new ObservableCollection<IAuthorizationProvider>();
 
@@ -21,13 +21,13 @@ namespace CrossApplication.Wpf.Application.Login
             private set
             {
                 _message = value;
-                RaisePropertyChanged();
+                NotifyPropertyChanged();
             }
         }
 
         public IAuthorizationProvider SelectedAuthProvider
         {
-            get { return _selectedAuthProvider; }
+            get => _selectedAuthProvider;
             set
             {
                 _selectedAuthProvider = value;

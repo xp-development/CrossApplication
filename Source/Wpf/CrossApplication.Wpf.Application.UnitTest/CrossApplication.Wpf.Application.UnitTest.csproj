@@ -123,6 +123,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\CrossApplication.Core.Common\CrossApplication.Core.Common.csproj">
+      <Project>{d6758ef8-5672-40e2-8ae8-715386fc7870}</Project>
+      <Name>CrossApplication.Core.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Core\CrossApplication.Core.Contracts\CrossApplication.Core.Contracts.csproj">
       <Project>{d0245beb-1b25-4ee7-8160-46484bf1d5a8}</Project>
       <Name>CrossApplication.Core.Contracts</Name>

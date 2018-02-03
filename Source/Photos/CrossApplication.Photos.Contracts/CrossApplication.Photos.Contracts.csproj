@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+   <Exec Command="xcopy $(OutputPath)CrossApplication.Photos.Contracts.dll ..\..\Wpf\CrossApplication.Wpf.Application\bin\Debug\Modules\ /Y /F" />
+  </Target>
+</Project>

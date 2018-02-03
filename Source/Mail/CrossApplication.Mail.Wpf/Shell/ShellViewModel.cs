@@ -5,7 +5,7 @@ namespace CrossApplication.Mail.Wpf.Shell
 {
     public class ShellViewModel
     {
-        public ObservableCollection<ContactViewModel> Contacts { get; private set; }
+        public ObservableCollection<ContactViewModel> Contacts { get; }
 
         public ShellViewModel()
         {
@@ -16,8 +16,6 @@ namespace CrossApplication.Mail.Wpf.Shell
             Contacts.Add(new ContactViewModel { Background = Brushes.DarkKhaki, ShortId = "CD"});
             Contacts.Add(new ContactViewModel { Background = Brushes.DarkKhaki, ShortId = "EF"});
             Contacts.Add(new ContactViewModel { Background = Brushes.DarkKhaki, ShortId = "GH"});
-            
-            
         }
     }
 
