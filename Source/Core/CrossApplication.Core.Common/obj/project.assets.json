@@ -2,13 +2,13 @@
   "version": 3,
   "targets": {
     ".NETStandard,Version=v2.0": {
-      "CommonServiceLocator/2.0.1": {
+      "CommonServiceLocator/1.3.0": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/CommonServiceLocator.dll": {}
+          "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/CommonServiceLocator.dll": {}
+          "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll": {}
         }
       },
       "Microsoft.NETCore.Platforms/1.1.0": {
@@ -44,25 +44,29 @@
           "lib/net40-client/Ninject.dll": {}
         }
       },
-      "Prism.Core/6.3.0": {
+      "Prism.Core/7.0.0.396": {
         "type": "package",
         "compile": {
-          "lib/net45/Prism.dll": {}
+          "lib/netstandard2.0/Prism.dll": {}
         },
         "runtime": {
-          "lib/net45/Prism.dll": {}
+          "lib/netstandard2.0/Prism.dll": {}
         }
       },
-      "Prism.Forms/6.3.0": {
+      "Prism.Forms/7.0.0.396": {
         "type": "package",
+        "dependencies": {
+          "Prism.Core": "7.0.0.396",
+          "Xamarin.Forms": "2.5.0.122203"
+        },
         "compile": {
-          "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Prism.Forms.dll": {}
+          "lib/netstandard2.0/Prism.Forms.dll": {}
         },
         "runtime": {
-          "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Prism.Forms.dll": {}
+          "lib/netstandard2.0/Prism.Forms.dll": {}
         }
       },
-      "Xamarin.Forms/2.5.0.121934": {
+      "Xamarin.Forms/2.5.0.122203": {
         "type": "package",
         "compile": {
           "lib/netstandard1.0/Xamarin.Forms.Core.dll": {},
@@ -83,9 +87,9 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "Prism.Core": "6.3.0",
-          "Prism.Forms": "6.3.0",
-          "Xamarin.Forms": "2.5.0.121934"
+          "Prism.Core": "7.0.0.396",
+          "Prism.Forms": "7.0.0.396",
+          "Xamarin.Forms": "2.5.0.122203"
         },
         "compile": {
           "bin/placeholder/CrossApplication.Core.Contracts.dll": {}
@@ -97,18 +101,16 @@
     }
   },
   "libraries": {
-    "CommonServiceLocator/2.0.1": {
-      "sha512": "FVSTkmJ5YR+vsHm13Uk8Xe2ZRJso49DVJgaF5Dw21+va+Merip87d/Bl/jPXrtFFEbuN7e0Dxb9qQz9UQCoSWg==",
+    "CommonServiceLocator/1.3.0": {
+      "sha512": "fbjO0SNwbOFPdwVfyqv+B7gIJ2CVBOFPKqn1mDDECK7KER8jFaOdcvroFYoAHa0ktPbxi5s+15qOLnA96f8GSA==",
       "type": "package",
-      "path": "commonservicelocator/2.0.1",
+      "path": "commonservicelocator/1.3.0",
       "files": [
-        "commonservicelocator.2.0.1.nupkg.sha512",
+        "commonservicelocator.1.3.0.nupkg.sha512",
         "commonservicelocator.nuspec",
-        "lib/net40/CommonServiceLocator.dll",
-        "lib/net45/CommonServiceLocator.dll",
-        "lib/net47/CommonServiceLocator.dll",
-        "lib/netcoreapp1.0/CommonServiceLocator.dll",
-        "lib/netstandard2.0/CommonServiceLocator.dll"
+        "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.XML",
+        "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.dll",
+        "lib/portable-net4+sl5+netcore45+wpa81+wp8/Microsoft.Practices.ServiceLocation.pdb"
       ]
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
@@ -281,60 +283,41 @@
         "portable.ninject.nuspec"
       ]
     },
-    "Prism.Core/6.3.0": {
-      "sha512": "8KKRF/1Hx76dXFrYb3XUbkGFWTZjjI99DTGcPt5/aGghb3iYBscxiT4WDVlGmUpfqw7QS/jDI2BGs5ZsAy8XVA==",
+    "Prism.Core/7.0.0.396": {
+      "sha512": "XxPmXiA+v/D6zUeAUwSz7GgWNIbzyLLgkP32vDr6fGfv/YPg8CRkmkf+MkP+cxXKdUsqezxXgRRwMUcjWRqWMw==",
       "type": "package",
-      "path": "prism.core/6.3.0",
+      "path": "prism.core/7.0.0.396",
       "files": [
-        "lib/MonoAndroid10/Prism.dll",
-        "lib/MonoAndroid10/Prism.xml",
-        "lib/MonoTouch10/Prism.dll",
-        "lib/MonoTouch10/Prism.xml",
-        "lib/Xamarin.iOS10/Prism.dll",
-        "lib/Xamarin.iOS10/Prism.xml",
         "lib/net45/Prism.dll",
         "lib/net45/Prism.xml",
-        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Prism.dll",
-        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Prism.xml",
-        "lib/wp8/Prism.dll",
-        "lib/wp8/Prism.xml",
-        "lib/wp81/Prism.dll",
-        "lib/wp81/Prism.xml",
-        "lib/wpa81/Prism.dll",
-        "lib/wpa81/Prism.xml",
-        "prism.core.6.3.0.nupkg.sha512",
+        "lib/netstandard1.0/Prism.dll",
+        "lib/netstandard1.0/Prism.xml",
+        "lib/netstandard2.0/Prism.dll",
+        "lib/netstandard2.0/Prism.xml",
+        "lib/uap10.0/Prism.dll",
+        "lib/uap10.0/Prism.pri",
+        "lib/uap10.0/Prism.xml",
+        "prism.core.7.0.0.396.nupkg.sha512",
         "prism.core.nuspec"
       ]
     },
-    "Prism.Forms/6.3.0": {
-      "sha512": "jti3t5G8/Gl3EDSvBVvJEyaeuLuV918vsqyfCkDEibD3A4DE8X96M2kqVq7aCwTuuZan7Zln1lpJ20i+JsoCcQ==",
+    "Prism.Forms/7.0.0.396": {
+      "sha512": "QWnC4tfyLgIDKl+7wSm+lASOpU14enpl1RV27QbeIoORYXyoBsNA8omF+gfH2JH12VQ9Xpb1q3YLFA98d8+NmA==",
       "type": "package",
-      "path": "prism.forms/6.3.0",
+      "path": "prism.forms/7.0.0.396",
       "files": [
-        "lib/MonoAndroid1.0/Prism.Forms.dll",
-        "lib/MonoAndroid1.0/Prism.Forms.xml",
-        "lib/MonoTouch1.0/Prism.Forms.dll",
-        "lib/MonoTouch1.0/Prism.Forms.xml",
-        "lib/UAP10.0/Prism.Forms.dll",
-        "lib/UAP10.0/Prism.Forms.xml",
-        "lib/Windows8.1/Prism.Forms.dll",
-        "lib/Windows8.1/Prism.Forms.xml",
-        "lib/WindowsPhone8.0/Prism.Forms.dll",
-        "lib/WindowsPhone8.0/Prism.Forms.xml",
-        "lib/WindowsPhoneApp8.1/Prism.Forms.dll",
-        "lib/WindowsPhoneApp8.1/Prism.Forms.xml",
-        "lib/Xamarin.iOS1.0/Prism.Forms.dll",
-        "lib/Xamarin.iOS1.0/Prism.Forms.xml",
-        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Prism.Forms.dll",
-        "lib/portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10/Prism.Forms.xml",
-        "prism.forms.6.3.0.nupkg.sha512",
+        "lib/netstandard1.0/Prism.Forms.dll",
+        "lib/netstandard1.0/Prism.Forms.xml",
+        "lib/netstandard2.0/Prism.Forms.dll",
+        "lib/netstandard2.0/Prism.Forms.xml",
+        "prism.forms.7.0.0.396.nupkg.sha512",
         "prism.forms.nuspec"
       ]
     },
-    "Xamarin.Forms/2.5.0.121934": {
-      "sha512": "H3Gh6nvximMk9i8LdfhPnARo+kEsh8hDXWRboiUPb1r22gkIGA8i8tbnRcSXJWk4fCW/kdMTom6SFN0L+NhItw==",
+    "Xamarin.Forms/2.5.0.122203": {
+      "sha512": "qg7A2IXbVV/5u9qqeiDhRMwpVEsbWKBxzeAtD0rTuntmaDB1Z7WuBg5IK2VBklJbKe2Ps8V9zBfEwgJIqPVJUw==",
       "type": "package",
-      "path": "xamarin.forms/2.5.0.121934",
+      "path": "xamarin.forms/2.5.0.122203",
       "files": [
         "build/netstandard1.0/Mono.Cecil.Mdb.dll",
         "build/netstandard1.0/Mono.Cecil.Pdb.dll",
@@ -509,7 +492,7 @@
         "lib/wpa81/Xamarin.Forms.Platform.dll",
         "lib/wpa81/Xamarin.Forms.Xaml.dll",
         "lib/wpa81/Xamarin.Forms.Xaml.xml",
-        "xamarin.forms.2.5.0.121934.nupkg.sha512",
+        "xamarin.forms.2.5.0.122203.nupkg.sha512",
         "xamarin.forms.nuspec"
       ]
     },
@@ -521,13 +504,13 @@
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
-      "CommonServiceLocator >= 2.0.1",
+      "CommonServiceLocator >= 1.3.0",
       "CrossApplication.Core.Contracts >= 1.0.0",
       "NETStandard.Library >= 2.0.0",
       "Portable.Ninject >= 3.3.1",
-      "Prism.Core >= 6.3.0",
-      "Prism.Forms >= 6.3.0",
-      "Xamarin.Forms >= 2.5.0.121934"
+      "Prism.Core >= 7.0.0.396",
+      "Prism.Forms >= 7.0.0.396",
+      "Xamarin.Forms >= 2.5.0.122203"
     ]
   },
   "packageFolders": {
@@ -585,7 +568,7 @@
         "dependencies": {
           "CommonServiceLocator": {
             "target": "Package",
-            "version": "[2.0.1, )"
+            "version": "[1.3.0, )"
           },
           "NETStandard.Library": {
             "suppressParent": "All",
@@ -599,15 +582,15 @@
           },
           "Prism.Core": {
             "target": "Package",
-            "version": "[6.3.0, )"
+            "version": "[7.0.0.396, )"
           },
           "Prism.Forms": {
             "target": "Package",
-            "version": "[6.3.0, )"
+            "version": "[7.0.0.396, )"
           },
           "Xamarin.Forms": {
             "target": "Package",
-            "version": "[2.5.0.121934, )"
+            "version": "[2.5.0.122203, )"
           }
         },
         "imports": [
@@ -623,28 +606,18 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
+      "message": "Package 'CommonServiceLocator 1.3.0' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "CommonServiceLocator",
+      "targetGraphs": [
+        ".NETStandard,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
       "message": "Package 'Portable.Ninject 3.3.1' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
       "libraryId": "Portable.Ninject",
-      "targetGraphs": [
-        ".NETStandard,Version=v2.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Prism.Core 6.3.0' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
-      "libraryId": "Prism.Core",
-      "targetGraphs": [
-        ".NETStandard,Version=v2.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Prism.Forms 6.3.0' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETStandard,Version=v2.0'. This package may not be fully compatible with your project.",
-      "libraryId": "Prism.Forms",
       "targetGraphs": [
         ".NETStandard,Version=v2.0"
       ]

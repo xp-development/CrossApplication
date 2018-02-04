@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="MailMessaging.Plain.Contracts" Version="2017.0.1" />
-    <PackageReference Include="Prism.Core" Version="6.3.0" />
+    <PackageReference Include="Prism.Core" Version="7.0.0.396" />
   </ItemGroup>
 
   <ItemGroup>

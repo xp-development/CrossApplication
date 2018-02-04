@@ -2,8 +2,8 @@
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using CommonServiceLocator;
 using CrossApplication.Core.Contracts.Views;
+using Microsoft.Practices.ServiceLocation;
 using Prism.Regions;
 using IRegionManager = CrossApplication.Core.Contracts.Common.Navigation.IRegionManager;
 using NavigationParameters = Prism.Navigation.NavigationParameters;

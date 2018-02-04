@@ -1,5 +1,4 @@
 using System.Threading.Tasks;
-using CommonServiceLocator;
 using CrossApplication.Core.Common.Container;
 using CrossApplication.Core.Common.Modules;
 using CrossApplication.Core.Common.Mvvm;
@@ -11,6 +10,7 @@ using CrossApplication.Core.Contracts.Common.Container;
 using CrossApplication.Core.Contracts.Common.Navigation;
 using CrossApplication.Core.Contracts.Navigation;
 using CrossApplication.Core.Contracts.Security;
+using Microsoft.Practices.ServiceLocation;
 using Ninject;
 using Prism.Events;
 using Prism.Logging;

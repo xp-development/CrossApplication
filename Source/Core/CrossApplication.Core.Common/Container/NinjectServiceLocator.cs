@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using CommonServiceLocator;
+using Microsoft.Practices.ServiceLocation;
 using Ninject;
 
 namespace CrossApplication.Core.Common.Container
