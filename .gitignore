@@ -22,3 +22,9 @@ Source/packages/**
 /Source/AuthProviders/CrossApplication.Core.AuthProviders.Google/obj
 /Source/Photos/CrossApplication.Photos.Contracts/obj
 /Source/Photos/CrossApplication.Photos.Core/obj
+/Source/Core/CrossApplication.Core/obj
+/Source/Core/CrossApplication.Core.Common/obj
+/Source/Core/CrossApplication.Core.Contracts/obj
+/Source/Core/CrossApplication.Core.Xamarins/obj
+/Source/Mail/CrossApplication.Mail.Core/obj
+/Source/Mail/CrossApplication.Mail.Xamarins/obj
