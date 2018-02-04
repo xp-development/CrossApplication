@@ -32,7 +32,18 @@ namespace CrossApplication.Wpf.Application.Shell
             }
         }
 
-        public RichShellViewModel(InteractionRequest<INotification> notificationRequest, IEnumerable<IMainNavigationItem> mainNavigationItems, INavigationService navigationService, IEnumerable<IBackstageNavigationItem> backstageNavigationItems, IEventAggregator eventAggregator)
+        public int Progress
+        {
+            get => _progress;
+            set
+            {
+                _progress = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        public RichShellViewModel(InteractionRequest<INotification> notificationRequest, IEnumerable<IMainNavigationItem> mainNavigationItems, INavigationService navigationService, IEnumerable<IBackstageNavigationItem> backstageNavigationItems,
+            IEventAggregator eventAggregator)
         {
             _mainNavigationItems = mainNavigationItems;
             _navigationService = navigationService;
@@ -40,32 +51,24 @@ namespace CrossApplication.Wpf.Application.Shell
             _eventAggregator = eventAggregator;
 
             NotificationRequest = notificationRequest;
-       }
-
-        private void OnStateMessageEvent(StateMessageEvent args)
-        {
-            _stateMessages.Add(args.Message);
-        }
-
-        public Task OnViewActivatingAsync(NavigationParameters navigationParameters)
-        {
-            _eventAggregator.GetEvent<PubSubEvent<StateMessageEvent>>().Subscribe(OnStateMessageEvent, ThreadOption.BackgroundThread);
-            HandleStateMessages();
-            return Task.FromResult(false);
         }
 
         public Task OnViewActivatedAsync(NavigationParameters navigationParameters)
         {
             foreach (var mainNavigationItem in _mainNavigationItems)
-            {
                 NavigationItems.Add(new NavigationItem(_navigationService, mainNavigationItem.Label, mainNavigationItem.NavigationKey, mainNavigationItem.Glyph));
-            }
 
             foreach (var backstageNavigationItem in _backstageNavigationItems)
-            {
                 BackstageNavigationItems.Add(new NavigationItem(_navigationService, backstageNavigationItem.Label, backstageNavigationItem.NavigationKey, backstageNavigationItem.Glyph));
-            }
 
+            return Task.FromResult(false);
+        }
+
+        public Task OnViewActivatingAsync(NavigationParameters navigationParameters)
+        {
+            _eventAggregator.GetEvent<PubSubEvent<StateMessageEvent>>().Subscribe(OnStateMessageEvent, ThreadOption.BackgroundThread);
+            _eventAggregator.GetEvent<PubSubEvent<ProgressMessageEvent>>().Subscribe(OnProgressMessageEvent, ThreadOption.BackgroundThread);
+            HandleStateMessages();
             return Task.FromResult(false);
         }
 
@@ -75,6 +78,16 @@ namespace CrossApplication.Wpf.Application.Shell
             _eventAggregator.GetEvent<PubSubEvent<StateMessageEvent>>().Unsubscribe(OnStateMessageEvent);
 
             return Task.FromResult(false);
+        }
+
+        private void OnStateMessageEvent(StateMessageEvent args)
+        {
+            _stateMessages.Add(args.Message);
+        }
+
+        private void OnProgressMessageEvent(ProgressMessageEvent args)
+        {
+            Progress = args.Progress;
         }
 
         private void HandleStateMessages()
@@ -90,10 +103,11 @@ namespace CrossApplication.Wpf.Application.Shell
         }
 
         private readonly IEnumerable<IBackstageNavigationItem> _backstageNavigationItems;
+        private readonly IEventAggregator _eventAggregator;
         private readonly IEnumerable<IMainNavigationItem> _mainNavigationItems;
         private readonly INavigationService _navigationService;
-        private readonly IEventAggregator _eventAggregator;
-        private string _stateMessage;
         private readonly BlockingCollection<string> _stateMessages = new BlockingCollection<string>();
+        private int _progress;
+        private string _stateMessage;
     }
 }

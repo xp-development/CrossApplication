@@ -11,11 +11,10 @@ namespace CrossApplication.Photos.Core.Services
 {
     public class PhotoBackupService : IPhotoBackupService
     {
-        private PubSubEvent<StateMessageEvent> _stateMessageEvent;
-
         public PhotoBackupService(IEventAggregator eventAggregator)
         {
             _stateMessageEvent = eventAggregator.GetEvent<PubSubEvent<StateMessageEvent>>();
+            _progressMessageEvent = eventAggregator.GetEvent<PubSubEvent<ProgressMessageEvent>>();
         }
 
         public Task BackupAsync(string directoryToBackup, string backupTargetDirectory)
@@ -39,24 +38,33 @@ namespace CrossApplication.Photos.Core.Services
                                     writer.WriteLine($"Created {DateTime.Now:s}");
                                 }
 
-                                foreach (var fullFileName in Directory.EnumerateFiles(directory))
+                                var fullFileNames = Directory.EnumerateFiles(directory).ToList();
+                                var count = fullFileNames.Count;
+                                var i = 0;
+                                foreach (var fullFileName in fullFileNames)
                                 {
                                     zipArchive.CreateEntryFromFile(fullFileName, Path.GetFileName(fullFileName));
+                                    _progressMessageEvent.Publish(new ProgressMessageEvent((int)(100d / count * ++i)));
                                 }
                             }
                         }
-                        _stateMessageEvent.Publish(new StateMessageEvent($"Backup {destinationArchiveFileName} erstellt."));
+
+                        _stateMessageEvent.Publish(new StateMessageEvent($"Backup {destinationArchiveFileName} created."));
                     }
                     else
                     {
                         using (var fileStream = new FileStream(destinationArchiveFileName, FileMode.OpenOrCreate))
                         {
-                            _stateMessageEvent.Publish(new StateMessageEvent($"Überprüfe Backup {destinationArchiveFileName}..."));
+                            _stateMessageEvent.Publish(new StateMessageEvent($"Check and update backup {destinationArchiveFileName}..."));
                             using (var zipArchive = new ZipArchive(fileStream, ZipArchiveMode.Update))
                             {
                                 var changed = false;
-                                foreach (var fullFileName in Directory.EnumerateFiles(directory))
+                                var fullFileNames = Directory.EnumerateFiles(directory).ToList();
+                                var count = fullFileNames.Count;
+                                var i = 0;
+                                foreach (var fullFileName in fullFileNames)
                                 {
+                                    _progressMessageEvent.Publish(new ProgressMessageEvent((int)(100d / count * ++i)));
                                     var fileName = Path.GetFileName(fullFileName);
                                     if (zipArchive.Entries.Any(x => x.Name == fileName))
                                         continue;
@@ -74,13 +82,17 @@ namespace CrossApplication.Photos.Core.Services
                                         writer.WriteLine($"Edited {DateTime.Now:s}");
                                     }
 
-                                    _stateMessageEvent.Publish(new StateMessageEvent($"Backup {destinationArchiveFileName} aktualisiert."));
+                                    _stateMessageEvent.Publish(new StateMessageEvent($"Backup {destinationArchiveFileName} updated."));
                                 }
                             }
                         }
                     }
+                    _progressMessageEvent.Publish(new ProgressMessageEvent(100));
                 }
             });
         }
+
+        private readonly PubSubEvent<ProgressMessageEvent> _progressMessageEvent;
+        private readonly PubSubEvent<StateMessageEvent> _stateMessageEvent;
     }
 }
