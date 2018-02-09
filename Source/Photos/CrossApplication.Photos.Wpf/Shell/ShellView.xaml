@@ -5,11 +5,16 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:shell="clr-namespace:CrossApplication.Photos.Wpf.Shell"
              xmlns:viewModels1="clr-namespace:CrossApplication.Core.Wpf.Common.ViewModels;assembly=CrossApplication.Core.Wpf.Common"
+             xmlns:ca="urn:cross-application"
              mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300"
              viewModels1:ViewModelLocator.AutoWireViewModel="{x:Type shell:ShellViewModel}" d:DataContext="{d:DesignInstance shell:ShellViewModel}">
     <StackPanel>
-        <TextBox Text="{Binding BackupTargetDirectory, UpdateSourceTrigger=PropertyChanged}" />
-        <TextBox Text="{Binding DirectoryToBackup, UpdateSourceTrigger=PropertyChanged}" />
+        <ca:TextControl LabelText="Quelle:">
+            <TextBox Text="{Binding DirectoryToBackup, UpdateSourceTrigger=PropertyChanged}" />
+        </ca:TextControl>
+        <ca:TextControl LabelText="Ziel:">
+            <TextBox Text="{Binding BackupTargetDirectory, UpdateSourceTrigger=PropertyChanged}" />
+        </ca:TextControl>
         <Button Content="Backup" Command="{Binding BackupCommand}" />
     </StackPanel>
 </UserControl>

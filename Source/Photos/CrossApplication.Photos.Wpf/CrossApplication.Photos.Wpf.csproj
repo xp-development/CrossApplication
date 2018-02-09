@@ -118,6 +118,10 @@
       <Project>{5c6b8785-7e1e-4a4a-accd-db14a6d68cc1}</Project>
       <Name>CrossApplication.Core.Wpf.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Core\CrossApplication.Core.Wpf.Themes\CrossApplication.Core.Wpf.Themes.csproj">
+      <Project>{50CAF89A-FE45-4F39-A093-7119FAA45E0A}</Project>
+      <Name>CrossApplication.Core.Wpf.Themes</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CrossApplication.Photos.Contracts\CrossApplication.Photos.Contracts.csproj">
       <Project>{0C1C9890-9A94-411F-B5C0-F1B2C967CAFB}</Project>
       <Name>CrossApplication.Photos.Contracts</Name>

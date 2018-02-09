@@ -117,8 +117,6 @@
     <Compile Include="_Modules\_ModuleCatalog\GetModuleInfos.cs" />
     <Compile Include="_Modules\_ModuleManager\ActivateAsync.cs" />
     <Compile Include="_Modules\_ModuleManager\InitializeAsync.cs" />
-    <Compile Include="_Security\_StringEncryption\Decrypt.cs" />
-    <Compile Include="_Security\_StringEncryption\Encrypt.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CrossApplication.Core.Common\CrossApplication.Core.Common.csproj">
