@@ -2,10 +2,11 @@
 {
     public interface IViewManager
     {
-        ViewItem RichViewItem { get; set; }
         ViewItem LoginViewItem { get; set; }
 
         void AddViewItem(ViewItem viewItem);
         ViewItem GetViewItem(string viewKey);
+        void RegisterRichShell(string name, ViewItem viewItem);
+        ViewItem GetRichShell(string name);
     }
 }

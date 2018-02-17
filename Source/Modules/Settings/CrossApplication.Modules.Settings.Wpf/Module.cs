@@ -3,10 +3,10 @@ using CrossApplication.Core.Contracts.Application.Modules;
 using CrossApplication.Core.Contracts.Common.Container;
 using CrossApplication.Core.Contracts.Navigation;
 using CrossApplication.Core.Wpf.Common.Navigation;
-using CrossApplication.Photos.Core.Navigation;
-using CrossApplication.Photos.Wpf.Shell;
+using CrossApplication.Modules.Settings.Core.Navigation;
+using CrossApplication.Modules.Settings.Wpf.Shell;
 
-namespace CrossApplication.Photos.Wpf
+namespace CrossApplication.Modules.Settings.Wpf
 {
     [Module]
     public class Module : IModule
@@ -38,7 +38,7 @@ namespace CrossApplication.Photos.Wpf
 
         private void RegisterViews()
         {
-            _viewManager.AddViewItem(new ViewItem(ViewKeys.Shell, RegionNames.MainRegion, false, RegionNames.RichRegion));
+            _viewManager.RegisterRichShell(RegionNames.SettingsRegion, new ViewItem(ViewKeys.Shell, RegionNames.RichRegion));
         }
     }
 }

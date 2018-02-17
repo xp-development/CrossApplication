@@ -12,8 +12,6 @@ using CrossApplication.Core.Contracts.Navigation;
 using CrossApplication.Core.Net.Common;
 using CrossApplication.Core.Net.Common.Modules;
 using CrossApplication.Core.Wpf.Common.Navigation;
-using CrossApplication.Core.Wpf.Contracts.Backstages;
-using CrossApplication.Wpf.Application.Backstages;
 using CrossApplication.Wpf.Application.Login;
 using CrossApplication.Wpf.Application.Properties;
 using CrossApplication.Wpf.Application.Shell;
@@ -111,8 +109,7 @@ namespace CrossApplication.Wpf.Application
 
             base.ConfigureContainer();
 
-            Container.Resolve<IViewManager>().AddViewItem(new ViewItem("About", RegionNames.MainRegion));
-            Container.RegisterInstance<IBackstageNavigationItem>(new BackstageNavigationItem(Core.Wpf.Common.Properties.Resources.ShellRibbonBackstageAbout, "About", "Help"));
+            Container.Resolve<IViewManager>().AddViewItem(new ViewItem("About", RegionNames.MainRegion, false, RegionNames.RichRegion));
         }
 
         private void RegisterViews()
@@ -133,7 +130,7 @@ namespace CrossApplication.Wpf.Application
             System.Windows.Application.Current.MainWindow.Show();
 
             var viewManager = Container.Resolve<IViewManager>();
-            viewManager.RichViewItem = new ViewItem(typeof(RichShellView).FullName, RegionNames.RichRegion);
+            viewManager.RegisterRichShell(RegionNames.RichRegion, new ViewItem(typeof(RichShellView).FullName, RegionNames.RichRegion));
             viewManager.LoginViewItem = new ViewItem(typeof(LoginView).FullName, RegionNames.RichRegion);
         }
 

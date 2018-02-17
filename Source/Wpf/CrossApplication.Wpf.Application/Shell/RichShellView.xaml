@@ -20,12 +20,12 @@
                         mvvm:RegionManager.RegionName="{x:Static navigation1:RegionNames.MainRegion}">
     <controls:HamburgerMenu.ContentTemplate>
         <DataTemplate>
-            <Grid x:Name="ContentGrid">
+            <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <ContentControl Content="{Binding}" />
+                <ContentControl Content="{Binding Converter={shell:SuppressNavigationItemSelectionConverter}}" />
                 <StatusBar Grid.Row="1">
                     <StatusBarItem HorizontalAlignment="Left">
                         <TextBlock Text="{Binding DataContext.StateMessage, ElementName=RichShell}" />

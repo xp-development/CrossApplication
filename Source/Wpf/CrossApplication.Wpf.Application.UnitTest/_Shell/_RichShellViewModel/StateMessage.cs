@@ -3,7 +3,6 @@ using System.Threading;
 using CrossApplication.Core.Contracts.Application.Events;
 using CrossApplication.Core.Contracts.Common.Navigation;
 using CrossApplication.Core.Contracts.Navigation;
-using CrossApplication.Core.Wpf.Contracts.Backstages;
 using CrossApplication.Wpf.Application.Shell;
 using FluentAssertions;
 using Moq;
@@ -18,7 +17,7 @@ namespace CrossApplication.Wpf.Application.UnitTest._Shell._RichShellViewModel
         public async void ShouldSetStateIfStateMessageEventIsPublished()
         {
             var eventAggregator = new EventAggregator();
-            var viewModel = new RichShellViewModel(null, new List<IMainNavigationItem>(), new Mock<INavigationService>().Object, new List<IBackstageNavigationItem>(), eventAggregator);
+            var viewModel = new RichShellViewModel(null, new List<IMainNavigationItem>(), new Mock<INavigationService>().Object, new List<IInfrastructureNavigationItem>(), eventAggregator);
             await viewModel.OnViewActivatingAsync(null);
             var resetEvent = new AutoResetEvent(false);
             viewModel.PropertyChanged += (sender, args) => resetEvent.Set();
@@ -33,7 +32,7 @@ namespace CrossApplication.Wpf.Application.UnitTest._Shell._RichShellViewModel
         public async void ShouldNotRefreshStateIfViewIsUnloaded()
         {
             var eventAggregator = new EventAggregator();
-            var viewModel = new RichShellViewModel(null, new List<IMainNavigationItem>(), new Mock<INavigationService>().Object, new List<IBackstageNavigationItem>(), eventAggregator);
+            var viewModel = new RichShellViewModel(null, new List<IMainNavigationItem>(), new Mock<INavigationService>().Object, new List<IInfrastructureNavigationItem>(), eventAggregator);
             await viewModel.OnViewActivatingAsync(null);
             var resetEvent = new AutoResetEvent(false);
             viewModel.PropertyChanged += (sender, args) => resetEvent.Set();

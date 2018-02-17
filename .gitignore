@@ -28,3 +28,6 @@ Source/packages/**
 /Source/Core/CrossApplication.Core.Xamarins/obj
 /Source/Mail/CrossApplication.Mail.Core/obj
 /Source/Mail/CrossApplication.Mail.Xamarins/obj
+/Source/Core/CrossApplication.Core.Settings/obj
+/Source/Modules/Settings/CrossApplication.Modules.Settings.Contracts/obj
+/Source/Modules/Settings/CrossApplication.Modules.Settings.Core/obj

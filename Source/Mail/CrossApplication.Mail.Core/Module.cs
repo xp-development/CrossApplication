@@ -1,8 +1,11 @@
 ﻿using System.Threading.Tasks;
+using CrossApplication.Core.Common.Navigation;
 using CrossApplication.Core.Contracts.Application.Modules;
 using CrossApplication.Core.Contracts.Common.Container;
+using CrossApplication.Core.Contracts.Navigation;
 using CrossApplication.Mail.Contracts.Messaging;
 using CrossApplication.Mail.Core.Messaging;
+using CrossApplication.Mail.Core.Navigation;
 
 namespace CrossApplication.Mail.Core
 {
@@ -18,6 +21,8 @@ namespace CrossApplication.Mail.Core
 
         public Task InitializeAsync()
         {
+            _container.RegisterInstance<IMainNavigationItem>(new MainNavigationItem("E-Mail", ViewKeys.Shell, "Email"));
+            _container.RegisterInstance<ISettingsNavigationItem>(new MainNavigationItem("E-Mail", ViewKeys.Settings, "Email"));
             _container.RegisterType<IMailAccountManager, MailAccountManager>();
             _container.RegisterType<IMailManager, MailManager>();
 

@@ -1,9 +1,6 @@
 ﻿using System.Threading.Tasks;
-using CrossApplication.Core.Common.Navigation;
 using CrossApplication.Core.Contracts.Application.Modules;
 using CrossApplication.Core.Contracts.Common.Container;
-using CrossApplication.Core.Contracts.Navigation;
-using CrossApplication.Mail.Core.Navigation;
 using MailMessaging.Plain.Contracts;
 using MailMessaging.Plain.Contracts.Services;
 using MailMessaging.Plain.Core;
@@ -21,7 +18,6 @@ namespace CrossApplication.Mail.Core.Net
 
         public Task InitializeAsync()
         {
-            _container.RegisterInstance<IMainNavigationItem>(new MainNavigationItem("E-Mail", ViewKeys.Shell, "Email"));
             _container.RegisterType<IMailMessenger, MailMessenger>();
             _container.RegisterType<ITcpClient, TcpClient>();
             _container.RegisterType<ITagService, TagService>();

@@ -7,8 +7,17 @@ namespace CrossApplication.Core.Common.Navigation
 {
     public class ViewManager : IViewManager
     {
-        public ViewItem RichViewItem { get; set; }
         public ViewItem LoginViewItem { get; set; }
+
+        public void RegisterRichShell(string name, ViewItem viewItem)
+        {
+            _richShells.Add(name, viewItem);
+        }
+
+        public ViewItem GetRichShell(string name)
+        {
+            return _richShells[name];
+        }
 
         public void AddViewItem(ViewItem viewItem)
         {
@@ -30,5 +39,6 @@ namespace CrossApplication.Core.Common.Navigation
         }
 
         private readonly List<ViewItem> _viewItems = new List<ViewItem>();
+        private readonly Dictionary<string, ViewItem> _richShells = new Dictionary<string, ViewItem>();
     }
 }

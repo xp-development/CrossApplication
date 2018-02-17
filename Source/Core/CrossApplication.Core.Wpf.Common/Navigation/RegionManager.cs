@@ -47,15 +47,13 @@ namespace CrossApplication.Core.Wpf.Common.Navigation
 
         private static async Task RaiseActivatingView(object view, NavigationParameters navigationParameters)
         {
-            var viewDeactivated = (view as FrameworkElement)?.DataContext as IViewActivatingAsync;
-            if(viewDeactivated != null)
+            if((view as FrameworkElement)?.DataContext is IViewActivatingAsync viewDeactivated)
                 await viewDeactivated.OnViewActivatingAsync(navigationParameters);
         }
 
         private static async Task RaiseActivatedView(object view, NavigationParameters navigationParameters)
         {
-            var viewDeactivated = (view as FrameworkElement)?.DataContext as IViewActivatedAsync;
-            if(viewDeactivated != null)
+            if((view as FrameworkElement)?.DataContext is IViewActivatedAsync viewDeactivated)
                 await viewDeactivated.OnViewActivatedAsync(navigationParameters);
         }
 
@@ -63,8 +61,7 @@ namespace CrossApplication.Core.Wpf.Common.Navigation
         {
             foreach (var regionActiveView in region.ActiveViews.OfType<FrameworkElement>().Select(x => x.DataContext))
             {
-                var viewDeactivated = regionActiveView as IViewDeactivatedAsync;
-                if (viewDeactivated != null)
+                if (regionActiveView is IViewDeactivatedAsync viewDeactivated)
                     await viewDeactivated.OnViewDeactivatedAsync();
             }
 

@@ -2,7 +2,7 @@
 
 namespace CrossApplication.Core.Common.Navigation
 {
-    public class MainNavigationItem : IMainNavigationItem
+    public class MainNavigationItem : IMainNavigationItem, IInfrastructureNavigationItem, ISettingsNavigationItem
     {
         public MainNavigationItem(string label, string navigationKey, string glyph)
         {

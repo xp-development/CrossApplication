@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Core\CrossApplication.Core.Common\CrossApplication.Core.Common.csproj" />
+    <ProjectReference Include="..\..\..\Core\CrossApplication.Core.Contracts\CrossApplication.Core.Contracts.csproj" />
+    <ProjectReference Include="..\..\..\Core\CrossApplication.Core.Wpf.Contracts\CrossApplication.Core.Wpf.Contracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Threading.Tasks">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETPortable\v4.6\Profile\Profile151\System.Threading.Tasks.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy $(OutputPath)CrossApplication.Modules.Settings.Core.dll ..\..\..\Wpf\CrossApplication.Wpf.Application\bin\Debug\Modules\ /Y /F" />
+  </Target>
+</Project>

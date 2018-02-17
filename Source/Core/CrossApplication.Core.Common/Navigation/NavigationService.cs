@@ -19,7 +19,14 @@ namespace CrossApplication.Core.Common.Navigation
 
         public async Task NavigateToAsync(string navigationKey)
         {
-            await NavigateTo(_viewManager.GetViewItem(navigationKey));
+            var viewItem = _viewManager.GetViewItem(navigationKey);
+            await NavigateTo(viewItem);
+            _lastViewItem = viewItem;
+        }
+
+        public async Task NavigateBackAsync()
+        {
+            await NavigateTo(_viewItemForNavigateBack);
         }
 
         private async Task NavigateTo(ViewItem viewItem)
@@ -31,10 +38,15 @@ namespace CrossApplication.Core.Common.Navigation
                 return;
             }
 
-            if (_lastRichView != _viewManager.RichViewItem)
+            if (!string.IsNullOrEmpty(viewItem.RichShellName))
             {
-                await NavigateToViewItem(_viewManager.RichViewItem);
-                _lastRichView = _viewManager.RichViewItem;
+                var richShell = _viewManager.GetRichShell(viewItem.RichShellName);
+                if (_lastRichView != richShell)
+                {
+                    await NavigateToViewItem(richShell);
+                    _lastRichView = richShell;
+                    _viewItemForNavigateBack = _lastViewItem;
+                }
             }
 
             await NavigateToViewItem(viewItem);
@@ -57,5 +69,7 @@ namespace CrossApplication.Core.Common.Navigation
         private readonly IUserManager _userManager;
         private readonly IViewManager _viewManager;
         private ViewItem _lastRichView;
+        private ViewItem _lastViewItem;
+        private ViewItem _viewItemForNavigateBack;
     }
 }
