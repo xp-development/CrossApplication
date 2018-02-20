@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Prism.Navigation;
+using CrossApplication.Core.Contracts.Common.Navigation;
 
 namespace CrossApplication.Core.Contracts.Views
 {

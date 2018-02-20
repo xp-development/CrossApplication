@@ -4,9 +4,9 @@ using System.Threading.Tasks;
 using CrossApplication.Core.Common.Mvvm;
 using CrossApplication.Core.Contracts;
 using CrossApplication.Core.Contracts.Application.Authorization;
+using CrossApplication.Core.Contracts.Common.Navigation;
 using CrossApplication.Core.Contracts.Views;
 using CrossApplication.Wpf.Application.Properties;
-using Prism.Navigation;
 using INavigationService = CrossApplication.Core.Contracts.Common.Navigation.INavigationService;
 
 namespace CrossApplication.Wpf.Application.Login

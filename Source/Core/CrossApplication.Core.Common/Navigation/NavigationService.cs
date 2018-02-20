@@ -3,8 +3,8 @@ using System.Threading.Tasks;
 using CrossApplication.Core.Contracts;
 using CrossApplication.Core.Contracts.Common.Navigation;
 using CrossApplication.Core.Contracts.Navigation;
-using Prism.Navigation;
 using INavigationService = CrossApplication.Core.Contracts.Common.Navigation.INavigationService;
+using NavigationParameters = CrossApplication.Core.Contracts.Common.Navigation.NavigationParameters;
 
 namespace CrossApplication.Core.Common.Navigation
 {

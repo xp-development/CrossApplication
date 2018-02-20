@@ -6,11 +6,11 @@ using System.Threading;
 using System.Threading.Tasks;
 using CrossApplication.Core.Common.Mvvm;
 using CrossApplication.Core.Contracts.Application.Events;
+using CrossApplication.Core.Contracts.Common.Navigation;
 using CrossApplication.Core.Contracts.Navigation;
 using CrossApplication.Core.Contracts.Views;
 using Prism.Events;
 using Prism.Interactivity.InteractionRequest;
-using Prism.Navigation;
 using INavigationService = CrossApplication.Core.Contracts.Common.Navigation.INavigationService;
 
 namespace CrossApplication.Wpf.Application.Shell

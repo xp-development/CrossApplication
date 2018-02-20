@@ -99,8 +99,6 @@ namespace CrossApplication.Wpf.Application
             Container.RegisterType<IRegionManager, RegionManager>(Lifetime.PerContainer);
             Container.RegisterType<Core.Contracts.Common.Navigation.IRegionManager, Core.Wpf.Common.Navigation.RegionManager>(Lifetime.PerContainer);
             Container.RegisterType<IRegionViewRegistry, RegionViewRegistry>(Lifetime.PerContainer);
-            Container.RegisterType<IRegionNavigationJournalEntry, RegionNavigationJournalEntry>();
-            Container.RegisterType<IRegionNavigationJournal, RegionNavigationJournal>();
             Container.RegisterType<IRegionNavigationService, RegionNavigationService>();
             Container.RegisterType<IRegionNavigationContentLoader, RegionNavigationContentLoader>(Lifetime.PerContainer);
             Container.RegisterType<RegionAdapterMappings, RegionAdapterMappings>(Lifetime.PerContainer);

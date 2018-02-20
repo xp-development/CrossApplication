@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using CrossApplication.Core.Common.Mvvm;
 using CrossApplication.Core.Contracts.Application.Modules;
 using CrossApplication.Core.Contracts.Application.Services;
+using CrossApplication.Core.Contracts.Common.Navigation;
 using CrossApplication.Core.Contracts.Views;
-using Prism.Mvvm;
-using Prism.Navigation;
 
 namespace CrossApplication.Core.About
 {
-    public class AboutViewModel : BindableBase, IViewActivatedAsync
+    public class AboutViewModel : ViewModelBase, IViewActivatedAsync
     {
         public Version Version
         {
@@ -17,7 +17,7 @@ namespace CrossApplication.Core.About
             set
             {
                 _version = value;
-                RaisePropertyChanged();
+                NotifyPropertyChanged();
             }
         }
 

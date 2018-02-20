@@ -2,9 +2,9 @@
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using CrossApplication.Core.Common.Mvvm;
+using CrossApplication.Core.Contracts.Common.Navigation;
 using CrossApplication.Core.Contracts.Navigation;
 using CrossApplication.Core.Contracts.Views;
-using Prism.Navigation;
 using INavigationService = CrossApplication.Core.Contracts.Common.Navigation.INavigationService;
 
 namespace CrossApplication.Core.Xamarins.Shell

@@ -2,12 +2,12 @@
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using CrossApplication.Core.Common.Mvvm;
+using CrossApplication.Core.Contracts.Common.Navigation;
 using CrossApplication.Core.Contracts.Security;
 using CrossApplication.Core.Contracts.Settings;
 using CrossApplication.Core.Contracts.Views;
 using CrossApplication.Mail.Contracts.Messaging;
 using Prism.Commands;
-using Prism.Navigation;
 
 namespace CrossApplication.Mail.Wpf.Settings
 {

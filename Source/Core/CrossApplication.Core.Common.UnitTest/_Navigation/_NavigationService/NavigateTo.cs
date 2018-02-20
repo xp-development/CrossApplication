@@ -4,7 +4,6 @@ using CrossApplication.Core.Contracts;
 using CrossApplication.Core.Contracts.Common.Navigation;
 using CrossApplication.Core.Contracts.Navigation;
 using Moq;
-using Prism.Navigation;
 using Xunit;
 using INavigationService = CrossApplication.Core.Contracts.Common.Navigation.INavigationService;
 

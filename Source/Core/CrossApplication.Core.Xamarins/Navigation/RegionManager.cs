@@ -4,7 +4,6 @@ using CrossApplication.Core.Contracts.Common.Navigation;
 using CrossApplication.Core.Contracts.Views;
 using Microsoft.Practices.ServiceLocation;
 using Prism.Common;
-using Prism.Navigation;
 using Xamarin.Forms;
 
 namespace CrossApplication.Core.Xamarins.Navigation

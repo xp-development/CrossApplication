@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CrossApplication.Core.Common\CrossApplication.Core.Common.csproj" />
     <ProjectReference Include="..\CrossApplication.Core.Contracts\CrossApplication.Core.Contracts.csproj" />
   </ItemGroup>
 

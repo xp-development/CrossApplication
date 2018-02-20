@@ -1,12 +1,12 @@
 ﻿using System.Threading.Tasks;
 using CrossApplication.Core.Common.Mvvm;
 using CrossApplication.Core.Contracts.Application.Events;
+using CrossApplication.Core.Contracts.Common.Navigation;
 using CrossApplication.Core.Contracts.Common.Storage;
 using CrossApplication.Core.Contracts.Views;
 using CrossApplication.Photos.Contracts;
 using Prism.Commands;
 using Prism.Events;
-using Prism.Navigation;
 
 namespace CrossApplication.Photos.Wpf.Shell
 {

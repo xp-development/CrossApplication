@@ -3,20 +3,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using CrossApplication.Core.Contracts.Views;
-using Microsoft.Practices.ServiceLocation;
 using Prism.Regions;
 using IRegionManager = CrossApplication.Core.Contracts.Common.Navigation.IRegionManager;
-using NavigationParameters = Prism.Navigation.NavigationParameters;
+using NavigationParameters = CrossApplication.Core.Contracts.Common.Navigation.NavigationParameters;
 
 namespace CrossApplication.Core.Wpf.Common.Navigation
 {
     public class RegionManager : IRegionManager
     {
-        public RegionManager(Prism.Regions.IRegionManager regionManager, IRegionNavigationContentLoader regionNavigationContentLoader, IServiceLocator serviceLocator)
+        public RegionManager(Prism.Regions.IRegionManager regionManager, IRegionNavigationContentLoader regionNavigationContentLoader)
         {
             _regionManager = regionManager;
             _regionNavigationContentLoader = regionNavigationContentLoader;
-            _serviceLocator = serviceLocator;
         }
 
         public Task RequestNavigateAsync(string regionName, Uri uri)
@@ -26,22 +24,12 @@ namespace CrossApplication.Core.Wpf.Common.Navigation
 
         public async Task RequestNavigateAsync(string regionName, Uri uri, NavigationParameters navigationParameters)
         {
-            var parameters = new Prism.Regions.NavigationParameters();
-            foreach (var navigationParameter in navigationParameters)
-            {
-                parameters.Add(navigationParameter.Key, navigationParameter.Value);
-            }
-
             var navigationContext = new NavigationContext(null, uri);
             var region = _regionManager.Regions[regionName];
             await DeactivateActiveViews(region);
             var view = _regionNavigationContentLoader.LoadContent(region, navigationContext);
             await RaiseActivatingView(view, navigationParameters);
             region.Activate(view);
-            var journalEntry = _serviceLocator.GetInstance<IRegionNavigationJournalEntry>();
-            journalEntry.Uri = navigationContext.Uri;
-            journalEntry.Parameters = navigationContext.Parameters;
-            _serviceLocator.GetInstance<IRegionNavigationJournal>().RecordNavigation(journalEntry);
             await RaiseActivatedView(view, navigationParameters);
         }
 
@@ -75,6 +63,5 @@ namespace CrossApplication.Core.Wpf.Common.Navigation
 
         private readonly Prism.Regions.IRegionManager _regionManager;
         private readonly IRegionNavigationContentLoader _regionNavigationContentLoader;
-        private readonly IServiceLocator _serviceLocator;
     }
 }
