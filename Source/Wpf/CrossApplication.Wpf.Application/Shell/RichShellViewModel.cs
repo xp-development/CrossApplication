@@ -56,6 +56,7 @@ namespace CrossApplication.Wpf.Application.Shell
 
         public Task OnViewActivatingAsync(NavigationParameters navigationParameters)
         {
+            _stateMessages = new BlockingCollection<string>();
             _eventAggregator.GetEvent<PubSubEvent<StateMessageEvent>>().Subscribe(OnStateMessageEvent, ThreadOption.BackgroundThread);
             _eventAggregator.GetEvent<PubSubEvent<ProgressMessageEvent>>().Subscribe(OnProgressMessageEvent, ThreadOption.BackgroundThread);
             HandleStateMessages();
@@ -95,7 +96,7 @@ namespace CrossApplication.Wpf.Application.Shell
         }
 
         private readonly IEventAggregator _eventAggregator;
-        private readonly BlockingCollection<string> _stateMessages = new BlockingCollection<string>();
+        private BlockingCollection<string> _stateMessages;
         private int _progress;
         private string _stateMessage;
     }

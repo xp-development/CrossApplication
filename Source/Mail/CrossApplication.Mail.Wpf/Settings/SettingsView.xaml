@@ -12,7 +12,8 @@
     <StackPanel>
         <Label Content="Mail Settings" />
         <Button Content="New account" Command="{Binding NewAccountCommand}" />
-        <ItemsControl ItemsSource="{Binding MailAccountSettings}">
+        <Button Content="Delete selected account" Command="{Binding DeleteSelectedAccountCommand}" />
+        <ListBox ItemsSource="{Binding MailAccountSettings}" SelectedItem="{Binding SelectedMailAccountSetting}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
@@ -34,6 +35,6 @@
                     </StackPanel>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
-        </ItemsControl>
+        </ListBox>
     </StackPanel>
 </UserControl>
