@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using CrossApplication.Core.Contracts.Common.Storage;
-using CrossApplication.Core.Contracts.Security;
 using CrossApplication.Mail.Contracts.Messaging;
 
 namespace CrossApplication.Mail.Core.Messaging
@@ -9,12 +9,10 @@ namespace CrossApplication.Mail.Core.Messaging
     public class MailAccountManager : IMailAccountManager
     {
         private readonly IStorage _storage;
-        private readonly IStringEncryption _stringEncryption;
 
-        public MailAccountManager(IStorage storage, IStringEncryption stringEncryption)
+        public MailAccountManager(IStorage storage)
         {
             _storage = storage;
-            _stringEncryption = stringEncryption;
         }
 
         public async Task<IEnumerable<MailAccountSetting>> GetMailAccountSettingsAsync()
@@ -26,6 +24,11 @@ namespace CrossApplication.Mail.Core.Messaging
             }
 
             return mailAccountSettings;
+        }
+
+        public Task SaveMailAccountSettingsAsync(IEnumerable<MailAccountSetting> mailAccountSettings)
+        {
+            return _storage.SaveAsync("MailAccountSettings", mailAccountSettings.ToArray());
         }
     }
 }

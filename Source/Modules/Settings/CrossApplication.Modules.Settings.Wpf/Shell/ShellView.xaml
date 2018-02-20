@@ -24,7 +24,7 @@
                         <Button Content="Save" Command="{Binding Path=DataContext.SaveCommand, ElementName=SettingsShell}" />
                         <Button Content="Close" Command="{Binding Path=DataContext.CloseCommand, ElementName=SettingsShell}" />
                     </StackPanel>
-                    <ContentControl Content="{Binding}" />
+                    <ContentControl Content="{Binding Converter={shell:SuppressNavigationItemSelectionConverter}}" />
                 </DockPanel>
             </Grid>
         </DataTemplate>

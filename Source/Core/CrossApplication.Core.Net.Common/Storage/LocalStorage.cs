@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Threading.Tasks;
+using System.Xml;
 using System.Xml.Serialization;
 using CrossApplication.Core.Contracts.Common.Storage;
 
@@ -34,11 +35,9 @@ namespace CrossApplication.Core.Net.Common.Storage
             if (!File.Exists(filePath))
                 return Task.FromResult<T>(null);
 
+            var xmlReader = XmlReader.Create(new StringReader(File.ReadAllText(filePath)), new XmlReaderSettings { CheckCharacters = false });
             var serializer = new XmlSerializer(typeof(T));
-            Stream stream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
-            var deserializedObject = (T)serializer.Deserialize(stream);
-            stream.Close();
-            return Task.FromResult(deserializedObject);
+            return Task.FromResult((T)serializer.Deserialize(xmlReader));
         }
 
         private static readonly string FolderPath;

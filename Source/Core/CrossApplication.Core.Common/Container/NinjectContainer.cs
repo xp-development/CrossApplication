@@ -22,6 +22,16 @@ namespace CrossApplication.Core.Common.Container
             }
         }
 
+        public void RegisterType<TInterface1, TInterface2, TImplementation>(Lifetime lifetime = Lifetime.PerResolve)
+            where TImplementation : TInterface1, TInterface2
+        {
+            var binding = _kernel.Bind<TInterface1, TInterface2>().To<TImplementation>();
+            if (lifetime == Lifetime.PerContainer)
+            {
+                binding.InSingletonScope();
+            }
+        }
+
         public void RegisterType<TImplementation>(Lifetime lifetime = Lifetime.PerResolve)
         {
             var binding = _kernel.Bind<TImplementation>().To<TImplementation>();

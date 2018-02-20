@@ -4,6 +4,7 @@
                     xmlns:themes="clr-namespace:CrossApplication.Core.Wpf.Themes">
 
     <Style x:Key="DefaultTextControlStyle" TargetType="{x:Type controls:TextControl}">
+        <Setter Property="Focusable" Value="False" />
         <Setter Property="Foreground" Value="{DynamicResource {ComponentResourceKey TypeInTargetAssembly={x:Type themes:Colors}, ResourceId=TextColorKey}}" />
         <Setter Property="Template">
             <Setter.Value>
@@ -24,7 +25,6 @@
         <Style.Triggers>
             <Trigger Property="LabelText" Value="{x:Null}">
                 <Trigger.Setters>
-                    <Setter Property="Focusable" Value="False" />
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate>

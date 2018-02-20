@@ -34,7 +34,7 @@ namespace CrossApplication.Mail.Core.UnitTest._Messaging._MailAccountManager
                     CryptedPassword = "xyz2"
                 }
             });
-            var manager = new MailAccountManager(storageMock.Object, new Mock<IStringEncryption>().Object);
+            var manager = new MailAccountManager(storageMock.Object);
 
             var mailAccountSettings = (await manager.GetMailAccountSettingsAsync()).ToArray();
 
@@ -55,7 +55,7 @@ namespace CrossApplication.Mail.Core.UnitTest._Messaging._MailAccountManager
         public async void ShouldReturnEmptyListIfNoSettingExists()
         {
             var storageMock = new Mock<IStorage>();
-            var manager = new MailAccountManager(storageMock.Object, new Mock<IStringEncryption>().Object);
+            var manager = new MailAccountManager(storageMock.Object);
 
             var mailAccountSettings = (await manager.GetMailAccountSettingsAsync()).ToArray();
 

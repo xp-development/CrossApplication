@@ -3,6 +3,7 @@ using CrossApplication.Core.Contracts.Application.Modules;
 using CrossApplication.Core.Contracts.Common.Container;
 using CrossApplication.Core.Contracts.Common.Navigation;
 using CrossApplication.Core.Contracts.Navigation;
+using CrossApplication.Core.Contracts.Settings;
 using CrossApplication.Core.Wpf.Common.Navigation;
 using CrossApplication.Mail.Core.Navigation;
 using CrossApplication.Mail.Wpf.Navigation;
@@ -26,7 +27,7 @@ namespace CrossApplication.Mail.Wpf
             _container.RegisterType<ShellViewModel>();
             _container.RegisterType<object, ShellView>(ViewKeys.Shell, Lifetime.PerContainer);
 
-            _container.RegisterType<SettingsViewModel>();
+            _container.RegisterType<ISettingsChild, SettingsViewModel, SettingsViewModel>(Lifetime.PerContainer);
             _container.RegisterType<object, SettingsView>(ViewKeys.Settings, Lifetime.PerContainer);
 
             _container.RegisterType<NavigationViewModel>();

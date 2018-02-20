@@ -2,10 +2,38 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewModels="clr-namespace:CrossApplication.Core.Wpf.Common.ViewModels;assembly=CrossApplication.Core.Wpf.Common"
+             xmlns:settings="clr-namespace:CrossApplication.Mail.Wpf.Settings"
+             xmlns:ca="urn:cross-application"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
+             d:DesignHeight="300" d:DesignWidth="300"
+             viewModels:ViewModelLocator.AutoWireViewModel="{x:Type settings:SettingsViewModel}" d:DataContext="{d:DesignInstance settings:SettingsViewModel}">
+    <StackPanel>
         <Label Content="Mail Settings" />
-    </Grid>
+        <Button Content="New account" Command="{Binding NewAccountCommand}" />
+        <ItemsControl ItemsSource="{Binding MailAccountSettings}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <ca:TextControl LabelText="Server">
+                            <TextBox Text="{Binding Server}" />
+                        </ca:TextControl>
+                        <ca:TextControl LabelText="Port">
+                            <TextBox Text="{Binding Port}" />
+                        </ca:TextControl>
+                        <ca:TextControl LabelText="Use TLS">
+                            <CheckBox IsChecked="{Binding UseTls}" />
+                        </ca:TextControl>
+                        <ca:TextControl LabelText="Username">
+                            <TextBox Text="{Binding UserName}" />
+                        </ca:TextControl>
+                        <ca:TextControl LabelText="Password">
+                            <TextBox Text="{Binding Password}" />
+                        </ca:TextControl>
+                    </StackPanel>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </StackPanel>
 </UserControl>
