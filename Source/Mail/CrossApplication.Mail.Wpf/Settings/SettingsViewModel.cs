@@ -7,7 +7,6 @@ using CrossApplication.Core.Contracts.Security;
 using CrossApplication.Core.Contracts.Settings;
 using CrossApplication.Core.Contracts.Views;
 using CrossApplication.Mail.Contracts.Messaging;
-using Prism.Commands;
 
 namespace CrossApplication.Mail.Wpf.Settings
 {
@@ -15,8 +14,8 @@ namespace CrossApplication.Mail.Wpf.Settings
     {
         public ObservableCollection<MailAccountSettingViewModel> MailAccountSettings { get; } = new ObservableCollection<MailAccountSettingViewModel>();
 
-        public DelegateCommand NewAccountCommand { get; }
-        public DelegateCommand DeleteSelectedAccountCommand { get; }
+        public DelegateCommand<object, object> NewAccountCommand { get; }
+        public DelegateCommand<object, object> DeleteSelectedAccountCommand { get; }
 
         public MailAccountSettingViewModel SelectedMailAccountSetting
         {
@@ -33,9 +32,8 @@ namespace CrossApplication.Mail.Wpf.Settings
             _mailAccountManager = mailAccountManager;
             _stringEncryption = stringEncryption;
 
-            NewAccountCommand = new DelegateCommand(OnNewAccount);
-            DeleteSelectedAccountCommand = new DelegateCommand(OnDeleteSelectedAccount, () => SelectedMailAccountSetting != null);
-            DeleteSelectedAccountCommand.ObservesProperty(() => SelectedMailAccountSetting);
+            NewAccountCommand = new DelegateCommand<object, object>(OnNewAccount);
+            DeleteSelectedAccountCommand = new DelegateCommand<object, object>(OnDeleteSelectedAccount, args => SelectedMailAccountSetting != null);
         }
 
         public Task SaveAsync()
@@ -59,15 +57,19 @@ namespace CrossApplication.Mail.Wpf.Settings
                     MailAccountSettings.Add(MailAccountSettingViewModel.Create(mailAccountSetting));
         }
 
-        private void OnDeleteSelectedAccount()
+        private Task OnDeleteSelectedAccount(object args)
         {
             MailAccountSettings.Remove(SelectedMailAccountSetting);
             SelectedMailAccountSetting = null;
+
+            return Task.CompletedTask;
         }
 
-        private void OnNewAccount()
+        private Task OnNewAccount(object args)
         {
             MailAccountSettings.Add(new MailAccountSettingViewModel());
+
+            return Task.CompletedTask;
         }
 
         private readonly IMailAccountManager _mailAccountManager;

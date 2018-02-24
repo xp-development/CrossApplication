@@ -1,21 +1,36 @@
 ﻿using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using System.Windows.Media;
+using CrossApplication.Core.Contracts.Common.Navigation;
+using CrossApplication.Core.Contracts.Views;
+using CrossApplication.Mail.Contracts.Messaging;
 
 namespace CrossApplication.Mail.Wpf.Shell
 {
-    public class ShellViewModel
+    public class ShellViewModel : IViewActivatedAsync, IViewDeactivatedAsync
     {
+        private readonly IMailContactManager _mailContactManager;
         public ObservableCollection<ContactViewModel> Contacts { get; }
 
-        public ShellViewModel()
+        public ShellViewModel(IMailContactManager mailContactManager)
         {
+            _mailContactManager = mailContactManager;
             Contacts = new ObservableCollection<ContactViewModel>();
-            
-            Contacts.Add(new ContactViewModel { Background = Brushes.DarkKhaki, ShortId = "JS"});
-            Contacts.Add(new ContactViewModel { Background = Brushes.DarkKhaki, ShortId = "AB"});
-            Contacts.Add(new ContactViewModel { Background = Brushes.DarkKhaki, ShortId = "CD"});
-            Contacts.Add(new ContactViewModel { Background = Brushes.DarkKhaki, ShortId = "EF"});
-            Contacts.Add(new ContactViewModel { Background = Brushes.DarkKhaki, ShortId = "GH"});
+        }
+
+        public async Task OnViewActivatedAsync(NavigationParameters navigationParameters)
+        {
+            foreach (var mailContact in await _mailContactManager.GetMailContactsAsync())
+            {
+                Contacts.Add(new ContactViewModel { Background = Brushes.DarkKhaki, ShortId = mailContact.Initials });
+            }
+        }
+
+        public Task OnViewDeactivatedAsync()
+        {
+            Contacts.Clear();
+
+            return Task.CompletedTask;
         }
     }
 

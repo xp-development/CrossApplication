@@ -1,14 +1,14 @@
-﻿<controls:HamburgerMenu x:Class="CrossApplication.Wpf.Application.Shell.RichShellView"
+﻿<mah:HamburgerMenu x:Class="CrossApplication.Wpf.Application.Shell.RichShellView"
                         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                         xmlns:mvvm="http://prismlibrary.com/"
                         xmlns:shell="clr-namespace:CrossApplication.Wpf.Application.Shell"
-                        xmlns:viewModels1="clr-namespace:CrossApplication.Core.Wpf.Common.ViewModels;assembly=CrossApplication.Core.Wpf.Common"
+                        xmlns:viewModels="clr-namespace:CrossApplication.Core.Wpf.Common.ViewModels;assembly=CrossApplication.Core.Wpf.Common"
+                        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
                         xmlns:navigation1="clr-namespace:CrossApplication.Core.Wpf.Common.Navigation;assembly=CrossApplication.Core.Wpf.Common"
-                        xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
-                        mc:Ignorable="d" viewModels1:ViewModelLocator.AutoWireViewModel="{x:Type shell:RichShellViewModel}"
+                        mc:Ignorable="d" viewModels:ViewModelLocator.AutoWireViewModel="{x:Type shell:RichShellViewModel}"
                         x:Name="RichShell"
                         ItemTemplate="{StaticResource HamburgerMenuGlyphItem}"
                         OptionsItemTemplate="{StaticResource HamburgerMenuGlyphItem}"
@@ -18,7 +18,7 @@
                         OptionsItemsSource="{Binding BackstageNavigationItems}"
                         ItemsSource="{Binding NavigationItems}"
                         mvvm:RegionManager.RegionName="{x:Static navigation1:RegionNames.MainRegion}">
-    <controls:HamburgerMenu.ContentTemplate>
+    <mah:HamburgerMenu.ContentTemplate>
         <DataTemplate>
             <Grid>
                 <Grid.RowDefinitions>
@@ -36,5 +36,5 @@
                 </StatusBar>
             </Grid>
         </DataTemplate>
-    </controls:HamburgerMenu.ContentTemplate>
-</controls:HamburgerMenu>
+    </mah:HamburgerMenu.ContentTemplate>
+</mah:HamburgerMenu>

@@ -1,7 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using CrossApplication.Core.Contracts.Common.Storage;
-using CrossApplication.Core.Contracts.Security;
 using CrossApplication.Mail.Contracts.Messaging;
 using CrossApplication.Mail.Core.Messaging;
 using FluentAssertions;

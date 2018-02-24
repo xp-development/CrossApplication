@@ -1,10 +1,6 @@
 ﻿using System.Threading.Tasks;
 using CrossApplication.Core.Contracts.Application.Modules;
 using CrossApplication.Core.Contracts.Common.Container;
-using MailMessaging.Plain.Contracts;
-using MailMessaging.Plain.Contracts.Services;
-using MailMessaging.Plain.Core;
-using MailMessaging.Plain.Core.Services;
 
 namespace CrossApplication.Mail.Core.Net
 {
@@ -18,9 +14,6 @@ namespace CrossApplication.Mail.Core.Net
 
         public Task InitializeAsync()
         {
-            _container.RegisterType<IMailMessenger, MailMessenger>();
-            _container.RegisterType<ITcpClient, TcpClient>();
-            _container.RegisterType<ITagService, TagService>();
             return Task.FromResult(false);
         }
 

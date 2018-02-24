@@ -24,7 +24,7 @@ namespace CrossApplication.Mail.Core
             _container.RegisterInstance<IMainNavigationItem>(new MainNavigationItem("E-Mail", ViewKeys.Shell, "Email"));
             _container.RegisterInstance<ISettingsNavigationItem>(new MainNavigationItem("E-Mail", ViewKeys.Settings, "Email"));
             _container.RegisterType<IMailAccountManager, MailAccountManager>();
-            _container.RegisterType<IMailManager, MailManager>();
+            _container.RegisterType<IMailContactManager, MailContactManager>();
 
             return Task.FromResult(false);
         }

@@ -3,8 +3,8 @@ using System.Threading.Tasks;
 
 namespace CrossApplication.Mail.Contracts.Messaging
 {
-    public interface IMailManager
+    public interface IMailContactManager
     {
-        Task<IEnumerable<MailAccount>> GetAccountsAsync();
+        Task<IEnumerable<MailContact>> GetMailContactsAsync();
     }
 }

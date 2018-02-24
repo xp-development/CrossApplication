@@ -46,9 +46,6 @@
     <Reference Include="FluentAssertions.Core, Version=4.19.4.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\FluentAssertions.4.19.4\lib\net45\FluentAssertions.Core.dll</HintPath>
     </Reference>
-    <Reference Include="MailMessaging.Plain.Contracts, Version=2017.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\MailMessaging.Plain.Contracts.2017.0.1\lib\portable-net451+wpa81+win81+Xamarin.iOS+Xamarin.Android+Xamarin.iOSClassic\MailMessaging.Plain.Contracts.dll</HintPath>
-    </Reference>
     <Reference Include="Moq, Version=4.7.145.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Moq.4.7.145\lib\net45\Moq.dll</HintPath>
     </Reference>
@@ -107,7 +104,6 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="_Messaging\_MailAccountManager\GetMailAccountSettingsAsync.cs" />
-    <Compile Include="_Messaging\_MailManager\GetAccountsAsync.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Core\CrossApplication.Core.Contracts\CrossApplication.Core.Contracts.csproj">

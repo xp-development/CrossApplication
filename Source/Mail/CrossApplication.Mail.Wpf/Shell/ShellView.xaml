@@ -3,38 +3,28 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:regions="http://prismlibrary.com/"
-             xmlns:core="clr-namespace:CrossApplication.Mail.Core.Navigation;assembly=CrossApplication.Mail.Core"
              xmlns:shell="clr-namespace:CrossApplication.Mail.Wpf.Shell"
              xmlns:viewModels1="clr-namespace:CrossApplication.Core.Wpf.Common.ViewModels;assembly=CrossApplication.Core.Wpf.Common"
-             xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
              mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300"
              viewModels1:ViewModelLocator.AutoWireViewModel="{x:Type shell:ShellViewModel}" d:DataContext="{d:DesignInstance shell:ShellViewModel}">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150" />
-            <ColumnDefinition Width="2" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <ContentControl regions:RegionManager.RegionName="{x:Static core:MailRegionNames.NavigationRegion}" />
-        <GridSplitter HorizontalAlignment="Stretch" Grid.Column="1" ResizeDirection="Columns" />
-        <ListBox Grid.Column="2" 
-                 ItemsSource="{Binding Path=Contacts}">
-            <ListBox.ItemTemplate>
+        <ItemsControl ItemsSource="{Binding Path=Contacts}">
+            <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <controls:Tile Title="{Binding ShortId}" 
-                                   Background="{Binding Background}"
-                                   TiltFactor="2"
-                                   Width="100" Height="100" 
-                                   Count="1">
-                    </controls:Tile>
+                    <mah:Tile Title="{Binding ShortId}" 
+                              Background="{Binding Background}"
+                              TiltFactor="2"
+                              Width="100" Height="100" 
+                              Count="1">
+                    </mah:Tile>
                 </DataTemplate>
-            </ListBox.ItemTemplate>
-            <ListBox.ItemsPanel>
+            </ItemsControl.ItemTemplate>
+            <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel />
                 </ItemsPanelTemplate>
-            </ListBox.ItemsPanel>
-        </ListBox>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
     </Grid>
 </UserControl>
