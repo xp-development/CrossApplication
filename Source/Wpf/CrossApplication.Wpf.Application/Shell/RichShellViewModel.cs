@@ -10,7 +10,6 @@ using CrossApplication.Core.Contracts.Common.Navigation;
 using CrossApplication.Core.Contracts.Navigation;
 using CrossApplication.Core.Contracts.Views;
 using Prism.Events;
-using Prism.Interactivity.InteractionRequest;
 using INavigationService = CrossApplication.Core.Contracts.Common.Navigation.INavigationService;
 
 namespace CrossApplication.Wpf.Application.Shell
@@ -19,7 +18,6 @@ namespace CrossApplication.Wpf.Application.Shell
     {
         public ObservableCollection<NavigationItem> NavigationItems { get; } = new ObservableCollection<NavigationItem>();
         public ObservableCollection<NavigationItem> BackstageNavigationItems { get; } = new ObservableCollection<NavigationItem>();
-        public InteractionRequest<INotification> NotificationRequest { get; }
 
         public string StateMessage
         {
@@ -41,7 +39,7 @@ namespace CrossApplication.Wpf.Application.Shell
             }
         }
 
-        public RichShellViewModel(InteractionRequest<INotification> notificationRequest, IEnumerable<IMainNavigationItem> mainNavigationItems, INavigationService navigationService, IEnumerable<IInfrastructureNavigationItem> backstageNavigationItems, IEventAggregator eventAggregator)
+        public RichShellViewModel(IEnumerable<IMainNavigationItem> mainNavigationItems, INavigationService navigationService, IEnumerable<IInfrastructureNavigationItem> backstageNavigationItems, IEventAggregator eventAggregator)
         {
             _eventAggregator = eventAggregator;
 
@@ -50,8 +48,6 @@ namespace CrossApplication.Wpf.Application.Shell
 
             foreach (var backstageNavigationItem in backstageNavigationItems)
                 BackstageNavigationItems.Add(new NavigationItem(navigationService, backstageNavigationItem.Label, backstageNavigationItem.NavigationKey, backstageNavigationItem.Glyph));
-
-            NotificationRequest = notificationRequest;
         }
 
         public Task OnViewActivatingAsync(NavigationParameters navigationParameters)

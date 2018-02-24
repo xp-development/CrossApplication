@@ -17,7 +17,7 @@ namespace CrossApplication.Wpf.Application.UnitTest._Shell._RichShellViewModel
         public async void ShouldSetStateIfStateMessageEventIsPublished()
         {
             var eventAggregator = new EventAggregator();
-            var viewModel = new RichShellViewModel(null, new List<IMainNavigationItem>(), new Mock<INavigationService>().Object, new List<IInfrastructureNavigationItem>(), eventAggregator);
+            var viewModel = new RichShellViewModel(new List<IMainNavigationItem>(), new Mock<INavigationService>().Object, new List<IInfrastructureNavigationItem>(), eventAggregator);
             await viewModel.OnViewActivatingAsync(null);
             var resetEvent = new AutoResetEvent(false);
             viewModel.PropertyChanged += (sender, args) => resetEvent.Set();
@@ -32,7 +32,7 @@ namespace CrossApplication.Wpf.Application.UnitTest._Shell._RichShellViewModel
         public async void ShouldNotRefreshStateIfViewIsUnloaded()
         {
             var eventAggregator = new EventAggregator();
-            var viewModel = new RichShellViewModel(null, new List<IMainNavigationItem>(), new Mock<INavigationService>().Object, new List<IInfrastructureNavigationItem>(), eventAggregator);
+            var viewModel = new RichShellViewModel(new List<IMainNavigationItem>(), new Mock<INavigationService>().Object, new List<IInfrastructureNavigationItem>(), eventAggregator);
             await viewModel.OnViewActivatingAsync(null);
             var resetEvent = new AutoResetEvent(false);
             viewModel.PropertyChanged += (sender, args) => resetEvent.Set();

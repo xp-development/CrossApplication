@@ -3,12 +3,10 @@
                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                        xmlns:mvvm="http://prismlibrary.com/"
-                        xmlns:shell="clr-namespace:CrossApplication.Wpf.Application.Shell"
+                   xmlns:shell="clr-namespace:CrossApplication.Wpf.Application.Shell"
                         xmlns:viewModels="clr-namespace:CrossApplication.Core.Wpf.Common.ViewModels;assembly=CrossApplication.Core.Wpf.Common"
                         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
-                        xmlns:navigation1="clr-namespace:CrossApplication.Core.Wpf.Common.Navigation;assembly=CrossApplication.Core.Wpf.Common"
-                        mc:Ignorable="d" viewModels:ViewModelLocator.AutoWireViewModel="{x:Type shell:RichShellViewModel}"
+                   mc:Ignorable="d" viewModels:ViewModelLocator.AutoWireViewModel="{x:Type shell:RichShellViewModel}"
                         x:Name="RichShell"
                         ItemTemplate="{StaticResource HamburgerMenuGlyphItem}"
                         OptionsItemTemplate="{StaticResource HamburgerMenuGlyphItem}"
@@ -16,8 +14,7 @@
                         ItemCommand="{Binding Path=SelectedItem.NavigateCommand, ElementName=RichShell}"
                         d:DataContext="{d:DesignInstance shell:RichShellViewModel}"
                         OptionsItemsSource="{Binding BackstageNavigationItems}"
-                        ItemsSource="{Binding NavigationItems}"
-                        mvvm:RegionManager.RegionName="{x:Static navigation1:RegionNames.MainRegion}">
+                        ItemsSource="{Binding NavigationItems}">
     <mah:HamburgerMenu.ContentTemplate>
         <DataTemplate>
             <Grid>

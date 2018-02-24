@@ -1,10 +1,10 @@
 ﻿using System.Threading.Tasks;
+using CrossApplication.Core.Common.Navigation;
 using CrossApplication.Core.Contracts.Application.Modules;
 using CrossApplication.Core.Contracts.Common.Container;
 using CrossApplication.Core.Contracts.Common.Navigation;
 using CrossApplication.Core.Contracts.Navigation;
 using CrossApplication.Core.Contracts.Settings;
-using CrossApplication.Core.Wpf.Common.Navigation;
 using CrossApplication.Mail.Core.Navigation;
 using CrossApplication.Mail.Wpf.Settings;
 using CrossApplication.Mail.Wpf.Shell;

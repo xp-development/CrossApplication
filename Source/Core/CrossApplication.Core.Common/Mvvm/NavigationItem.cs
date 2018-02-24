@@ -1,14 +1,13 @@
-﻿using CrossApplication.Core.Contracts.Common.Navigation;
-using Prism.Commands;
-using Prism.Mvvm;
+﻿using System.Threading.Tasks;
+using CrossApplication.Core.Contracts.Common.Navigation;
 
 namespace CrossApplication.Core.Common.Mvvm
 {
-    public class NavigationItem : BindableBase
+    public class NavigationItem : ViewModelBase
     {
         public string Label { get; }
         public string Glyph { get; }
-        public DelegateCommand NavigateCommand { get; }
+        public DelegateCommand<object, object> NavigateCommand { get; }
 
         public NavigationItem(INavigationService navigationService, string label, string navigationKey, string glyph)
         {
@@ -17,17 +16,17 @@ namespace CrossApplication.Core.Common.Mvvm
 
             Label = label;
             Glyph = glyph;
-            NavigateCommand = new DelegateCommand(OnNavigate, CanNavigate);
+            NavigateCommand = new DelegateCommand<object, object>(OnNavigate, CanNavigate);
         }
 
-        private async void OnNavigate()
+        private async Task OnNavigate(object args)
         {
             _isNavigating = true;
             await _navigationService.NavigateToAsync(_navigationKey);
             _isNavigating = false;
         }
 
-        private bool CanNavigate()
+        private bool CanNavigate(object args)
         {
             return !_isNavigating;
         }

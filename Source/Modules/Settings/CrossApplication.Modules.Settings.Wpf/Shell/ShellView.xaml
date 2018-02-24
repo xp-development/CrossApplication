@@ -6,16 +6,13 @@
              xmlns:viewModels="clr-namespace:CrossApplication.Core.Wpf.Common.ViewModels;assembly=CrossApplication.Core.Wpf.Common"
              xmlns:shell="clr-namespace:CrossApplication.Modules.Settings.Wpf.Shell"
              xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
-             xmlns:navigation="clr-namespace:CrossApplication.Core.Wpf.Common.Navigation;assembly=CrossApplication.Core.Wpf.Common"
-             xmlns:regions="http://prismlibrary.com/"
              mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300"
              viewModels:ViewModelLocator.AutoWireViewModel="{x:Type shell:ShellViewModel}"
              x:Name="SettingsShell"
              ItemTemplate="{StaticResource HamburgerMenuGlyphItem}"
              ItemCommand="{Binding Path=SelectedItem.NavigateCommand, ElementName=SettingsShell}"
              d:DataContext="{d:DesignInstance shell:ShellViewModel}"
-             ItemsSource="{Binding NavigationItems}"
-             regions:RegionManager.RegionName="{x:Static navigation:RegionNames.SettingsRegion}">
+             ItemsSource="{Binding NavigationItems}">
     <controls:HamburgerMenu.ContentTemplate>
         <DataTemplate>
             <Grid x:Name="ContentGrid">

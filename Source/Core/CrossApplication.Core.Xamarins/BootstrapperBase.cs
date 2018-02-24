@@ -5,7 +5,6 @@ using CrossApplication.Core.Contracts.Common.Container;
 using CrossApplication.Core.Contracts.Common.Navigation;
 using CrossApplication.Core.Contracts.Navigation;
 using CrossApplication.Core.Xamarins.About;
-using CrossApplication.Core.Xamarins.Navigation;
 using Prism.Common;
 using Prism.Mvvm;
 using Prism.Ninject.Navigation;
@@ -26,7 +25,7 @@ namespace CrossApplication.Core.Xamarins
 
         protected override void ConfigureContainer()
         {
-            Container.RegisterType<IRegionManager, RegionManager>(Lifetime.PerContainer);
+            Container.RegisterType<IRegionManager, Common.Navigation.RegionManager>(Lifetime.PerContainer);
             Container.RegisterType<INavigationService, NinjectPageNavigationService>(Lifetime.PerContainer);
             Container.RegisterType<IApplicationProvider, ApplicationProvider>(Lifetime.PerContainer);
             Container.RegisterType<IAboutService, AboutService>();

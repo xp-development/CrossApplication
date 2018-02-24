@@ -5,7 +5,6 @@ using CrossApplication.Core.Contracts.Common.Navigation;
 using CrossApplication.Core.Contracts.Common.Storage;
 using CrossApplication.Core.Contracts.Views;
 using CrossApplication.Photos.Contracts;
-using Prism.Commands;
 using Prism.Events;
 
 namespace CrossApplication.Photos.Wpf.Shell
@@ -32,14 +31,14 @@ namespace CrossApplication.Photos.Wpf.Shell
             }
         }
 
-        public DelegateCommand BackupCommand { get; }
+        public DelegateCommand<object, object> BackupCommand { get; }
 
         public ShellViewModel(IStorage storage, IPhotoBackupService backupService, IEventAggregator eventAggregator)
         {
             _storage = storage;
             _backupService = backupService;
             _stateMessageEvent = eventAggregator.GetEvent<PubSubEvent<StateMessageEvent>>();
-            BackupCommand = new DelegateCommand(OnBackupAsync);
+            BackupCommand = new DelegateCommand<object, object>(OnBackupAsync);
         }
 
         public async Task OnViewActivatedAsync(NavigationParameters navigationParameters)
@@ -54,7 +53,7 @@ namespace CrossApplication.Photos.Wpf.Shell
             await _storage.SaveAsync(nameof(BackupTargetDirectory), BackupTargetDirectory);
         }
 
-        private async void OnBackupAsync()
+        private async Task OnBackupAsync(object args)
         {
             _stateMessageEvent.Publish(new StateMessageEvent("Backups running..."));
             await _backupService.BackupAsync(DirectoryToBackup, BackupTargetDirectory);

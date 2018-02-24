@@ -5,13 +5,13 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using CrossApplication.Core.About;
 using CrossApplication.Core.Common.Mvvm;
+using CrossApplication.Core.Common.Navigation;
 using CrossApplication.Core.Contracts.Application.Modules;
 using CrossApplication.Core.Contracts.Application.Theming;
 using CrossApplication.Core.Contracts.Common.Container;
 using CrossApplication.Core.Contracts.Navigation;
 using CrossApplication.Core.Net.Common;
 using CrossApplication.Core.Net.Common.Modules;
-using CrossApplication.Core.Wpf.Common.Navigation;
 using CrossApplication.Wpf.Application.Login;
 using CrossApplication.Wpf.Application.Properties;
 using CrossApplication.Wpf.Application.Shell;
@@ -97,7 +97,7 @@ namespace CrossApplication.Wpf.Application
         {
             Container.RegisterType<IRegionBehaviorFactory, RegionBehaviorFactory>(Lifetime.PerContainer);
             Container.RegisterType<IRegionManager, RegionManager>(Lifetime.PerContainer);
-            Container.RegisterType<Core.Contracts.Common.Navigation.IRegionManager, Core.Wpf.Common.Navigation.RegionManager>(Lifetime.PerContainer);
+            Container.RegisterType<Core.Contracts.Common.Navigation.IRegionManager, Core.Common.Navigation.RegionManager>(Lifetime.PerContainer);
             Container.RegisterType<IRegionViewRegistry, RegionViewRegistry>(Lifetime.PerContainer);
             Container.RegisterType<IRegionNavigationService, RegionNavigationService>();
             Container.RegisterType<IRegionNavigationContentLoader, RegionNavigationContentLoader>(Lifetime.PerContainer);

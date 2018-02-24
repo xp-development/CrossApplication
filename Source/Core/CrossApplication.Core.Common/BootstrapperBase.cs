@@ -13,7 +13,6 @@ using CrossApplication.Core.Contracts.Security;
 using Microsoft.Practices.ServiceLocation;
 using Ninject;
 using Prism.Events;
-using Prism.Logging;
 
 namespace CrossApplication.Core.Common
 {
@@ -23,8 +22,6 @@ namespace CrossApplication.Core.Common
 
         public async Task Run()
         {
-            _logger = CreateLogger();
-
             Container = CreateContainer();
             ConfigureContainer();
             ConfigureServiceLocator();
@@ -53,11 +50,6 @@ namespace CrossApplication.Core.Common
         protected virtual void ConfigureViewModelLocator()
         {
             ViewModelProvider.SetViewModelFactoryMethod(t => Container.Resolve(t));
-        }
-
-        private ILoggerFacade CreateLogger()
-        {
-            return new DebugLogger();
         }
 
         protected abstract void CreateShell();
@@ -125,11 +117,8 @@ namespace CrossApplication.Core.Common
             Container.RegisterType<IStringEncryption, StringEncryption>(Lifetime.PerContainer);
             Container.RegisterType<IViewManager, ViewManager>(Lifetime.PerContainer);
             Container.RegisterType<IUserManager, UserManager>(Lifetime.PerContainer);
-            Container.RegisterInstance(_logger);
 
             Container.RegisterInstance<IInfrastructureNavigationItem>(new MainNavigationItem("About", "About", "Help"));
         }
-
-        private ILoggerFacade _logger;
     }
 }
