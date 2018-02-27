@@ -3,9 +3,9 @@ using CrossApplication.Core.Common.Mvvm;
 using CrossApplication.Core.Contracts.Application.Events;
 using CrossApplication.Core.Contracts.Common.Navigation;
 using CrossApplication.Core.Contracts.Common.Storage;
+using CrossApplication.Core.Contracts.Events;
 using CrossApplication.Core.Contracts.Views;
 using CrossApplication.Photos.Contracts;
-using Prism.Events;
 
 namespace CrossApplication.Photos.Wpf.Shell
 {
@@ -37,7 +37,7 @@ namespace CrossApplication.Photos.Wpf.Shell
         {
             _storage = storage;
             _backupService = backupService;
-            _stateMessageEvent = eventAggregator.GetEvent<PubSubEvent<StateMessageEvent>>();
+            _stateMessageEvent = eventAggregator.GetEvent<StateMessageEventPayload>();
             BackupCommand = new DelegateCommand<object, object>(OnBackupAsync);
         }
 
@@ -55,15 +55,15 @@ namespace CrossApplication.Photos.Wpf.Shell
 
         private async Task OnBackupAsync(object args)
         {
-            _stateMessageEvent.Publish(new StateMessageEvent("Backups running..."));
+            await _stateMessageEvent.PublishAsync(new StateMessageEventPayload("Backups running..."));
             await _backupService.BackupAsync(DirectoryToBackup, BackupTargetDirectory);
-            _stateMessageEvent.Publish(new StateMessageEvent("Backups finished."));
+            await _stateMessageEvent.PublishAsync(new StateMessageEventPayload("Backups finished."));
         }
 
         private readonly IPhotoBackupService _backupService;
         private readonly IStorage _storage;
         private string _backupTargetDirectory;
         private string _directoryToBackup;
-        private readonly PubSubEvent<StateMessageEvent> _stateMessageEvent;
+        private readonly IEvent<StateMessageEventPayload> _stateMessageEvent;
     }
 }

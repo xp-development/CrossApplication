@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
+using CrossApplication.Core.Contracts.Application.Modules;
 using CrossApplication.Core.Contracts.Common.Navigation;
 using CrossApplication.Core.Contracts.Views;
 using Microsoft.Practices.ServiceLocation;
-using Prism.Common;
 using Xamarin.Forms;
 
 namespace CrossApplication.Core.Xamarins.Navigation

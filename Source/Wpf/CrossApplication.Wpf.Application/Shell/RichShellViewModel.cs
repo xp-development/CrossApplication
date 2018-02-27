@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 using CrossApplication.Core.Common.Mvvm;
 using CrossApplication.Core.Contracts.Application.Events;
 using CrossApplication.Core.Contracts.Common.Navigation;
+using CrossApplication.Core.Contracts.Events;
 using CrossApplication.Core.Contracts.Navigation;
 using CrossApplication.Core.Contracts.Views;
-using Prism.Events;
-using INavigationService = CrossApplication.Core.Contracts.Common.Navigation.INavigationService;
 
 namespace CrossApplication.Wpf.Application.Shell
 {
@@ -53,8 +52,8 @@ namespace CrossApplication.Wpf.Application.Shell
         public Task OnViewActivatingAsync(NavigationParameters navigationParameters)
         {
             _stateMessages = new BlockingCollection<string>();
-            _eventAggregator.GetEvent<PubSubEvent<StateMessageEvent>>().Subscribe(OnStateMessageEvent, ThreadOption.BackgroundThread);
-            _eventAggregator.GetEvent<PubSubEvent<ProgressMessageEvent>>().Subscribe(OnProgressMessageEvent, ThreadOption.BackgroundThread);
+            _eventAggregator.GetEvent<StateMessageEventPayload>().Subscribe(OnStateMessageEvent);
+            _eventAggregator.GetEvent<ProgressMessageEventPayload>().Subscribe(OnProgressMessageEvent);
             HandleStateMessages();
             return Task.FromResult(false);
         }
@@ -62,20 +61,22 @@ namespace CrossApplication.Wpf.Application.Shell
         public Task OnViewDeactivatedAsync()
         {
             _stateMessages.CompleteAdding();
-            _eventAggregator.GetEvent<PubSubEvent<StateMessageEvent>>().Unsubscribe(OnStateMessageEvent);
-            _eventAggregator.GetEvent<PubSubEvent<ProgressMessageEvent>>().Unsubscribe(OnProgressMessageEvent);
+            _eventAggregator.GetEvent<StateMessageEventPayload>().Unsubscribe(OnStateMessageEvent);
+            _eventAggregator.GetEvent<ProgressMessageEventPayload>().Unsubscribe(OnProgressMessageEvent);
 
             return Task.FromResult(false);
         }
 
-        private void OnStateMessageEvent(StateMessageEvent args)
+        private Task OnStateMessageEvent(StateMessageEventPayload args)
         {
             _stateMessages.Add(args.Message);
+            return Task.CompletedTask;
         }
 
-        private void OnProgressMessageEvent(ProgressMessageEvent args)
+        private Task OnProgressMessageEvent(ProgressMessageEventPayload args)
         {
             Progress = args.Progress;
+            return Task.CompletedTask;
         }
 
         private void HandleStateMessages()

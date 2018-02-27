@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 using CrossApplication.Core.About;
 using CrossApplication.Core.Common.Mvvm;
 using CrossApplication.Core.Common.Navigation;
@@ -17,10 +15,7 @@ using CrossApplication.Wpf.Application.Properties;
 using CrossApplication.Wpf.Application.Shell;
 using CrossApplication.Wpf.Application.Shell.RibbonTabs;
 using Microsoft.Practices.ServiceLocation;
-using Prism.Regions;
-using Prism.Regions.Behaviors;
 using Module = CrossApplication.Core.Wpf.Common.Module;
-using RegionManager = Prism.Regions.RegionManager;
 
 namespace CrossApplication.Wpf.Application
 {
@@ -29,11 +24,6 @@ namespace CrossApplication.Wpf.Application
         protected override void CreateShell()
         {
             _shell = ServiceLocator.Current.GetInstance<ApplicationShellView>();
-            if (_shell == null)
-                return;
-
-            RegionManager.SetRegionManager(_shell, Container.Resolve<IRegionManager>());
-            RegionManager.UpdateRegions();
         }
 
         protected override IModuleCatalog CreateModuleCatalog()
@@ -41,27 +31,6 @@ namespace CrossApplication.Wpf.Application
             var aggregateModuleCatalog = (AggregateModuleCatalog) base.CreateModuleCatalog();
             aggregateModuleCatalog.ModuleCatalog.AddModuleInfo(new ModuleInfo {ModuleType = typeof(Module), Tag = ModuleTags.Infrastructure});
             return aggregateModuleCatalog;
-        }
-
-        protected override void ConfigureDefaultRegionBehaviors()
-        {
-            var instance = ServiceLocator.Current.GetInstance<IRegionBehaviorFactory>();
-            instance.AddIfMissing("ContextToDependencyObject", typeof(BindRegionContextToDependencyObjectBehavior));
-            instance.AddIfMissing("ActiveAware", typeof(RegionActiveAwareBehavior));
-            instance.AddIfMissing(SyncRegionContextWithHostBehavior.BehaviorKey, typeof(SyncRegionContextWithHostBehavior));
-            instance.AddIfMissing(RegionManagerRegistrationBehavior.BehaviorKey, typeof(RegionManagerRegistrationBehavior));
-            instance.AddIfMissing("RegionMemberLifetimeBehavior", typeof(RegionMemberLifetimeBehavior));
-            instance.AddIfMissing("ClearChildViews", typeof(ClearChildViewsRegionBehavior));
-            instance.AddIfMissing("AutoPopulate", typeof(AutoPopulateRegionBehavior));
-        }
-
-        protected override void ConfigureRegionAdapterMappings()
-        {
-            var regionAdapterMappings = ServiceLocator.Current.GetInstance<RegionAdapterMappings>();
-
-            regionAdapterMappings.RegisterMapping(typeof(Selector), ServiceLocator.Current.GetInstance<SelectorRegionAdapter>());
-            regionAdapterMappings.RegisterMapping(typeof(ItemsControl), ServiceLocator.Current.GetInstance<ItemsControlRegionAdapter>());
-            regionAdapterMappings.RegisterMapping(typeof(ContentControl), ServiceLocator.Current.GetInstance<ContentControlRegionAdapter>());
         }
 
         protected override Task LoadThemeAsync()
@@ -95,18 +64,9 @@ namespace CrossApplication.Wpf.Application
 
         protected override void ConfigureContainer()
         {
-            Container.RegisterType<IRegionBehaviorFactory, RegionBehaviorFactory>(Lifetime.PerContainer);
-            Container.RegisterType<IRegionManager, RegionManager>(Lifetime.PerContainer);
-            Container.RegisterType<Core.Contracts.Common.Navigation.IRegionManager, Core.Common.Navigation.RegionManager>(Lifetime.PerContainer);
-            Container.RegisterType<IRegionViewRegistry, RegionViewRegistry>(Lifetime.PerContainer);
-            Container.RegisterType<IRegionNavigationService, RegionNavigationService>();
-            Container.RegisterType<IRegionNavigationContentLoader, RegionNavigationContentLoader>(Lifetime.PerContainer);
-            Container.RegisterType<RegionAdapterMappings, RegionAdapterMappings>(Lifetime.PerContainer);
-
+            Container.RegisterType<Core.Contracts.Common.Navigation.IRegionManager, RegionManager>(Lifetime.PerContainer);
             RegisterViews();
-
             base.ConfigureContainer();
-
             Container.Resolve<IViewManager>().AddViewItem(new ViewItem("About", RegionNames.MainRegion, false, RegionNames.RichRegion));
         }
 

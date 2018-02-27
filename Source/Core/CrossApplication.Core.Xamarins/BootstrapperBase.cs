@@ -1,15 +1,12 @@
 ﻿using CrossApplication.Core.Common.Mvvm;
 using CrossApplication.Core.Common.Navigation;
+using CrossApplication.Core.Contracts.Application.Modules;
 using CrossApplication.Core.Contracts.Application.Services;
 using CrossApplication.Core.Contracts.Common.Container;
 using CrossApplication.Core.Contracts.Common.Navigation;
 using CrossApplication.Core.Contracts.Navigation;
 using CrossApplication.Core.Xamarins.About;
-using Prism.Common;
-using Prism.Mvvm;
-using Prism.Ninject.Navigation;
 using Xamarin.Forms;
-using INavigationService = Prism.Navigation.INavigationService;
 
 namespace CrossApplication.Core.Xamarins
 {

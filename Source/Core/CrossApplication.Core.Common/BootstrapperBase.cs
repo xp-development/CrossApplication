@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using CrossApplication.Core.Common.Container;
+using CrossApplication.Core.Common.Events;
 using CrossApplication.Core.Common.Modules;
 using CrossApplication.Core.Common.Mvvm;
 using CrossApplication.Core.Common.Navigation;
@@ -8,11 +9,11 @@ using CrossApplication.Core.Contracts;
 using CrossApplication.Core.Contracts.Application.Modules;
 using CrossApplication.Core.Contracts.Common.Container;
 using CrossApplication.Core.Contracts.Common.Navigation;
+using CrossApplication.Core.Contracts.Events;
 using CrossApplication.Core.Contracts.Navigation;
 using CrossApplication.Core.Contracts.Security;
 using Microsoft.Practices.ServiceLocation;
 using Ninject;
-using Prism.Events;
 
 namespace CrossApplication.Core.Common
 {
