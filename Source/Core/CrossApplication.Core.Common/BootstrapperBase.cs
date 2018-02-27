@@ -12,8 +12,8 @@ using CrossApplication.Core.Contracts.Common.Navigation;
 using CrossApplication.Core.Contracts.Events;
 using CrossApplication.Core.Contracts.Navigation;
 using CrossApplication.Core.Contracts.Security;
+using Grace.DependencyInjection;
 using Microsoft.Practices.ServiceLocation;
-using Ninject;
 
 namespace CrossApplication.Core.Common
 {
@@ -103,9 +103,9 @@ namespace CrossApplication.Core.Common
 
         protected virtual IContainer CreateContainer()
         {
-            var standardKernel = new StandardKernel();
-            var container = new NinjectContainer(standardKernel);
-            container.RegisterInstance<IServiceLocator>(new NinjectServiceLocator(standardKernel));
+            var standardKernel = new DependencyInjectionContainer();
+            var container = new GraceContainer(standardKernel);
+            container.RegisterInstance<IServiceLocator>(new GraceServiceLocator(standardKernel));
             return container;
         }
 

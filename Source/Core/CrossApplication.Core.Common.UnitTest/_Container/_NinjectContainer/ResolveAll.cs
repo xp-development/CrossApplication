@@ -2,7 +2,7 @@
 using CrossApplication.Core.Common.Container;
 using CrossApplication.Core.Common.UnitTest._Container.TestClasses;
 using FluentAssertions;
-using Ninject;
+using Grace.DependencyInjection;
 using Xunit;
 
 namespace CrossApplication.Core.Common.UnitTest._Container._NinjectContainer
@@ -12,7 +12,7 @@ namespace CrossApplication.Core.Common.UnitTest._Container._NinjectContainer
         [Fact]
         public void Usage()
         {
-            var container = new NinjectContainer(new StandardKernel());
+            var container = new GraceContainer(new DependencyInjectionContainer());
             container.RegisterInstance<IInjectionInterface>(new InjectionClass());
             container.RegisterInstance<IInjectionInterface>(new InjectionClass());
 
