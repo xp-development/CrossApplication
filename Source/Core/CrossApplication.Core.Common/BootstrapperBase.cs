@@ -13,7 +13,6 @@ using CrossApplication.Core.Contracts.Events;
 using CrossApplication.Core.Contracts.Navigation;
 using CrossApplication.Core.Contracts.Security;
 using Grace.DependencyInjection;
-using Microsoft.Practices.ServiceLocation;
 
 namespace CrossApplication.Core.Common
 {
@@ -98,7 +97,7 @@ namespace CrossApplication.Core.Common
 
         private void ConfigureServiceLocator()
         {
-            ServiceLocator.SetLocatorProvider(() => Container.Resolve<IServiceLocator>());
+//            ServiceLocator.SetLocatorProvider(() => Container.Resolve<IServiceLocator>());
         }
 
         protected virtual IContainer CreateContainer()

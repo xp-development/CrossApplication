@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using CrossApplication.Core.Contracts.Application.Modules;
+using CrossApplication.Core.Contracts.Common.Container;
 using CrossApplication.Core.Contracts.Common.Navigation;
 using CrossApplication.Core.Contracts.Views;
-using Microsoft.Practices.ServiceLocation;
 
 namespace CrossApplication.Core.Wpf.Common.Application
 {

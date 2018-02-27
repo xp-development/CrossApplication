@@ -1,27 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using CrossApplication.Core.Contracts.Common.Container;
+using CrossApplication.Core.Contracts.Events;
 using Grace.DependencyInjection;
-using Microsoft.Practices.ServiceLocation;
 
 namespace CrossApplication.Core.Common.Container
 {
-    public class GraceServiceLocator : ServiceLocatorImplBase
+    public class GraceServiceLocator : IServiceLocator
     {
-        public GraceServiceLocator(DependencyInjectionContainer kernel)
+        public GraceServiceLocator(DependencyInjectionContainer dependencyInjectionContainer)
         {
-            _kernel = kernel;
+            throw new System.NotImplementedException();
         }
 
-        protected override IEnumerable<object> DoGetAllInstances(Type serviceType)
+        public IEvent GetInstance<T>()
         {
-            return _kernel.LocateAll(serviceType);
+            throw new System.NotImplementedException();
         }
 
-        protected override object DoGetInstance(Type serviceType, string key)
+        public T GetInstance<T>(string name)
         {
-            return _kernel.Locate(serviceType, key);
+            throw new System.NotImplementedException();
         }
-
-        private readonly DependencyInjectionContainer _kernel;
     }
 }

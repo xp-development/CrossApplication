@@ -36,5 +36,10 @@ namespace CrossApplication.Core.Common.Mvvm
 
         private readonly Func<TCanExecuteArg, bool> _canExecuteMethod;
         private readonly Func<TExecuteArg, Task> _executeMethod;
+
+        public void InvokeCanExecuteChanged()
+        {
+            CanExecuteChanged?.Invoke(this, EventArgs.Empty);
+        }
     }
 }

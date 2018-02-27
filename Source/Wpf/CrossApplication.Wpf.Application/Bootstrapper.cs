@@ -14,7 +14,6 @@ using CrossApplication.Wpf.Application.Login;
 using CrossApplication.Wpf.Application.Properties;
 using CrossApplication.Wpf.Application.Shell;
 using CrossApplication.Wpf.Application.Shell.RibbonTabs;
-using Microsoft.Practices.ServiceLocation;
 using Module = CrossApplication.Core.Wpf.Common.Module;
 
 namespace CrossApplication.Wpf.Application
@@ -23,7 +22,7 @@ namespace CrossApplication.Wpf.Application
     {
         protected override void CreateShell()
         {
-            _shell = ServiceLocator.Current.GetInstance<ApplicationShellView>();
+            _shell = Container.Resolve<ApplicationShellView>();
         }
 
         protected override IModuleCatalog CreateModuleCatalog()

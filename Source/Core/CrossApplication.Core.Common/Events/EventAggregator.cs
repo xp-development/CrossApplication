@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using CrossApplication.Core.Contracts.Common.Container;
 using CrossApplication.Core.Contracts.Events;
-using Microsoft.Practices.ServiceLocation;
 
 namespace CrossApplication.Core.Common.Events
 {
