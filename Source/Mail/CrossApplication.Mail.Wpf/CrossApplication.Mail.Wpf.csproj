@@ -167,10 +167,8 @@
   -->
   <Target Name="BeforeBuild">
   </Target>
-  <ItemGroup>
-    <OutputDlls Include="$(OutputPath)*.dll" />
-  </ItemGroup>
   <Target Name="AfterBuild">
-    <Copy SourceFiles="@(OutputDlls)" DestinationFolder="..\..\Wpf\CrossApplication.Wpf.Application\$(OutputPath)Modules\" ContinueOnError="false" />
+    <Copy SourceFiles="$(OutputPath)CrossApplication.Mail.Wpf.dll" DestinationFolder="..\..\Wpf\CrossApplication.Wpf.Application\$(OutputPath)Modules\" ContinueOnError="false" />
+    <Copy SourceFiles="$(OutputPath)MailKit.dll" DestinationFolder="..\..\Wpf\CrossApplication.Wpf.Application\$(OutputPath)Modules\" ContinueOnError="false" />
   </Target>
 </Project>

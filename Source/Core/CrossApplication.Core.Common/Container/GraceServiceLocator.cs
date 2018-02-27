@@ -6,19 +6,21 @@ namespace CrossApplication.Core.Common.Container
 {
     public class GraceServiceLocator : IServiceLocator
     {
+        private readonly DependencyInjectionContainer _dependencyInjectionContainer;
+
         public GraceServiceLocator(DependencyInjectionContainer dependencyInjectionContainer)
         {
-            throw new System.NotImplementedException();
+            _dependencyInjectionContainer = dependencyInjectionContainer;
         }
 
-        public IEvent GetInstance<T>()
+        public T GetInstance<T>()
         {
-            throw new System.NotImplementedException();
+            return _dependencyInjectionContainer.Locate<T>();
         }
 
         public T GetInstance<T>(string name)
         {
-            throw new System.NotImplementedException();
+            return _dependencyInjectionContainer.Locate<T>(withKey: name);
         }
     }
 }
