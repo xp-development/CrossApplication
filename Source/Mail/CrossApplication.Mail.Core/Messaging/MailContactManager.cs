@@ -26,11 +26,11 @@ namespace CrossApplication.Mail.Core.Messaging
             foreach (var accountSetting in accountSettings)
             {
                 var imapClient = new ImapClient();
-                await imapClient.ConnectAsync(accountSetting.Server, accountSetting.Port, accountSetting.UseTls ? SecureSocketOptions.StartTls : SecureSocketOptions.None);
+                await imapClient.ConnectAsync(accountSetting.Server, accountSetting.Port, accountSetting.UseTls ? SecureSocketOptions.SslOnConnect : SecureSocketOptions.None);
 
                 await imapClient.AuthenticateAsync(accountSetting.UserName, _stringEncryption.Decrypt(accountSetting.CryptedPassword));
 
-                var list = await imapClient.GetFoldersAsync(new FolderNamespace('/', "*"));
+                var list = await imapClient.GetFoldersAsync(imapClient.PersonalNamespaces[0]);
 
                 return list.Select(x => new MailContact {Initials = x.Name});
             }

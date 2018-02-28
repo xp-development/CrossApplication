@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace CrossApplication.Core.Contracts.Events
 {
-    public abstract class EventBase<TPayload> : IEvent<TPayload>
+    public class Event<TPayload> : IEvent<TPayload>
     {
         public void Subscribe(Func<TPayload, Task> func)
         {

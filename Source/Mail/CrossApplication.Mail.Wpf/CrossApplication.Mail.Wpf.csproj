@@ -170,5 +170,7 @@
   <Target Name="AfterBuild">
     <Copy SourceFiles="$(OutputPath)CrossApplication.Mail.Wpf.dll" DestinationFolder="..\..\Wpf\CrossApplication.Wpf.Application\$(OutputPath)Modules\" ContinueOnError="false" />
     <Copy SourceFiles="$(OutputPath)MailKit.dll" DestinationFolder="..\..\Wpf\CrossApplication.Wpf.Application\$(OutputPath)Modules\" ContinueOnError="false" />
+	<Copy SourceFiles="$(OutputPath)MimeKit.dll" DestinationFolder="..\..\Wpf\CrossApplication.Wpf.Application\$(OutputPath)Modules\" ContinueOnError="false" />
+	<Copy SourceFiles="$(OutputPath)BouncyCastle.Crypto.dll" DestinationFolder="..\..\Wpf\CrossApplication.Wpf.Application\$(OutputPath)Modules\" ContinueOnError="false" />
   </Target>
 </Project>

@@ -17,7 +17,7 @@ namespace CrossApplication.Core.Common.Container
         {
             _kernel.Configure(x =>
             {
-                var configuration = x.Export<TInterface>().As<TImplementation>();
+                var configuration = x.Export<TImplementation>().As<TInterface>();
                 if (lifetime == Lifetime.PerContainer)
                     configuration.Lifestyle.Singleton();
             });
@@ -28,8 +28,7 @@ namespace CrossApplication.Core.Common.Container
         {
             _kernel.Configure(x =>
             {
-                var configuration = x.Export<TInterface1>().As<TImplementation>();
-                x.Export<TInterface2>().As<TImplementation>();
+                var configuration = x.Export<TImplementation>().As<TInterface1>().As<TInterface2>();
                 if (lifetime == Lifetime.PerContainer)
                     configuration.Lifestyle.Singleton();
             });
@@ -49,7 +48,7 @@ namespace CrossApplication.Core.Common.Container
         {
             _kernel.Configure(x =>
             {
-                var configuration = x.ExportInstance(instance);
+                var configuration = x.ExportInstance(instance).As<TInterface>();
                 if (lifetime == Lifetime.PerContainer)
                     configuration.Lifestyle.Singleton();
             });
@@ -70,7 +69,7 @@ namespace CrossApplication.Core.Common.Container
         {
             _kernel.Configure(x =>
             {
-                var configuration = x.Export<TInterface>().AsKeyed<TImplementation>(name);
+                var configuration = x.Export<TImplementation>().AsKeyed<TInterface>(name);
                 if (lifetime == Lifetime.PerContainer)
                     configuration.Lifestyle.Singleton();
             });

@@ -14,10 +14,10 @@ namespace CrossApplication.Core.Common.Events
 
         public IEvent<TEventPayload> GetEvent<TEventPayload>()
         {
-            if (_events.TryGetValue(typeof(IEvent<TEventPayload>), out IEvent @event))
+            if (_events.TryGetValue(typeof(IEvent<TEventPayload>), out var @event))
                 return (IEvent<TEventPayload>) @event;
 
-            @event = _serviceLocator.GetInstance<IEvent<TEventPayload>>();
+            @event = _serviceLocator.GetInstance<Event<TEventPayload>>();
             _events.Add(typeof(IEvent<TEventPayload>), @event);
             return (IEvent<TEventPayload>) @event;
         }

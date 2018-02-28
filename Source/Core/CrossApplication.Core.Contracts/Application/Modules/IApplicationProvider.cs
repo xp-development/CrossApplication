@@ -6,7 +6,7 @@ namespace CrossApplication.Core.Contracts.Application.Modules
 {
     public interface IApplicationProvider
     {
-        void SetRichShell(object richShell);
+        Task ActivateRichShell(object richShell, NavigationParameters navigationParameters);
         object CreateView(Uri uri);
         Task ActivateViewAsync(object view, NavigationParameters navigationParameters);
         Task DeactivateActiveViewAsync();

@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using CrossApplication.Core.Contracts.Application.Modules;
 using CrossApplication.Core.Contracts.Common.Navigation;
-using CrossApplication.Core.Contracts.Views;
 
 namespace CrossApplication.Core.Common.Navigation
 {
@@ -23,12 +22,10 @@ namespace CrossApplication.Core.Common.Navigation
             await _applicationProvider.DeactivateActiveViewAsync();
             var view = _applicationProvider.CreateView(uri);
 
-            if (regionName == "RichShell")
-            {
-                _applicationProvider.SetRichShell(view);
-            }
-
-            await _applicationProvider.ActivateViewAsync(view, navigationParameters);
+            if (regionName == "RichRegion")
+                await _applicationProvider.ActivateRichShell(view, navigationParameters);
+            else
+                await _applicationProvider.ActivateViewAsync(view, navigationParameters);
         }
 
         private readonly IApplicationProvider _applicationProvider;

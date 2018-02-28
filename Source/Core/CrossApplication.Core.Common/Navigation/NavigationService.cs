@@ -60,9 +60,7 @@ namespace CrossApplication.Core.Common.Navigation
                 await _regionManager.RequestNavigateAsync(viewItem.RegionName, new Uri(viewItem.ViewKey, UriKind.Relative), new NavigationParameters { { "RequestedView", navigationParameter } });
 
             foreach (var subViewItem in viewItem.SubViewItems)
-            {
                 await NavigateTo(subViewItem);
-            }
         }
 
         private readonly IRegionManager _regionManager;
