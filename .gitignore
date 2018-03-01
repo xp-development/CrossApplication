@@ -31,3 +31,5 @@ Source/packages/**
 /Source/Core/CrossApplication.Core.Settings/obj
 /Source/Modules/Settings/CrossApplication.Modules.Settings.Contracts/obj
 /Source/Modules/Settings/CrossApplication.Modules.Settings.Core/obj
+/Source/Mail/.vs/CrossApplication.Mail.Contracts/v15
+/Source/Mail/CrossApplication.Mail.Contracts/obj
