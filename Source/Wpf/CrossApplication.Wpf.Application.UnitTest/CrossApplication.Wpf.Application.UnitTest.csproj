@@ -128,10 +128,6 @@
       <Project>{25b722b3-fb2d-499c-bd67-2ec24d8c72f7}</Project>
       <Name>CrossApplication.Core.Wpf.Contracts</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Core\CrossApplication.Core.Net.Contracts\CrossApplication.Core.Net.Contracts.csproj">
-      <Project>{ADD00E03-B090-4AF7-A9F0-5B20DF299A9E}</Project>
-      <Name>CrossApplication.Core.Net.Contracts</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Core\CrossApplication.Core\CrossApplication.Core.csproj">
       <Project>{253a7c85-e54f-4f54-a2c7-d05040cfb971}</Project>
       <Name>CrossApplication.Core</Name>
