@@ -1,9 +1,11 @@
-﻿namespace CrossApplication.Core.Themes.LightBlue
+﻿using System.Drawing;
+
+namespace CrossApplication.Core.Themes.LightBlue
 {
     public static class Colors
     {
-        public const string Text = "#262626";
-        public const string HintText = "#61453A";
-        public const string NavigationBarBackground = "#E2E2E2";
+        public static readonly Color TextColor = Color.FromArgb(0x26, 0x26, 0x26);
+        public static readonly Color HintTextColor = Color.FromArgb(0x61, 0x45, 0x3A);
+        public static readonly Color NavigationBarBackgroundColor = Color.FromArgb(0xE2, 0xE2, 0xE2);
     }
 }

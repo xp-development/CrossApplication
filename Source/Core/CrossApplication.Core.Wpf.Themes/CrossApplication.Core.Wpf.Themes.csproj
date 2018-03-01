@@ -46,6 +46,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\ControlzEx.3.0.2.4\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -67,6 +68,7 @@
     <Compile Include="Controls\NavigationBarTemplateSelector.cs" />
     <Compile Include="Controls\TextControl.cs" />
     <Compile Include="Converter\StringToEnumConverter.cs" />
+    <Compile Include="MarkupExtensions\ColorConverterMarkupExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -116,18 +118,18 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Core\CrossApplication.Core.Net.Themes\CrossApplication.Core.Net.Themes.csproj">
-      <Project>{9ec03910-7516-4cfd-b69d-b634de7702ff}</Project>
-      <Name>CrossApplication.Core.Net.Themes</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
     <None Include="XamlCombine.config">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CrossApplication.Core.Themes\CrossApplication.Core.Themes.csproj">
+      <Project>{fecf1de3-d57c-4306-a86f-3284cf4161a3}</Project>
+      <Name>CrossApplication.Core.Themes</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="BeforeBuild">
