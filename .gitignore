@@ -34,3 +34,6 @@ Source/packages/**
 /Source/Mail/.vs/CrossApplication.Mail.Contracts/v15
 /Source/Mail/CrossApplication.Mail.Contracts/obj
 /Source/Core/CrossApplication.Core.Themes/obj
+/Source/Xamarin/CrossApplication.Xamarin.UWP/bin/x86/Debug
+/Source/Xamarin/CrossApplication.Xamarin.UWP/obj
+/Source/Xamarin/CrossApplication.Xamarin.Android/obj

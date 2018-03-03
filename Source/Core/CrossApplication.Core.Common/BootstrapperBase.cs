@@ -117,6 +117,7 @@ namespace CrossApplication.Core.Common
             Container.RegisterType<IStringEncryption, StringEncryption>(Lifetime.PerContainer);
             Container.RegisterType<IViewManager, ViewManager>(Lifetime.PerContainer);
             Container.RegisterType<IUserManager, UserManager>(Lifetime.PerContainer);
+            Container.RegisterType<IRegionManager, RegionManager>(Lifetime.PerContainer);
 
             Container.RegisterInstance<IInfrastructureNavigationItem>(new MainNavigationItem("About", "About", "Help"));
         }

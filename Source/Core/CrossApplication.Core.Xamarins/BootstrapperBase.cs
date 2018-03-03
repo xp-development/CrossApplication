@@ -3,27 +3,24 @@ using CrossApplication.Core.Common.Navigation;
 using CrossApplication.Core.Contracts.Application.Modules;
 using CrossApplication.Core.Contracts.Application.Services;
 using CrossApplication.Core.Contracts.Common.Container;
-using CrossApplication.Core.Contracts.Common.Navigation;
 using CrossApplication.Core.Contracts.Navigation;
 using CrossApplication.Core.Xamarins.About;
+using CrossApplication.Core.Xamarins.Common.Application;
 using Xamarin.Forms;
 
 namespace CrossApplication.Core.Xamarins
 {
-    public abstract class BootstrapperBase : Common.BootstrapperBase
+    public abstract class BootstrapperBase : Core.Common.BootstrapperBase
     {
         protected override void ConfigureViewModelLocator()
         {
             base.ConfigureViewModelLocator();
 
-            ViewModelLocationProvider.SetDefaultViewModelFactory((o, type) => ((BindableObject) o)?.BindingContext);
             ViewModelProvider.SetDataContextCallback((view, viewModel) => { ((BindableObject) view).BindingContext = viewModel; });
         }
 
         protected override void ConfigureContainer()
         {
-            Container.RegisterType<IRegionManager, Common.Navigation.RegionManager>(Lifetime.PerContainer);
-            Container.RegisterType<INavigationService, NinjectPageNavigationService>(Lifetime.PerContainer);
             Container.RegisterType<IApplicationProvider, ApplicationProvider>(Lifetime.PerContainer);
             Container.RegisterType<IAboutService, AboutService>();
 
@@ -36,16 +33,14 @@ namespace CrossApplication.Core.Xamarins
             Container.Resolve<IViewManager>().AddViewItem(shellViewItem);
         }
 
-        protected override void CreateShell()
-        {
-//            _shell = ServiceLocator.Current.GetInstance<RichShellView>();
-        }
-
         protected override void InitializeShell()
         {
-//            Application.Current.MainPage = _shell;
+
         }
 
-//        private RichShellView _shell;
+        protected override void CreateShell()
+        {
+            
+        }
     }
 }

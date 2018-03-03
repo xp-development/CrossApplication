@@ -63,7 +63,6 @@ namespace CrossApplication.Wpf.Application
 
         protected override void ConfigureContainer()
         {
-            Container.RegisterType<Core.Contracts.Common.Navigation.IRegionManager, RegionManager>(Lifetime.PerContainer);
             RegisterViews();
             base.ConfigureContainer();
             Container.Resolve<IViewManager>().AddViewItem(new ViewItem("About", RegionNames.MainRegion, false, RegionNames.RichRegion));

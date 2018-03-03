@@ -1,3 +1,0 @@
-MainPackage=D:\dev\Mailing\CrossApplication\Source\Mail\CrossApplication.Mail.Xamarins.UWP\bin\ARM\Debug\CrossApplication.Mail.Xamarins.UWP_1.0.0.0_ARM_Debug.appx
-SymbolPackage=D:\dev\Mailing\CrossApplication\Source\Mail\CrossApplication.Mail.Xamarins.UWP\AppPackages\CrossApplication.Mail.Xamarins.UWP_1.0.0.0_Debug_Test\CrossApplication.Mail.Xamarins.UWP_1.0.0.0_ARM_Debug.appxsym
-ResourcePack=D:\dev\Mailing\CrossApplication\Source\Mail\CrossApplication.Mail.Xamarins.UWP\bin\ARM\Debug\CrossApplication.Mail.Xamarins.UWP_1.0.0.0_language-de.appx
