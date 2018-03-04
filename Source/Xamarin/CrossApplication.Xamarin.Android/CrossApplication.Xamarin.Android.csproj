@@ -79,6 +79,20 @@
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\CrossApplication.Core.Common\CrossApplication.Core.Common.csproj">
+      <Project>{D6758EF8-5672-40E2-8AE8-715386FC7870}</Project>
+      <Name>CrossApplication.Core.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\CrossApplication.Core.Contracts\CrossApplication.Core.Contracts.csproj">
+      <Project>{D0245BEB-1B25-4EE7-8160-46484BF1D5A8}</Project>
+      <Name>CrossApplication.Core.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\CrossApplication.Core.Xamarins\CrossApplication.Core.Xamarins.csproj">
+      <Project>{39DD85AC-DDC8-4C2D-9421-00296304AAB7}</Project>
+      <Name>CrossApplication.Core.Xamarins</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="..\CrossApplication.Xamarin\CrossApplication.Xamarin.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

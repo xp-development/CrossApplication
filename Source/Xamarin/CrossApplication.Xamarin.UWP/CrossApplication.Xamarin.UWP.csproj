@@ -151,6 +151,20 @@
     <PackageReference Include="Xamarin.Forms" Version="2.5.0.280555" />
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.0.1" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\CrossApplication.Core.Common\CrossApplication.Core.Common.csproj">
+      <Project>{D6758EF8-5672-40E2-8AE8-715386FC7870}</Project>
+      <Name>CrossApplication.Core.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\CrossApplication.Core.Contracts\CrossApplication.Core.Contracts.csproj">
+      <Project>{D0245BEB-1B25-4EE7-8160-46484BF1D5A8}</Project>
+      <Name>CrossApplication.Core.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\CrossApplication.Core.Xamarins\CrossApplication.Core.Xamarins.csproj">
+      <Project>{39DD85AC-DDC8-4C2D-9421-00296304AAB7}</Project>
+      <Name>CrossApplication.Core.Xamarins</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="..\CrossApplication.Xamarin\CrossApplication.Xamarin.projitems" Label="Shared" />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

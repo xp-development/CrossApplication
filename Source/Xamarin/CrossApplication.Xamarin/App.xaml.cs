@@ -1,19 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Xamarin.Forms;
-
-namespace CrossApplication.Xamarin
+﻿namespace CrossApplication.Xamarin
 {
-	public partial class App : Application
+	public partial class App
 	{
 		public App ()
 		{
 			InitializeComponent();
-
-			MainPage = new CrossApplication.Xamarin.MainPage();
+		    new Bootstrapper().Run().ConfigureAwait(false);
 		}
 
 		protected override void OnStart ()
