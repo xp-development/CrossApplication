@@ -17,11 +17,30 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Bootstrapper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Login\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Login\LoginViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Shell\ApplicationShellView.xaml.cs">
       <DependentUpon>ApplicationShellView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Shell\RichShellView.xaml.cs">
+      <DependentUpon>RichShellView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Shell\RichShellViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Shell\" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Shell\RichShellView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>
+      </Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Login\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>
+      </Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
