@@ -16,8 +16,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Google.Apis" Version="1.32.0" />
-    <PackageReference Include="Google.Apis.Auth" Version="1.32.0" />
+    <PackageReference Include="Google.Apis" Version="1.32.2" />
+    <PackageReference Include="Google.Apis.Auth" Version="1.32.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,6 +26,13 @@
   
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
    <Exec Command="xcopy $(OutDir)*.dll ..\..\Wpf\CrossApplication.Wpf.Application\bin\Debug\Modules\ /Y /F" />
+   <Exec Command="xcopy $(OutDir)CrossApplication.Core.AuthProviders.Google.dll ..\..\Xamarin\CrossApplication.Xamarin.UWP\bin\x86\Debug\Modules\ /Y /F" />
+   <Exec Command="xcopy $(OutDir)Google.Apis.Auth.dll ..\..\Xamarin\CrossApplication.Xamarin.UWP\bin\x86\Debug\Modules\ /Y /F" />
+   <Exec Command="xcopy $(OutDir)Google.Apis.Auth.PlatformServices.dll ..\..\Xamarin\CrossApplication.Xamarin.UWP\bin\x86\Debug\Modules\ /Y /F" />
+   <Exec Command="xcopy $(OutDir)Google.Apis.Core.dll ..\..\Xamarin\CrossApplication.Xamarin.UWP\bin\x86\Debug\Modules\ /Y /F" />
+   <Exec Command="xcopy $(OutDir)Google.Apis.dll ..\..\Xamarin\CrossApplication.Xamarin.UWP\bin\x86\Debug\Modules\ /Y /F" />
+   <Exec Command="xcopy $(OutDir)Google.Apis.PlatformServices.dll ..\..\Xamarin\CrossApplication.Xamarin.UWP\bin\x86\Debug\Modules\ /Y /F" />
+   <Exec Command="xcopy $(OutDir)Newtonsoft.Json.dll ..\..\Xamarin\CrossApplication.Xamarin.UWP\bin\x86\Debug\Modules\ /Y /F" />
   </Target>
   
 </Project>

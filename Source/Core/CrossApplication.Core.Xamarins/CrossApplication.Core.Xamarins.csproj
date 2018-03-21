@@ -12,6 +12,8 @@
   <ItemGroup>
     <ProjectReference Include="..\CrossApplication.Core.Common\CrossApplication.Core.Common.csproj" />
     <ProjectReference Include="..\CrossApplication.Core.Contracts\CrossApplication.Core.Contracts.csproj" />
+    <ProjectReference Include="..\CrossApplication.Core.Resource\CrossApplication.Core.Resource.csproj" />
+    <ProjectReference Include="..\CrossApplication.Core\CrossApplication.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>

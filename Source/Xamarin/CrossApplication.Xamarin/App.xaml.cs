@@ -1,12 +1,25 @@
-﻿namespace CrossApplication.Xamarin
+﻿using System;
+using System.Threading.Tasks;
+
+namespace CrossApplication.Xamarin
 {
 	public partial class App
 	{
 		public App ()
 		{
 			InitializeComponent();
-		    new Bootstrapper().Run().ConfigureAwait(false);
-		}
+
+		    AppDomain.CurrentDomain.UnhandledException += OnUnhandledException;
+        }
+
+	    private void OnUnhandledException(object sender, UnhandledExceptionEventArgs e)
+	    {
+        }
+
+	    public async Task StartAsync()
+	    {
+            await new Bootstrapper().Run();
+        }
 
 		protected override void OnStart ()
 		{

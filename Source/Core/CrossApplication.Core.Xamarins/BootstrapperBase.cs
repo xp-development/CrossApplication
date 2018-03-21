@@ -37,10 +37,5 @@ namespace CrossApplication.Core.Xamarins
         {
 
         }
-
-        protected override void CreateShell()
-        {
-            
-        }
     }
 }

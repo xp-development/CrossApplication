@@ -4,7 +4,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using CrossApplication.Core.Contracts.Application.Modules;
 
-namespace CrossApplication.Core.Net.Common.Modules
+namespace CrossApplication.Core.Common.Modules
 {
     public class DirectoryModuleCatalog : IModuleCatalog
     {
@@ -26,6 +26,9 @@ namespace CrossApplication.Core.Net.Common.Modules
                 foreach (var fileInfo in new DirectoryInfo(_moduleDirectory).GetFiles("*.dll"))
                 {
                     var assembly = Assembly.LoadFrom(fileInfo.FullName);
+                    if(!fileInfo.Name.StartsWith("CrossApplication."))
+                        continue;
+
                     foreach (var moduleType in assembly.GetExportedTypes())
                     {
                         var customAttributes = moduleType.GetCustomAttributes(typeof(ModuleAttribute), true);

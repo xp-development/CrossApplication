@@ -1,11 +1,11 @@
 ﻿using System;
 using System.IO;
 using System.Xml.Serialization;
-using CrossApplication.Core.Net.Common.Storage;
+using CrossApplication.Core.Common.Storage;
 using FluentAssertions;
 using Xunit;
 
-namespace CrossApplication.Core.Net.Common.UnitTest._Storage._LocalStorage
+namespace CrossApplication.Core.Common.UnitTest._Storage._LocalStorage
 {
     public class ReadAsync
     {

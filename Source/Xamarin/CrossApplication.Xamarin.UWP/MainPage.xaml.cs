@@ -1,27 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
-
-namespace CrossApplication.Xamarin.UWP
+﻿namespace CrossApplication.Xamarin.UWP
 {
     public sealed partial class MainPage
     {
         public MainPage()
         {
             this.InitializeComponent();
+            Start();
+        }
 
-            LoadApplication(new CrossApplication.Xamarin.App());
+        private async void Start()
+        {
+            var app = new Xamarin.App();
+            await app.StartAsync();
+            LoadApplication(app);
         }
     }
 }

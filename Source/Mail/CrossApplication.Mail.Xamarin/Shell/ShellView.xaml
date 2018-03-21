@@ -1,12 +1,21 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
+
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CrossApplication.Mail.Xamarin.Shell.ShellView">
+             xmlns:viewModels="clr-namespace:CrossApplication.Core.Xamarins.ViewModels;assembly=CrossApplication.Core.Xamarins"
+             xmlns:shell="clr-namespace:CrossApplication.Mail.Xamarin.Shell;assembly=CrossApplication.Mail.Xamarin"
+             x:Class="CrossApplication.Mail.Xamarin.Shell.ShellView"
+             viewModels:ViewModelLocator.AutoWireViewModel="{x:Type shell:ShellViewModel}">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Mail"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Mail" />
+            <ListView ItemsSource="{Binding Path=Contacts}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding ShortId}" BackgroundColor="{Binding Background}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

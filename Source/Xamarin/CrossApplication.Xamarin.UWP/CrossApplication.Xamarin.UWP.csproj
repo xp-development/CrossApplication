@@ -18,6 +18,7 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PackageCertificateKeyFile>CrossApplication.Xamarin.UWP_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateThumbprint>D156A478F51FBB4AA4830C7888CF1AE0086F5AD0</PackageCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
     <DebugSymbols>true</DebugSymbols>
@@ -75,6 +76,8 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>false</UseDotNetNativeToolchain>
+    <Optimize>false</Optimize>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -142,10 +145,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="2.5.0.280555" />
@@ -160,14 +159,31 @@
       <Project>{D0245BEB-1B25-4EE7-8160-46484BF1D5A8}</Project>
       <Name>CrossApplication.Core.Contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Core\CrossApplication.Core.Resource\CrossApplication.Core.Resource.csproj">
+      <Project>{a8c49bcf-002f-4166-90a6-e684c8377743}</Project>
+      <Name>CrossApplication.Core.Resource</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Core\CrossApplication.Core.Xamarins\CrossApplication.Core.Xamarins.csproj">
       <Project>{39DD85AC-DDC8-4C2D-9421-00296304AAB7}</Project>
       <Name>CrossApplication.Core.Xamarins</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Core\CrossApplication.Core\CrossApplication.Core.csproj">
+      <Project>{253a7c85-e54f-4f54-a2c7-d05040cfb971}</Project>
+      <Name>CrossApplication.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <Import Project="..\CrossApplication.Xamarin\CrossApplication.Xamarin.projitems" Label="Shared" />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
+  <Target Name="PostPublish" AfterTargets="AssignTargetPaths">
+    <Exec Command="xcopy $(OutputPath)Modules\*.* $(OutputPath)\AppX\Modules\ /Y /F" />
+  </Target>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
 </Project>

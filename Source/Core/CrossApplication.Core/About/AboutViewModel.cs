@@ -2,7 +2,6 @@
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using CrossApplication.Core.Common.Mvvm;
-using CrossApplication.Core.Contracts.Application.Modules;
 using CrossApplication.Core.Contracts.Application.Services;
 using CrossApplication.Core.Contracts.Common.Navigation;
 using CrossApplication.Core.Contracts.Views;
@@ -21,7 +20,7 @@ namespace CrossApplication.Core.About
             }
         }
 
-        public ObservableCollection<ModuleInfo> ModuleInfos { get; } = new ObservableCollection<ModuleInfo>();
+        public ObservableCollection<string> ModuleInfos { get; } = new ObservableCollection<string>();
 
         public AboutViewModel(IAboutService aboutService)
         {
@@ -33,7 +32,7 @@ namespace CrossApplication.Core.About
             Version = await _aboutService.GetVersionAsync();
             ModuleInfos.Clear();
             foreach (var moduleInfo in await _aboutService.GetModuleInfosAsync())
-                ModuleInfos.Add(moduleInfo);
+                ModuleInfos.Add(moduleInfo.ModuleType.Name);
         }
 
         private readonly IAboutService _aboutService;

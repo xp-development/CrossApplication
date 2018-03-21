@@ -44,12 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BootstrapperBase.cs" />
-    <Compile Include="Modules\AggregateModuleCatalog.cs" />
-    <Compile Include="Modules\DirectoryModuleCatalog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AboutService.cs" />
-    <Compile Include="Storage\DeserializationBinder.cs" />
-    <Compile Include="Storage\LocalStorage.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CrossApplication.Core.Common\CrossApplication.Core.Common.csproj">

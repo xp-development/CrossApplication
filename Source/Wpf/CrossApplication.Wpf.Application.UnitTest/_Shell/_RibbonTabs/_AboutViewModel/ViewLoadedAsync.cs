@@ -32,8 +32,8 @@ namespace CrossApplication.Wpf.Application.UnitTest._Shell._RibbonTabs._AboutVie
             await viewModel.OnViewActivatedAsync(null);
 
             viewModel.ModuleInfos.Count.Should().Be(2);
-            viewModel.ModuleInfos[0].Name.Should().Be("MyModule");
-            viewModel.ModuleInfos[1].Name.Should().Be("MyModule2");
+            viewModel.ModuleInfos[0].Should().Be("MyModule");
+            viewModel.ModuleInfos[1].Should().Be("MyModule2");
         }
 
         [Fact]

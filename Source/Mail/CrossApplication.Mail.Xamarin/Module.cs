@@ -23,7 +23,7 @@ namespace CrossApplication.Mail.Xamarin
             _container.RegisterType<ShellViewModel>();
             _container.RegisterType<object, ShellView>("Mail", Lifetime.PerContainer);
 
-            var shellViewItem = new ViewItem("Mail", RegionNames.MainRegion, true, RegionNames.RichRegion);
+            var shellViewItem = new ViewItem("Mail", RegionNames.MainRegion, false, RegionNames.RichRegion);
             _viewManager.AddViewItem(shellViewItem);
             return Task.CompletedTask;
         }

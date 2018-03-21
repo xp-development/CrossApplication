@@ -164,7 +164,7 @@
       <Name>CrossApplication.Core.Net.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Core\CrossApplication.Core.Resource\CrossApplication.Core.Resource.csproj">
-      <Project>{084e738c-b285-4ea7-a01f-53e80491774b}</Project>
+      <Project>{a8c49bcf-002f-4166-90a6-e684c8377743}</Project>
       <Name>CrossApplication.Core.Resource</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Core\CrossApplication.Core.Themes\CrossApplication.Core.Themes.csproj">

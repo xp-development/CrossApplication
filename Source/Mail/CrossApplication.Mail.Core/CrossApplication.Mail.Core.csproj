@@ -3,7 +3,10 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
-
+  
+  <PropertyGroup>
+  <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <OutputPath>bin\Debug\</OutputPath>
   </PropertyGroup>
@@ -17,8 +20,18 @@
     <ProjectReference Include="..\..\Core\CrossApplication.Core.Contracts\CrossApplication.Core.Contracts.csproj" />
     <ProjectReference Include="..\CrossApplication.Mail.Contracts\CrossApplication.Mail.Contracts.csproj" />
   </ItemGroup>
-
+  
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
    <Exec Command="xcopy $(OutputPath)CrossApplication.Mail.Core.dll ..\..\Wpf\CrossApplication.Wpf.Application\bin\Debug\Modules\ /Y /F" />
+   <Exec Command="xcopy $(OutputPath)CrossApplication.Mail.Core.dll ..\..\Xamarin\CrossApplication.Xamarin.UWP\bin\x86\Debug\Modules\ /Y /F" />
+   
+   <Exec Command="xcopy $(OutputPath)MailKit.dll ..\..\Wpf\CrossApplication.Wpf.Application\bin\Debug\Modules\ /Y /F" />
+   <Exec Command="xcopy $(OutputPath)MailKit.dll ..\..\Xamarin\CrossApplication.Xamarin.UWP\bin\x86\Debug\Modules\ /Y /F" />
+   
+   <Exec Command="xcopy $(OutputPath)MimeKit.dll ..\..\Wpf\CrossApplication.Wpf.Application\bin\Debug\Modules\ /Y /F" />
+   <Exec Command="xcopy $(OutputPath)MimeKit.dll ..\..\Xamarin\CrossApplication.Xamarin.UWP\bin\x86\Debug\Modules\ /Y /F" />
+   
+   <Exec Command="xcopy $(OutputPath)BouncyCastle.Crypto.dll ..\..\Wpf\CrossApplication.Wpf.Application\bin\Debug\Modules\ /Y /F" />
+   <Exec Command="xcopy $(OutputPath)BouncyCastle.Crypto.dll ..\..\Xamarin\CrossApplication.Xamarin.UWP\bin\x86\Debug\Modules\ /Y /F" />
   </Target>
 </Project>

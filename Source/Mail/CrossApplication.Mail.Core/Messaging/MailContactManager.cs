@@ -3,7 +3,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using CrossApplication.Core.Contracts.Security;
 using CrossApplication.Mail.Contracts.Messaging;
-using MailKit;
 using MailKit.Net.Imap;
 using MailKit.Security;
 

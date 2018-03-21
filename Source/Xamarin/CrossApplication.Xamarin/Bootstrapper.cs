@@ -2,9 +2,8 @@
 using CrossApplication.Core.Contracts.Common.Container;
 using CrossApplication.Core.Contracts.Navigation;
 using CrossApplication.Core.Xamarins;
-using CrossApplication.Core.Xamarins.Shell;
 using CrossApplication.Xamarin.Login;
-using Xamarin.Forms;
+using CrossApplication.Xamarin.Shell;
 
 namespace CrossApplication.Xamarin
 {
@@ -12,13 +11,10 @@ namespace CrossApplication.Xamarin
     {
         protected override void CreateShell()
         {
-            _shell = Container.Resolve<ApplicationShellView>();
         }
 
         protected override void InitializeShell()
         {
-            Application.Current.MainPage = _shell;
-
             var viewManager = Container.Resolve<IViewManager>();
             viewManager.RegisterRichShell(RegionNames.RichRegion, new ViewItem(typeof(RichShellView).FullName, RegionNames.RichRegion));
             viewManager.LoginViewItem = new ViewItem(typeof(LoginView).FullName, RegionNames.RichRegion);
@@ -38,7 +34,5 @@ namespace CrossApplication.Xamarin
             Container.RegisterType<LoginViewModel>();
             Container.RegisterType<object, LoginView>(typeof(LoginView).FullName);
         }
-
-        private ApplicationShellView _shell;
     }
 }

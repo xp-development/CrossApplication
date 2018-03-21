@@ -56,6 +56,9 @@ namespace CrossApplication.Xamarin.Login
 
         private async void LoginAsync()
         {
+            if (SelectedAuthProvider == null)
+                return;
+
             var isLoggedIn = await _userManager.LoginAsync(SelectedAuthProvider);
             if (isLoggedIn)
                 await _navigationService.NavigateToAsync(_requestedView);

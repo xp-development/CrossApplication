@@ -1,26 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ContentPage
+
+<StackLayout
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="CrossApplication.Xamarin.Login.LoginView">
-
+    xmlns:viewModels="clr-namespace:CrossApplication.Core.Xamarins.ViewModels;assembly=CrossApplication.Core.Xamarins"
+    xmlns:login1="clr-namespace:CrossApplication.Xamarin.Login;assembly=CrossApplication.Xamarin.UWP"
+    x:Class="CrossApplication.Xamarin.Login.LoginView"
+    viewModels:ViewModelLocator.AutoWireViewModel="{x:Type login1:LoginViewModel}">
+    <Label>Login</Label>
     <ListView ItemsSource="{Binding AuthProviders}" SelectedItem="{Binding SelectedAuthProvider}">
         <ListView.ItemTemplate>
             <DataTemplate>
-                <Grid Height="48">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="48" />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
+                <ViewCell>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
 
-<!--                    <iconPacks:PackIconMaterial Width="20"-->
-<!--                                                Height="20"-->
-<!--                                                HorizontalAlignment="Center"-->
-<!--                                                VerticalAlignment="Center"-->
-<!--                                                Kind="{Binding Glyph, Converter={converter:StringToEnumConverter}}" />-->
-                    <Label Grid.Column="1" Text="{Binding Name}" />
-                </Grid>
+                        <Label Grid.Column="1" Text="{Binding Name}" />
+                    </Grid>
+                </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
-</ContentPage>
+</StackLayout>

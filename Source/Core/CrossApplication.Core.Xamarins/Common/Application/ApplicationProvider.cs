@@ -17,7 +17,13 @@ namespace CrossApplication.Core.Xamarins.Common.Application
 
         public async Task ActivateRichShell(object richShell, NavigationParameters navigationParameters)
         {
-            await ActivateView(richShell, navigationParameters, (ContentPage)Xamarin.Forms.Application.Current.MainPage);
+            if (Xamarin.Forms.Application.Current.MainPage?.BindingContext is IViewActivatingAsync viewActivating)
+                await viewActivating.OnViewActivatingAsync(navigationParameters);
+
+            Xamarin.Forms.Application.Current.MainPage = (Page)richShell;
+
+            if (Xamarin.Forms.Application.Current.MainPage.BindingContext is IViewActivatedAsync viewActivated)
+                await viewActivated.OnViewActivatedAsync(navigationParameters);
         }
 
         public object CreateView(Uri uri)
@@ -27,17 +33,18 @@ namespace CrossApplication.Core.Xamarins.Common.Application
 
         public async Task ActivateViewAsync(object view, NavigationParameters navigationParameters)
         {
-            await ActivateView(view, navigationParameters, null);
+            await ActivateView(view, navigationParameters, Xamarin.Forms.Application.Current.MainPage);
         }
 
-        private static async Task ActivateView(object view, NavigationParameters navigationParameters, ContentPage contentPage)
+        private static async Task ActivateView(object view, NavigationParameters navigationParameters, Page richPage)
         {
-            if (contentPage?.BindingContext is IViewActivatingAsync viewActivating)
+            if (richPage?.BindingContext is IViewActivatingAsync viewActivating)
                 await viewActivating.OnViewActivatingAsync(navigationParameters);
 
-            contentPage.Content = (View)view;
+            if (richPage is MasterDetailPage page)
+                page.Detail = (Page) view;
 
-            if (contentPage.BindingContext is IViewActivatedAsync viewActivated)
+            if (((Page)view).BindingContext is IViewActivatedAsync viewActivated)
                 await viewActivated.OnViewActivatedAsync(navigationParameters);
         }
 

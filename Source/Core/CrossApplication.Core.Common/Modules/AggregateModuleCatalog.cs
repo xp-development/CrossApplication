@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using CrossApplication.Core.Common.Modules;
 using CrossApplication.Core.Contracts.Application.Modules;
 
-namespace CrossApplication.Core.Net.Common.Modules
+namespace CrossApplication.Core.Common.Modules
 {
     public class AggregateModuleCatalog : IModuleCatalog
     {

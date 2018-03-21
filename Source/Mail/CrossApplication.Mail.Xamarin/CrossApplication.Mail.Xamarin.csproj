@@ -11,6 +11,8 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Core\CrossApplication.Core.Common\CrossApplication.Core.Common.csproj" />
     <ProjectReference Include="..\..\Core\CrossApplication.Core.Contracts\CrossApplication.Core.Contracts.csproj" />
+    <ProjectReference Include="..\..\Core\CrossApplication.Core.Xamarins\CrossApplication.Core.Xamarins.csproj" />
+    <ProjectReference Include="..\CrossApplication.Mail.Contracts\CrossApplication.Mail.Contracts.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,5 +20,7 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
-
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+   <Exec Command="xcopy $(OutputPath)CrossApplication.Mail.Xamarin.dll ..\..\Xamarin\CrossApplication.Xamarin.UWP\bin\x86\Debug\Modules\ /Y /F" />
+  </Target>
 </Project>

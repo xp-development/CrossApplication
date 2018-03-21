@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using System.Windows;
 using CrossApplication.Core.About;
+using CrossApplication.Core.Common.Modules;
 using CrossApplication.Core.Common.Mvvm;
 using CrossApplication.Core.Common.Navigation;
 using CrossApplication.Core.Contracts.Application.Modules;
@@ -9,7 +10,6 @@ using CrossApplication.Core.Contracts.Application.Theming;
 using CrossApplication.Core.Contracts.Common.Container;
 using CrossApplication.Core.Contracts.Navigation;
 using CrossApplication.Core.Net.Common;
-using CrossApplication.Core.Net.Common.Modules;
 using CrossApplication.Wpf.Application.Login;
 using CrossApplication.Wpf.Application.Properties;
 using CrossApplication.Wpf.Application.Shell;

@@ -1,8 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage
+<MasterDetailPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="CrossApplication.Xamarin.Shell.RichShellView">
-
-    <Label Text="RichShell"></Label>
-</ContentPage>
+    xmlns:viewModels="clr-namespace:CrossApplication.Core.Xamarins.ViewModels;assembly=CrossApplication.Core.Xamarins"
+    xmlns:shell="clr-namespace:CrossApplication.Xamarin.Shell;assembly=CrossApplication.Xamarin.UWP"
+    x:Class="CrossApplication.Xamarin.Shell.RichShellView"
+    viewModels:ViewModelLocator.AutoWireViewModel="{x:Type shell:RichShellViewModel}">
+    <MasterDetailPage.Master>
+        <ContentPage Title="CA">
+            <StackLayout VerticalOptions="FillAndExpand">
+                <ListView ItemsSource="{Binding Path=NavigationItems}" VerticalOptions="FillAndExpand">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding Path=Label}" Command="{Binding Path=NavigateCommand}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ContentPage>
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <ContentPage>
+            <Label>detail</Label>
+        </ContentPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>

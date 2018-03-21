@@ -9,7 +9,6 @@ namespace CrossApplication.Mail.Wpf.Shell
 {
     public class ShellViewModel : IViewActivatedAsync, IViewDeactivatedAsync
     {
-        private readonly IMailContactManager _mailContactManager;
         public ObservableCollection<ContactViewModel> Contacts { get; }
 
         public ShellViewModel(IMailContactManager mailContactManager)
@@ -20,10 +19,7 @@ namespace CrossApplication.Mail.Wpf.Shell
 
         public async Task OnViewActivatedAsync(NavigationParameters navigationParameters)
         {
-            foreach (var mailContact in await _mailContactManager.GetMailContactsAsync())
-            {
-                Contacts.Add(new ContactViewModel { Background = Brushes.DarkKhaki, ShortId = mailContact.Initials });
-            }
+            foreach (var mailContact in await _mailContactManager.GetMailContactsAsync()) Contacts.Add(new ContactViewModel {Background = Brushes.DarkKhaki, ShortId = mailContact.Initials});
         }
 
         public Task OnViewDeactivatedAsync()
@@ -32,6 +28,8 @@ namespace CrossApplication.Mail.Wpf.Shell
 
             return Task.CompletedTask;
         }
+
+        private readonly IMailContactManager _mailContactManager;
     }
 
     public class ContactViewModel

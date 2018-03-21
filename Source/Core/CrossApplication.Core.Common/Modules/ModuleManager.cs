@@ -20,8 +20,7 @@ namespace CrossApplication.Core.Common.Modules
             var moduleInfos = await _moduleCatalog.GetModuleInfosAsync();
             foreach (var moduleInfo in moduleInfos.Where(x => string.IsNullOrEmpty(tag) || x.Tag == tag))
             {
-                var module = _container.Resolve(moduleInfo.ModuleType) as IModule;
-                if (module == null)
+                if (!(_container.Resolve(moduleInfo.ModuleType) is IModule module))
                 {
                     throw new ArgumentException($"{moduleInfo.ModuleType} does not inherit from IModule.");
                 }

@@ -111,6 +111,7 @@
     <Compile Include="_Modules\_ModuleCatalog\GetModuleInfos.cs" />
     <Compile Include="_Modules\_ModuleManager\ActivateAsync.cs" />
     <Compile Include="_Modules\_ModuleManager\InitializeAsync.cs" />
+    <Compile Include="_Storage\_LocalStorage\ReadAsync.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CrossApplication.Core.Common\CrossApplication.Core.Common.csproj">
@@ -138,6 +139,9 @@
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\..\packages\xunit.analyzers.0.8.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

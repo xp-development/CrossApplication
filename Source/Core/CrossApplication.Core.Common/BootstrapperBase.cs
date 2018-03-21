@@ -5,10 +5,12 @@ using CrossApplication.Core.Common.Modules;
 using CrossApplication.Core.Common.Mvvm;
 using CrossApplication.Core.Common.Navigation;
 using CrossApplication.Core.Common.Security;
+using CrossApplication.Core.Common.Storage;
 using CrossApplication.Core.Contracts;
 using CrossApplication.Core.Contracts.Application.Modules;
 using CrossApplication.Core.Contracts.Common.Container;
 using CrossApplication.Core.Contracts.Common.Navigation;
+using CrossApplication.Core.Contracts.Common.Storage;
 using CrossApplication.Core.Contracts.Events;
 using CrossApplication.Core.Contracts.Navigation;
 using CrossApplication.Core.Contracts.Security;
@@ -92,7 +94,7 @@ namespace CrossApplication.Core.Common
 
         protected virtual IModuleCatalog CreateModuleCatalog()
         {
-            return new ModuleCatalog();
+            return new AggregateModuleCatalog(new ModuleCatalog(), new DirectoryModuleCatalog(@".\Modules"));
         }
 
         private void ConfigureServiceLocator()
@@ -118,6 +120,7 @@ namespace CrossApplication.Core.Common
             Container.RegisterType<IViewManager, ViewManager>(Lifetime.PerContainer);
             Container.RegisterType<IUserManager, UserManager>(Lifetime.PerContainer);
             Container.RegisterType<IRegionManager, RegionManager>(Lifetime.PerContainer);
+            Container.RegisterType<IStorage, LocalStorage>(Lifetime.PerContainer);
 
             Container.RegisterInstance<IInfrastructureNavigationItem>(new MainNavigationItem("About", "About", "Help"));
         }

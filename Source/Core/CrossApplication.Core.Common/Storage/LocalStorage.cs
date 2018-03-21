@@ -5,7 +5,7 @@ using System.Xml;
 using System.Xml.Serialization;
 using CrossApplication.Core.Contracts.Common.Storage;
 
-namespace CrossApplication.Core.Net.Common.Storage
+namespace CrossApplication.Core.Common.Storage
 {
     public class LocalStorage : IStorage
     {

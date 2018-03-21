@@ -38,3 +38,4 @@ Source/packages/**
 /Source/Xamarin/CrossApplication.Xamarin.UWP/obj
 /Source/Xamarin/CrossApplication.Xamarin.Android/obj
 /Source/Mail/CrossApplication.Mail.Xamarin/obj
+/Source/Core/CrossApplication.Core.Resource/obj

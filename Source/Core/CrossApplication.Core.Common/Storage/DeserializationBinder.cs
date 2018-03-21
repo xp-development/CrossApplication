@@ -2,7 +2,7 @@
 using System.Reflection;
 using System.Runtime.Serialization;
 
-namespace CrossApplication.Core.Net.Common.Storage
+namespace CrossApplication.Core.Common.Storage
 {
     public class DeserializationBinder : SerializationBinder
     {
